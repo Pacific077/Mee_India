@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.colorGreen{
+    color: #14a76c;
+    text-shadow: 3px 3px 1px #ff652f;
+
+}
+.freeTrial{
+    height: 6vh;
+    width: 24vh;
+    background-color: #ff652f;
+    color: #14a76c;
+    font-size: x-large;
+    font-family: "Protest Revolution", sans-serif;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 10px;
+}
+.homebanners{
+    background-color: #747474;
+    height: 90vh;
+    position: sticky;
+    top: 13vh;
+    z-index: -1;
+}
+.homeBannerBtnCont{
+    display: flex;
+    gap: 4vh;
+    margin-top: 6vh;
+}
+.homebanleft{
+    width: 50%;
+    height: 100%;
+    padding-left: 22vh;
+    width: 50%;
+    padding-top: 10vh;
+    box-sizing: border-box;
+}
+
+.homebanleft h1{
+    width: 90%;
+    font-size:10vh ;
+    font-family: "Protest Revolution", sans-serif;
+}
+.homebanleft h2{
+    width: 90%;
+    font-size:3.5vh ;
+    font-family: "Protest Revolution", sans-serif;;
+    color: #ff652f;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black;
+}
+.homePage{
+
+    height: 190vh;
+    
+}
+.strtnow{
+    height: 6vh;
+    width: 24vh;
+    background-color: #14a76c;
+    color: #ff652f;
+    font-size: x-large;
+    font-family: "Protest Revolution", sans-serif;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 10px;
+}
+
+.section3{
+    background-color: #272727;
+    height: 140vh;
+}
