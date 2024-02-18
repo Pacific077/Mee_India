@@ -1,73 +1,51 @@
-.bulb{
-  position: absolute;
-  top: 0px;
-  right: 0;
-  font-size: 9vh;
-  transform: rotate(180deg);
-  color: gray;
-  margin-right: 20px;
-}
-.bulbrope{
-  position: absolute;
-  left: 10;
-  height: 30vh;
-  background-size: cover;
-  right: 9vh;
-  top:0px;
- width: 10vh;
 
-
-}
-.bulbrope:hover{
-  cursor: pointer;
-}
 .glow{
-  color: #ffe400;
+  color: var(--tertiary);
 }
 .navbar {
   height: 13vh;
-  background-color: #272727;
+  background-color: var(--primary);
   position: sticky;
   top: 0;
   padding-left: 20vh;
   padding-right: 20vh;
   display: flex;
- 
-  box-shadow: 10px 10px 4px #4a4a4a;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 .navbarBrand {
   width: fit-content;
-  color: #14a76c;
-  font-family: "Protest Revolution", sans-serif;
+  color: var(--secondary);
+  font-family: "Raleway", sans-serif;
+
   font-size: 6vh;
-  text-shadow: 3px 3px 1px black;
+  text-shadow: 1px 1px 1px var(--tertiary);
 }
 .navItems {
   display: flex;
   justify-content: space-evenly;
   width: 50%;
- font-size: 2.6vh;
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  color: #ff652f;
+  font-size: 2.4vh;
+  font-weight: 100;
+  font-family:var(--fontsecondary);
+  color: var(--secondary);
 }
 .navItems p {
     height: 6vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16%;
+    width: fit-content;
     box-sizing: border-box;
     transition: 0.3s ease-in-out;
-    border-bottom: 2px solid #272727;
-    text-shadow: 1px 1px 1px black;
+    border-bottom: 2px solid var(--primary);
 }
 .navItems p:hover{
     cursor: pointer;
-    border-bottom: 2px solid #ff652f;
+    border-bottom-color: var(--secondary);
 }
 .yellowtext {
-  color: #ffe400;
+  color:var(--tertiary);
+  text-shadow: 1px 1px 1px var(--secondary);
 }
