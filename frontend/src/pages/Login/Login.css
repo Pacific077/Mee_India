@@ -1,0 +1,94 @@
+.DontHavacnt{
+    display: flex;
+    margin-top: 5vh;
+    justify-content: space-between;
+    padding-left: 6vh;
+    padding-right: 6vh;
+}
+.eyeIcon{
+    font-size: larger;
+    padding-bottom: 3px;
+    border-bottom:1px solid var(--secondary) ;
+}
+.eyeIcon:hover{
+    cursor: pointer;
+}
+.loginform{
+    background-color: var(--primary);
+    height: 60vh;
+    width: 50vh;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid var(--secondary);
+}
+.mr-tp2{
+    display: block;
+    margin: auto;
+    margin-top: 2vh;
+}
+.loginfieldcont{
+
+    margin-top: 3vh;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+}
+.loginfieldcont label{
+    font-size: x-large;
+    width: 70%;
+}
+.emailInp{
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid var(--secondary);
+    outline: none;
+    caret-color: black;
+    font-size: 17px;
+}
+.Passinp{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--secondary);
+    outline: none;
+    caret-color: black;
+    font-size: 17px;
+
+}
+.LoginPage{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(var(--tertiary), var(--primary));
+}
+.passwrdcont{
+    width:70% ;
+    display: flex;
+}
+.sec-head{
+    font-family: var(--fontMain);
+    width: fit-content;
+    margin: auto;
+    margin-top: 3vh;
+}
+.transparentbg{
+    width: 90%;
+    background-color: rgba(1,1,1,0.5);
+    position: absolute;
+    height: 80%;
+    z-index: 0;
+    filter: blur(5px);
+    border-radius: 100px;
+}
+.textBlue{
+    color: var(--tertiary);
+    text-decoration: underline;
+    
+    
+}
+.textBlue:hover{
+    cursor: pointer;
+}

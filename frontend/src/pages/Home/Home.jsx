@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import Navbar from "../../components/Navbar/Navbar";
 import laptop from "../../assets/laptop2.png";
 import c1 from "../../assets/c1.jpg";
 import c2 from "../../assets/c2.jpg";
@@ -16,7 +15,7 @@ import Footer from "../../components/Footer/Footer";
 const Home = () => {
   return (
     <div className="homePage">
-      <Navbar />
+    
       <div className="homebanners">
         <div className="homebanleft">
           <h1>

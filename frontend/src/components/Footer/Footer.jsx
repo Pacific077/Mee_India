@@ -49,8 +49,8 @@ const Footer = () => {
       </div>
       <div className="lastline">
         <p>
-          © 2024. All rights reserved by{" "}
-          <span className="textblue">Advance Digital Solutions.</span> Made In
+          © 2024. All rights reserved.
+           Made In
           India
         </p>
       </div>
