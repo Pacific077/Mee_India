@@ -1,0 +1,59 @@
+.footerbrnds{
+    margin-top: 4vh;
+    display: flex;
+    gap:3vh;
+}
+.footerdesc{
+    width: 60%;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+}
+
+.footersec{
+    padding-top: 4vh;
+    margin-top: 20vh;
+    height: 40vh;
+    display: flex;
+    justify-content: space-evenly;
+    font-family:var(--fontsecondary);
+    border-top: 2px solid var(--whiteShade);
+    
+}
+.footerlogo{
+    height: 11vh;
+    width: 43%;
+}
+.foot1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.ftrbrnds{
+    font-size: 4.5vh;
+}
+.ftrbrnd{
+    font-size: 3.8vh;
+    margin-bottom: 2px;
+}
+
+.foot2{
+    width: 15%;
+}
+.foot3{
+    width: 18%;
+}
+.foot4{
+    width: 22%;
+}
+.footehead{
+    font-family: var(--fontsecondary);
+    font-weight: 600;
+    font-size: 18px;
+}
+.lastline{
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+}

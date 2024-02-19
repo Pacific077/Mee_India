@@ -121,10 +121,10 @@ body{
     width: 62%;
 }
 .popularServices{
-    margin-top: 14vh;
+    margin-top: 20vh;
 }
 .PopularServiceCont{
-    margin-top: 2vh;
+    margin-top: 4vh;
     display: flex;
     gap:8.3vh;
 }
@@ -135,7 +135,7 @@ body{
     background-color: var(--primary);
     padding-left: 18vh;
     padding-right: 18vh;
-    padding-bottom: 10vh;
+
     z-index: 1;
     padding-top: 5vh;
 }
