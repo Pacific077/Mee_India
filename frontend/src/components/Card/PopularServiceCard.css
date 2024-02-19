@@ -1,0 +1,46 @@
+.btn-sm{
+    font-size: 15px;
+    height: 4vh;
+    width: 10vh;
+}
+.right-item{
+    position: absolute;
+    right: 3vh;
+    bottom: 3vh;
+}
+.fitImage{
+    height: 100%;
+    width: 100%;
+}
+
+.popularService{
+    height: 40vh;
+    width: 33vh;
+    border: 1px solid var(--grayShade);
+    border-radius: 30px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+.PopularServiceImg{
+    height: 65%;
+    width: 100%;
+    
+}
+.PopularserviceDesc{
+    background-color: var(--whiteShade);
+    height: 35%;
+    width: 100%;
+    padding-top: 2vh;
+}
+.PopularserviceDesc p{
+    width: 50%;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    margin: 0;
+    padding-top: 4px;
+    box-sizing: border-box;
+    height: 3.5vh;
+    font-family: var(--fontsecondary);
+    text-align: center;
+}

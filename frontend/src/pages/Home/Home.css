@@ -3,9 +3,12 @@ body{
     padding: 0;
     caret-color: transparent;
 }
-.btnPrim {
+.btn-lg{
     height: 8vh;
     width: 30vh;
+}
+.btnPrim {
+    
     background-color: var(--secondary);
     color: var(--primary);
     font-size: x-large;
@@ -21,8 +24,6 @@ body{
 }
 
 .btn-sec{
-    height: 8vh;
-    width: 30vh;
     background-color: var(--primary);
     color: var(--secondary);
     font-size: x-large;
@@ -119,6 +120,14 @@ body{
     transform: translate(-50%, -50%);
     width: 62%;
 }
+.popularServices{
+    margin-top: 14vh;
+}
+.PopularServiceCont{
+    margin-top: 2vh;
+    display: flex;
+    gap:8.3vh;
+}
 
 
 .section3{
@@ -126,7 +135,7 @@ body{
     background-color: var(--primary);
     padding-left: 18vh;
     padding-right: 18vh;
-    height: 140vh;
+    padding-bottom: 10vh;
     z-index: 1;
     padding-top: 5vh;
 }

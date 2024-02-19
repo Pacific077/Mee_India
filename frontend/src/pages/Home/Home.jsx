@@ -9,7 +9,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel'
 import CategoriesCard from '../../components/Card/CategoriesCard'
 import CategoriesArrray from './CategoriesArray'
-
+import PopularServiceCard from '../../components/Card/PopularServiceCard'
+import Marquee from "react-fast-marquee";
+import PopularServiceArr from './PopularServiceArr'
 const Home = () => {
   return (
     <div className='homePage'>
@@ -19,8 +21,8 @@ const Home = () => {
           <h1> <span className='colorGreen'>Communicate</span> like you never did before</h1>
           <h2>Lorem ipsum dolor, sit amet consectetur.</h2>
           <div className="homeBannerBtnCont">
-            <button className='btnPrim'>Start Now</button>
-            <button className='btn-sec'>Free Trail</button>
+            <button className='btnPrim btn-lg'>Start Now</button>
+            <button className='btn-sec btn-lg'>Free Trail</button>
           </div>
           </div>
           <div className="homebannerRight">
@@ -49,6 +51,21 @@ const Home = () => {
                 )
             })}
           </div>
+        </div>
+        <div className="popularServices">
+          <h1 className='main-head'>Popular Services</h1>
+          
+          <Marquee behavior="scroll" direction="left" speed={100} pauseOnHover={true}
+          gradient={true}
+          
+          >
+
+         <div className="PopularServiceCont">
+          {PopularServiceArr.map((service)=>{
+            return (<PopularServiceCard img={service.img} service={service.service}/>)
+          })}
+         </div>
+          </Marquee>
         </div>
         </div>
     </div>

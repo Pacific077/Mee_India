@@ -2,6 +2,8 @@ import cook1 from "../../assets/cook1.jpg"
 import doc from "../../assets/doc.jpg"
 import saloons from "../../assets/saloons.jpg"
 import Schools from "../../assets/school.jpg"
+import hotel from "../../assets/hotels.jpg"
+import gym from "../../assets/gym.jpg"
 
 const CategoriesArray = [
     {
@@ -30,8 +32,14 @@ const CategoriesArray = [
 },
     {
         count:1000,
-        category:"Restraunts",
-        img:Schools,
+        category:"Hotels",
+        img:hotel,
+        desc:""
+},
+    {
+        count:1000,
+        category:"Gyms",
+        img:gym,
         desc:""
 }
 ]
