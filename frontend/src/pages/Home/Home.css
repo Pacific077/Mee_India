@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    caret-color: transparent;
 }
 .btnPrim {
     height: 8vh;
@@ -42,11 +43,11 @@ body{
 .homebanners{
     background-color: var(--primary);
     background: radial-gradient(var(--tertiary), var(--primary));
-    height: 87vh;
-    position: sticky;
+    /* height: 87vh; */
+    /* position: sticky; */
     display: flex;
-    top: 13vh;
-
+    /* top: 13vh; */
+    padding: 5vh 18vh;
 }
 .homeBannerBtnCont{
     display: flex;
@@ -54,11 +55,12 @@ body{
     margin-top: 6vh;
 }
 .homebanleft{
-    width: 50%;
-    height: 100%;
-    padding-left: 22vh;
-    padding-top: 5vh;
-    box-sizing: border-box;
+    width: 70%;
+    padding: 5vh 0 5vh 5vh;
+    /* height: 100%; */
+    /* padding-left: 22vh; */
+    /* padding-top: 5vh; */
+    /* box-sizing: border-box; */
 }
 
 .homebanleft h1{
@@ -76,22 +78,34 @@ body{
     font-weight: 100;
 }
 .homebannerRight{
-    width: 50%;
-    height: 100%;
+    /* width: 50%;
+    height: 100%; */
     position: relative;
-    padding-right: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-right: 20vh;
     display: flex;
     box-sizing: border-box;
     
-    align-items: center;
+    align-items: center; */
     /* background-color: yellow; */
 }
 
-.laptop{
-    height: 60%;
-    width: 95%;
-    margin-left: 7vh;
 
+.laptop{
+    height: 65%;
+    width: 80%;
+    /* margin: auto; */
+}
+.carousel-root{
+    outline: none;
+    position: absolute;
+    z-index: 5;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 62%;
 }
 
 
