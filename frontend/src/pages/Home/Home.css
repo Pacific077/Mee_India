@@ -34,6 +34,11 @@ body{
     cursor: pointer;
     transform: translateY(-5px);
 }
+.categoriesContainer{
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap;
+}
 .colorGreen{
     color: var(--primary);
     text-shadow: 3px 3px 1px var(--tertiary);
@@ -44,9 +49,9 @@ body{
     background-color: var(--primary);
     background: radial-gradient(var(--tertiary), var(--primary));
     /* height: 87vh; */
-    /* position: sticky; */
+    position: sticky;
     display: flex;
-    /* top: 13vh; */
+    top: 13vh;
     padding: 5vh 18vh;
 }
 .homeBannerBtnCont{
@@ -94,9 +99,16 @@ body{
 
 
 .laptop{
-    height: 65%;
+    height: 60%;
     width: 80%;
     /* margin: auto; */
+}
+.main-head{
+    color: var(--secondary);
+    font-family: var(--fontMain);
+    font-size: 8vh;
+    text-shadow: 1px 1px 1px var(--tertiary);
+    text-align: center;
 }
 .carousel-root{
     outline: none;
@@ -111,7 +123,10 @@ body{
 
 .section3{
     position: relative;
-    background-color: #272727;
+    background-color: var(--primary);
+    padding-left: 18vh;
+    padding-right: 18vh;
     height: 140vh;
     z-index: 1;
+    padding-top: 5vh;
 }

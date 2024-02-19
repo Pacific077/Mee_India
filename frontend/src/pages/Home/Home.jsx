@@ -7,6 +7,8 @@ import c2 from "../../assets/c2.jpg"
 import c3 from "../../assets/c3.jpg"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel'
+import CategoriesCard from '../../components/Card/CategoriesCard'
+import CategoriesArrray from './CategoriesArray'
 
 const Home = () => {
   return (
@@ -38,7 +40,16 @@ const Home = () => {
         </div>
         <div className="section3">
 
-        hidhakfn
+        <div className="categoriessection">
+          <h1 className='main-head'>Categories</h1>
+          <div className="categoriesContainer">
+            {CategoriesArrray.map((cat)=>{
+              return (
+                <CategoriesCard immg={cat.img} count={cat.count} category={cat.category}  />
+                )
+            })}
+          </div>
+        </div>
         </div>
     </div>
   )
