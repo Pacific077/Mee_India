@@ -2,6 +2,52 @@
 .glow{
   color: var(--tertiary);
 }
+.icon-md{
+  font-size: 3.5vh;
+  
+}
+.location{
+  display: flex;
+  gap: 1vh;
+  width: fit-content;
+  /* position: relative; */
+}
+.location-suggest{
+  padding-top: 1vh;
+  width: 150%;
+  background-color: var(--primary);
+  
+  max-height: 50vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+.location-suggest p{
+  display: flex;
+  align-items: center;
+  margin:0;
+  padding-left: 2vh;
+  height: 5vh;
+  border-bottom: 1px solid var(--grayShade);
+}
+.location-suggest p:hover{
+  background-color: var(--whiteShade);
+}
+.nav-inp{
+  height: 3.5vh;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+  padding-left: 1vh;
+  min-width: 12vh;
+}
+.locationAndSearch{
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
 .loginbtn{
   font-size: 14px;
   height: 4vh;
@@ -33,7 +79,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 50%;
+  width: 40%;
   font-size: 2.4vh;
   font-weight: 100;
   font-family:var(--fontsecondary);
@@ -53,6 +99,18 @@
     cursor: pointer;
     border-bottom-color: var(--secondary);
 }
+.pos-rel{
+  position: relative;
+}
+.pos-abs{
+  position: absolute;
+}
+.search{
+  display: flex;
+  gap: 1vh;
+  width: fit-content;
+}
+
 .yellowtext {
   color:var(--tertiary);
   text-shadow: 1px 1px 1px var(--secondary);
