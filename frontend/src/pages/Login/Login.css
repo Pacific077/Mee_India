@@ -7,11 +7,31 @@
 }
 .eyeIcon{
     font-size: larger;
-    padding-bottom: 3px;
-    border-bottom:1px solid var(--secondary) ;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
 }
 .eyeIcon:hover{
     cursor: pointer;
+}
+.inpWithp{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.inpWithp p{
+    margin: 0;
+    font-size: 18px;
+    font-family: var(--fontsecondary);
+    margin-bottom: 1vh;
+}
+.inpWithp input{
+    caret-color: var(--secondary);
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
 }
 .loginform{
     background-color: var(--primary);
@@ -36,27 +56,7 @@
     justify-content: center;
     gap: 3vh;
 }
-.loginfieldcont label{
-    font-size: x-large;
-    width: 70%;
-}
-.emailInp{
-    width: 70%;
-    border: none;
-    border-bottom: 1px solid var(--secondary);
-    outline: none;
-    caret-color: black;
-    font-size: 17px;
-}
-.Passinp{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid var(--secondary);
-    outline: none;
-    caret-color: black;
-    font-size: 17px;
 
-}
 .LoginPage{
     min-height: 100vh;
     display: flex;
@@ -65,8 +65,8 @@
     background: radial-gradient(var(--tertiary), var(--primary));
 }
 .passwrdcont{
-    width:70% ;
-    display: flex;
+    position: relative;
+    width: 100% ;
 }
 .sec-head{
     font-family: var(--fontMain);
@@ -74,6 +74,7 @@
     margin: auto;
     margin-top: 3vh;
 }
+
 .transparentbg{
     width: 90%;
     background-color: rgba(1,1,1,0.5);
