@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import UserRoute from "./Routes/UserRoute.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import BussinessRoute from "./Routes/BussinessRoute.js";
 // import path from 'path'
 // import { dirname } from 'path';
 // import { fileURLToPath } from 'url';
@@ -24,6 +25,7 @@ app.use(cors(corsOptions));
 
 //routes
 app.use("/api/v1/user", UserRoute);
+app.use("/api/v1/bussiness",BussinessRoute);
 //deploymemt
 //-------------------------------------------------------------------------
 // const __dirname = dirname(fileURLToPath(import.meta.url));

@@ -14,7 +14,7 @@ const RegisterUser = async (req, res) => {
                 arr.push(error.msg);
             });
             return res.status(400).json({
-                message:"Somethin went wrong",
+                message:"Something went wrong",
                 err:arr
             })
         }
@@ -95,4 +95,64 @@ const LoginUser = async (req, res) => {
     }
 } ; 
 
-export { RegisterUser, LoginUser };
+const Logout = async(req,res)=>{
+    try{
+        res.cookie("token", "", {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000,
+        });
+        res.status(200).json({
+            message : "Logged out!!"
+        })
+    }catch(err){
+        res.status(500).json({
+            message:err.message
+        })
+    }
+}
+
+const UpdateProfile = async (req, res) => {
+    try {
+        const errs = validationResult(req);
+        if(!errs.isEmpty()){
+            let arr = [];
+            errs.array().forEach((error) => {
+                arr.push(error.msg);
+            });
+            return res.status(400).json({
+                message:"Something went wrong",
+                err:arr
+            })
+        }
+        const { _id, name, email } = req.body;
+        const user = await User.findOne({ _id: _id });
+
+        //No chance
+        if (!user) {
+            return res.status(401).json({
+                message: "User not Found!!",
+            });
+        }
+       
+        // Update user's information
+        user.name = name;
+        user.email = email;
+
+        // Save the updated user
+        await user.save();
+
+        //send the response
+        res.status(200).json({
+            status: "Success",
+            message: "Profile Updated Successfully",
+            data: user,
+        });
+      
+    } catch (error) {
+      res.status(500).json({
+        message:error.message
+      })
+    }
+};
+
+export { RegisterUser, LoginUser, Logout,UpdateProfile };
