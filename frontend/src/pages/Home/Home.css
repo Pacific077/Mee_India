@@ -1,154 +1,198 @@
-body{
-    margin: 0;
-    padding: 0;
-    caret-color: transparent;
+body {
+  margin: 0;
+  padding: 0;
+  caret-color: transparent;
 }
-.btn-lg{
-    height: 8vh;
-    width: 30vh;
-    
+.btn-lg {
+  height: 8vh;
+  width: 30vh;
 }
 .btnPrim {
-    
-    background-color: var(--secondary);
-    color: var(--primary);
-    font-size: large;
-    font-family: var(--fontsecondary);
-    font-weight: 100;
-    border-radius: 10px;
-    transition: 0.3s ease;
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: large;
+  font-family: var(--fontsecondary);
+  font-weight: 100;
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
 .btnPrim:hover {
-    cursor: pointer;
-    transform: translateY(-5px);
+  cursor: pointer;
+  transform: translateY(-5px);
 }
 
-.btn-sec{
-    background-color: var(--primary);
-    color: var(--secondary);
-    font-size: x-large;
-    font-family: var(--fontsecondary);
-    transition: 0.3s ease;
-    border-radius: 10px;
+.btn-sec {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: x-large;
+  font-family: var(--fontsecondary);
+  transition: 0.3s ease;
+  border-radius: 10px;
 }
-.btn-sec:hover{
-    cursor: pointer;
-    transform: translateY(-5px);
+.btn-sec:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
 }
-.categoriesContainer{
-    display: flex;
-    gap: 5vh;
-    flex-wrap: wrap;
+.categoriesContainer {
+  display: flex;
+  gap: 5vh;
+  flex-wrap: wrap;
 }
-.colorGreen{
-    color: var(--primary);
-    text-shadow: 3px 3px 1px var(--tertiary);
-
-}
-
-.homebanners{
-    background-color: var(--primary);
-    background: radial-gradient(var(--tertiary), var(--primary));
-    /* height: 87vh; */
-    position: sticky;
-    display: flex;
-    top: 13vh;
-    padding: 5vh 18vh;
-}
-.homeBannerBtnCont{
-    display: flex;
-    gap: 4vh;
-    margin-top: 6vh;
-}
-.homebanleft{
-    width: 70%;
-    padding: 5vh 0 5vh 5vh;
-    /* height: 100%; */
-    /* padding-left: 22vh; */
-    /* padding-top: 5vh; */
-    /* box-sizing: border-box; */
+.colorGreen {
+  color: var(--primary);
+  text-shadow: 3px 3px 1px var(--tertiary);
 }
 
-.homebanleft h1{
-    width: 90%;
-    font-size:10vh ;
-    font-family: var(--fontMain);
-    color: var(--primary);
-    text-shadow: 3px 3px 1px var(--tertiary);
+.homebanners {
+  background-color: var(--primary);
+  background: radial-gradient(var(--tertiary), var(--primary));
+  height: 87vh;
+  position: sticky;
+  display: flex;
+  gap: 8vh;
+  top: 13vh;
+  padding: 0 18vh;
 }
-.homebanleft h2{
-    width: 90%;
-    font-size:3vh ;
-    font-family: var(--fontsecondary);
-    color: var(--secondary);
-    font-weight: 100;
+.homeBannerBtnCont {
+  display: flex;
+  gap: 4vh;
+  margin-top: 6vh;
 }
-.homebannerRight{
-    /* width: 50%;
-    height: 100%; */
-   align-items: center;
-    position: relative;
-    display: flex;
-    justify-content: center;
- 
-}
-
-
-.Phone{
-    height: 90%;
-    width: 55%;
-    /* margin: auto; */
-}
-.phone_animate{
-    height: 40%;
-    width: 40%;
-    position: absolute;
-    left: 0;
-    animation: translateRight 3s infinite alternate;
-
-}
-.main-head{
-    color: var(--secondary);
-    font-family: var(--fontMain);
-    font-size: 8vh;
-    text-shadow: 1px 1px 1px var(--tertiary);
-    text-align: center;
-}
-.carousel-root{
-    outline: none;
-    position: absolute;
-    z-index: 5;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 62%;
-}
-.popularServices{
-    margin-top: 20vh;
-}
-.PopularServiceCont{
-    margin-top: 4vh;
-    display: flex;
-    gap:8.4vh;
+.homebanleft {
+  width: 60%;
+  padding: 5vh 0 5vh 5vh;
+  /* height: 100%; */
+  /* padding-left: 22vh; */
+  /* padding-top: 5vh; */
+  /* box-sizing: border-box; */
 }
 
+.homebanleft h1 {
+  width: 90%;
+  font-size: 6vh;
+  font-family: var(--fontMain);
+  color: var(--primary);
+  text-shadow: 3px 3px 1px var(--tertiary);
+}
+.homebanleft h2 {
+  width: 90%;
+  font-size: 3vh;
+  font-family: var(--fontsecondary);
+  color: var(--secondary);
+  font-weight: 100;
+}
+.homebannerRight {
+  width: 40%;
+  height: 100%;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 
-.section3{
-    position: relative;
-    background-color: var(--primary);
-    padding-left: 18vh;
-    padding-right: 18vh;
+.Phone {
+  height: 90%;
+  width: 55%;
+  /* margin: auto; */
+}
+.phone_animate {
+  height: 40%;
+  width: 43%;
 
-    z-index: 1;
-    padding-top: 5vh;
+  position: absolute;
+
+  left: 0;
+  animation: translateRight 3s infinite alternate;
+}
+.main-head {
+  color: var(--secondary);
+  font-family: var(--fontMain);
+  font-size: 8vh;
+  text-shadow: 1px 1px 1px var(--tertiary);
+  text-align: center;
+}
+.carousel-root {
+  outline: none;
+  position: absolute;
+  z-index: 5;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+}
+.popularServices {
+  margin-top: 20vh;
+}
+.PopularServiceCont {
+  margin-top: 4vh;
+  display: flex;
+  gap: 8.4vh;
+  padding: 3vh;
+}
+
+.section3 {
+  position: relative;
+  background-color: var(--primary);
+  padding-left: 18vh;
+  padding-right: 18vh;
+
+  z-index: 1;
+  padding-top: 5vh;
 }
 @keyframes translateRight {
-    0% {
-      left: 0; 
-    }
-    100% {
-      left: 10vh;
-    }
+  0% {
+    left: 0;
   }
-  
+  100% {
+    left: 10vh;
+  }
+}
+
+@media screen and (max-width: 1441px) {
+  .Phone {
+    width: 82%;
+  }
+  .homebanleft h1 {
+    font-size: 5vh;
+  }
+  .btn-lg {
+    height: 8vh;
+    width: 29vh;
+  }
+  .phone_animate {
+    width: 58%;
+  }
+}
+@media screen and (max-width: 1441px) {
+    .homebanners{
+        padding: 0;
+    }
+    .Phone{
+        height: 83%;
+        width: 76%;
+    }
+    .section3{
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 769px) {
+    .categoryHead {
+        margin-bottom: 1vh;
+    }
+    .CategoryCardDesc{
+        font-size: small;
+        margin-top: 0;
+    }
+    .loginbtn {
+        font-size: 12px;
+        height: 5vh;
+        width: 11vh;
+    }
+    .btn-sm {
+        font-size: 12px;
+        height: 4vh;
+        width: 11vh;
+    }
+}

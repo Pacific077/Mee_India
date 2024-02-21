@@ -13,18 +13,21 @@ import PopularServiceArr from "./PopularServiceArr";
 import Footer from "../../components/Footer/Footer";
 import Subcategories from "../../components/Subcategories/Subcategories";
 const Home = () => {
-  const [showSubCat,setShowSub] =useState(false);
+  const [showSubCat, setShowSub] = useState(false);
   return (
     <div className="homePage">
-              {showSubCat&&<Subcategories setShowSub={setShowSub} />}
+      {showSubCat && <Subcategories setShowSub={setShowSub} />}
       <div className="homebanners">
         <div className="homebanleft">
           <h1>
-            {" "}
-            <span className="colorGreen">Communicate</span> like you never did
-            before
+            Find your Ideal Business match: Connecting People with
+            services,Simplyfing your search for what you need!!{" "}
           </h1>
-          <h2>Lorem ipsum dolor, sit amet consectetur.</h2>
+          <h2>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
+            veniam natus quia molestiae veritatis illum ipsum saepe repellendus
+            qui nihil.
+          </h2>
           <div className="homeBannerBtnCont">
             <button className="btnPrim btn-lg">Start Now</button>
             <button className="btn-sec btn-lg">Free Trail</button>
@@ -33,14 +36,12 @@ const Home = () => {
         <div className="homebannerRight">
           <img className="Phone" src={laptop} alt="" srcset="" />
           <img className="phone_animate" src={animate} alt="" srcset="" />
-          
         </div>
       </div>
       <div className="section3">
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
           <div className="categoriesContainer" id="categoryid">
-    
             {CategoriesArrray.map((cat) => {
               return (
                 <CategoriesCard
@@ -76,7 +77,7 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-      <Footer/>
+        <Footer />
       </div>
     </div>
   );
