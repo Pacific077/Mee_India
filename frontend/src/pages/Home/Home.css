@@ -6,12 +6,13 @@ body{
 .btn-lg{
     height: 8vh;
     width: 30vh;
+    
 }
 .btnPrim {
     
     background-color: var(--secondary);
     color: var(--primary);
-    font-size: x-large;
+    font-size: large;
     font-family: var(--fontsecondary);
     font-weight: 100;
     border-radius: 10px;
@@ -78,7 +79,7 @@ body{
 }
 .homebanleft h2{
     width: 90%;
-    font-size:3.6vh ;
+    font-size:3vh ;
     font-family: var(--fontsecondary);
     color: var(--secondary);
     font-weight: 100;

@@ -1,0 +1,39 @@
+.subcategry-bg{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    filter: blur(5px);
+    position: absolute;
+}
+.subcategory-card-cont{
+    height:fit-content ;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 6vh;
+    max-width: 54vh;
+    height: fit-content;
+    position: relative;
+    z-index: 25;
+    padding: 3vh;
+}
+.sub-cat-cross{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--primary);
+    font-size: 4vh;
+    transition: 0.3s ease;
+}
+.sub-cat-cross:hover{
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+.SubcategoriesCont{
+    z-index: 20;
+    height: 90vh;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

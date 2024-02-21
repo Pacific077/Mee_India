@@ -1,0 +1,23 @@
+.subCategoryCard{
+    height: 15vh;
+    width: 13vh;
+}
+.subCategoryCard:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    transition: 0.3s ease;
+}
+.SubcategoryImg{
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 10px;
+    border: 2px solid var(--grayShade);
+    height: 75%;
+    width: 100%;
+}
+.subcategoryLabel{
+    margin: 0;
+    color: var(--primary);
+    text-align: center;
+    font-family: var(--fontsecondary);
+    font-size: 14px;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import laptop from "../../assets/laptop2.png";
 import c1 from "../../assets/c1.jpg";
@@ -12,10 +12,12 @@ import PopularServiceCard from "../../components/Card/PopularServiceCard";
 import Marquee from "react-fast-marquee";
 import PopularServiceArr from "./PopularServiceArr";
 import Footer from "../../components/Footer/Footer";
+import Subcategories from "../../components/Subcategories/Subcategories";
 const Home = () => {
+  const [showSubCat,setShowSub] =useState(false);
   return (
     <div className="homePage">
-    
+              {showSubCat&&<Subcategories setShowSub={setShowSub} />}
       <div className="homebanners">
         <div className="homebanleft">
           <h1>
@@ -55,13 +57,16 @@ const Home = () => {
       <div className="section3">
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
-          <div className="categoriesContainer">
+          <div className="categoriesContainer" id="categoryid">
+    
             {CategoriesArrray.map((cat) => {
               return (
                 <CategoriesCard
                   immg={cat.img}
                   count={cat.count}
                   category={cat.category}
+                  setShowSub={setShowSub}
+                  subCat={cat.subCat}
                 />
               );
             })}

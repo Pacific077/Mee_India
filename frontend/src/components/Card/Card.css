@@ -37,3 +37,7 @@
     font-family: var(--fontsecondary);
     font-weight: 400;
 }
+.categoryHead:hover{
+    cursor: pointer;
+    color: var(--tertiary);
+}
