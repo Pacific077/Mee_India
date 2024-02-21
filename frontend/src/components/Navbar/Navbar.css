@@ -1,54 +1,53 @@
-
-.glow{
+.glow {
   color: var(--tertiary);
 }
-.icon-md{
+.icon-md {
   font-size: 3.5vh;
-  
 }
-.location{
+.location {
   display: flex;
   gap: 1vh;
   width: fit-content;
   /* position: relative; */
 }
-.location-suggest{
+.location-suggest {
   padding-top: 1vh;
   width: 150%;
   background-color: var(--primary);
-  
+
   max-height: 50vh;
   overflow: hidden;
   box-sizing: border-box;
   border-radius: 10px;
   overflow-y: auto;
 }
-.location-suggest p{
+.location-suggest p {
   display: flex;
   align-items: center;
-  margin:0;
+  margin: 0;
   padding-left: 2vh;
   height: 5vh;
   border-bottom: 1px solid var(--grayShade);
 }
-.location-suggest p:hover{
+.location-suggest p:hover {
   background-color: var(--whiteShade);
 }
-.nav-inp{
+.nav-inp {
   height: 3.5vh;
   border: 1px solid var(--secondary);
   border-radius: 10px;
   padding-left: 1vh;
   min-width: 12vh;
 }
-.locationAndSearch{
-  height: 40%;
+.locationAndSearch {
+
   display: flex;
+  gap: 2vh;
   align-items: center;
-  justify-content: space-between;
-  width: 40%;
+
+  width: fit-content;
 }
-.loginbtn{
+.loginbtn {
   font-size: 14px;
   height: 4vh;
   width: 8vh;
@@ -60,7 +59,7 @@
   position: sticky;
   top: 0;
   padding-left: 18vh;
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,36 +81,46 @@
   width: 40%;
   font-size: 2.4vh;
   font-weight: 100;
-  font-family:var(--fontsecondary);
+  font-family: var(--fontsecondary);
   color: var(--secondary);
 }
 .navItems p {
-    height: 6vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    box-sizing: border-box;
-    transition: 0.3s ease-in-out;
-    border-bottom: 2px solid var(--primary);
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+  border-bottom: 2px solid var(--primary);
 }
-.navItems p:hover{
-    cursor: pointer;
-    border-bottom-color: var(--secondary);
+.navItems p:hover {
+  cursor: pointer;
+  border-bottom-color: var(--secondary);
 }
-.pos-rel{
+.pos-rel {
   position: relative;
 }
-.pos-abs{
+.pos-abs {
   position: absolute;
 }
-.search{
+.search {
   display: flex;
   gap: 1vh;
   width: fit-content;
 }
 
 .yellowtext {
-  color:var(--tertiary);
+  color: var(--tertiary);
   text-shadow: 1px 1px 1px var(--secondary);
+}
+@media screen and (max-width: 1249px) {
+  .navbar {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 1090px) {
+  .locationAndSearch {
+    flex-direction: column;
+}
 }

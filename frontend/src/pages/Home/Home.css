@@ -87,17 +87,26 @@ body{
 .homebannerRight{
     /* width: 50%;
     height: 100%; */
+   align-items: center;
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+ 
 }
 
 
-.laptop{
-    height: 60%;
-    width: 80%;
+.Phone{
+    height: 90%;
+    width: 55%;
     /* margin: auto; */
+}
+.phone_animate{
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    left: 0;
+    animation: translateRight 3s infinite alternate;
+
 }
 .main-head{
     color: var(--secondary);
@@ -134,3 +143,12 @@ body{
     z-index: 1;
     padding-top: 5vh;
 }
+@keyframes translateRight {
+    0% {
+      left: 0; 
+    }
+    100% {
+      left: 10vh;
+    }
+  }
+  
