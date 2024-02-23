@@ -1,43 +1,12 @@
-.categoryCard{
-    height: 35vh;
-    width: 38vh;
-    background-color: var(--whiteShade);
-    border-radius: 20px;
-    border:1px solid #dad9d9;
-    position: relative;
-    color: var(--secondary);
+.CategoryImg{
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    height: 10vh;
+    width: 10vh;
 }
-.CategoryCardDesc{
-    width: 80%;
+.CategoryName{
+    text-align: center;
+    margin: 0;
     font-family: var(--fontsecondary);
-    margin-left: 4vh;
-}
-.categorycardHead{
-    height: 30%;
-    border-bottom:1px solid #dad9d9 ;
-}
-.categoryCardImg{
-    position: relative;
-    height: 12vh;
-    width: 12vh;
-    border: 1px solid #dad9d9;
-    border-radius: 100%;
-    top:4.2vh;
-    left:4vh;
-}
-.categroyCount{
- position: absolute;
- top: 10px; 
- right:15px;
- color: var(--tertiary); 
-}
-.categoryHead{
-    margin-top: 7vh;
-    margin-left: 4vh;
-    font-family: var(--fontsecondary);
-    font-weight: 400;
-}
-.categoryHead:hover{
-    cursor: pointer;
-    color: var(--tertiary);
+    margin-top: 1vh;
 }

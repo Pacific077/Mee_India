@@ -1,0 +1,32 @@
+.BusinessFormCard{
+    background-color: var(--primary);
+    height: 10%;
+    width: 87%;
+    border-radius: 10px;
+    display: flex;
+    box-sizing: border-box;
+    
+    justify-content: space-evenly;
+    align-items: center;
+}
+.stepDesc{
+    margin: 0;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-family: var(--fontsecondary);
+}
+.stepNo{
+    margin: 0;
+    height: 70%;
+    width: 17%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: x-large;
+}

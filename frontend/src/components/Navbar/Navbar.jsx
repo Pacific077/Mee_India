@@ -1,38 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
-import { FaLocationCrosshairs } from "react-icons/fa6";
-import Districts from "./District";
+
+
+// import Districts from "./District";
 import "./Navbar.css";
+import LocationAndSearch from "../Card/LocationAndSearch/LocationAndSearch";
 const Navbar = () => {
   const navigate = useNavigate();
-  const [locinputValue, setlocInputValue] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  
   const HandleLoginclick = () => {
     navigate("/login");
   };
-  const filterSuggestions = (input) => {
-    const filtered = Districts.filter((item) =>
-      item.toLowerCase().includes(input.toLowerCase())
-    );
-    setSuggestions(filtered);
-  };
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setlocInputValue(value);
-    filterSuggestions(value);
-  };
-  const handleLocationSelect = (e) => {
-    setlocInputValue(e.target.innerText);
-    setSuggestions([]);
-  };
+
+  const handleFreeListingClick =()=>{
+    navigate("./bussiness-register")
+  }
   return (
     <>
       <div className="navbar">
-        <div className="navbarBrand">
-          <span className="yellowtext">Mee</span>India
-        </div>
-        <div className="locationAndSearch">
+   
+          <h2 className="navbarBrand"><span className="green-col">Mee</span>India</h2>
+        
+        <LocationAndSearch/>
+        {/* <div className="locationAndSearch">
           <div className="location">
             <div className="pos-rel">
               <input
@@ -56,11 +46,11 @@ const Navbar = () => {
             <input type="text" className="nav-inp" placeholder="Search here" />
             <CiSearch className="icon-md" />
           </div>
-        </div>
+        </div> */}
         <div className="navItems">
           <p>English</p>
           <p>Advertise</p>
-          <p>Free Listing</p>
+          <p onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
           <button className="btnPrim loginbtn" onClick={HandleLoginclick}>

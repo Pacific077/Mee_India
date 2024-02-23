@@ -1,0 +1,30 @@
+.businessinpCont {
+  height: 20%;
+  display: flex;
+  gap: 5vh;
+  margin-bottom: 5vh;
+}
+.BusinesslabelAndInp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 40%;
+}
+.BusinesslabelAndInp label {
+  font-family: var(--fontsecondary);
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.BusinesslabelAndInp input {
+  padding-left: 2vh;
+  height: 5vh;
+  width: 90%;
+  font-size: large;
+  font-family: var(--fontsecondary);
+  caret-color: var(--secondary);
+}
+.BusinesslabelAndInp input::placeholder{
+  font-family: var(--fontsecondary);
+  font-size: large;
+}

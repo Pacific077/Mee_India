@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import Navbar from './components/Navbar/Navbar'
 import Login from './pages/Login/Login'
 import Shownavbar from './components/ShowNavbar/Shownavbar'
+import BusinessRegister from './pages/BusinessRegister/BusinessRegister'
 const App = () => {
 
   return (
@@ -16,6 +17,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/login' element={<Login/>} />
+      <Route path='/bussiness-register' element={<BusinessRegister/>} />
       
     </Routes>
     </BrowserRouter>

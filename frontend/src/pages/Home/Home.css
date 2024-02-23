@@ -10,7 +10,7 @@ body {
 .btnPrim {
   background-color: var(--secondary);
   color: var(--primary);
-  font-size: large;
+  font-size: x-large;
   font-family: var(--fontsecondary);
   font-weight: 100;
   border-radius: 10px;
@@ -38,6 +38,7 @@ body {
   display: flex;
   gap: 5vh;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .colorGreen {
   color: var(--primary);
@@ -61,10 +62,11 @@ body {
 }
 .homebanleft {
   width: 60%;
-  padding: 5vh 0 5vh 5vh;
+  
   /* height: 100%; */
   /* padding-left: 22vh; */
-  /* padding-top: 5vh; */
+  padding-top: 5vh;
+  padding-right: 5vh;
   /* box-sizing: border-box; */
 }
 
@@ -90,7 +92,31 @@ body {
   display: flex;
   justify-content: center;
 }
-
+.HomePageSrch{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+.mainLogo{
+  height: 18vh;
+  width: 25vh;
+}
+.mainLogo1{
+  height: 18vh;
+  width: 30vh;
+  background: linear-gradient(to left, var(--tertiary), #ffff);
+}
+.mainLogo3{
+  height: 18vh;
+  width: 30vh;
+  background: linear-gradient(to right, var(--indiaGreen), #ffff);
+}
+.mainLogoCont{
+  display: flex;
+  justify-content: center;
+  gap: 3vh;
+}
 .Phone {
   height: 90%;
   width: 55%;
@@ -131,7 +157,7 @@ body {
   padding: 3vh;
 }
 
-.section3 {
+.section1 {
   position: relative;
   background-color: var(--primary);
   padding-left: 18vh;
@@ -139,6 +165,10 @@ body {
 
   z-index: 1;
   padding-top: 5vh;
+}
+.section11{
+  /* border: 1px solid black; */
+  height: 30vh;
 }
 @keyframes translateRight {
   0% {
@@ -149,33 +179,42 @@ body {
   }
 }
 
-@media screen and (max-width: 1441px) {
-  .Phone {
-    width: 82%;
+@media screen and (max-width: 1501px) {
+  .Phone{
+    height: 83%;
+    width: 72%;
   }
   .homebanleft h1 {
-    font-size: 5vh;
+    font-size: 4.7vh;
   }
   .btn-lg {
     height: 8vh;
     width: 29vh;
   }
   .phone_animate {
-    width: 58%;
+    width: 57%;
+  }
+  
+
+  
+  .section3{
+    padding-right: 0;
+    padding-left: 0;
   }
 }
-@media screen and (max-width: 1441px) {
-    .homebanners{
-        padding: 0;
-    }
-    .Phone{
-        height: 83%;
-        width: 76%;
-    }
-    .section3{
-        padding-right: 0;
-        padding-left: 0;
-    }
+@media screen and (max-width: 1249px) {
+  .homebanners {
+    padding: 0 4vh;
+  }
+  .homebanleft h1 {
+    font-size: 4.7vh;
+}
+}
+@media screen and (max-width: 1090px) {
+  .Phone {
+    height: 83%;
+    width: 64%;
+}
 }
 @media screen and (max-width: 769px) {
     .categoryHead {

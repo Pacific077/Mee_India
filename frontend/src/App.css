@@ -1,9 +1,10 @@
 :root {
     --primary: #ffffff;
     --secondary:#000000;
-    --tertiary: #512bd0;
+    --tertiary: #e76901;
     --whiteShade:#F5F5F5;
     --grayShade:#dad9d9;
+    --indiaGreen:#046A38;
     --fontMain:Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
     --fontsecondary: "Raleway", sans-serif;
 }

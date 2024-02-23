@@ -1,0 +1,49 @@
+.businessFormBtnCont {
+    margin-top: 10vh;
+    display: flex;
+    gap: 7vh;
+    
+}
+
+.BusinessFormHead {
+    font-family: var(--fontMain);
+    font-size: 6vh;
+    font-weight: 400;
+    margin: 0;
+}
+.btn-or{
+    background-color: var(--tertiary);
+}
+.businessformImg {
+    height: 35%;
+    width: 87%;
+    border-radius: 10px;
+}
+
+
+.BusinessRegisterForm {
+    margin-top: 6vh;
+    height: fit-content;
+}
+
+.BusinessregisterLeft {
+    width: 25%;
+    background-color: var(--tertiary);
+    box-sizing: border-box;
+    padding: 1vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.BusinessregisterRight {
+    padding: 4vh;
+    width: 75%;
+}
+
+.BusinessRegisterPage {
+    height: 87vh;
+    display: flex;
+}

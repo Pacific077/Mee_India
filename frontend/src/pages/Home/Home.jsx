@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
-import laptop from "../../assets/t3.png";
-import animate from "../../assets/animate.png";
+import logo from "../../assets/logo.jpg";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -12,12 +11,14 @@ import Marquee from "react-fast-marquee";
 import PopularServiceArr from "./PopularServiceArr";
 import Footer from "../../components/Footer/Footer";
 import Subcategories from "../../components/Subcategories/Subcategories";
+import LocationAndSearch2 from "../../components/Card/LocationAndSearch2/LocationAndSearch2";
+
 const Home = () => {
   const [showSubCat, setShowSub] = useState(false);
   return (
     <div className="homePage">
       {showSubCat && <Subcategories setShowSub={setShowSub} />}
-      <div className="homebanners">
+      {/* <div className="homebanners">
         <div className="homebanleft">
           <h1>
             Find your Ideal Business match: Connecting People with
@@ -37,8 +38,18 @@ const Home = () => {
           <img className="Phone" src={laptop} alt="" srcset="" />
           <img className="phone_animate" src={animate} alt="" srcset="" />
         </div>
-      </div>
-      <div className="section3">
+      </div> */}
+      <div className="section1">
+        <div className="section11">
+          <div className="mainLogoCont">
+            <div className="mainLogo1"></div>
+            <img className="mainLogo" src={logo} alt="" srcset="" />
+            <div className="mainLogo3"> </div>
+          </div>
+          <div className="HomePageSrch">
+            <LocationAndSearch2 />
+          </div>
+        </div>
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
           <div className="categoriesContainer" id="categoryid">

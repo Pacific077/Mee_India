@@ -1,0 +1,13 @@
+.locationAndSrchCont2{
+    display: flex;
+    height: 6.1vh;
+    width: 55%;
+    justify-content: space-between;
+    transform: translateY(90%);
+    visibility: visible;
+    transition: 0.1s ease-in;
+}
+.visible2{
+    visibility: hidden;
+    transform: translateY(0%);
+}

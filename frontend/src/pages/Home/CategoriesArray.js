@@ -4,6 +4,7 @@ import saloons from "../../assets/saloons.jpg";
 import Schools from "../../assets/school.jpg";
 import hotel from "../../assets/hotels.jpg";
 import gym from "../../assets/gym.jpg";
+import spa from "../../assets/spa.jpg";
 
 const CategoriesArray = [
   {
@@ -59,6 +60,118 @@ const CategoriesArray = [
     count: 1000,
     category: "Hotels",
     img: hotel,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Spa",
+    img: spa,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
+    desc: "",
+    subCat: [""],
+  },
+  {
+    count: 1000,
+    category: "Gyms",
+    img: gym,
     desc: "",
     subCat: [""],
   },

@@ -1,0 +1,97 @@
+.locationAndSrchCont{
+    display: flex;
+    height: 5.9vh;
+    width: 45%;
+    justify-content: space-between;
+    visibility: hidden;
+    transform: translateY(90%);
+    transition: 0.1s ease-in;
+}
+.locAndSrcInp{
+    
+    border: none;
+    outline: none;
+    height: 100%;
+}
+.locationAndIcon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    padding-right: 1vh;
+    box-sizing: border-box;
+    width: 35%;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    position: relative;
+}
+.locationAndIcon input{
+    font-size: large;
+    font-family: var(--fontsecondary);
+    width: 80%;
+    caret-color: var(--secondary);
+}
+.locationIcon{
+    font-size: xx-large;
+   
+    color: var(--tertiary);
+}
+.locationSuggestCont{
+    position: absolute;
+    top: 5.9vh;
+    left: 0;
+    background-color: var(--primary);
+    max-height: 40vh;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 29vh;
+    
+}
+.locationSuggestCont p{
+    height:6vh;
+    width: 100%;
+    margin: 0;
+    font-family: var(--fontsecondary);
+    display: flex;
+    padding-left: 2vh;
+    align-items: center;
+    border-bottom: 2px solid var(--grayShade);
+}
+.locationSuggestCont p:hover{
+    cursor: pointer;
+    background-color: var(--tertiary);
+}
+.searchIconCont{
+    height: 100%;
+    background-color: var(--tertiary);
+    width: 11%;
+    border-radius: 4px;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SearchAndIcon input{
+    width: 80%;
+    font-size: large;
+    font-family: var(--fontsecondary);
+    caret-color: var(--secondary);
+}
+.locSrchIcon{
+    font-size: x-large;
+}
+.SearchAndIcon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding: 2px;
+    padding-right: 1vh;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid var(--secondary);
+    width: 57%;
+}
+.visible{
+    visibility: visible;
+    transform: translateY(0%);
+}

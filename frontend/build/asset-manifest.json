@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.594948d0.css",
+    "main.js": "/static/js/main.31061433.js",
+    "static/media/driver.jpg": "/static/media/driver.0d91d05e3ab36e6d5313.jpg",
+    "static/media/electrician.jpg": "/static/media/electrician.cc0f761042a3569cfe34.jpg",
+    "static/media/saloons.jpg": "/static/media/saloons.89822ec7a7a05d2d7b4c.jpg",
+    "static/media/carpenter.jpg": "/static/media/carpenter.87747c78e639d3394c0b.jpg",
+    "static/media/mechanic.jpg": "/static/media/mechanic.8fa196b6393d81ce2400.jpg",
+    "static/media/gym.jpg": "/static/media/gym.98b3d0bb3cb38a1ae838.jpg",
+    "static/media/school.jpg": "/static/media/school.c6a718b51e7dcb00f118.jpg",
+    "static/media/surgeon.jpg": "/static/media/surgeon.f6b213e340367318dab1.jpg",
+    "static/media/doc.jpg": "/static/media/doc.56c955da0c134883a6dd.jpg",
+    "static/media/hotels.jpg": "/static/media/hotels.f41bfe1d35c04b59a15c.jpg",
+    "static/media/t3.png": "/static/media/t3.b3998b73a70f9799eb8d.png",
+    "static/media/cook1.jpg": "/static/media/cook1.184a514b5ff1508540df.jpg",
+    "static/media/animate.png": "/static/media/animate.3bbe6b0769de431c129c.png",
+    "index.html": "/index.html",
+    "main.594948d0.css.map": "/static/css/main.594948d0.css.map",
+    "main.31061433.js.map": "/static/js/main.31061433.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.594948d0.css",
+    "static/js/main.31061433.js"
+  ]
+}
