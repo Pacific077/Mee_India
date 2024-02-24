@@ -13,6 +13,8 @@ import Footer from "../../components/Footer/Footer";
 import Subcategories from "../../components/Subcategories/Subcategories";
 import LocationAndSearch2 from "../../components/Card/LocationAndSearch2/LocationAndSearch2";
 import Banner from "../../components/Banners/Banner";
+import MainCategories from "../../components/MainCat/MainCategories";
+import BillsAndBooking from "../../components/BillsAndBookings/BillsAndBooking";
 
 const Home = () => {
   const [showSubCat, setShowSub] = useState(false);
@@ -68,6 +70,14 @@ const Home = () => {
             })}
           </div>
         </div>
+        <div className="section12">
+          <MainCategories/>
+          <MainCategories/>
+          <MainCategories/>
+          <MainCategories/>
+        </div>
+        <BillsAndBooking/>
+        <BillsAndBooking/>
         <div className="popularServices">
           <h1 className="main-head">Popular Services</h1>
 

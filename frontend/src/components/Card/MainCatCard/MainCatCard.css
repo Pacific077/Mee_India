@@ -1,0 +1,19 @@
+.mainCatCard{
+    margin-top: 2vh;
+    height: 21vh;
+    width: 22vh;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+.MainCatCardDesc{
+    margin: 0;
+    text-align: center;
+    margin-top: 1.3vh;
+    font-size: large;
+    font-family: var(--fontMain);
+}
+.mainCatCardImg{
+    height: 80%;
+    width: 100%;
+    border-radius: 20px;
+}

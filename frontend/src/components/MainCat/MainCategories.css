@@ -1,0 +1,16 @@
+.MainCatCardCont{
+    display: flex;
+    gap: 4vh;
+}
+.MainCategories{
+    border-radius: 10px;
+    padding: 2vh;
+    width: fit-content;
+    border: 1px solid var(--grayShade);
+    margin-bottom: 4vh;
+}
+.MainCategoryHead{
+    margin: 0;
+    font-size: x-large;
+    font-family: var(--fontMain);
+}
