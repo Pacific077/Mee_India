@@ -1,0 +1,28 @@
+.billCont{
+    display: flex;
+    padding: 2vh 0vh 2vh 5vh;
+    box-sizing: border-box;
+    height: 30vh;
+  
+}
+
+.billLeftcont{
+    display: flex;
+   gap: 0vh;
+    flex-direction: column;
+    width: 25%;
+}
+.billRightcont{
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+}
+.billLeftHead{
+    font-family: var(--fontMain);
+    font-size: 3.7vh;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 6vh;
+}

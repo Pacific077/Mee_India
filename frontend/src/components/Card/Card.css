@@ -4,10 +4,13 @@
 }
 
 .CategoryImg{
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--grayShade);
     border-radius: 10px;
     height: 10vh;
     width: 10vh;
+    padding: 1vh;
+    box-sizing: border-box;
+
 }
 .CategoryName{
     text-align: center;

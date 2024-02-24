@@ -1,0 +1,17 @@
+.BillIcon{
+    width: 14vh;
+    height: 19vh;
+}
+.billIconImg{
+    padding: 1vh;
+    box-sizing: border-box;
+    border: 1px solid var(--grayShade);
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+}
+.billIconTitle{
+    margin: 1vh;
+    text-align: center;
+    
+}
