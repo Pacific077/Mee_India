@@ -3,6 +3,7 @@
     border-radius: 10px;
     height: 10vh;
     width: 10vh;
+    box-shadow: 4px 4px 4px var(--grayShade);
 }
 .CategoryName{
     text-align: center;

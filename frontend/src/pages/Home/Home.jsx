@@ -12,6 +12,7 @@ import PopularServiceArr from "./PopularServiceArr";
 import Footer from "../../components/Footer/Footer";
 import Subcategories from "../../components/Subcategories/Subcategories";
 import LocationAndSearch2 from "../../components/Card/LocationAndSearch2/LocationAndSearch2";
+import Banner from "../../components/Banners/Banner";
 
 const Home = () => {
   const [showSubCat, setShowSub] = useState(false);
@@ -50,6 +51,7 @@ const Home = () => {
             <LocationAndSearch2 />
           </div>
         </div>
+        <Banner/>
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
           <div className="categoriesContainer" id="categoryid">

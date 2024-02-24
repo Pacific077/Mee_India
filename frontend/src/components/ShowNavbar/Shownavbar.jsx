@@ -9,7 +9,7 @@ const Shownavbar = ({children}) => {
             setShowNavbar(false);
         }else{
             setShowNavbar(true)
-            console.log("loaction1",location)
+           
         }
     },[location])
   return (
