@@ -1,0 +1,8 @@
+.ListPageContainer{
+    padding: 3vh 18vh;
+}
+.ListPageHeading{
+    margin: 0;
+    font-family: var(--fontsecondary);
+    padding: 2vh;
+}

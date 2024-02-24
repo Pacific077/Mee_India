@@ -1,0 +1,82 @@
+.bussinessPagesection1{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 2vh;
+    margin-bottom: 2vh;
+}
+
+.ImagesSection{
+    display: flex;
+    gap: 1px;
+    justify-content: space-between;
+}
+
+.carousel-root{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    width: 60vh;
+}
+.carousel img{
+    height: 40vh;
+}
+
+.bussinessPagesection2{
+    display: flex;
+    gap: 2vh;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
+
+.bussinessPageTiming{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 2vh 2vh;
+    width: 100%;
+}
+.bussinessPageTiming p{
+    flex-direction: row-reverse;
+}
+
+.bussinessPageAddress{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 2vh 2vh;
+    width: 100%;
+}
+
+.bussinessPagesection3{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 2vh 2vh;
+
+}
+
+.reviewHead{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.reviewHead span{
+    background-color: var(--indiaGreen);
+    height: 6vh;
+    width: 6vh;
+    border-radius: 10px;
+    color: white;
+    font-family: var(--fontMain);
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.reviewHead h3{
+    margin: 1vh 2vh;
+}
+.reviewHead p{
+    margin: 1vh 2vh;
+}

@@ -1,0 +1,35 @@
+.reviewContainer {
+    padding: 2vh 3vh;
+    transition: border-color 0.3s; /* Add transition for smoother hover effect */
+}
+
+.reviewContainer:hover {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding-top: calc(2vh - 1px); /* Compensate for the top border */
+    padding-bottom: calc(2vh - 1px); /* Compensate for the bottom border */
+}
+
+.userInfo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.userInfo svg{
+    background-color: var(--grayShade);
+    height: 6vh;
+    width: 6vh;
+    border-radius: 100%;
+    color: white;
+    font-family: var(--fontMain);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userInfo h3{
+    margin: 1vh 2vh;
+}
+.userInfo p{
+    margin: 1vh 2vh;
+}

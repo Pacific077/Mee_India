@@ -20,6 +20,14 @@ const RegisterUser = async (req, res) => {
         }
 
         const { name, email, password } = req.body;
+
+        const user = await User.findOne({ email });
+        if (user) {
+            return res.status(400).json({
+                message:"Something went wrong",
+                err:["Email is already registered!"]
+            })
+        }
         //hashing the password
         const salt = await bcrypt.genSalt(10);
         const hashedPass = await bcrypt.hash(password, salt);

@@ -1,3 +1,8 @@
+.CategoryCard{
+    margin: 0 2vh;
+    cursor: pointer;
+}
+
 .CategoryImg{
     border: 1px solid var(--secondary);
     border-radius: 10px;

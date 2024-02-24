@@ -6,6 +6,8 @@ import Navbar from './components/Navbar/Navbar'
 import Login from './pages/Login/Login'
 import Shownavbar from './components/ShowNavbar/Shownavbar'
 import BusinessRegister from './pages/BusinessRegister/BusinessRegister'
+import BussinessList from './pages/BussinessList/BussinessList'
+import BussinessPage from './pages/BussinessPage/BussinessPage'
 const App = () => {
 
   return (
@@ -18,7 +20,8 @@ const App = () => {
       <Route path='/' element={<Home/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/bussiness-register' element={<BusinessRegister/>} />
-      
+      <Route path='/bussiness-list/:district/:mainCategory' element={<BussinessList/>} />
+      <Route path='/bussiness-list/:district/:mainCategory/:bussinessId' element={<BussinessPage/>} />
     </Routes>
     </BrowserRouter>
     </>

@@ -1,0 +1,50 @@
+.BussinessListCardContainer{
+    padding: 2vh;
+    display: flex;
+    margin: 2vh 0;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.BussinessListCardLeft{
+    display: flex;
+    align-items: center;
+}
+.carousel-root{
+}
+.thumbs-wrapper{
+    display: none;
+}
+.BussinessListCardLeft img{
+    height: 20vh;
+}
+
+.BussinessListCardRight{
+    padding: 0 2vh;
+    font-family: var(--fontMain);
+}
+
+.address{
+    font-family: var(--fontsecondary);
+}
+
+.BussinessListCardRight svg{
+    margin-right: 4px;
+}
+.BussinessListCardRight h2,p{
+    margin: 2vh 0;
+    display: flex;
+    align-items: center;
+}
+
+.squareBtn{
+    display: flex;
+    align-items: center;
+    padding: 1vh 2vh;
+    border-radius: 4px;
+    font-weight: 400;
+    transition: 0.3s ease;
+}
+.squareBtn:hover{
+    transform: translateY(-5px);
+}

@@ -1,14 +1,13 @@
 import express from 'express';
-import SignupValidator from '../Validators/SignupValidator.js';
-import LoginValidator from '../Validators/LoginValidator.js';
 import {RegisterUser,LoginUser, Logout, UpdateProfile} from '../Controllers/UserController.js'
 import IsAuthenticated from '../Middleware/isAuthenticated.js';
+import UserCredentialValidator from '../Validators/UserCredentialValidator.js';
 
 const UserRoute = express.Router();
 
-UserRoute.post('/register',SignupValidator,RegisterUser);
-UserRoute.post('/login',LoginValidator,LoginUser);
+UserRoute.post('/register',UserCredentialValidator,RegisterUser);
+UserRoute.post('/login',UserCredentialValidator,LoginUser);
 UserRoute.post('/logout',IsAuthenticated,Logout);
-UserRoute.post('/update',IsAuthenticated,UpdateProfile);
+UserRoute.post('/update',IsAuthenticated,UserCredentialValidator,UpdateProfile);
 
 export default UserRoute;

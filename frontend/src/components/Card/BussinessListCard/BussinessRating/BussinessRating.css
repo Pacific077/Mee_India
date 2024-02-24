@@ -1,0 +1,28 @@
+.RatingContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.RatingPoint{
+    width: fit-content;
+    background-color: var(--indiaGreen);
+    color: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+.RatingStars{
+    margin: 0 1vh;
+    border-radius: 4px;
+}
+
+.starBox{
+    width: fit-content;
+    display: inline-block;
+    color: white;
+    padding: 1px 2px;
+}
+.RatersCnt{
+    font-size: small;
+    color: gray;
+}

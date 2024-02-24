@@ -1,0 +1,22 @@
+.ContactContainer{
+    display: flex;
+    font-family: var(--fontMain);
+}
+
+.ContactNo{
+    /* background-color: #0076d7; */
+    background-color: var(--indiaGreen);
+    color: white;
+}
+
+.Enquiry{
+    background-color: var(--tertiary);
+    color: white;
+    margin-left: 2vh ;
+}
+
+.Chat{
+    background-color: white;
+    border: 1px solid gray;
+    margin-left: 2vh ;
+}
