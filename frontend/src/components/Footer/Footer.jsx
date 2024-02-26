@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.jpg"
 import "./Footer.css";
 
 import { BiLogoFacebookSquare, BiLogoLinkedinSquare } from "react-icons/bi";
@@ -10,7 +11,7 @@ const Footer = () => {
     <div>
       <div className="footersec">
         <div className="foot1">
-          <img src="" alt="img" className="footerlogo" />
+          <img src={logo} alt="img" className="footerlogo" />
           <div className="footerdescCont">
             <p className="footerdesc">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit

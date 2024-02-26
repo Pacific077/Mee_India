@@ -1,0 +1,21 @@
+.MyBusineesCont{
+    width: 85%;
+    border: 1px solid var(--grayShade);
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+
+.BusinessDasboard{
+    padding: 4vh 18vh 0 18vh;
+    min-height:100vh ;
+}
+.businessDashboardHead{
+    font-family: var(--fontMain);
+    font-size: 4.6vh;
+    font-weight: 500;
+    color: var(--tertiary);
+    text-shadow: 1px 1px 1px var(--indiaGreen);
+}
