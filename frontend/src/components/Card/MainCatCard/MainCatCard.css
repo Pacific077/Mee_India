@@ -11,6 +11,9 @@
     margin-top: 1.3vh;
     font-size: large;
     font-family: var(--fontMain);
+    width: fit-content;
+    margin: auto;
+    margin-top: 0.5vh;
 }
 .mainCatCardImg{
     height: 80%;

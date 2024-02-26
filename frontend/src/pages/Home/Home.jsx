@@ -15,6 +15,8 @@ import LocationAndSearch2 from "../../components/Card/LocationAndSearch2/Locatio
 import Banner from "../../components/Banners/Banner";
 import MainCategories from "../../components/MainCat/MainCategories";
 import BillsAndBooking from "../../components/BillsAndBookings/BillsAndBooking";
+import MainCategoriesArray from "./MainCategories";
+import BillsAndBookingArray from "./BillsAndBookingsArray";
 
 const Home = () => {
   const [showSubCat, setShowSub] = useState(false);
@@ -71,13 +73,21 @@ const Home = () => {
           </div>
         </div>
         <div className="section12">
+          {MainCategoriesArray.map((ele,ind)=>{
+            return(
+              <MainCategories key={ind} name={ele.name} SubCat = {ele.SubCateggories}/>
+            )
+          })}
+          {/* <MainCategories/>
           <MainCategories/>
-          <MainCategories/>
-          <MainCategories/>
-          <MainCategories/>
+          <MainCategories/> */}
         </div>
-        <BillsAndBooking/>
-        <BillsAndBooking/>
+        {BillsAndBookingArray.map((ele,ind)=>{
+          return (
+            <BillsAndBooking key={ind} name={ele.name} Desc={ele.Desc} SubCat={ele.SubCat}/>
+          )
+        })}
+        {/* <BillsAndBooking/> */}
         <div className="popularServices">
           <h1 className="main-head">Popular Services</h1>
 

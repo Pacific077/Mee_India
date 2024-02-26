@@ -1,10 +1,10 @@
 import React from 'react'
 import "./BillsAndBooking.css"
 import Bill from '../Card/BIll/Bill'
-const BillsAndBooking = () => {
+const BillsAndBooking = ({name,Desc,SubCat}) => {
   return (
     <div className='BillsAndBooking'>
-        <Bill/>
+        <Bill name={name} Desc={Desc} SubCat = {SubCat}/>
     </div>
   )
 }

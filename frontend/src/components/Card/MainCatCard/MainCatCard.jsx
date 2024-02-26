@@ -1,11 +1,11 @@
 import React from 'react'
 import hall from "../../../assets/hall.jpg"
 import "./MainCatCard.css"
-const MainCatCard = () => {
+const MainCatCard = ({name}) => {
   return (
     <div className='mainCatCard'>
       <img className='mainCatCardImg' src={hall} alt="" />
-      <p className='MainCatCardDesc'>Banquet Hall</p>
+      <p className='MainCatCardDesc'>{name}</p>
     </div>
   )
 }
