@@ -1,0 +1,121 @@
+.BusinessDashboardSpecific{
+    padding: 4vh 18vh 0 18vh;
+    min-height: 80vh;
+
+}
+.BusinessDashSpecBanner{
+    width: 80%;
+    height: 30vh;
+    margin: auto;
+    padding-left: 4vh;
+    padding-right: 4vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    background:linear-gradient(to right ,var(--tertiary),var(--secondary));
+}
+.BusinessDashSpecBannerHead{
+    color: var(--primary);
+    font-family: var(--fontMain);
+    font-weight: 500;
+    font-size: 5vh;
+    margin-bottom: 0;
+}
+.BusinessDashSpecBannerHead2{
+    color: var(--indiaGreen);
+    font-family: var(--fontMain);
+    text-shadow: 1px 1px 1px var(--primary);
+    font-weight: 500;
+    font-size: 5vh;
+    margin-top: 0;
+}
+.BusinessDashSpecBannerLeft{
+    width: 70%;
+}
+.BusinessDashSpecBannerRight{
+    text-align: center;
+    width: 30%;
+}
+.BusinessDashSpecBannerRight img{
+    width: 70%;
+    height: 100%;
+}
+.BusinessDashSpeScore{
+    width: 82.5%;
+    height: 10vh;
+    margin: auto;
+    margin-top: 6vh;
+    border-radius: 10px;
+border: 1px solid var(--grayShade);
+    padding: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BusinessDashSpecDetails{
+    width: 85%;
+    min-height: 44vh;
+    margin: auto;
+    padding: 0vh;
+    margin-top: 4vh;
+    border-radius: 10px;
+    
+}
+.BusinessDashSpecDetailsIconCont{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vh;
+}
+.BusinessDashSpecDetailsHead{
+    font-family: var(--fontsecondary);
+    font-size: 3vh;
+
+}
+.BussinessScorebtn{
+    background-color: var(--tertiary);
+    height: 4.3vh;
+    width: 19vh;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: var(fontsecondary);
+}
+.BussinessScorebtn:hover{
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+.BussinessScoreDescHead{
+    font-family: var(--fontMain);
+    margin: 0;
+    color: var(--tertiary);
+    margin-top: 1vh;
+    font-size: 3vh;
+}
+.BussinessScoreDescInfo
+{
+    margin: 0;
+    margin-top: 1vh;
+    font-family: var(--fontMain);
+}
+.BussinessScorePercent{
+    height: 100%;
+    width: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid var(--tertiary);
+    border-radius: 100%;
+    color: var(--tertiary);
+    font-size: x-large;
+    box-sizing: border-box;
+}
+.ScoreAndDesc{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    gap: 3vh;
+}

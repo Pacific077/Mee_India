@@ -8,6 +8,8 @@ import Shownavbar from './components/ShowNavbar/Shownavbar'
 import BusinessRegister from './pages/BusinessRegister/BusinessRegister'
 import BussinessList from './pages/BussinessList/BussinessList'
 import BussinessPage from './pages/BussinessPage/BussinessPage'
+import BusinessDasboard from './pages/BusinessDasboard/BusinessDasboard'
+import BusinessDashboardSpecific from './pages/BusinessDashboardSpecific/BusinessDashboardSpecific'
 const App = () => {
 
   return (
@@ -22,6 +24,8 @@ const App = () => {
       <Route path='/bussiness-register' element={<BusinessRegister/>} />
       <Route path='/bussiness-list/:district/:mainCategory' element={<BussinessList/>} />
       <Route path='/bussiness-list/:district/:mainCategory/:bussinessId' element={<BussinessPage/>} />
+      <Route path='/business-dashboard' element={<BusinessDasboard/>} />
+      <Route path='/business-dashboard/:BusinessId' element={<BusinessDashboardSpecific/>} />
     </Routes>
     </BrowserRouter>
     </>

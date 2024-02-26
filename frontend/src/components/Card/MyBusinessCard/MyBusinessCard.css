@@ -1,0 +1,59 @@
+.btn-md{
+    height: 4.7vh;
+    width: 20vh;
+    font-size: small;
+    background-color: var(--tertiary) ;
+    border: none;
+    font-family: var(--fontsecondary);
+    font-weight: 600;
+}
+.btn-md2{
+    font-weight: 600;
+    font-family: var(--fontsecondary);
+    height: 4.7vh;
+    width: 20vh;
+    font-size: small;
+    background-color: var(--primary);
+    color: var(--tertiary);
+    border: 1px solid var(--tertiary);
+}
+.businessCardbtnCont{
+    display: flex;
+    gap: 3vh;
+}
+
+.BusinessCardCont{
+    height: 20vh;
+    margin: 1vh;
+    margin-bottom: 0;
+    display: flex;
+    gap: 3vh;
+    border-bottom: 1px solid var(--grayShade) ;
+    padding-bottom: 1vh;
+}
+.BusinessCardHead{
+    margin: 0;
+    margin-top: 1vh;
+    font-family: var(--fontMain);
+}
+.businessCardLeft{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.businessCardLeft img{
+    height: 90%;
+    width: 90%;
+    border-radius: 20px     ;
+}
+.businessCardLocation{
+    font-family: var(--fontsecondary);
+    margin: 0;
+    margin-bottom: 3vh;
+}
+.BusinessCardRight{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}

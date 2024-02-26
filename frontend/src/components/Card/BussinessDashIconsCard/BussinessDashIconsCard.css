@@ -1,0 +1,17 @@
+.BussinessDashIconsCard{
+    height: 15vh;
+    width: 12vh;
+    /* border: 1px solid black; */
+}
+.BusinessDashIconCont{
+    height: 76%;
+    width: 95%;
+    border-radius: 100%;
+    background-color: antiquewhite;
+}
+.BussinessDashIconsDesc{
+    width: fit-content;
+    margin: auto;
+    margin-top: 1vh;
+    
+}
