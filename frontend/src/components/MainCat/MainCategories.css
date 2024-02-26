@@ -14,3 +14,12 @@
     font-size: x-large;
     font-family: var(--fontMain);
 }
+@media screen and (max-width: 769px) {
+    .MainCategories{
+        width: 90%;
+        margin: auto;
+    }
+    .MainCatCardCont{
+        justify-content: space-between;
+    }
+}

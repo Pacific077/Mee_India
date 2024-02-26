@@ -1,0 +1,15 @@
+.SideNav{
+    position: absolute;
+    z-index: 40;
+    background-color: azure;
+    height: 200vh;
+    width: 40vh;
+    animation: sidenavanim 0.7s ;
+}
+@keyframes sidenavanim{
+    from{
+        width: 0%;
+    }to{
+        width: 40vh;
+    }
+}

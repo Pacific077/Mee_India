@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 // import Districts from "./District";
 import "./Navbar.css";
 import LocationAndSearch from "../Card/LocationAndSearch/LocationAndSearch";
+import SideNav from "../SideNav/SideNav";
 const Navbar = () => {
+  const [IsSideNavVis,setIsSideNavVis] = useState(false);
   const navigate = useNavigate();
   
   const HandleLoginclick = () => {
     navigate("/login");
   };
+  const handelSideNavDisplay =()=>{
+    setIsSideNavVis(!IsSideNavVis);
+  }
 
   const handleFreeListingClick =()=>{
     navigate("./bussiness-register")
@@ -18,7 +23,7 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-   
+   {IsSideNavVis&&<SideNav/>}
           <h2 className="navbarBrand"><span className="green-col">Mee</span>India</h2>
         
         <LocationAndSearch/>
@@ -47,6 +52,12 @@ const Navbar = () => {
             <CiSearch className="icon-md" />
           </div>
         </div> */}
+        <div className="Navhamburger" onClick={handelSideNavDisplay}>
+          <p className="hamburgerline1"></p>
+          <p className="hamburgerline2"></p>
+          <p className="hamburgerline3"></p>
+          
+        </div>
         <div className="navItems">
           <p>English</p>
           <p>Advertise</p>

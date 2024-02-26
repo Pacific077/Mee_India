@@ -89,7 +89,7 @@ const Home = () => {
         })}
         {/* <BillsAndBooking/> */}
         <div className="popularServices">
-          <h1 className="main-head">Popular Services</h1>
+          <h1 className="main-head PopularserviceHead">Popular Services</h1>
 
           <Marquee
             behavior="scroll"

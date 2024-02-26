@@ -44,3 +44,19 @@
     font-family: var(--fontsecondary);
     text-align: center;
 }
+@media screen and (max-width: 1502px) {
+    .popularService {
+        height: 38vh;
+        width: 30vh;
+    }
+  }
+@media screen and (max-width: 769px) {
+    .btn-sm {
+        font-size: 12px;
+        
+    }
+    .popularService {
+     
+        width: 28vh;
+    }
+  }

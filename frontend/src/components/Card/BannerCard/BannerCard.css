@@ -1,6 +1,6 @@
 .BannerCard{
     /* border: 2px solid black; */
-    width: 14%;
+    min-width: 24vh;
     height: 32vh;
     border-radius: 10px;
     flex-wrap: wrap;
@@ -64,3 +64,10 @@
     /* text-align: right; */
     padding-left: 2vh;
 }
+@media screen and (max-width: 769px) {
+    .BannerCard{
+        min-width: 23vh;
+        height: 30vh;
+
+    }
+  }

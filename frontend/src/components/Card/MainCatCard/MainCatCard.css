@@ -20,3 +20,26 @@
     width: 100%;
     border-radius: 20px;
 }
+@media screen and (max-width: 1502px) {
+    .mainCatCard{
+        height: 19vh;
+        width: 19vh;
+    }
+  }
+@media screen and (max-width: 1250px) {
+    .mainCatCard{
+        height: 15vh;
+        width: 15vh;
+    }
+    .MainCatCardDesc{
+        font-size: small;
+    }
+  }
+  
+@media screen and (max-width: 1027px) {
+    .mainCatCard{
+
+        height: 21vh;
+        width: 21vh;
+    }
+  }
