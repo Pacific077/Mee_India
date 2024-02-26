@@ -5,11 +5,15 @@ import { RiMessage2Fill } from "react-icons/ri";
 
 
 const BussinessContact = () => {
+  const handleClick = () => {
+    console.log("clicked")
+    window.open('https://wa.me/917667327346', '_blank');
+  }
   return (
     <div className='ContactContainer'>
-        <div className='squareBtn ContactNo'><IoCallSharp/>+91 7859060034</div>
+    <div className='squareBtn ContactNo'><IoCallSharp/>+91 7859060034</div>
         <div className='squareBtn Enquiry'><RiMessage2Fill/>Send Enquiry</div>
-        <div className='squareBtn Chat'><img style={{marginRight:"4px"}} src='https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/new_whatsapp.svg'/>Chat</div>
+        <div className='squareBtn Chat'  onClick={handleClick}><img style={{marginRight:"4px"}} src='https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/new_whatsapp.svg'/>Chat</div>
     </div>
   )
 }

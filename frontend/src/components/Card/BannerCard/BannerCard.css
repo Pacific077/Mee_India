@@ -33,11 +33,11 @@
 
 }
 .BannerCard:hover .BannerCardIcon{
-    color: var(--tertiary);
+    color: white;
 }
 .BannerCard:hover .BannerCardBut::after {
     content: "Explore";
-    color: var(--tertiary);
+    color: white;
     font-family: var(--fontMain);
     font-weight: 600;
     margin-left: 0.5em; 
@@ -51,15 +51,16 @@
     height: 83%;
     width: 73%;
     position: absolute;
-    left: 0;
+    left: 2vh;
 }
 .BannerCardTitle{
 
-    margin-right: 2vh;
+    /* margin-right: 2vh; */
     color: var(--primary);
     font-family: var(--fontMain);
     font-size: 3vh;
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
     margin-bottom: 0;
-    text-align: right;
+    /* text-align: right; */
+    padding-left: 2vh;
 }

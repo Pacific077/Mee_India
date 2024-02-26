@@ -47,7 +47,7 @@ const BussinessPage = () => {
             <h2>Timings</h2>
             <Timing/>
             <p> represents Open days<span style={{color:"var(--indiaGreen)",marginRight:"2px"}}><FaSquare/></span></p>
-            <p> represents Open days<span style={{color:"gray",marginRight:"2px"}}><FaSquare/></span></p>
+            <p> represents Close days<span style={{color:"gray",marginRight:"2px"}}><FaSquare/></span></p>
           </div>
           <div className='bussinessPageAddress'>
             <h2>Address</h2>
