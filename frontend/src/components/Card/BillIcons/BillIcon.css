@@ -25,10 +25,19 @@
   }
 @media screen and (max-width: 667px) {
     .BillIcon {
-        width: 10vh;
-        height: 15vh;
+        width: 9vh;
+        height: 13vh;
     }
     .billIconTitle {
         font-size: small;
     }
   }
+    @media screen and (max-width: 376px) {
+        .billIconTitle {
+            font-size: 9px;
+        }
+        .BillIcon {
+            width: 7vh;
+            height: 11vh;
+        }
+    }

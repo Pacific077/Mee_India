@@ -134,7 +134,7 @@ body {
 .main-head {
   color: var(--secondary);
   font-family: var(--fontMain);
-  font-size: 8vh;
+  font-size: 5.5vh;
   text-shadow: 1px 1px 1px var(--tertiary);
   text-align: center;
 }
@@ -230,4 +230,12 @@ body {
   .btnPrim {
     border-radius: 5px
   }
+}
+@media screen and (max-width: 376px) {
+  .categoriesContainer {
+
+    gap: 1vh;
+
+    justify-content: center;
+}
 }

@@ -96,7 +96,7 @@ const Home = () => {
             direction="left"
             speed={100}
             pauseOnHover={true}
-            gradient={true}
+            gradient={false}
           >
             <div className="PopularServiceCont">
               {PopularServiceArr.map((service) => {
@@ -110,7 +110,7 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

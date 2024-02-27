@@ -71,3 +71,12 @@
 
     }
   }
+@media screen and (max-width: 769px) {
+    .BannerCard {
+        min-width: 21vh;
+        height: 28vh;
+    }
+    .BannerCardBut {
+        font-size: 10px;
+    }
+  }

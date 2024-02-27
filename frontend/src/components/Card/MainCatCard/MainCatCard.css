@@ -43,3 +43,17 @@
         width: 21vh;
     }
   }
+@media screen and (max-width: 376px) {
+    .MainCatCardDesc {
+        font-size: 10px;
+    }
+    .mainCatCardImg {
+        height: 70%;
+        width: 98%;
+
+    }
+    .mainCatCard {
+        height: 18vh;
+        width: 15vh;
+    }
+  }

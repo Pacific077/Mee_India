@@ -18,3 +18,15 @@
     font-family: var(--fontsecondary);
     margin-top: 1vh;
 }
+@media screen and (max-width: 517px) {
+    .CategoryImg {
+        height: 9vh;
+        width: 9vh;
+        
+    }
+    .CategoryName{
+        font-size: 10px;
+        width: fit-content;
+        margin: auto;
+    }
+  }

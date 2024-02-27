@@ -73,7 +73,10 @@
   z-index: 10;
   box-shadow: 4px 4px 4px gray;
   border-bottom: 1px solid var(--secondary);
+ 
 }
+/* .navScroll{
+} */
 
 .navbarBrand{
   font-family: var(--fontsecondary);
@@ -83,7 +86,7 @@
 .Navhamburger{
   height: 5.5vh;
   width: 5.5vh;
-  margin-right: 5vh;
+  margin-right: 1vh;
   border-radius: 100%;
   padding: 0.5vh;
   display: flex;
@@ -155,5 +158,10 @@
   }
   .Navhamburger{
     display: flex;
+  }
+}
+@media screen and (max-width: 517px) {
+  .navbarBrand{
+    display: none;
   }
 }
