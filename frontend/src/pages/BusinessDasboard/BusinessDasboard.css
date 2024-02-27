@@ -19,3 +19,11 @@
     color: var(--tertiary);
     text-shadow: 1px 1px 1px var(--indiaGreen);
 }
+@media screen and (max-width: 1091px) {
+    .BusinessDasboard{
+        padding: 1vh;
+    }
+    .MyBusineesCont{
+        width: 95%;
+    }
+}

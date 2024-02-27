@@ -9,7 +9,7 @@
     padding: 1vh;
     width: 0;
     left: -20px;
-    animation: sidenavanim 0.7s ;
+
     transition: width 0.7s;
 }
 .SideNavIsvis{
@@ -62,13 +62,13 @@
     width: 24%;
     border-radius: 100%;
 }
-@keyframes sidenavanim{
+/* @keyframes sidenavanim{
     from{
         width: 0%;
     }to{
         width: 40%;
     }
-}
+} */
 
 @media screen and (max-width: 517px) {
     .SideNavIsvis {

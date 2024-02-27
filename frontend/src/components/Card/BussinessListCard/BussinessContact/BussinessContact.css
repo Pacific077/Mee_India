@@ -20,3 +20,26 @@
     border: 1px solid gray;
     margin-left: 2vh ;
 }
+@media screen and (max-width: 668px) {
+ .ContactNo{
+    font-size: small;
+ }
+ .Enquiry{
+    font-size: small;
+ }
+   
+  }
+@media screen and (max-width: 428px) {
+
+ .Enquiry,.ContactNo{
+    font-size: 10px;
+ }
+   
+  }
+@media screen and (max-width: 322px) {
+
+ .Enquiry{
+    font-size: 8px;
+ }
+   
+  }

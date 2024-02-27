@@ -5,6 +5,10 @@
     padding-bottom: 2vh;
     margin-bottom: 2vh;
 }
+.BusinesspecPage{
+    margin-left: 18vh;
+    margin-right: 18vh;
+}
 
 .ImagesSection{
     display: flex;
@@ -36,6 +40,11 @@
     padding: 0 2vh 2vh;
     width: 100%;
 }
+.bussinessPageTiming h2{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    
+}
 .bussinessPageTiming p{
     flex-direction: row-reverse;
 }
@@ -46,7 +55,11 @@
     padding: 0 2vh 2vh;
     width: 100%;
 }
-
+.bussinessPageAddress h2,.bussinessPagesection3 h2{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    
+}
 .bussinessPagesection3{
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -80,3 +93,26 @@
 .reviewHead p{
     margin: 1vh 2vh;
 }
+
+
+@media screen and (max-width: 1025px) {
+    .BusinesspecPage{
+        margin:0;
+    }
+   
+  }
+@media screen and (max-width: 550px) {
+    .bussinessPagesection2{
+        flex-direction: column;
+        align-items: center;
+    }
+    .bussinessPageTiming,.bussinessPageAddress{
+        width: 90%;
+    }
+   .imageSectionimg{
+    display: none;
+   }
+   .ImageSectioncarousel{
+    margin: auto;
+   }
+  }

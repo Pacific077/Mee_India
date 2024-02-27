@@ -31,10 +31,14 @@
 .BussinessListCardRight svg{
     margin-right: 4px;
 }
-.BussinessListCardRight h2,p{
+.BussinessListCardRight h2{
     margin: 2vh 0;
     display: flex;
     align-items: center;
+}
+.BussinessListCardRight h2{
+    font-family: var(--fontMain);
+    font-weight: 500;
 }
 
 .squareBtn{
@@ -47,4 +51,12 @@
 }
 .squareBtn:hover{
     transform: translateY(-5px);
+}
+@media screen and (max-width: 551px) {
+    .BussinessListCardContainer {
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 2vh;
+    }
 }
