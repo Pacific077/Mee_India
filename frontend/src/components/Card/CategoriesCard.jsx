@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import "./Card.css"
 const CategoriesCard = (props) => {
+  const navigate = useNavigate()
 
   const handleClick = ()=>{
-    
+    navigate(`/bussiness-list/district/${props.category}`)
   }
 
   return (

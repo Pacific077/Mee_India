@@ -59,9 +59,10 @@ const Home = () => {
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
           <div className="categoriesContainer" id="categoryid">
-            {CategoriesArrray.map((cat) => {
+            {CategoriesArrray.map((cat,index) => {
               return (
                 <CategoriesCard
+                key={index}
                   immg={cat.img}
                   count={cat.count}
                   category={cat.category}

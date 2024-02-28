@@ -35,6 +35,9 @@
 
   color: var(--tertiary);
 }
+.locationIcon:hover{
+  cursor: pointer;
+}
 .locationSuggestCont {
   position: absolute;
   top: 5.9vh;
