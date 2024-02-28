@@ -16,16 +16,16 @@ const BusinessRegister = () => {
             
         </div>
         <div className="BusinessregisterRight">
-          <h1 className='BusinessFormHead'>Register your Business !</h1>
-          <div className="BusinessRegisterForm">
+          {/* <h1 className='BusinessFormHead'>Register your Business !</h1> */}
+          {/* <div className="BusinessRegisterForm">
         <BusinessFormInpcont/>
         <BusinessFormInpcont/>
         <BusinessFormInpcont/>
-          </div>
-          <div className="businessFormBtnCont">
+          </div> */}
+          {/* <div className="businessFormBtnCont">
             <button className='btn-sec btn-lg'>Cancel</button>
             <button className='btnPrim btn-lg btn-or'>Next</button>
-          </div>
+          </div> */}
         </div>
     </div>
   )

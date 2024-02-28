@@ -13,6 +13,16 @@ const BussinessValidator = [
   body('openDays').isArray({ min: 1 }).withMessage('Open days are required and should be an array with at least one day'),
   body('mainCategory').notEmpty().withMessage('Main category is required'),
   body('subCategory').notEmpty().withMessage('Sub category is required'),
+  // body('location').custom(value => {
+  //   if (!value || !value.coordinates || !Array.isArray(value.coordinates) || value.coordinates.length !== 2) {
+  //       throw new Error('Invalid coordinates for location');
+  //   }
+  //   const [longitude, latitude] = value.coordinates;
+  //   if (typeof longitude !== 'number' || typeof latitude !== 'number' || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+  //       throw new Error('Invalid latitude or longitude');
+  //   }
+  //   return true;
+  // }),
 
   // Custom validation to check if openDays contains valid day names
 //   body('openDays.*').isIn(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']).withMessage('Invalid day name'),
