@@ -1,0 +1,67 @@
+.userDashCardcontainer{
+    /* background-color: rgb(30, 30, 76); */
+    height: 13vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border:  1px solid black; */
+    margin-top: 3vh;
+    /* white-space: ; */
+    
+    
+}
+.UserDashboardImageDisplay{
+    /* border: 2px solid var(--primary); */
+    border-radius: 4%;
+    width: 30%;
+    box-sizing: border-box;
+    height: 100%;
+    box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.UserDashboardInfo{
+    right: 0;
+    position: absolute;
+    bottom: 0px;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    
+   
+}
+.userDashboardMainDiv{
+    padding: 0 18vh 0 18vh;
+    /* border
+    -radius: ; */
+}
+.userDashboardName{
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    padding-left: 20px;
+    color: rgb(117, 67, 2);
+}
+.userDashUpperDivProfilePic{
+    /* background-color: rgb(239, 112, 112); */
+    height: 20vh;
+    width: 45%;
+    position: absolute;
+    bottom: 2vh;
+    /* border-radius: 4%;  */
+    display: flex;
+    
+    /* border:1px solid white; */
+
+}
+.userDashUpperDiv{
+    margin-top: 2vh;
+    background-image: linear-gradient(to right, var(--tertiary) , var(--primary));
+    min-height: 40vh;
+    padding: 1vh;
+    border-radius: 20px;
+    padding-left: 4vh;
+    box-sizing: border-box;
+    position: relative;
+    
+}

@@ -5,6 +5,17 @@ import Schools from "../../assets/school.jpg";
 import hotel from "../../assets/hotels.jpg";
 import gym from "../../assets/gym.jpg";
 import spa from "../../assets/spa.jpg";
+import petshop from "../../assets/petshop.jpg";
+import contractors from '../../assets/contractors.jpg';
+import consultants from '../../assets/consultants.jpg';
+import drivingschool from "../../assets/drivingschool.jpg";
+import eventorganizer  from "../../assets/eventorganizer.jpg";
+import rentandhire from "../../assets/rentandhire.jpg";
+import packersandmovers from "../../assets/packersandmovers.jpg";
+import courierservice from "../../assets/courierservice.jpg";
+import homedecor from "../../assets/homedecor.jpg";
+import hospital from "../../assets/hospital.jpg";
+import estateagent from "../../assets/estateagent.jpg";
 
 const CategoriesArray = [
   {
@@ -79,109 +90,109 @@ const CategoriesArray = [
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "Contractors",
+    img: contractors,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "Consultants",
+    img: consultants,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "P-shop",
+    img: petshop,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "C-service",
+    img: courierservice,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "D-School",
+    img: drivingschool,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "H-Decor",
+    img: homedecor,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "E-Organizer",
+    img: eventorganizer,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "Packers",
+    img: packersandmovers,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "R & H",
+    img: rentandhire,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "Hospital",
+    img: hospital,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
-    category: "Gyms",
-    img: gym,
+    category: "Estate Agent",
+    img: estateagent,
     desc: "",
     subCat: [""],
   },
-  {
-    count: 1000,
-    category: "Gyms",
-    img: gym,
-    desc: "",
-    subCat: [""],
-  },
-  {
-    count: 1000,
-    category: "Gyms",
-    img: gym,
-    desc: "",
-    subCat: [""],
-  },
-  {
-    count: 1000,
-    category: "Gyms",
-    img: gym,
-    desc: "",
-    subCat: [""],
-  },
-  {
-    count: 1000,
-    category: "Gyms",
-    img: gym,
-    desc: "",
-    subCat: [""],
-  },
+  // {
+  //   count: 1000,
+  //   category: "Gyms",
+  //   img: gym,
+  //   desc: "",
+  //   subCat: [""],
+  // },
+  // {
+  //   count: 1000,
+  //   category: "Gyms",
+  //   img: gym,
+  //   desc: "",
+  //   subCat: [""],
+  // },
+  // {
+  //   count: 1000,
+  //   category: "Gyms",
+  //   img: gym,
+  //   desc: "",
+  //   subCat: [""],
+  // },
+  // {
+  //   count: 1000,
+  //   category: "Gyms",
+  //   img: gym,
+  //   desc: "",
+  //   subCat: [""],
+  // },
 ];
 
 export default CategoriesArray;
