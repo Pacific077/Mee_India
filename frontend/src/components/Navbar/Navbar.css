@@ -120,6 +120,16 @@
   cursor: pointer;
   border-bottom-color: var(--secondary);
 }
+.navProfile{
+  border: 1px solid var(--secondary);
+  height: 6vh;
+  width: 6vh;
+  border-radius: 100%;
+  background-color: var(--tertiary);
+}
+.navProfile:hover{
+  cursor: pointer;
+}
 .pos-rel {
   position: relative;
 }

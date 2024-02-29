@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 
 // import Districts from "./District";
@@ -9,8 +10,14 @@ import SideNav from "../SideNav/SideNav";
 const Navbar = () => {
 
   const [IsSideNavVis,setIsSideNavVis] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if(token){
+      setIsLoggedIn(true);
+    }
+  }, []);
   const HandleLoginclick = () => {
     navigate("/login");
   };
@@ -40,9 +47,12 @@ const Navbar = () => {
           <p onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
-          <button className="btnPrim loginbtn" onClick={HandleLoginclick}>
+      {isLoggedIn?<div className="navProfile">
+      </div>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
-          </button>
+          </button>}
+      
+          
         </div>
       </div>
       {<SideNav vis = {IsSideNavVis}/>}
