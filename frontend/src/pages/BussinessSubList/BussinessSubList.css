@@ -1,0 +1,23 @@
+.BussinessSubListContainer{
+    padding: 5vh 18vh;
+}
+.BussinessSubListContainer h1{
+    color: rgba(0, 0, 0, 0.678);
+}
+
+.BussinessSubListContainerBanner{
+    height: 30vh;
+    overflow: hidden;
+}
+.BussinessSubListContainer h1{
+    font-family: var(--fontMain);
+    text-align: center;
+    font-size: 6vh;
+}
+
+.SubcategoryContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}

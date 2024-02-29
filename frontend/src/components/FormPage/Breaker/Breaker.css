@@ -1,0 +1,20 @@
+.breaker{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 2vh 0 5vh;
+}
+.breakerText{
+    margin: 0 1vh;
+}
+.line1{
+    border: 1px solid gray;
+    width: 5%;
+    height: 0;
+}
+
+.line2{
+    border: 1px solid gray;
+    width: -webkit-fill-available;
+    height: 0;
+}

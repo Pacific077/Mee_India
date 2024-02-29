@@ -1,0 +1,26 @@
+.formLabel{
+    font-size: 3vh;
+    font-weight: 400;
+    font-family: var(--fontMain);
+}
+.formInput{
+    font-size: 2.5vh;
+    margin-left: 1vh;
+    padding: 1vh;
+    margin-bottom: 4vh;
+}
+.wide{
+    width: 70%;
+}
+
+.half{
+    width: 60%;
+}
+.small{
+    width: 20%;
+}
+.twoinputfield{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10%;
+}
