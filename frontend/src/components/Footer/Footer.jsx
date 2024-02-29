@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         <div className="foot4">
           <p className="footehead">CONTACT</p>
-          <p>hello@meeIndia.com</p>
+          <p>hello</p>
           <p>7420994331</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,

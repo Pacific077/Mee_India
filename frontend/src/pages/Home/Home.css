@@ -38,7 +38,7 @@ body {
   display: flex;
   gap: 5vh;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 .colorGreen {
   color: var(--primary);
@@ -62,7 +62,7 @@ body {
 }
 .homebanleft {
   width: 60%;
-  
+
   /* height: 100%; */
   /* padding-left: 22vh; */
   padding-top: 5vh;
@@ -92,27 +92,27 @@ body {
   display: flex;
   justify-content: center;
 }
-.HomePageSrch{
+.HomePageSrch {
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 10;
 }
-.mainLogo{
+.mainLogo {
   height: 18vh;
   width: 25vh;
 }
-.mainLogo1{
+.mainLogo1 {
   height: 18vh;
   width: 30vh;
   background: linear-gradient(to left, var(--tertiary), #ffff);
 }
-.mainLogo3{
+.mainLogo3 {
   height: 18vh;
   width: 30vh;
   background: linear-gradient(to right, var(--indiaGreen), #ffff);
 }
-.mainLogoCont{
+.mainLogoCont {
   display: flex;
   justify-content: center;
   gap: 3vh;
@@ -134,7 +134,7 @@ body {
 .main-head {
   color: var(--secondary);
   font-family: var(--fontMain);
-  font-size: 8vh;
+  font-size: 5.5vh;
   text-shadow: 1px 1px 1px var(--tertiary);
   text-align: center;
 }
@@ -148,13 +148,16 @@ body {
   width: 62%;
 }
 .popularServices {
-  margin-top: 20vh;
+  margin-top: 7vh;
 }
 .PopularServiceCont {
   margin-top: 4vh;
   display: flex;
   gap: 8.4vh;
   padding: 3vh;
+}
+.PopularserviceHead {
+  margin-bottom: 0;
 }
 
 .section1 {
@@ -166,11 +169,11 @@ body {
   z-index: 1;
   padding-top: 5vh;
 }
-.section11{
+.section11 {
   /* border: 1px solid black; */
   height: 30vh;
 }
-.section12{
+.section12 {
   margin-top: 8vh;
   display: flex;
   justify-content: space-between;
@@ -186,7 +189,7 @@ body {
 }
 
 @media screen and (max-width: 1501px) {
-  .Phone{
+  .Phone {
     height: 83%;
     width: 72%;
   }
@@ -200,10 +203,8 @@ body {
   .phone_animate {
     width: 57%;
   }
-  
 
-  
-  .section3{
+  .section3 {
     padding-right: 0;
     padding-left: 0;
   }
@@ -214,30 +215,27 @@ body {
   }
   .homebanleft h1 {
     font-size: 4.7vh;
+  }
 }
-}
-@media screen and (max-width: 1090px) {
-  .Phone {
-    height: 83%;
-    width: 64%;
-}
+@media screen and (max-width: 1091px) {
+  .section1 {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 @media screen and (max-width: 769px) {
-    .categoryHead {
-        margin-bottom: 1vh;
-    }
-    .CategoryCardDesc{
-        font-size: small;
-        margin-top: 0;
-    }
-    .loginbtn {
-        font-size: 12px;
-        height: 5vh;
-        width: 11vh;
-    }
-    .btn-sm {
-        font-size: 12px;
-        height: 4vh;
-        width: 11vh;
-    }
+  .section12 {
+    gap: 3vh;
+  }
+  .btnPrim {
+    border-radius: 5px
+  }
+}
+@media screen and (max-width: 376px) {
+  .categoriesContainer {
+
+    gap: 1vh;
+
+    justify-content: center;
+}
 }

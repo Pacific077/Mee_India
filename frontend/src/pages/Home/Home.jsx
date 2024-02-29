@@ -59,9 +59,10 @@ const Home = () => {
         <div className="categoriessection">
           <h1 className="main-head">Categories</h1>
           <div className="categoriesContainer" id="categoryid">
-            {CategoriesArrray.map((cat) => {
+            {CategoriesArrray.map((cat,index) => {
               return (
                 <CategoriesCard
+                key={index}
                   immg={cat.img}
                   count={cat.count}
                   category={cat.category}
@@ -89,14 +90,14 @@ const Home = () => {
         })}
         {/* <BillsAndBooking/> */}
         <div className="popularServices">
-          <h1 className="main-head">Popular Services</h1>
+          <h1 className="main-head PopularserviceHead">Popular Services</h1>
 
           <Marquee
             behavior="scroll"
             direction="left"
             speed={100}
             pauseOnHover={true}
-            gradient={true}
+            gradient={false}
           >
             <div className="PopularServiceCont">
               {PopularServiceArr.map((service) => {
@@ -110,7 +111,7 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

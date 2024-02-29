@@ -1,22 +1,30 @@
-.weekdays{
-    display: flex;
-    flex-direction: row;
-    gap: 1vh;
-    margin-bottom: 4vh;
+.weekdays {
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+  margin-bottom: 4vh;
 }
 
 .weekdays span {
-    background-color: gray;
-    font-family: var(--fontMain);
-    color: white;
-    font-weight: 600;
-    border-radius: 15px;
-    width: 8vh;
-    height: 8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: gray;
+  font-family: var(--fontMain);
+  color: white;
+  font-weight: 600;
+  border-radius: 15px;
+  width: 8vh;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.active{
-    background-color: var(--indiaGreen) !important;
+.active {
+  background-color: var(--indiaGreen) !important;
+}
+@media screen and (max-width: 550px) {
+  .weekdays span {
+    font-weight: 500;
+    width: 7vh;
+    height: 7vh;
+    font-size: small;
+  }
 }

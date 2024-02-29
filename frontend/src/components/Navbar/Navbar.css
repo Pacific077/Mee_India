@@ -4,6 +4,11 @@
 .glow {
   color: var(--tertiary);
 }
+.hamburgerline1,.hamburgerline2,.hamburgerline3{
+  width: 80%;
+  border: 1px solid var(--tertiary);
+  margin: 0;
+}
 .icon-md {
   font-size: 3.5vh;
 }
@@ -17,7 +22,7 @@
   padding-top: 1vh;
   width: 150%;
   background-color: var(--primary);
-
+  
   max-height: 50vh;
   overflow: hidden;
   box-sizing: border-box;
@@ -43,11 +48,11 @@
   min-width: 12vh;
 }
 .locationAndSearch {
-
+  
   display: flex;
   gap: 2vh;
   align-items: center;
-
+  
   width: fit-content;
 }
 .loginbtn {
@@ -62,18 +67,34 @@
   position: sticky;
   top: 0;
   padding-left: 18vh;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+  box-shadow: 4px 4px 4px gray;
   border-bottom: 1px solid var(--secondary);
+ 
 }
+/* .navScroll{
+} */
 
 .navbarBrand{
   font-family: var(--fontsecondary);
   font-size: xx-large;
   font-weight: 500;
+}
+.Navhamburger{
+  height: 5.5vh;
+  width: 5.5vh;
+  margin-right: 1vh;
+  border-radius: 100%;
+  padding: 0.5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 3px solid var(--tertiary);
+  display: none;
 }
 .navItems {
   display: flex;
@@ -99,6 +120,16 @@
   cursor: pointer;
   border-bottom-color: var(--secondary);
 }
+.navProfile{
+  border: 1px solid var(--secondary);
+  height: 6vh;
+  width: 6vh;
+  border-radius: 100%;
+  background-color: var(--tertiary);
+}
+.navProfile:hover{
+  cursor: pointer;
+}
 .pos-rel {
   position: relative;
 }
@@ -120,4 +151,27 @@
   .locationAndSearch {
     flex-direction: column;
 }
+}
+@media screen and (max-width: 769px) {
+  .loginbtn {
+    font-size: 10px;
+  }
+  .navbarBrand {
+   
+    font-size: x-large;
+   
+}
+}
+@media screen and (max-width: 667px) {
+  .navItems{
+    display: none;
+  }
+  .Navhamburger{
+    display: flex;
+  }
+}
+@media screen and (max-width: 517px) {
+  .navbarBrand{
+    display: none;
+  }
 }

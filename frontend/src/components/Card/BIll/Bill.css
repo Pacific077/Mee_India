@@ -26,3 +26,27 @@
     margin-bottom: 0;
     margin-top: 6vh;
 }
+@media screen and (max-width: 769px) {
+    .billLeftcont p{
+        font-size: small;
+    }
+  }
+@media screen and (max-width: 667px) {
+    .billCont{
+        display: block;
+        height: 23vh;
+        padding: 1vh 0vh 2vh 0vh;
+    }
+    .billLeftcont p{
+        display: none;
+    }
+    .billLeftcont{
+        width: 100%;
+    }
+    .billLeftHead{
+        margin: 1vh 0 2vh 2vh;
+    }
+    .billRightcont{
+        width: 100%;
+    }
+  }

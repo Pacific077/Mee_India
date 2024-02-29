@@ -86,7 +86,7 @@ const LoginUser = async (req, res) => {
         });
         //send token to cookie (http only:deny user to acces cookie from client side : it can only be accesed via http)
         res.cookie("token", token, {
-            httpOnly: true,
+            httpOnly: false,//setting false se that i can acees cookie from frontend 
             maxAge: 24 * 60 * 60 * 1000,
         });
         //send the response

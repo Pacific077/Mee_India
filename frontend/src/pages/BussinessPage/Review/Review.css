@@ -1,3 +1,7 @@
+.comment{
+    font-family: var(--fontsecondary);
+    font-size: 15px;
+}
 .reviewContainer {
     padding: 2vh 3vh;
     transition: border-color 0.3s; /* Add transition for smoother hover effect */
@@ -33,3 +37,10 @@
 .userInfo p{
     margin: 1vh 2vh;
 }
+@media screen and (max-width: 550px) {
+
+    .comment p{
+       font-size: small;
+    }
+      
+     }

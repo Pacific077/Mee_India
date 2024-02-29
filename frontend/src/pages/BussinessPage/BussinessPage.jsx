@@ -17,12 +17,12 @@ const BussinessPage = () => {
     //use this fetch the bussiness Detail in future.
 
   return (
-    <div style={{padding:"2vh 18vh", fontFamily:"var(--fontMain)"}}>
+    <div className='BusinesspecPage'>
         <div className='bussinessPagesection1'>
           <div className='ImagesSection'>
-            <img style={{width:"60vh", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-science-higher-secondary-school-sisupalgarh-bhubaneshwar-colleges-o07ahiruk8.jpg'/>
-            <img style={{width:"60vh", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-junior-science-college-sisupalgarh-bhubaneshwar-colleges-3t2nwoc.jpg'/>
-            <Carousel showStatus={false} showIndicators={false} autoPlay={true} interval={3000} infiniteLoop={true}>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-science-higher-secondary-school-sisupalgarh-bhubaneshwar-colleges-o07ahiruk8.jpg'/>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-junior-science-college-sisupalgarh-bhubaneshwar-colleges-3t2nwoc.jpg'/>
+            <Carousel className='ImageSectioncarousel' showStatus={false} showIndicators={false} autoPlay={true} interval={3000} infiniteLoop={true}>
                 <div>
                     <img src={bussinesspic} />
                 </div>

@@ -57,3 +57,50 @@
     flex-direction: column;
     gap: 2vh;
 }
+@media screen and (max-width: 770px) {
+    .businessCardLeft {
+        width: 20%;
+    }
+}
+@media screen and (max-width: 551px) {
+    .businessCardbtnCont{
+        gap: 1vh;
+    }
+    .btn-md,.btn-md2{
+        width: 14vh;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .businessCardLeft{
+        width: 24%;
+    }
+    
+}
+@media screen and (max-width: 427px) {
+    .BusinessCardRight {
+        gap:1vh;
+    }
+    .BusinessCardHead{
+        font-size: larger;
+        font-weight: 500;
+    }
+    .btn-md,.btn-md2{
+        width: 12vh;
+    }
+    .businessCardLeft{
+        width: 31%;
+    }
+    .businessCardLocation{
+        font-size: small;
+        font-weight: 300;
+        margin-bottom: 2vh;
+    }
+}
+@media screen and (max-width: 377px) {
+    .businessCardLeft{
+        display: none;
+    }
+    .BusinessCardRight{
+        width:100%;
+    }
+}

@@ -6,3 +6,8 @@
     font-family: var(--fontsecondary);
     padding: 2vh;
 }
+@media screen and (max-width: 1090px) {
+    .ListPageContainer{
+        padding: 3vh 0;
+    }
+}

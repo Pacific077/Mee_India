@@ -8,6 +8,17 @@ const bussinessSchema = mongoose.Schema(
       district: { type: String, required: true },
       state: { type: String, required: true },
       owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+      location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+      },
       //bussinessContact
       bussinessContact: { type: String, required: true },
       bussinessMail: { type: String, unique: true, required: true },
@@ -24,6 +35,8 @@ const bussinessSchema = mongoose.Schema(
     },
     { timestamps: true }
   );
+
+bussinessSchema.index({ location: '2dsphere' });
 
 const Bussiness = mongoose.model("Bussiness", bussinessSchema);
 

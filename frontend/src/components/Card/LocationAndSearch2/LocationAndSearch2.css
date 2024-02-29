@@ -11,3 +11,8 @@
     visibility: hidden;
     transform: translateY(0%);
 }
+@media screen and (max-width: 667px) {
+    .locationAndSrchCont2{
+      width: 82%;
+    }
+  }

@@ -160,39 +160,11 @@ const CategoriesArray = [
   },
   {
     count: 1000,
-    category: "Estate Agent",
-    img: estateagent,
+    category: "Gyms",
+    img: gym,
     desc: "",
     subCat: [""],
-  },
-  // {
-  //   count: 1000,
-  //   category: "Gyms",
-  //   img: gym,
-  //   desc: "",
-  //   subCat: [""],
-  // },
-  // {
-  //   count: 1000,
-  //   category: "Gyms",
-  //   img: gym,
-  //   desc: "",
-  //   subCat: [""],
-  // },
-  // {
-  //   count: 1000,
-  //   category: "Gyms",
-  //   img: gym,
-  //   desc: "",
-  //   subCat: [""],
-  // },
-  // {
-  //   count: 1000,
-  //   category: "Gyms",
-  //   img: gym,
-  //   desc: "",
-  //   subCat: [""],
-  // },
+  }
 ];
 
 export default CategoriesArray;

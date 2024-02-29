@@ -1,0 +1,84 @@
+.SideNav{
+    position: fixed;
+    z-index: 40;
+    top: 0;
+
+    overflow: hidden;
+    background-color: var(--primary);
+    height: 99vh;
+    padding: 1vh;
+    width: 0;
+    left: -20px;
+
+    transition: width 0.7s;
+}
+.SideNavIsvis{
+    left: 0;
+    width: 40%;
+
+}
+.sideNavItems{
+    border: 1px solid var(--tertiary);
+    padding: 1vh;
+    border-radius: 5px;
+    font-family: var(--fontsecondary);
+}
+.sideNavItems:hover{
+    cursor: pointer;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    transition: 0.3s ease;
+}
+.sidenavitemsCont{
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    font-size: larger;
+    padding: 1vh;
+    box-sizing: border-box;
+
+}
+.sidenavProfileBox
+{
+    border: 1px solid red;
+    height: 10%;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    gap: 3vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: var(--tertiary);
+    font-size: larger;
+    font-family: var(--fontsecondary);
+    color: var(--primary);
+}
+.sidenavProfileBox img{
+    height: 70%;
+    width: 24%;
+    border-radius: 100%;
+}
+/* @keyframes sidenavanim{
+    from{
+        width: 0%;
+    }to{
+        width: 40%;
+    }
+} */
+
+@media screen and (max-width: 517px) {
+    .SideNavIsvis {
+        width: 50%;
+    }
+    .sideNavItems{
+        font-size: small;
+    }
+    .sidenavProfileBox{
+        font-size: small;
+
+    }
+  }

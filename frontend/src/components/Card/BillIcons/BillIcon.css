@@ -14,5 +14,30 @@
     margin: 1vh;
     width: fit-content;
     margin: auto;
+    font-family: var(--fontsecondary);
     
 }
+@media screen and (max-width: 1502px) {
+    .BillIcon {
+        width: 12vh;
+        height: 17vh;
+    }
+  }
+@media screen and (max-width: 667px) {
+    .BillIcon {
+        width: 9vh;
+        height: 13vh;
+    }
+    .billIconTitle {
+        font-size: small;
+    }
+  }
+    @media screen and (max-width: 376px) {
+        .billIconTitle {
+            font-size: 9px;
+        }
+        .BillIcon {
+            width: 7vh;
+            height: 11vh;
+        }
+    }

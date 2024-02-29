@@ -44,3 +44,53 @@
     font-family: var(--fontsecondary);
     text-align: center;
 }
+@media screen and (max-width: 1502px) {
+    .popularService {
+        height: 38vh;
+        width: 30vh;
+    }
+  }
+@media screen and (max-width: 769px) {
+    .btn-sm {
+        font-size: 12px;
+        
+    }
+    .popularService {
+     
+        width: 28vh;
+    }
+  }
+@media screen and (max-width: 667px) {
+    
+    .popularService {
+     
+        width: 25vh;
+        height: 34vh;
+    }
+    .right-item {
+        right: 1vh;
+        bottom: 2vh;
+    }
+  }
+@media screen and (max-width: 426px) {
+    
+    .popularService {
+     
+        width: 23vh;
+        height: 32vh;
+    }
+    .right-item {
+        
+        bottom: 1vh;
+    }
+    .btn-sm {
+        font-size: 10px;
+        height: 3.5vh;
+        width: 10vh;
+    }
+    .PopularserviceDesc p {
+       
+        padding-top: 1px;
+        font-size: small;
+    }
+  }
