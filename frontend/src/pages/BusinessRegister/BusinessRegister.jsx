@@ -17,8 +17,8 @@ const BusinessRegister = () => {
         <div className="BusinessregisterRight">
           <div className='formContainer'>
             {/* <FormPage/> */}
-            {/* <FormPage2/> */}
-            <FormPage3/>
+            <FormPage2/>
+            {/* <FormPage3/> */}
           </div>
         </div>
     </div>
