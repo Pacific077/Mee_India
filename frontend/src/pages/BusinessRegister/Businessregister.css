@@ -1,3 +1,7 @@
+p{
+    font-family: var(--fontNew1);
+}
+
 .BusinessregisterLeft {
     width: 25%;
     overflow: hidden;

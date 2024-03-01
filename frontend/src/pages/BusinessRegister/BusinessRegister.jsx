@@ -5,6 +5,8 @@ import './Businessregister.css'
 import BusinessFormCard from '../../components/Card/BusinessFormCard/BusinessFormCard'
 import BusinessFormInpcont from '../../components/Card/BussinessForminp/BusinessFormInpcont'
 import FormPage1 from '../../components/FormPage/FormPage1'
+import FormPage2 from '../../components/FormPage/FormPage2'
+import FormPage3 from '../../components/FormPage/FormPage3'
 const BusinessRegister = () => {
   return (
     <div className='BusinessRegisterPage'>
@@ -14,7 +16,9 @@ const BusinessRegister = () => {
         </div>
         <div className="BusinessregisterRight">
           <div className='formContainer'>
-            <FormPage1/>
+            {/* <FormPage/> */}
+            {/* <FormPage2/> */}
+            <FormPage3/>
           </div>
         </div>
     </div>

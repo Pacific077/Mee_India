@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    margin: 2vh 0 5vh;
+    margin: 0vh 0 5vh;
 }
 .breakerText{
     margin: 0 1vh;

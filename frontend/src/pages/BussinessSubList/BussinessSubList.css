@@ -9,6 +9,9 @@
     height: 30vh;
     overflow: hidden;
 }
+.BussinessSubListContainerBanner img{
+    width: 100%;
+}
 .BussinessSubListContainer h1{
     font-family: var(--fontMain);
     text-align: center;
