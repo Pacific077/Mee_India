@@ -5,12 +5,17 @@ const CategoriesCard = (props) => {
   const navigate = useNavigate()
 
   const handleClick = ()=>{
-    navigate(`/bussiness-list/district/${props.category}`)
+    // console.log(props.subCat.length)
+    if(props.subCat.length==0){
+      navigate(`/bussiness-list/district/${props.category}`)
+    }else{
+      navigate(`/subList/${props.category}`)
+    }
   }
 
   return (
     <div onClick={handleClick} className='CategoryCard'>
-        <img className='CategoryImg' src={props.immg} alt="" srcset="" />
+        <img className='CategoryImg' src={props.immg} alt="img" srcset="" />
         <p className='CategoryName'>{props.category}</p>
     </div>
   )

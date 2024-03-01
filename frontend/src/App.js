@@ -11,6 +11,8 @@ import BussinessPage from './pages/BussinessPage/BussinessPage'
 import BusinessDasboard from './pages/BusinessDasboard/BusinessDasboard'
 import BusinessDashboardSpecific from './pages/BusinessDashboardSpecific/BusinessDashboardSpecific';
 import UserDashboard from './pages/UserDashboard/UserDashboard';
+import Apitext from './pages/apiTest/Apitext'
+import BussinessSubList from './pages/BussinessSubList/BussinessSubList'
 
 const App = () => {
 
@@ -29,6 +31,8 @@ const App = () => {
       <Route path='/business-dashboard' element={<BusinessDasboard/>} />
       <Route path='/business-dashboard/:BusinessId' element={<BusinessDashboardSpecific/>} />
       <Route path='/userdashboard' element={<UserDashboard/>}/>
+      <Route path='/subList/:Category' element={<BussinessSubList/>}/>
+      <Route path='/apitest' element={<Apitext/>}/>
     </Routes>
     </BrowserRouter>
     </>

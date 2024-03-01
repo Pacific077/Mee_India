@@ -6,10 +6,10 @@ import hotel from "../../assets/hotels.jpg";
 import gym from "../../assets/gym.jpg";
 import spa from "../../assets/spa.jpg";
 import petshop from "../../assets/petshop.jpg";
-import contractors from '../../assets/contractors.jpg';
-import consultants from '../../assets/consultants.jpg';
+import contractors from "../../assets/contractors.jpg";
+import consultants from "../../assets/consultants.jpg";
 import drivingschool from "../../assets/drivingschool.jpg";
-import eventorganizer  from "../../assets/eventorganizer.jpg";
+import eventorganizer from "../../assets/eventorganizer.jpg";
 import rentandhire from "../../assets/rentandhire.jpg";
 import packersandmovers from "../../assets/packersandmovers.jpg";
 import courierservice from "../../assets/courierservice.jpg";
@@ -23,7 +23,7 @@ const CategoriesArray = [
     category: "Restraunts",
     img: cook1,
     desc: "",
-    subCat: [""],
+    subCat: [],
   },
   {
     count: 1000,
@@ -151,20 +151,8 @@ const CategoriesArray = [
     desc: "",
     subCat: [""],
   },
-  {
-    count: 1000,
-    category: "Hospital",
-    img: hospital,
-    desc: "",
-    subCat: [""],
-  },
-  {
-    count: 1000,
-    category: "Gyms",
-    img: gym,
-    desc: "",
-    subCat: [""],
-  }
+  
+
 ];
 
 export default CategoriesArray;

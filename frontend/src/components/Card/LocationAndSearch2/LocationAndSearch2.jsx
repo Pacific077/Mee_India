@@ -4,7 +4,7 @@ import { FaLocationCrosshairs } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import CatContext from "../../../context/CategoryContext.jsx"
 import "./LocationAndSearch2.css";
-
+import axios from "axios";
 import Districts from "../../Navbar/District";
 
 const LocationAndSearch2 = () => {
@@ -59,10 +59,18 @@ const LocationAndSearch2 = () => {
     setlocInputValue(value);
     filterSuggestions(value);
   };
-  const handleLocationSelect = (e) => {
+  const handleLocationSelect =async (e) => {
+    try {
+      const resp =await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.innerText},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
+      setLatitude(resp.data[0].lat)
+      setLongitude(resp.data[0].lon)
+      console.log(resp.data[0])
+    } catch (error) {
+      console.log(error)
+    }
     setlocInputValue(e.target.innerText);
     setSuggestions([]);
-  };
+  };;
   const detectLocation = ()=>{
     if (navigator.geolocation) {
       console.log("Serr")
