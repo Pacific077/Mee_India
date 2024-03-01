@@ -5,14 +5,14 @@ import BussinessListCard from '../../components/Card/BussinessListCard/Bussiness
 
 const BussinessList = () => {
 
-    const {mainCategory,district} = useParams()
+    const {mainCategory,district,subCat} = useParams()
 
     //use it to find the list
 
     return (
         <div className='ListPageContainer'>
             <div>
-                <h1 className='ListPageHeading'>Top {mainCategory}s in {district} </h1>
+                <h1 className='ListPageHeading'>Top  {subCat !== 'null' ? subCat : ''} {mainCategory} in {district} </h1>
             </div>
             <div className='ListContainer'>
                 <BussinessListCard/>

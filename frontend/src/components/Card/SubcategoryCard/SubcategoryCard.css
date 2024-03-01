@@ -1,9 +1,12 @@
 .subCategoryCard{
-    width: 33%;
+    width: 25%;
     padding: 1.5vh 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3vh;
+    border: 1px solid var(--grayShade);
+    border-radius: 10px;
 }
 .subCategoryCard:hover .subcategoryLabel{
     cursor: pointer;
