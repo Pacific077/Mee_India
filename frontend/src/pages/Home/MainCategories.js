@@ -25,7 +25,7 @@ const MainCategoriesArray = [
     SubCateggories: [
       { name: "Beauty Parlours", img: parlour },
       { name: "Salons", img: salons },
-      { name: "Spa and Massages", img: "img" },
+      { name: "Spa and Massages", img: caterers },
     ],
   },
   {
