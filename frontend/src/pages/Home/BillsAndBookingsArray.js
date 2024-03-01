@@ -1,3 +1,14 @@
+import hotel from '../../assets/hotel.jpg'
+import phone from '../../assets/phone.jpg'
+import water from '../../assets/water.jpg'
+import electricity from '../../assets/electricity.jpg'
+import insurance from '../../assets/insurance.jpg'
+import bus from '../../assets/bus.jpg'
+import carRental from '../../assets/carRental.jpg'
+import flight from '../../assets/flight.jpg'
+import gas from '../../assets/gas.jpg'
+import train from '../../assets/train.jpg'
+
 const BillsAndBookingArray = [
   {
     name: "Bills and Recharge",
@@ -5,11 +16,11 @@ const BillsAndBookingArray = [
     SubCat: [
       {
         name: "Mobile",
-        incon: "Icon Link here",
+        incon: phone,
       },
       {
         name: "Electricity",
-        incon: "Icon Link here",
+        incon: electricity,
       },
       {
         name: "DTH",
@@ -17,46 +28,46 @@ const BillsAndBookingArray = [
       },
       {
         name: "Water",
-        incon: "Icon Link here",
+        incon: water,
       },
       {
         name: "Gas",
-        incon: "Icon Link here",
+        incon: gas,
       },
       {
         name: "Insurance",
-        incon: "Icon Link here",
+        incon: insurance,
       },
     ],
   },
   {
-    name: "Bills and Recharge",
+    name: "Travel Booking",
     Desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, eos",
     SubCat: [
       {
-        name: "Mobile",
-        incon: "Icon Link here",
+        name: "Flight",
+        incon: flight,
       },
       {
-        name: "Electricity",
-        incon: "Icon Link here",
+        name: "Train",
+        incon: train,
       },
       {
-        name: "DTH",
-        incon: "Icon Link here",
+        name: "Bus",
+        incon: bus,
       },
       {
-        name: "Water",
-        incon: "Icon Link here",
+        name: "Car Rental",
+        incon: carRental,
       },
       {
-        name: "Gas",
-        incon: "Icon Link here",
+        name: "Hotel",
+        incon: hotel,
       },
-      {
-        name: "Insurance",
-        incon: "Icon Link here",
-      },
+      // {
+      //   name: "Insurance",
+      //   incon: "Icon Link here",
+      // },
     ],
   },
 ];

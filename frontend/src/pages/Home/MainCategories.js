@@ -9,6 +9,7 @@ import grocery from "../../assets/grocery.jpg"
 import movies from "../../assets/movies.jpg"
 import parlour from "../../assets/parlour.jpg"
 import salons from "../../assets/salons.jpg"
+import spaMassage from '../../assets/spaMassage.jpg'
 
 
 const MainCategoriesArray = [
@@ -25,7 +26,7 @@ const MainCategoriesArray = [
     SubCateggories: [
       { name: "Beauty Parlours", img: parlour },
       { name: "Salons", img: salons },
-      { name: "Spa and Massages", img: caterers },
+      { name: "Spa and Massages", img: spaMassage },
     ],
   },
   {
