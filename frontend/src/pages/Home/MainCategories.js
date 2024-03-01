@@ -1,34 +1,47 @@
+import banquet from "../../assets/banquet.jpg"
+import acRepair from "../../assets/acRepair.jpg"
+import bikeService from "../../assets/bikeService.jpg"
+import carService from "../../assets/carService.jpg"
+import bridalRequisite from "../../assets/bridalRequisite.jpg"
+import caterers from "../../assets/caterers.jpg"
+import electrician from "../../assets/electrician.jpg"
+import grocery from "../../assets/grocery.jpg"
+import movies from "../../assets/movies.jpg"
+import parlour from "../../assets/parlour.jpg"
+import salons from "../../assets/salons.jpg"
+
+
 const MainCategoriesArray = [
   {
     name: "Wedding Requisites",
     SubCateggories: [
-      { name: "Banquet Hall", img: "img" },
-      { name: "Bridal Requisite", img: "img" },
-      { name: "Caterers", img: "img" },
+      { name: "Banquet Hall", img: banquet },
+      { name: "Bridal Requisite", img: bridalRequisite },
+      { name: "Caterers", img: caterers },
     ],
   },
   {
-    name: "Wedding Requisites",
+    name: "Beauty and Spa",
     SubCateggories: [
-      { name: "Banquet Hall", img: "img" },
-      { name: "Bridal Requisite", img: "img" },
-      { name: "Caterers", img: "img" },
+      { name: "Beauty Parlours", img: parlour },
+      { name: "Salons", img: salons },
+      { name: "Spa and Massages", img: "img" },
     ],
   },
   {
-    name: "Wedding Requisites",
+    name: "Daily Needs",
     SubCateggories: [
-      { name: "Banquet Hall", img: "img" },
-      { name: "Bridal Requisite", img: "img" },
-      { name: "Caterers", img: "img" },
+      { name: "Grocery", img: grocery },
+      { name: "Electrician", img: electrician },
+      { name: "Movies", img: movies },
     ],
   },
   {
-    name: "Wedding Requisites",
+    name: "Repairs and Services",
     SubCateggories: [
-      { name: "Banquet Hall", img: "img" },
-      { name: "Bridal Requisite", img: "img" },
-      { name: "Caterers", img: "img" },
+      { name: "Bike Services", img: bikeService },
+      { name: "Car Services", img: carService },
+      { name: "AC Repairs", img: acRepair },
     ],
   },
 ];

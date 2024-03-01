@@ -9,8 +9,9 @@ import BusinessRegister from './pages/BusinessRegister/BusinessRegister'
 import BussinessList from './pages/BussinessList/BussinessList'
 import BussinessPage from './pages/BussinessPage/BussinessPage'
 import BusinessDasboard from './pages/BusinessDasboard/BusinessDasboard'
-import BusinessDashboardSpecific from './pages/BusinessDashboardSpecific/BusinessDashboardSpecific'
-import BussinessSubList from './pages/BussinessSubList/BussinessSubList'
+import BusinessDashboardSpecific from './pages/BusinessDashboardSpecific/BusinessDashboardSpecific';
+import UserDashboard from './pages/UserDashboard/UserDashboard';
+
 const App = () => {
 
   return (
@@ -23,11 +24,11 @@ const App = () => {
       <Route path='/' element={<Home/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/bussiness-register' element={<BusinessRegister/>} />
-      <Route path='/bussiness-list/:district/:mainCategory' element={<BussinessSubList/>} />
-      <Route path='/bussiness-list/:district/:mainCategory/:subCategory' element={<BussinessList/>} />
-      <Route path='/bussiness-list/:district/:mainCategory/:subCategory/:bussinessId' element={<BussinessPage/>} />
+      <Route path='/bussiness-list/:district/:mainCategory' element={<BussinessList/>} />
+      <Route path='/bussiness-list/:district/:mainCategory/:bussinessId' element={<BussinessPage/>} />
       <Route path='/business-dashboard' element={<BusinessDasboard/>} />
       <Route path='/business-dashboard/:BusinessId' element={<BusinessDashboardSpecific/>} />
+      <Route path='/userdashboard' element={<UserDashboard/>}/>
     </Routes>
     </BrowserRouter>
     </>
