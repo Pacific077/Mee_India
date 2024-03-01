@@ -21,6 +21,7 @@
 .SubcategoryContainer{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: auto;
+    flex-wrap: wrap;
 }

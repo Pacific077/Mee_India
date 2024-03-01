@@ -7,7 +7,7 @@ const CategoriesCard = (props) => {
   const handleClick = ()=>{
     // console.log(props.subCat.length)
     if(props.subCat.length==0){
-      navigate(`/bussiness-list/district/${props.category}`)
+      navigate(`/bussiness-list/district/${props.category}/null`)
     }else{
       navigate(`/subList/${props.category}`)
     }
