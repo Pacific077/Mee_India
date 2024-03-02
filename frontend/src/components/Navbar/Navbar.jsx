@@ -28,6 +28,9 @@ const Navbar = () => {
   const handleFreeListingClick =()=>{
     navigate("./bussiness-register")
   }
+  const MoveToProfile =()=>{
+    navigate('./userdashboard')
+  }
   return (
     <>
       <div className="navbar">
@@ -47,7 +50,7 @@ const Navbar = () => {
           <p onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
-      {isLoggedIn?<div className="navProfile">
+      {isLoggedIn?<div className="navProfile" onClick={MoveToProfile}>
       </div>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
           </button>}

@@ -162,5 +162,31 @@ const UpdateProfile = async (req, res) => {
       })
     }
 };
+const ProfilpicUpload = async(req,res)=>{
+    try {
+      if(!req.file){
+        return res.status(400).json({
+          msg:"no file found"
+        })
+      }
+      //find user to be updated
+      const UserId = req.user._id;
+      const userFound = await User.findById(UserId);
+      if (!userFound) {
+        return res.status(400).json({
+          err:"User not found"
+        })
+      }
+      console.log("req.file",req.file)
+      const updateduser = await User.findByIdAndUpdate(UserId, {
+        profileImage: req.file.path,
+      });
+      res.status(200).json("Profile Pic Updated")
+    } catch (Er) {
+      res.status(400).json({
+        err:Er
+      })
+    }
+  }
 
-export { RegisterUser, LoginUser, Logout,UpdateProfile };
+export { RegisterUser, LoginUser, Logout,UpdateProfile ,ProfilpicUpload};

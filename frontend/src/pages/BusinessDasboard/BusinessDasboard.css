@@ -3,14 +3,14 @@
     border: 1px solid var(--grayShade);
     margin: auto;
     box-sizing: border-box;
+
     border-radius: 20px;
     overflow: hidden;
     
 }
 
 .BusinessDasboard{
-    padding: 4vh 18vh 0 18vh;
-    min-height:100vh ;
+    padding: 4vh 0 4vh;
 }
 .businessDashboardHead{
     font-family: var(--fontMain);

@@ -28,7 +28,7 @@ const App = () => {
       <Route path='/bussiness-register' element={<BusinessRegister/>} />
       <Route path='/bussiness-list/:district/:mainCategory/:subCat' element={<BussinessList/>} />
       <Route path='/bussiness-list/:district/:mainCategory/:bussinessId' element={<BussinessPage/>} />
-      <Route path='/business-dashboard' element={<BusinessDasboard/>} />
+      
       <Route path='/business-dashboard/:BusinessId' element={<BusinessDashboardSpecific/>} />
       <Route path='/userdashboard' element={<UserDashboard/>}/>
       <Route path='/subList/:Category' element={<BussinessSubList/>}/>
