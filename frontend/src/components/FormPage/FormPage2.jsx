@@ -3,21 +3,42 @@ import './FormPage.css'
 import Breaker from './Breaker/Breaker'
 import list from './states-and-districts.json'
 
-const FormPage2 = () => {
+const FormPage2 = ({
+  bussinessMail,
+  setBussinessMail,
+  bussinessContact,
+  setBussinessContact,
+  openDays,
+  setOpenDays,
+  openTime,
+  setOpenTime,
+  closeTime,
+  setCloseTime,
+  setCounter
+}) => {
 
     const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-    const [daySelected,setDaySelected] = useState([true,true,true,true,true,true,true]);
+    
 
     const handleClick = (ind)=>{
         console.log("index" + ind);
         const element = document.getElementById(ind);
         element.classList.toggle('selected');
-        setDaySelected((prev)=>{
+        setOpenDays((prev)=>{
             const updatedDays = [...prev]; // Create a copy of the previous state array
             updatedDays[ind] = !updatedDays[ind]; // Toggle the value at index 'ind'
             return updatedDays; 
         })
+    }
+
+    const handleNext = ()=>{
+
+      setCounter('3');
+    }
+    const handlePrev = ()=>{
+
+      setCounter('1');
     }
 
 return (
@@ -26,11 +47,11 @@ return (
     <div className='twoinputfield'>
       <div>
         <label className='formLabel'>Email:</label>
-        <input type='email' placeholder='' className='formInput' />
+        <input type='email' placeholder='' className='formInput' onChange={(event)=>{setBussinessMail(event.target.value)}} value={bussinessMail}/>
       </div>
       <div>
         <label className='formLabel'>Contact No.:</label>
-        <input placeholder='' className='formInput' />
+        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessContact(event.target.value)}} value={bussinessContact}/>
       </div>
     </div>
 
@@ -47,15 +68,18 @@ return (
     <div className='timeField'>
         <div>
             <label className='formLabel'>Opens At:</label>
-            <input type='time' className='timeInput'></input>
+            <input type='time' className='timeInput' onChange={(event)=>{setOpenTime(event.target.value)}} value={openTime}/>
         </div>
         <div>
             <label className='formLabel'>Closes At:</label>
-            <input type='time' className='timeInput'></input>
+            <input type='time' className='timeInput' onChange={(event)=>{setCloseTime(event.target.value)}} value={closeTime}/>
         </div>
     </div>
-
-    <button className='btn grnBtn'>Next</button>
+          
+    <div className='btnContainer'>
+    <button className='btn orngBtn' onClick={handlePrev}>Previous</button>
+    <button className='btn grnBtn' onClick={handleNext} >Next</button>
+    </div>
   </div>
 )
 }
