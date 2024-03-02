@@ -1,9 +1,14 @@
 import React from 'react'
 import hotel from "../../../assets/hotels.jpg"
 import "./MyBusinessCard.css"
+import { useNavigate } from 'react-router-dom'
 const MyBusinessCard = () => {
+  const navigate = useNavigate()
+  const handleClick = ()=>{
+    navigate('/business-dashboard/:BusinessId')
+  }
   return (
-    <div className='BusinessCardCont'>
+    <div className='BusinessCardCont' onClick={handleClick}>
         <div className="businessCardLeft">
         <img src={hotel} alt="" />
 

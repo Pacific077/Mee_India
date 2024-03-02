@@ -11,8 +11,8 @@
     
 }
 .UserDashboardImageDisplay{
-    /* border: 2px solid var(--primary); */
-    border-radius: 4%;
+    border: 10px solid var(--primary);
+
     width: 30%;
     box-sizing: border-box;
     height: 100%;
@@ -21,14 +21,21 @@
 .UserDashboardInfo{
     right: 0;
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     width: 70%;
-    height: 50%;
+    height: fit-content;
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 4vh;
+    /* align-items: center; */
     
    
+}
+.UserDashboardInfo h3,.UserDashboardInfo p{
+    margin: 0;
 }
 .userDashboardMainDiv{
     padding: 0 18vh 0 18vh;
@@ -39,7 +46,7 @@
     font-size: xx-large;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 700;
-    padding-left: 20px;
+
     color: rgb(117, 67, 2);
 }
 .userDashUpperDivProfilePic{
