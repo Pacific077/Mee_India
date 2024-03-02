@@ -10,6 +10,18 @@ p{
     flex-direction: column;
 
 }
+.blurDiv{
+    position: absolute;
+    background-color: rgba(245, 245, 245, 0.67);
+    width: 25%;
+    height: 87%;
+    left: 0px;
+    z-index: 10;
+    box-sizing: border-box;
+    font-family: Cabin;
+    font-size: 4vh;
+    padding: 0 4vh;
+}
 
 .BusinessregisterLeft img{
     flex-grow: 1;
@@ -19,7 +31,7 @@ p{
 .BusinessregisterRight {
     width: 75%;
     background-color: rgb(228, 255, 255);
-    padding: 10vh;
+    padding: 5vh;
     box-sizing: border-box;
 }
 

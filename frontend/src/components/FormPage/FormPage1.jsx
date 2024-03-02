@@ -44,6 +44,7 @@ const FormPage1 = ({
 
   return (
     <div className='FormPageContainer'>
+      <h1 className='formPage3heading'>Where is your business located?</h1>
       <label className='formLabel'>Title:</label>
       <input
         placeholder='Name of your Business'

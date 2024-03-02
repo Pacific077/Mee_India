@@ -43,7 +43,8 @@ const FormPage2 = ({
 
 return (
   <div className='FormPageContainer'>
-    <Breaker field="Contacts" />
+    <h1 className='formPage3heading'>When and how your customers can reach you? </h1>
+    {/* <Breaker field="Contacts" /> */}
     <div className='twoinputfield'>
       <div>
         <label className='formLabel'>Email:</label>

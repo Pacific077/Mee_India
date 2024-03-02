@@ -31,6 +31,9 @@ const BusinessRegister = () => {
             <img src={img1} alt="" srcset="" className='businessformImg' />
             <img src={img2} alt="" srcset="" className='businessformImg' />
         </div>
+        <div className='blurDiv'>
+          <h1>Register your business with us in few Simple Steps</h1>
+        </div>
         <div className="BusinessregisterRight">
           <div className='formContainer'>
             {counter==='1'&&<FormPage1 
