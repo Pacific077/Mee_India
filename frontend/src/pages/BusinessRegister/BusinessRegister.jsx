@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import img1 from "../../assets/registerFormSIdeBanner.avif";
 import img2 from "../../assets/registerFormSIdeBanner2.avif";
 import "./Businessregister.css";
+import axios from "axios";
 import BusinessFormCard from "../../components/Card/BusinessFormCard/BusinessFormCard";
 import BusinessFormInpcont from "../../components/Card/BussinessForminp/BusinessFormInpcont";
 import FormPage1 from "../../components/FormPage/FormPage1";
@@ -61,7 +62,13 @@ const BusinessRegister = () => {
         toast.success("Business Registered ")
       }
     } catch (error) {
-      console.log(error);
+      if (axios.isAxiosError(error) && error.response.status === 400) {
+        error.response.data.err.map((msg) => {
+          toast.error(msg);
+        });
+      }else{
+        toast.error("Something went wrong")
+      }
     }
   };
   return (

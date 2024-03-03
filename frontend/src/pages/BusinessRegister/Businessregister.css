@@ -50,3 +50,20 @@ p{
     height: 87vh;
     display: flex;
 }
+@media screen and (max-width: 1025px) {
+.BusinessregisterLeft,.blurDiv {
+    display: none;
+}
+.BusinessregisterRight{
+    width: 100%;
+}
+.formContainer {
+    margin: auto;
+    width: 78%;
+}
+}
+@media screen and (max-width: 427px) {
+    .BusinessregisterRight{
+        padding: 0;
+    }
+}

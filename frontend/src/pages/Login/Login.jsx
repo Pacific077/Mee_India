@@ -52,8 +52,8 @@ const Login = () => {
           } else if(axios.isAxiosError(error) && error.response.status === 401){
             toast.error("Invalid Id or Password");
           }else{
-            console.log("Ererere",error)
-            toast.error("hi")
+            
+            toast.error("Something went wrong")
           }
         }
       }

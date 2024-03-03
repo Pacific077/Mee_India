@@ -10,6 +10,7 @@ const upload = multer({ storage });
 BussinessRoute.post(
   "/freelist",
   IsAuthenticated,
+  BussinessValidator,
   FreeList
 );
 BussinessRoute.get("/findBussiness", FindBussiness);

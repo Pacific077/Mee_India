@@ -53,8 +53,9 @@
 }
 .daySelector{
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 2vh;
+    justify-content: space-between;
+    margin-top: 2vh;
+    flex-wrap: wrap;
 }
 .daybtn{
     /* color: white;
@@ -65,7 +66,8 @@
     padding: 2vh;
     border: 1px solid black;
     font-family: var(--fontNew2);
-    margin: 2vh 0;
+    margin-bottom: 1vh;
+
     text-align: center;
     cursor: pointer;
 }
@@ -142,3 +144,61 @@ input[type=file]::file-selector-button:hover {
     border-radius: 10px;
     border: 1px solid #555;
   }
+@media screen and (max-width: 769px) {
+    .formPage3heading{
+        font-size: 5vh;
+    }
+    .formContainer{
+        width: 93%;
+    }
+    .daybtn{
+        flex-grow: 0;
+        border-radius: 10px;
+        padding: 1.5vh;
+    }
+}
+@media screen and (max-width: 667px) {
+  .formInput {
+    font-size: 2vh;
+  }
+  .btn{
+    margin: 0;
+  }
+  .btnContainer {
+    margin-top: 0;
+    gap: 2vh;
+}
+}
+@media screen and (max-width: 551px) {
+  .twoinputfield {
+    /* justify-content: flex-start; */
+    gap: 0;
+}
+.formContainer{
+width: 100%;
+}
+.formLabel{
+    font-size: 2.5vh;
+}
+}
+@media screen and (max-width: 550px) {
+    .formContainer{
+        padding: 2vh;
+        }
+        .formPage3heading{
+            font-size: 4.5vh;
+        }
+        .daybtn {
+            font-size: small;
+            padding: 1vh;
+        }
+        input[type=file] {
+            width: 281px;
+            MARGIN-BOTTOM: 4VH;
+        }
+}
+@media screen and (max-width: 377px) {
+    .twoinputfield{
+        display: block;
+    }
+}

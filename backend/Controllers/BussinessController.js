@@ -5,17 +5,16 @@ const FreeList = async(req,res)=>{
     console.log("i reached here");
     try {
         const errs = validationResult(req);
-    
-        // if(!errs.isEmpty()){
-        //     let arr = [];
-        //     errs.array().forEach((error) => {
-        //         arr.push(error.msg);
-        //     });
-        //     return res.status(400).json({
-        //         message:"Something went wrong",
-        //         err:arr
-        //     })
-        // }
+        if(!errs.isEmpty()){
+            let arr = [];
+            errs.array().forEach((error) => {
+                arr.push(error.msg);
+            });
+            return res.status(400).json({
+                message:"Something went wrong",
+                err:arr
+            })
+        }
         // Extract business details from request body
         const {
           
@@ -37,13 +36,13 @@ const FreeList = async(req,res)=>{
             latitude,
             longitude
         } = req.body;
-        console.log("Rqerq",req.body,title)
+
         const location = {
           type : "Point",
           coordinates : [longitude,latitude]
         }
         const owner = req.user._id
-        console.log("ownere",owner)
+
         // Create a new business object using the schema
         const newBusiness = await Bussiness.create({
           title,

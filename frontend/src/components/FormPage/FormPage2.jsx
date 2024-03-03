@@ -51,7 +51,7 @@ const FormPage2 = ({
 
 return (
   <div className='FormPageContainer'>
-    <h1 className='formPage3heading'>When and how your customers can reach you? </h1>
+    <h1 className='formPage3heading'>How to reach you? </h1>
     {/* <Breaker field="Contacts" /> */}
     <div className='twoinputfield'>
       <div>
