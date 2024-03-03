@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './BussinessPage.css'
 import { useParams } from 'react-router-dom'
 import BussinessRating from '../../components/Card/BussinessListCard/BussinessRating/BussinessRating';
@@ -10,11 +10,39 @@ import bussinesspic from './bussinessPic.png'
 import Timing from './Timing/Timing';
 import { FaSquare } from "react-icons/fa";
 import Review from './Review/Review';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BussinessPage = () => {
 
     const {bussinessId} = useParams();
-    //use this fetch the bussiness Detail in future.
+
+  //   const [currBusiness,setCurrBusiness] = useState("")
+  //   //use this fetch the bussiness Detail in future.
+    
+  //   const findByID = async () => {
+  //     try {
+  //         const resp = await findByID({bussinessId });
+  //         if (resp.status === 200) {
+  //             console.log(resp)
+  //             // setCurrBusiness(resp.data.businesses);
+  //         }
+  //     } catch (error) {
+  //         if (axios.isAxiosError(error) && error.response.status === 400) {
+  //             error.response.data.err.map((msg) => {
+  //               toast.error(msg);
+  //             });
+  //           }else if(axios.isAxiosError(error) && error.response.status === 401){
+  //             toast.error(error.response.data.message)
+  //           } else {
+  //             toast.error("Something went wrong");
+  //           }
+  //     }
+  //   };
+
+  // useEffect(() => {
+  //   findByID();
+  //   }, [])
 
   return (
     <div className='BusinesspecPage'>

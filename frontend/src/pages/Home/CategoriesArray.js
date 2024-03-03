@@ -55,16 +55,19 @@ const CategoriesArray = [
   },
   {
     count: 1000,
-    category: "Salons",
+    category: "Salon",
     img: saloons,
     desc: "",
     subCat: [
       {
-      name: "MENS",
+      name: "Mens",
       img: "",
     },
       {
       name: "Womens",
+      img: "",
+    },{
+      name: "Unisex",
       img: "",
     },
   ],
