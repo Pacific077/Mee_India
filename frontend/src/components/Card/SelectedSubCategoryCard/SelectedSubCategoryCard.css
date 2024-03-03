@@ -1,0 +1,20 @@
+.SelectedsubCategorycard{
+    background-color: rgb(27, 156, 125);
+    height: fit-content;
+    padding: 1vh;
+    color: var(--primary);
+    border-radius: 4px;
+    padding-right: 3vh;
+    padding-top: 1vh;
+    position: relative;
+}
+.SubCatcrossicon{
+    position: absolute;
+    top: 0;
+    right:0;
+}
+.SubCatcrossicon:hover{
+    transform: rotate(360deg);
+    transition: 0.3s ease;
+    cursor: pointer;
+}

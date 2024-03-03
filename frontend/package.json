@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "http://127.0.0.1:5000/",
+  "proxy": "http://127.0.0.1:5000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -13,6 +13,7 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
     "react-icons": "^5.0.1",
+    "react-loading": "^2.0.3",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",

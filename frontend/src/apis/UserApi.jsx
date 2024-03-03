@@ -15,16 +15,20 @@ export const RegisterApi = async ({name,email,password}) => {
 };
 
 
-export const LoginApi = async (userData) => {
+export const LoginApi = async ({email,password}) => {
+
+    
     const response = await axios.post(
       "/api/v1/user/login",
       {
-        email: userData.email,
-        password: userData.password,
+        email,
+         password
       },
       {
         withCredentials: true,
       }
     );
+
     return response;
+ 
   };

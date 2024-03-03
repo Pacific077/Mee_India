@@ -3,6 +3,8 @@ import { body, validationResult } from 'express-validator';
 const BussinessValidator = [
   body('title').notEmpty().withMessage('Title is required'),
   body('address').notEmpty().withMessage('Address is required'),
+  body('bio').notEmpty().withMessage('bio is required'),
+  body('pincode').notEmpty().withMessage('pincode is required'),
   body('district').notEmpty().withMessage('District is required'),
   body('state').notEmpty().withMessage('State is required'),
   body('owner').notEmpty().withMessage('Owner is required'),
@@ -13,6 +15,7 @@ const BussinessValidator = [
   body('openDays').isArray({ min: 1 }).withMessage('Open days are required and should be an array with at least one day'),
   body('mainCategory').notEmpty().withMessage('Main category is required'),
   body('subCategory').notEmpty().withMessage('Sub category is required'),
+
   // body('location').custom(value => {
   //   if (!value || !value.coordinates || !Array.isArray(value.coordinates) || value.coordinates.length !== 2) {
   //       throw new Error('Invalid coordinates for location');

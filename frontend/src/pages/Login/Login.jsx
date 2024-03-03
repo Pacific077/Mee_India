@@ -17,31 +17,47 @@ const Login = () => {
     setshowPass(!showPass);
   };
   const HandleSignupAndLogin = async () => {
-    try {
       if (IsSigningup) {
-        const resp = await RegisterApi({name, email, password });
-        if (resp.status === 200) {
-          toast.success("user registered Successfulyy");
-          toast.success("Please Login to continue");
+        try {
+          const resp = await RegisterApi({name, email, password });
+          if (resp.status === 200) {
+            toast.success("User registered Successfulyy");
+            toast.success("Please Login to continue");
+          }
+        } catch (error) {
+          if (axios.isAxiosError(error) && error.response.status === 400) {
+            error.response.data.err.map((msg) => {
+              toast.error(msg);
+            });
+          } else if(axios.isAxiosError(error) && error.response.status === 401){
+            toast.error("Invalid Id or Password");
+          }else{
+            toast.error("Something went wrong")
+          }
         }
       } else {
-        const resp = await LoginApi({ email, password });
-        if (resp.status === 200) {
-          navigate('/')
-          toast.success("Logged in !!");
+        try{
+          console.log("loginapi")
+          const resp = await LoginApi({ email, password });
+          console.log("resp",resp)
+          if (resp.status === 200) {
+            navigate('/')
+            toast.success("Logged in !!");
+          }
+        }catch(error){
+          if (axios.isAxiosError(error) && error.response.status === 400) {
+            error.response.data.err.map((msg) => {
+              toast.error(msg);
+            });
+          } else if(axios.isAxiosError(error) && error.response.status === 401){
+            toast.error("Invalid Id or Password");
+          }else{
+            console.log("Ererere",error)
+            toast.error("hi")
+          }
         }
       }
-    } catch (error) {
-      if (axios.isAxiosError(error) && error.response.status === 400) {
-        error.response.data.err.map((msg) => {
-          toast.error(msg);
-        });
-      }else if(axios.isAxiosError(error) && error.response.status === 401){
-        toast.error(error.response.data.message)
-      } else {
-        toast.error("Something went wrong");
-      }
-    }
+ 
   };
   const handleNameChange = (e) => {
     setname(e.target.value);

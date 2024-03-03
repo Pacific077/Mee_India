@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FormPage.css';
 import Breaker from './Breaker/Breaker';
 import list from './states-and-districts.json';
-
+import { toast } from "react-toastify";
 const FormPage1 = ({
   title,
   setTitle,
@@ -41,7 +41,15 @@ const FormPage1 = ({
   const handlePinCodeChange = (event) => {
     setPinCode(event.target.value);
   };
+  const handleNextClick = ()=>{
+    if(title==''||pinCode==''||address==''||state==''||district==''){
+      toast.warning("All fields compulsary")
+    }else{
+      console.log(title,pinCode,address,state,district) 
+      setCounter('2');
 
+    }
+  }
   return (
     <div className='FormPageContainer'>
       <h1 className='formPage3heading'>Where is your business located?</h1>
@@ -103,7 +111,7 @@ const FormPage1 = ({
         value={pinCode}
       />
 
-      <button className='btn grnBtn' onClick={()=>{setCounter('2')}}>Next</button>
+      <button className='btn grnBtn' onClick={handleNextClick}>Next</button>
     </div>
   );
 };
