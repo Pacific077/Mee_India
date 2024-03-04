@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './FormPage.css'
 import Breaker from './Breaker/Breaker'
+import { toast } from "react-toastify";
 import list from './states-and-districts.json'
 
 const FormPage2 = ({
@@ -34,7 +35,14 @@ const FormPage2 = ({
 
     const handleNext = ()=>{
 
-      setCounter('3');
+        if(bussinessContact==''||bussinessMail==''||openTime==''||closeTime==''){
+          toast.warning("All fields compulsary")
+        }else if (!(openDays.find(day=>day==true))){  
+          toast.warning("All fields compulsary")
+        }else{
+          setCounter('3');
+        }
+      
     }
     const handlePrev = ()=>{
 
@@ -43,7 +51,7 @@ const FormPage2 = ({
 
 return (
   <div className='FormPageContainer'>
-    <h1 className='formPage3heading'>When and how your customers can reach you? </h1>
+    <h1 className='formPage3heading'>How to reach you? </h1>
     {/* <Breaker field="Contacts" /> */}
     <div className='twoinputfield'>
       <div>

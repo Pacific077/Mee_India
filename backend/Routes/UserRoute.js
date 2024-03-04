@@ -12,6 +12,6 @@ UserRoute.post('/register',UserCredentialValidator,RegisterUser);
 UserRoute.post('/login',UserLoginValidator,LoginUser);
 UserRoute.post('/logout',IsAuthenticated,Logout);
 UserRoute.post('/update',IsAuthenticated,UserCredentialValidator,UpdateProfile);
-UserRoute.put("/profile-photo-upload" , IsAuthenticated ,upload.single('profile') ,ProfilpicUpload);
+UserRoute.put("/profile-photo-upload" , IsAuthenticated ,upload.array("imgs",10) ,ProfilpicUpload);
 
 export default UserRoute;

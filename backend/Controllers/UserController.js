@@ -55,6 +55,7 @@ const RegisterUser = async (req, res) => {
 //login user
 const LoginUser = async (req, res) => {
     try {
+        console.log("reqbody",req.body);
         const errs = validationResult(req);
         if(!errs.isEmpty()){
             let arr = [];
@@ -163,6 +164,8 @@ const UpdateProfile = async (req, res) => {
     }
 };
 const ProfilpicUpload = async(req,res)=>{
+    console.log("bebejfmdnf")
+    console.log(req.files);
     try {
       if(!req.file){
         return res.status(400).json({
@@ -178,9 +181,9 @@ const ProfilpicUpload = async(req,res)=>{
         })
       }
       console.log("req.file",req.file)
-      const updateduser = await User.findByIdAndUpdate(UserId, {
-        profileImage: req.file.path,
-      });
+    //   const updateduser = await User.findByIdAndUpdate(UserId, {
+    //     profileImage: req.file.path,
+    //   });
       res.status(200).json("Profile Pic Updated")
     } catch (Er) {
       res.status(400).json({

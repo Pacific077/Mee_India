@@ -1,3 +1,6 @@
+.BusinessFromSelectedCubCategory{
+    margin-top: 0;
+}
 .formLabel{
     font-size: 3vh;
     font-weight: 400;
@@ -50,8 +53,9 @@
 }
 .daySelector{
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 2vh;
+    justify-content: space-between;
+    margin-top: 2vh;
+    flex-wrap: wrap;
 }
 .daybtn{
     /* color: white;
@@ -62,7 +66,8 @@
     padding: 2vh;
     border: 1px solid black;
     font-family: var(--fontNew2);
-    margin: 2vh 0;
+    margin-bottom: 1vh;
+
     text-align: center;
     cursor: pointer;
 }
@@ -93,5 +98,107 @@
 }
 
 .btnContainer{
+    margin-top: 8vh;
     display: flex;
+}
+.busineesFormImageUploadCont{
+    width: 100%;
+}
+.busineesFormImageUploadCont{
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap ;
+    /* flex-grow: 1; */
+}
+.BussinessFormImageuploadiv{
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+}
+.BussinessFormImageuploadiv label{
+  font-family: var(--fontNew1);
+  font-size: large;
+} 
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: var(--tertiary);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+input[type=file]::file-selector-button:hover {
+    background: #0d45a5;
+  }
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #555;
+  }
+@media screen and (max-width: 769px) {
+    .formPage3heading{
+        font-size: 5vh;
+    }
+    .formContainer{
+        width: 93%;
+    }
+    .daybtn{
+        flex-grow: 0;
+        border-radius: 10px;
+        padding: 1.5vh;
+    }
+}
+@media screen and (max-width: 667px) {
+  .formInput {
+    font-size: 2vh;
+  }
+  .btn{
+    margin: 0;
+  }
+  .btnContainer {
+    margin-top: 0;
+    gap: 2vh;
+}
+}
+@media screen and (max-width: 551px) {
+  .twoinputfield {
+    /* justify-content: flex-start; */
+    gap: 0;
+}
+.formContainer{
+width: 100%;
+}
+.formLabel{
+    font-size: 2.5vh;
+}
+}
+@media screen and (max-width: 550px) {
+    .formContainer{
+        padding: 2vh;
+        }
+        .formPage3heading{
+            font-size: 4.5vh;
+        }
+        .daybtn {
+            font-size: small;
+            padding: 1vh;
+        }
+        input[type=file] {
+            width: 281px;
+            MARGIN-BOTTOM: 4VH;
+        }
+}
+@media screen and (max-width: 377px) {
+    .twoinputfield{
+        display: block;
+    }
 }

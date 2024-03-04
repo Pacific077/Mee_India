@@ -30,7 +30,7 @@ p{
 
 .BusinessregisterRight {
     width: 75%;
-    background-color: rgb(228, 255, 255);
+    background-color: #f7b57a;
     padding: 5vh;
     box-sizing: border-box;
 }
@@ -49,4 +49,21 @@ p{
 .BusinessRegisterPage {
     height: 87vh;
     display: flex;
+}
+@media screen and (max-width: 1025px) {
+.BusinessregisterLeft,.blurDiv {
+    display: none;
+}
+.BusinessregisterRight{
+    width: 100%;
+}
+.formContainer {
+    margin: auto;
+    width: 78%;
+}
+}
+@media screen and (max-width: 427px) {
+    .BusinessregisterRight{
+        padding: 0;
+    }
 }

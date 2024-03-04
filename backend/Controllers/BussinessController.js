@@ -2,9 +2,9 @@ import Bussiness from "../Models/BussinessModel.js";
 import { validationResult } from "express-validator";
 
 const FreeList = async(req,res)=>{
+    console.log("i reached here");
     try {
         const errs = validationResult(req);
-    
         if(!errs.isEmpty()){
             let arr = [];
             errs.array().forEach((error) => {
@@ -17,27 +17,32 @@ const FreeList = async(req,res)=>{
         }
         // Extract business details from request body
         const {
-          title,
-          address,
-          district,
-          state,
-          owner,
-          longitude,
-          latitude,
-          bussinessContact,
-          bussinessMail,
-          openTime,
-          closeTime,
-          openDays,
-          mainCategory,
-          subCategory
+          
+            title,
+            address,
+            district,
+            state,
+            bussinessContact,
+            bussinessMail,
+            openTime,
+            closeTime,
+            openDays,
+            mainCategory,
+            subCategory,
+            pinCode,
+            bio,
+            imagelinkArr,
+
+            latitude,
+            longitude
         } = req.body;
 
         const location = {
           type : "Point",
           coordinates : [longitude,latitude]
         }
-    
+        const owner = req.user._id
+
         // Create a new business object using the schema
         const newBusiness = await Bussiness.create({
           title,
@@ -52,7 +57,7 @@ const FreeList = async(req,res)=>{
           closeTime,
           openDays,
           mainCategory,
-          subCategory
+          subCategory,pincode:pinCode,bio,imagelinkArr
         });
     
         // Save the business object to the database
@@ -65,7 +70,7 @@ const FreeList = async(req,res)=>{
             data: savedBusiness,
         });
       } catch (error) {
-        // Handle errors
+        console.log("Ereeresa",error)
         res.status(500).json({
             message:error.message
         })
@@ -73,7 +78,7 @@ const FreeList = async(req,res)=>{
 }
 
 const FindBussiness = async (req, res) => {
-    console.log(req.body);
+    
   try {
       const { district, mainCategory, latitude, longitude } = req.body;
 
