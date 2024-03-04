@@ -36,7 +36,7 @@ const UserDashboard = () => {
       </div>
       <div className='userDashCardcontainer'>
         <UserDashboardCard info={"Edit Profile"} fun={UpdateProfilePicture}  />
-        <UserDashboardCard info={"Update Profile Picture"} fun={UpdateProfilePicture}/>
+        <UserDashboardCard info={"Upgrade"} fun={UpdateProfilePicture}/>
         <UserDashboardCard info={"Get Verified"} fun={UpdateProfilePicture}/>
         {/* <UserDashboardCard/>
         <UserDashboardCard/> */}
