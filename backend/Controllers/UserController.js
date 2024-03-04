@@ -190,6 +190,18 @@ const ProfilpicUpload = async(req,res)=>{
         err:Er
       })
     }
-  }
+}
 
-export { RegisterUser, LoginUser, Logout,UpdateProfile ,ProfilpicUpload};
+const getUserProfile = async(req,res)=>{
+    try {
+        const id = req.user._id;
+        const user = await User.findById(id).populate('ownedBussinesses');
+        res.status(200).json({user})
+    } catch (err) {
+        res.status(500).json({
+            message:err.message
+        })
+    }
+}
+
+export { RegisterUser, LoginUser, Logout,UpdateProfile ,ProfilpicUpload,getUserProfile};

@@ -2,10 +2,10 @@ import React from 'react'
 import hotel from "../../../assets/hotels.jpg"
 import "./MyBusinessCard.css"
 import { useNavigate } from 'react-router-dom'
-const MyBusinessCard = () => {
+const MyBusinessCard = ({title,id,district,state}) => {
   const navigate = useNavigate()
   const handleClick = ()=>{
-    navigate('/business-dashboard/:BusinessId')
+    navigate(`/business-dashboard/${id}`)
   }
   return (
     <div className='BusinessCardCont' onClick={handleClick}>
@@ -14,8 +14,8 @@ const MyBusinessCard = () => {
 
         </div>
         <div className="BusinessCardRight">
-            <h2 className="BusinessCardHead">R N R Corporation</h2>
-            <p className="businessCardLocation">VivekVihar, Delhi</p>
+            <h2 className="BusinessCardHead">{ title}</h2>
+            <p className="businessCardLocation">{district}, {state}</p>
             <div className="businessCardbtnCont">
                 <button className='btnPrim btn-md' >btn1</button>
                 <button className='btnPrim btn-md2'>btn2</button>

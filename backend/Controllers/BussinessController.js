@@ -1,5 +1,6 @@
 import Bussiness from "../Models/BussinessModel.js";
 import { validationResult } from "express-validator";
+import User from "../Models/UserModel.js";
 
 const FreeList = async(req,res)=>{
     console.log("i reached here");
@@ -48,6 +49,7 @@ const FreeList = async(req,res)=>{
           title,
           address,
           district,
+          imagelinkArr,
           state,
           owner,
           location,
@@ -57,12 +59,17 @@ const FreeList = async(req,res)=>{
           closeTime,
           openDays,
           mainCategory,
+          buseinessImages:imagelinkArr,
           subCategory,pincode:pinCode,bio,imagelinkArr
         });
     
         // Save the business object to the database
         const savedBusiness = await newBusiness.save();
-    
+    // save new businnes to users arrat
+
+    const user = await User.findById(owner);
+    await user.ownedBussinesses.push(savedBusiness._id);
+    await user.save();
         // Respond with the saved business object
         res.status(200).json({
             success: true,

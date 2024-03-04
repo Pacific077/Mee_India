@@ -11,6 +11,7 @@ import FormPage3 from "../../components/FormPage/FormPage3";
 import FormPage4 from "../../components/FormPage/FormPage4";
 import { FreeListApi } from "../../apis/BusinessApi";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const BusinessRegister = () => {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -37,6 +38,7 @@ const BusinessRegister = () => {
   const [imagelinkArr, setImageLinkArr] = useState([]);
 
   const [counter, setCounter] = useState("1");
+  const navigate = useNavigate()
   // const formdata = new FormData()
   const handleSubmit = async () => {
     try {
@@ -59,6 +61,7 @@ const BusinessRegister = () => {
         longitude:72.877
       });
       if(resp.status==200){
+        navigate("/userdashboard")
         toast.success("Business Registered ")
       }
     } catch (error) {
@@ -66,7 +69,11 @@ const BusinessRegister = () => {
         error.response.data.err.map((msg) => {
           toast.error(msg);
         });
+      }else if(error.response.status===500){
+        toast.error("Email already registered")
+        
       }else{
+
         toast.error("Something went wrong")
       }
     }
