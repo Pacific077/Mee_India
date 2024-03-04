@@ -31,7 +31,7 @@ const App = () => {
             element={<BussinessList />}
           />
           <Route
-            path="/bussiness-list/:district/:mainCategory/:bussinessId"
+            path="/bussiness-list/:district/:mainCategory/:subCat/:bussinessId"
             element={<BussinessPage />}
           />
 
