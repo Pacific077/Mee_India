@@ -8,10 +8,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel'
 import { useNavigate } from 'react-router-dom';
 
-const BussinessListCard = () => {
+const BussinessListCard = ({bussinessId,name,ratingCnt,ratersCnt,address,contact}) => {
     const navigate = useNavigate();
 
-    const bussinessId = '65d435dfd33ee75a91e2a98a';
+    // const bussinessId = '65d435dfd33ee75a91e2a98a';
 
     const handleClick = ()=>{
         navigate(bussinessId, { replace: false });
@@ -22,10 +22,10 @@ const BussinessListCard = () => {
     <div className='BussinessListCardContainer' onClick={handleClick}>
         <div className='BussinessListCardLeft'><img src={bussinesspic} alt='bussinesspic'/></div>
         <div className='BussinessListCardRight'>
-            <h2>Odisha School Of Management & Technology</h2>
-            <BussinessRating ratingCnt={30} ratersCnt={8}/>
-            <p className='address'><IoLocationOutline/> Mirganj, Bihar, Pin-841438</p>    
-            <BussinessContact/>        
+            <h2>{name}</h2>
+            <BussinessRating ratingCnt={ratingCnt} ratersCnt={ratersCnt}/>
+            <p className='address'><IoLocationOutline/> {address}</p>    
+            <BussinessContact contact={contact}/>        
         </div>        
     </div>
   )

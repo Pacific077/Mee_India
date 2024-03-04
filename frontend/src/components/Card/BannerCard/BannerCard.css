@@ -1,12 +1,12 @@
 .BannerCard{
     /* border: 2px solid black; */
-    min-width: 24vh;
+    width: 24vh;
     height: 32vh;
     border-radius: 10px;
     flex-wrap: wrap;
     position: relative;
     box-sizing: border-box;
-    background-color: var(--tertiary);
+    padding: 2vh;
 }
 .BannerCardBut{
     position: absolute;
@@ -49,20 +49,25 @@
 }
 .BannerCardIMg{
     height: 83%;
-    width: 73%;
+    /* width: 73%; */
     position: absolute;
-    left: 2vh;
+    bottom: 0;
+    left: 0vh;
+    z-index: 0;
 }
 .BannerCardTitle{
-
-    /* margin-right: 2vh; */
+    position: relative;
+    margin: 0;
+    margin-left: auto;
+    min-width: 70%;
     color: var(--primary);
-    font-family: var(--fontMain);
-    font-size: 3vh;
-    /* margin-top: 2vh; */
+    font-family: var(--fontNew1);
+    font-size: 2.5vh;
+    font-weight: 600;
     margin-bottom: 0;
-    /* text-align: right; */
+    text-align: right;
     padding-left: 2vh;
+    z-index: 2;
 }
 @media screen and (max-width: 769px) {
     .BannerCard{

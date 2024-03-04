@@ -13,7 +13,7 @@ const LocationAndSearch2 = () => {
   const [suggestions, setSuggestions] = useState([]);
   const CatCon = useContext(CatContext);
   const suggestionRef = useRef(null);
-  const {latitude,longitude,setLatitude,setLongitude} = CatCon;
+  const {latitude,longitude,setLatitude,setLongitude,district,setDistrict} = CatCon;
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
@@ -35,14 +35,14 @@ const LocationAndSearch2 = () => {
       document.body.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  useEffect(()=>{
-    setlocallylocation()
-  },[latitude,longitude])
-  const setlocallylocation  =()=>{
-      localStorage.setItem("longitude", longitude);
-      localStorage.setItem("latitude",latitude );
+  // useEffect(()=>{
+  //   setlocallylocation()
+  // },[latitude,longitude])
+  // const setlocallylocation  =()=>{
+  //     localStorage.setItem("longitude", longitude);
+  //     localStorage.setItem("latitude",latitude );
     
-  }
+  // }
   const handleClickOutside = (e) => {
     if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
       setSuggestions([]);
@@ -62,6 +62,7 @@ const LocationAndSearch2 = () => {
   const handleLocationSelect =async (e) => {
     try {
       const resp =await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.innerText},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
+      setDistrict(resp.data[0].name)
       setLatitude(resp.data[0].lat)
       setLongitude(resp.data[0].lon)
       console.log(resp.data[0])
@@ -94,7 +95,7 @@ const LocationAndSearch2 = () => {
           className="locAndSrcInp"
           value={locinputValue}
           onChange={handleInputChange}
-          placeholder="Mumbai"
+          placeholder={district}
           type="text"
           name=""
           id=""

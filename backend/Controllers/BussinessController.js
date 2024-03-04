@@ -87,7 +87,7 @@ const FreeList = async(req,res)=>{
 const FindBussiness = async (req, res) => {
     
   try {
-      const { district, mainCategory, latitude, longitude, maxDistanceInMeters } = req.body;
+      const { district, mainCategory, latitude, longitude } = req.body;
 
       // Check if required parameters are provided
       if (!district || !mainCategory || !latitude || !longitude ) {
@@ -117,5 +117,25 @@ const FindBussiness = async (req, res) => {
   }
 };
 
+const findByID = async (req, res) => {
+    try {
+      const { bussinessId } = req.body;
 
-export { FreeList, FindBussiness };
+    //   console.log(bussinessId);
+      // Check if required parameters are provided
+      if (!bussinessId ) {
+          return res.status(400).json({ message: "Required parameters are missing" });
+      }
+
+      // Perform the proximity query
+      const requiredBusiness = await Bussiness.findOne({_id:bussinessId}).exec();
+    //   console.log(requiredBusiness);
+      res.status(200).json({ businessDetail: requiredBusiness });
+  } catch (error) {
+      console.error("Error finding required business:", error);
+      res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
+export { FreeList, FindBussiness, findByID };

@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./SubcategoryCard.css"
 import { useNavigate } from "react-router-dom";
+import CatContext from '../../../context/CategoryContext.jsx'
 
 const SubCategoriesCard = ({name,cat}) => {
   const navigate  = useNavigate()
+
+  const CatCon = useContext(CatContext);
+  const {district} = CatCon;
+
   const handleClick = ()=>{
-    navigate(`/bussiness-list/district/${cat}/${name}`)
+    navigate(`/bussiness-list/${district}/${cat}/${name}`)
   }
   return (
     <div className='subCategoryCard' onClick={handleClick}>

@@ -56,7 +56,7 @@
     width: 100%;
 }
 .bussinessPageAddress h2,.bussinessPagesection3 h2{
-    font-family: var(--fontMain);
+    font-family: var(--fontNew2);
     font-weight: 500;
     
 }
@@ -71,6 +71,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 2vh;
+    font-family: var(--fontNew2);
 }
 
 .reviewHead span{
