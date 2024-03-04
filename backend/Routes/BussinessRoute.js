@@ -1,5 +1,5 @@
 import express from 'express';
-import { FindBussiness, FreeList } from "../Controllers/BussinessController.js";
+import { FindBussiness, FreeList, findByID } from "../Controllers/BussinessController.js";
 import IsAuthenticated from "../Middleware/isAuthenticated.js";
 import BussinessValidator from "../Validators/BussinessValidator.js";
 // import storage from "../Config/Cloudinary.js";

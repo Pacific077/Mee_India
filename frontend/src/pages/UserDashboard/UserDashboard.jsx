@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../UserDashboard/UserDashboard.css"
 import "./UserDashboardCard"
 import bikeService from '../../assets/bikeService.jpg'
 import UserDashboardCard from './UserDashboardCard'
 import BusinessDasboard from '../BusinessDasboard/BusinessDasboard'
+import { ProfileApi } from '../../apis/UserApi'
 
-const userDashboard = () => {
+const UserDashboard = () => {
+  const [user,setUser] = useState(false);
+  const [businessList,setBusinessList] = useState ('')
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      const resp = await ProfileApi()
+      console.log("Resp",resp);
+      setUser(resp.data.user);
+      setBusinessList(resp.data.user.ownedBussinesses)
+    };
+    fetchData();
+  },[])
   const UpdateProfilePicture = ()=>{
     console.log("update profile")
   }
@@ -23,18 +35,18 @@ const userDashboard = () => {
        
       </div>
       <div className='userDashCardcontainer'>
-        <UserDashboardCard info={"Edit Profile"} fun={UpdateProfilePicture} />
+        <UserDashboardCard info={"Edit Profile"} fun={UpdateProfilePicture}  />
         <UserDashboardCard info={"Update Profile Picture"} fun={UpdateProfilePicture}/>
         <UserDashboardCard info={"Get Verified"} fun={UpdateProfilePicture}/>
         {/* <UserDashboardCard/>
         <UserDashboardCard/> */}
         
       </div>
-      <BusinessDasboard/>
+      <BusinessDasboard businessList={businessList}/>
     </div>
     
    
   )
 }
 
-export default userDashboard
+export default UserDashboard

@@ -32,3 +32,12 @@ export const LoginApi = async ({email,password}) => {
     return response;
  
   };
+  export const ProfileApi = async () => {
+    const response = await axios.get(
+      "/api/v1/user/getMyProfile",
+      {
+        withCredentials: true,
+      }
+    );
+    return response;
+  };
