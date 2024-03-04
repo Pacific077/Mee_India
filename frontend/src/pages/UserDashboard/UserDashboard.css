@@ -1,3 +1,15 @@
+.logout{
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    text-decoration: underline;
+    font-size: larger;
+    color: var(--indiaGreen);
+}
+.logout:hover{
+    cursor: pointer;
+}
+
 .userDashCardcontainer{
     /* background-color: rgb(30, 30, 76); */
     height: 13vh;

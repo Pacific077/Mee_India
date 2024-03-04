@@ -4,11 +4,14 @@ import "./UserDashboardCard"
 import bikeService from '../../assets/bikeService.jpg'
 import UserDashboardCard from './UserDashboardCard'
 import BusinessDasboard from '../BusinessDasboard/BusinessDasboard'
-import { ProfileApi } from '../../apis/UserApi'
+import { LogoutApi, ProfileApi } from '../../apis/UserApi'
+import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom'
 
 const UserDashboard = () => {
   const [user,setUser] = useState(false);
   const [businessList,setBusinessList] = useState ('')
+  const navigate = useNavigate()
   useEffect(()=>{
     const fetchData = async ()=>{
       const resp = await ProfileApi()
@@ -21,10 +24,25 @@ const UserDashboard = () => {
   const UpdateProfilePicture = ()=>{
     console.log("update profile")
   }
+  const handleLogout = async()=>{
+    try {
+      const resp = await LogoutApi()
+      if(resp.status===200){
+        toast.success("Logged Out")
+        navigate('/login')
+      }
+    } catch (error) {
+      toast.error("Something went Wrong")
+    }
+    
+  }
   return (
     
     <div className='userDashboardMainDiv'>
       <div className='userDashUpperDiv'>
+        <div className="logout" onClick={handleLogout}>
+          Logout
+        </div>
         <div className='userDashUpperDivProfilePic'>
           <img className='UserDashboardImageDisplay' src={bikeService} />
           <div className="UserDashboardInfo">
