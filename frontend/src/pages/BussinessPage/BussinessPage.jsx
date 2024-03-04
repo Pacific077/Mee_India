@@ -12,40 +12,36 @@ import { FaSquare } from "react-icons/fa";
 import Review from './Review/Review';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { findByID } from '../../apis/BusinessApi';
 
 const BussinessPage = () => {
 
     const {bussinessId} = useParams();
 
-  //   const [currBusiness,setCurrBusiness] = useState("")
-  //   //use this fetch the bussiness Detail in future.
-    
-  //   const findByID = async () => {
-  //     try {
-  //         const resp = await findByID({bussinessId });
-  //         if (resp.status === 200) {
-  //             console.log(resp)
-  //             // setCurrBusiness(resp.data.businesses);
-  //         }
-  //     } catch (error) {
-  //         if (axios.isAxiosError(error) && error.response.status === 400) {
-  //             error.response.data.err.map((msg) => {
-  //               toast.error(msg);
-  //             });
-  //           }else if(axios.isAxiosError(error) && error.response.status === 401){
-  //             toast.error(error.response.data.message)
-  //           } else {
-  //             toast.error("Something went wrong");
-  //           }
-  //     }
-  //   };
+    const [wait,setWait] = useState(true);
 
-  // useEffect(() => {
-  //   findByID();
-  //   }, [])
+    const [currBusiness,setCurrBusiness] = useState({})
+    //use this fetch the bussiness Detail in future.
+    
+    const fecthBusinessByID = async () => {
+      try {
+          const resp = await findByID({bussinessId });
+          if (resp.status === 200) {
+              console.log("resp",resp)
+              setWait(false)
+              setCurrBusiness(resp.data.businessDetail);
+          }
+      } catch (error) {
+          console.log(error);
+      }
+    };
+
+  useEffect(() => {
+    fecthBusinessByID();
+    }, [])
 
   return (
-    <div className='BusinesspecPage'>
+    <div>{wait?<h1>WAIT</h1>:<div className='BusinesspecPage'>
         <div className='bussinessPagesection1'>
           <div className='ImagesSection'>
             <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-science-higher-secondary-school-sisupalgarh-bhubaneshwar-colleges-o07ahiruk8.jpg'/>
@@ -63,10 +59,10 @@ const BussinessPage = () => {
             </Carousel>
           </div>
           <div className='BussinessListCardRight'>
-            <h2>Odisha School Of Management & Technology</h2>
-            <BussinessRating ratingCnt={30} ratersCnt={8}/>
-            <p className='address'><IoLocationOutline/> Mirganj, Bihar, Pin-841438</p>    
-            <BussinessContact/>        
+            <h2>{currBusiness.title}</h2>
+            <BussinessRating ratingCnt={currBusiness.ratingCount} ratersCnt={currBusiness.reviews.length}/>
+            <p className='address'><IoLocationOutline/> {currBusiness.address}</p>    
+            <BussinessContact contact={currBusiness.bussinessContact}/>        
           </div> 
         </div>
 
@@ -79,16 +75,16 @@ const BussinessPage = () => {
           </div>
           <div className='bussinessPageAddress'>
             <h2>Address</h2>
-            <p>Plot No 104/2439, 116/2343, 166, Mahaveer Nagar, Sisupalgarh, Bhubaneshwar - 751002 (Near Mahaveer Temple)</p>
+            <p>{currBusiness.address}</p>
           </div>
         </div>
 
         <div className='bussinessPagesection3'>
           <h2>Reviews and Ratings</h2>
           <div className='reviewHead'>
-            <span>4.4</span>
+            <span>{parseFloat((currBusiness.ratingCnt/currBusiness.reviews.length).toFixed(1))}</span>
             <div>
-              <h3>293 Reviews</h3>
+              <h3>{currBusiness.reviews.length} Reviews</h3>
               <p>Rating index based on 293 ratings across the web</p>
             </div>
           </div>
@@ -107,7 +103,7 @@ const BussinessPage = () => {
             <Review/>
           </div>
         </div>
-    </div>
+    </div>}</div>
   )
 }
 

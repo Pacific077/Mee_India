@@ -48,6 +48,7 @@ const BussinessList = () => {
             </div>
             <div className='ListContainer'>
                 {businessArray.map((bus)=><BussinessListCard 
+                    bussinessId={bus._id}
                     name={bus.title}
                     ratingCnt={bus.ratingCount}
                     ratersCnt={bus.review?.length===0?1:bus.review?.length}

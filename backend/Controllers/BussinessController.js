@@ -106,10 +106,10 @@ const FindBussiness = async (req, res) => {
 };
 
 const findByID = async (req, res) => {
-    console.log(req.body);
     try {
       const { bussinessId } = req.body;
 
+    //   console.log(bussinessId);
       // Check if required parameters are provided
       if (!bussinessId ) {
           return res.status(400).json({ message: "Required parameters are missing" });
@@ -117,7 +117,7 @@ const findByID = async (req, res) => {
 
       // Perform the proximity query
       const requiredBusiness = await Bussiness.findOne({_id:bussinessId}).exec();
-
+    //   console.log(requiredBusiness);
       res.status(200).json({ businessDetail: requiredBusiness });
   } catch (error) {
       console.error("Error finding required business:", error);
