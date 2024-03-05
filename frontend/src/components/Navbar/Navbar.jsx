@@ -26,10 +26,10 @@ const Navbar = () => {
   }
 
   const handleFreeListingClick =()=>{
-    navigate("./bussiness-register")
+    navigate("/bussiness-register")
   }
   const MoveToProfile =()=>{
-    navigate('./userdashboard')
+    navigate('/userdashboard')
   }
   return (
     <>

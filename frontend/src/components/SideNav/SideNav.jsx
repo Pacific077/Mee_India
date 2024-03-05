@@ -1,7 +1,10 @@
 import React from 'react'
 import dp from "../../assets/doc.jpg"
 import "./Sidenav.css"
+import { useNavigate } from 'react-router-dom'
+
 const SideNav = ({vis}) => {
+  const navigate = useNavigate()
   return (
     <div className={`SideNav ${vis ? 'SideNavIsvis' : ''}`}>
       <div className="sidenavProfileBox">
@@ -9,10 +12,10 @@ const SideNav = ({vis}) => {
         <p>ALberttross</p>
       </div>
       <div className="sidenavitemsCont">
-        <div className="sideNavItems">Home</div>
-        <div className="sideNavItems">Free listing</div>
-        <div className="sideNavItems">My Profile</div>
-        <div className="sideNavItems">Dashboard</div>
+        <div className="sideNavItems" onClick={()=>navigate('/')}>Home</div>
+        <div className="sideNavItems" onClick={()=>navigate('/bussiness-register')}>Free listing</div>
+        <div className="sideNavItems" onClick={()=>navigate('/userdashboard')}>My Profile</div>
+
       </div>
     </div>
   )
