@@ -1,0 +1,11 @@
+.reviewForm{
+    margin-bottom: 2vh;
+    padding: 2vh;
+}
+
+.star-rating{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2vh;
+}

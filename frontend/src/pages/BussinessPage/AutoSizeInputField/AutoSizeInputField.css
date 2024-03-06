@@ -1,0 +1,28 @@
+.AutoSizeInputField{
+    position: relative;
+    width: 50%;
+}
+.AutoSizeInputField textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 6vh;
+    max-height: 20vh;
+    border: none;
+    background-color: rgba(190, 183, 255, 0.404);
+    caret-color: black;
+    font-size: 2vh;
+    padding: 1vh;
+}
+.AutoSizeInputField span{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: rgba(0, 0, 0, 0.388);
+}
+.textareaSubmit{
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 1vh;
+}

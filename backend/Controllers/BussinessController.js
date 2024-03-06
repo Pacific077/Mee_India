@@ -1,6 +1,7 @@
 import Bussiness from "../Models/BussinessModel.js";
 import { validationResult } from "express-validator";
 import User from "../Models/UserModel.js";
+import Review from "../Models/ReviewModel.js";
 
 const FreeList = async(req,res)=>{
     console.log("i reached here");
@@ -147,5 +148,47 @@ const findByID = async (req, res) => {
   }
 };
 
+const reviewSubmit = async (req, res) => {
+    try {
+      const { userId,message,rating,bussinessId } = req.body;
 
-export { FreeList, FindBussiness, findByID };
+    //   console.log(message);
+      // Check if required parameters are provided
+      if (!userId || !message || !rating || !bussinessId ) {
+          return res.status(400).json({ message: "Required parameters are missing" });
+      }
+
+      // Perform the proximity query
+      const reviewedBusiness = await Bussiness.findOne({_id:bussinessId}).exec();
+      
+      const reviewer = await User.findOne({_id:userId}).exec();
+
+      if(reviewer.ratedBussinesses.includes(reviewedBusiness._id))
+      {
+        return res.status(400).json({message: "You have already reviewed this business!"})
+      }
+      
+      const review = await Review.create({
+          userId,
+          message
+        });
+
+        reviewedBusiness.ratingCount += rating;
+        reviewedBusiness.reviews.push(review);
+        
+        reviewer.ratedBussinesses.push(bussinessId);
+
+        await reviewedBusiness.save();
+        await reviewer.save();
+
+    //   console.log(requiredBusiness);
+      res.status(200).json({ message: "Review Submitted Successfully" });
+  } catch (error) {
+    // //   console.error("Error finding required business:", error);
+    console.log(error);
+      res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
+export { FreeList, FindBussiness, findByID, reviewSubmit };

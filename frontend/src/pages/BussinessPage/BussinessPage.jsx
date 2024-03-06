@@ -12,7 +12,11 @@ import { FaSquare } from "react-icons/fa";
 import Review from './Review/Review';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { findByID } from '../../apis/BusinessApi';
+import { ReviewSubmit, findByID } from '../../apis/BusinessApi';
+import { TextField } from '@mui/material';
+import { TextareaAutosize } from '@mui/base/TextareaAutosize';
+import { ProfileApi } from '../../apis/UserApi';
+import ReviewForm from './ReviewForm/ReviewForm';
 
 const BussinessPage = () => {
 
@@ -22,12 +26,17 @@ const BussinessPage = () => {
 
     const [currBusiness,setCurrBusiness] = useState({})
     //use this fetch the bussiness Detail in future.
+    const [user,setUser] = useState(false);
+    const [ratedBusinesses,setRatedBusinesses] = useState([])
+
+    const [rating,setRating] = useState(0);
+    const [reviewMsg,setReviewMsg] = useState("");
     
     const fecthBusinessByID = async () => {
       try {
           const resp = await findByID({bussinessId });
           if (resp.status === 200) {
-              console.log("resp",resp)
+              // console.log("resp",resp)
               setWait(false)
               setCurrBusiness(resp.data.businessDetail);
           }
@@ -35,6 +44,19 @@ const BussinessPage = () => {
           console.log(error);
       }
     };
+
+    const fetchUserByID = async()=>{
+      try{
+        const resp = await ProfileApi()
+      // console.log("Resp",resp);
+        setUser(resp.data.user);
+        setRatedBusinesses(resp.data.user.ratedBussinesses);
+      }
+      catch(error){
+        console.log(error);
+        toast.error("Something Went Wrong")
+      }
+    }
 
     // Function to group timingArr into pairs
     const groupIntoPairs = (arr) => {
@@ -53,8 +75,29 @@ const BussinessPage = () => {
       return result;
     };
 
+    const handleReviewFormSubmit = async()=>{
+      try{
+        const resp = await ReviewSubmit({
+          userId:user._id,
+          message:reviewMsg,
+          rating: rating,
+          bussinessId:currBusiness._id
+        })
+
+        if(resp.status === 200)toast.success(resp.data.message);
+        else toast.warning(resp.data.message)
+      }
+      catch(error)
+      {
+        console.log(error);
+        toast.error(error);
+      }
+    }
+
+
   useEffect(() => {
     fecthBusinessByID();
+    fetchUserByID();
     }, [])
 
   return (
@@ -102,6 +145,7 @@ const BussinessPage = () => {
               <p>Rating index based on 293 ratings across the web</p>
             </div>
           </div>
+          {!ratedBusinesses.includes(currBusiness._id)?<ReviewForm rating={rating} setRating={setRating} reviewMsg={reviewMsg} setReviewMsg={setReviewMsg} handleReviewFormSubmit={handleReviewFormSubmit}/>:<h3>You have already Reviewed this Business.</h3>}
           <div className='reviewList'>
             <Review/>
             <Review/>
