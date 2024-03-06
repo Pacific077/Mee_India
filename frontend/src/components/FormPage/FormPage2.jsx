@@ -3,25 +3,36 @@ import './FormPage.css'
 import Breaker from './Breaker/Breaker'
 import { toast } from "react-toastify";
 import list from './states-and-districts.json'
+import AddIcon from '@mui/icons-material/Add';
 
 const FormPage2 = ({
   bussinessMail,
   setBussinessMail,
   bussinessContact,
   setBussinessContact,
+  bussinessAltContact,
+  setBussinessAltContact,
   openDays,
   setOpenDays,
   openTime,
   setOpenTime,
   closeTime,
+  timingArr,
+  setTimingArr,
   setCloseTime,
   setCounter
 }) => {
 
     const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-    
-
+    const onAddClick = ()=>{
+      if(openTime==''||closeTime=='')toast.warning("All fields compulsary");
+      else{
+        setTimingArr((prev)=>[...prev,openTime,closeTime])
+        setOpenTime('');setCloseTime('');
+      }
+    }
+//
     const handleClick = (ind)=>{
         console.log("index" + ind);
         const element = document.getElementById(ind);
@@ -35,7 +46,7 @@ const FormPage2 = ({
 
     const handleNext = ()=>{
 
-        if(bussinessContact==''||bussinessMail==''||openTime==''||closeTime==''){
+        if(bussinessContact==''||bussinessMail==''||timingArr.length===0){
           toast.warning("All fields compulsary")
         }else if (!(openDays.find(day=>day==true))){  
           toast.warning("All fields compulsary")
@@ -58,9 +69,15 @@ return (
         <label className='formLabel'>Email:</label>
         <input type='email' placeholder='' className='formInput' onChange={(event)=>{setBussinessMail(event.target.value)}} value={bussinessMail}/>
       </div>
+    </div>
+    <div className='twoinputfield'>
       <div>
-        <label className='formLabel'>Contact No.:</label>
+        <label className='formLabel'>Contact:</label>
         <input placeholder='' className='formInput' onChange={(event)=>{setBussinessContact(event.target.value)}} value={bussinessContact}/>
+      </div>
+      <div>
+        <label className='formLabel'>Alternate Contact:</label>
+        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessAltContact(event.target.value)}} value={bussinessAltContact}/>
       </div>
     </div>
 
@@ -82,6 +99,10 @@ return (
         <div>
             <label className='formLabel'>Closes At:</label>
             <input type='time' className='timeInput' onChange={(event)=>{setCloseTime(event.target.value)}} value={closeTime}/>
+        </div>
+        <div className='addTime' onClick={onAddClick}>
+          <p>Add this Timing </p>
+          <span ><AddIcon/></span>
         </div>
     </div>
           

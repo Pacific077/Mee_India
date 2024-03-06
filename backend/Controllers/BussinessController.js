@@ -24,9 +24,9 @@ const FreeList = async(req,res)=>{
             district,
             state,
             bussinessContact,
+            bussinessAltContact,
             bussinessMail,
-            openTime,
-            closeTime,
+            timingArr,
             openDays,
             mainCategory,
             subCategory,
@@ -49,20 +49,22 @@ const FreeList = async(req,res)=>{
           title,
           address,
           district,
-          imagelinkArr,
           state,
           owner,
+          pinCode,
+          bio,
           location,
           bussinessContact,
+          bussinessAltContact,
           bussinessMail,
-          openTime,
-          closeTime,
+          timingArr,
           openDays,
           mainCategory,
-          buseinessImages:imagelinkArr,
-          subCategory,pincode:pinCode,bio,imagelinkArr
+          subCategory,
+          buseinessImages:imagelinkArr
         });
-    
+        
+        console.log("created");
         // Save the business object to the database
         const savedBusiness = await newBusiness.save();
     // save new businnes to users arrat
@@ -87,7 +89,7 @@ const FreeList = async(req,res)=>{
 const FindBussiness = async (req, res) => {
     
   try {
-      const { district, mainCategory, latitude, longitude } = req.body;
+      const { district, mainCategory, latitude, longitude, subCat } = req.body;
 
       // Check if required parameters are provided
       if (!district || !mainCategory || !latitude || !longitude ) {
@@ -96,7 +98,7 @@ const FindBussiness = async (req, res) => {
 
       console.log(district, mainCategory, longitude, latitude);
       // Perform the proximity query
-      const nearbyBusinesses = await Bussiness.find({
+      const baseQuery = {
           district: district,
           mainCategory: mainCategory,
           location: {
@@ -108,7 +110,15 @@ const FindBussiness = async (req, res) => {
                   $maxDistance: 20000
               }
           }
-      }).exec();
+      };
+
+      // If subCat is provided, add subCategory condition to the base query
+      if (subCat) {
+        baseQuery.subCategory = { $in: [subCat] };
+        }
+
+    // Perform the proximity query
+    const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
 
       res.status(200).json({ businesses: nearbyBusinesses });
   } catch (error) {

@@ -8,7 +8,7 @@ const bussinessSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    pincode: {
+    pinCode: {
       type: Number,
       required: true,
     },
@@ -39,10 +39,12 @@ const bussinessSchema = mongoose.Schema(
     },
     //bussinessContact
     bussinessContact: { type: String, required: true },
+    bussinessAltContact: { type: String, required: true },
     bussinessMail: { type: String, unique: true, required: true },
     //timing
-    openTime: { type: String, required: true },
-    closeTime: { type: String, required: true },
+    // openTime: { type: String, required: true },
+    // closeTime: { type: String, required: true },
+    timingArr: { type: [String], required: true },
     openDays: { type: [String], required: true },
     //Category
     mainCategory: { type: String, required: true },

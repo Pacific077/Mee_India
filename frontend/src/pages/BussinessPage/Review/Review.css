@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1vh;
-    font-family: var(--fontNew2);
+    font-family: var(--fontNew1);
 }
 
 .userInfo svg{
@@ -27,7 +27,7 @@
     width: 6vh;
     border-radius: 100%;
     color: white;
-    font-family: var(--fontNew2);
+    font-family: var(--fontNew1);
     display: flex;
     justify-content: center;
     align-items: center;

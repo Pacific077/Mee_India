@@ -17,7 +17,7 @@ const BussinessList = () => {
 
     const SearchOnCLick = async () => {
         try {
-            const resp = await SearchOnClickApi({district, mainCategory, latitude, longitude });
+            const resp = await SearchOnClickApi({district, mainCategory, latitude, longitude, subCat });
             if (resp.status === 200) {
                 console.log(resp)
                 setBusinessArray(resp.data.businesses);

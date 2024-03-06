@@ -53,7 +53,7 @@ const FormPage3 = ({
       </h1>
       <div>
         <label className="formLabel">
-          Select all suitable Category for your business:
+          Select a suitable Category for your business:
         </label>
         <select className="formInput small" onChange={handleCatChange}>
           <option value="">Select</option>
@@ -74,7 +74,7 @@ const FormPage3 = ({
       </div>
       {subCatArr.length !== 0 && (
         <div>
-          <label className="formLabel">Select suitable Sub-Category:</label>
+          <label className="formLabel">Select all suitable Sub-Categories for your business:</label>
           <select className="formInput small" onChange={selectSubCategories}>
             <option value="">Select</option>
             {subCatArr.map((cat, index) => (

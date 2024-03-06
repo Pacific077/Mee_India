@@ -36,6 +36,23 @@ const BussinessPage = () => {
       }
     };
 
+    // Function to group timingArr into pairs
+    const groupIntoPairs = (arr) => {
+      const result = [];
+      for (let i = 0; i < arr.length; i += 2) {
+        const pair = arr.slice(i, i + 2);
+        const formattedPair = pair.map((time) => {
+          const [hour, minute] = time.split(':');
+          const isAM = parseInt(hour) < 12;
+          const hourSuffix = isAM ? 'AM' : 'PM';
+          const hourDisplay = isAM ? hour : parseInt(hour) % 12 || 12;
+          return `${hourDisplay}:${minute} ${hourSuffix}`;
+        });
+        result.push(formattedPair);
+      }
+      return result;
+    };
+
   useEffect(() => {
     fecthBusinessByID();
     }, [])
@@ -44,18 +61,10 @@ const BussinessPage = () => {
     <div>{wait?<h1>WAIT</h1>:<div className='BusinesspecPage'>
         <div className='bussinessPagesection1'>
           <div className='ImagesSection'>
-            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-science-higher-secondary-school-sisupalgarh-bhubaneshwar-colleges-o07ahiruk8.jpg'/>
-            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src='https://images.jdmagicbox.com/comp/bhubaneshwar/dc/0674px674.x674.100324183148.v5n3dc/catalogue/navajyoti-junior-science-college-sisupalgarh-bhubaneshwar-colleges-3t2nwoc.jpg'/>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[0]}/>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[1]}/>
             <Carousel className='ImageSectioncarousel' showStatus={false} showIndicators={false} autoPlay={true} interval={3000} infiniteLoop={true}>
-                <div>
-                    <img src={bussinesspic} />
-                </div>
-                <div>
-                    <img src={bussinesspic} />
-                </div>
-                <div>
-                    <img src={bussinesspic} />
-                </div>
+                {currBusiness.buseinessImages.map((pic)=><div><img src={pic}/></div>)}
             </Carousel>
           </div>
           <div className='BussinessListCardRight'>
@@ -69,7 +78,12 @@ const BussinessPage = () => {
         <div className='bussinessPagesection2'>
           <div className='bussinessPageTiming'>
             <h2>Timings</h2>
-            <Timing/>
+            <div>
+              {groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
+                <p key={index}>{pair.join(' - ')}</p>
+              ))}
+            </div>
+            <Timing openDays={currBusiness.openDays}/>
             <p> represents Open days<span style={{color:"var(--indiaGreen)",marginRight:"2px"}}><FaSquare/></span></p>
             <p> represents Close days<span style={{color:"gray",marginRight:"2px"}}><FaSquare/></span></p>
           </div>
