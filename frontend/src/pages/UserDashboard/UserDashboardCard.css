@@ -15,3 +15,57 @@
     text-shadow: 3px 3px 8px var(--indiaGreen);
 
 }
+@media screen and (max-width: 1025px) {
+    .userDashboardMainDiv {
+        padding: 0 10vh 0 10vh;
+    }
+}
+@media screen and (max-width: 769px) {
+    .userDashboardMainDiv {
+        padding: 0 ;
+    }
+    .userdashCard{
+        font-size: x-large;
+    }
+}
+@media screen and (max-width: 667px) {
+    .userDashUpperDivProfilePic {
+      width: 53%;
+    }
+    .userDashboardName {
+        font-size: x-large;
+     }
+}
+@media screen and (max-width: 550px) {
+    .userDashUpperDivProfilePic {
+        width: 62%;
+    }
+}
+@media screen and (max-width: 427px) {
+    .userDashUpperDivProfilePic {
+        width: 76%;
+    }
+    .userdashCard{
+        font-size: large;
+    }
+    .userDashUpperDiv {
+        min-height: 33vh;
+    }
+    .userdashCard{
+        height: 10vh;
+    width: 71%;
+    }
+    .userDashCardcontainer {
+        
+        flex-direction: column;
+       height: fit-content;
+    }
+}
+@media screen and (max-width: 376px) {
+    .userDashUpperDivProfilePic {
+        width: 95%;
+    }
+    .UserDashboardImageDisplay{
+        height: 90%;
+    }
+}

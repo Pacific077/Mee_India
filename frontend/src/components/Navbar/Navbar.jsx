@@ -26,10 +26,10 @@ const Navbar = () => {
   }
 
   const handleFreeListingClick =()=>{
-    navigate("./bussiness-register")
+    navigate("/bussiness-register")
   }
   const MoveToProfile =()=>{
-    navigate('./userdashboard')
+    navigate('/userdashboard')
   }
   return (
     <>
@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
         <div className="navItems">
           <p>English</p>
-          <p>Advertise</p>
+          <p onClick={()=>navigate('/')}>Home</p>
           <p onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}

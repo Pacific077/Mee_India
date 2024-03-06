@@ -41,3 +41,12 @@ export const LoginApi = async ({email,password}) => {
     );
     return response;
   };
+  export const LogoutApi = async () => {
+    const response = await axios.post(
+      "/api/v1/user/logout",
+      {
+        withCredentials: true,
+      }
+    );
+    return response;
+  };
