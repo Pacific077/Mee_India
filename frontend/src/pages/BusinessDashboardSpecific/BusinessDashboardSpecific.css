@@ -55,7 +55,7 @@ border: 1px solid var(--grayShade);
 
 .BusinessDashSpecDetails{
     width: 85%;
-    min-height: 44vh;
+    height: fit-content;
     margin: auto;
     padding: 0vh;
     margin-top: 4vh;

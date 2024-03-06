@@ -1,0 +1,36 @@
+.CatalougeEditFormDesc{
+    color: var(--grayShade);
+}
+.AddCatalougeCard{
+    height: 18vh;
+    width: 18vh;
+    border: 2px dashed rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.AddCatalougeCard p{
+    margin: 0;
+}
+.plusSign{
+    font-size: xx-large;
+}
+.BussinessEditCatalougeFile{
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    transform: scale(3);
+    opacity: 0;
+}
+.BusinessEditCatalougeCont{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    gap:16vh;
+    margin-bottom: 8vh;
+}

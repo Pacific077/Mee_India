@@ -30,28 +30,16 @@ const BusinessDashboardSpecificArr = [
         locate:"editPhoto"
     },
     {
-        tag:"Contact",
-        icon:MdContacts,
-        color:"#D3D3D3",
-        locate:"editName"
-    },
-    {
-        tag:"Timing",
-        icon:IoMdTime,
-        color:"#FFE4E1",
-        locate:"editName"
-    },
-    {
         tag:"Catalouge",
         icon:FaClipboardList,
         color:"#AFEEEE",
-        locate:"editName"
+        locate:"Catalouge"
     },
     {
         tag:"Offer",
         icon:BiSolidOffer,
         color:"#FFE5B4",
-        locate:"editName"
+        locate:"Offers"
     },
     {
         tag:"Reviews",
@@ -63,26 +51,10 @@ const BusinessDashboardSpecificArr = [
         tag:"website",
         icon:CgWebsite,
         color:"#F5FFFA",
-        locate:"editName"
+        locate:"website"
     },
-    {
-        tag:"Videos",
-        icon:FaPhotoVideo,
-        color:"#F0FFF0",
-        locate:"editName"
-    },
-    {
-        tag:"Socials ",
-        icon:IoShareSocialSharp,
-        color:"#FFF0F5",
-        locate:"editName"
-    },
-    {
-        tag:"Biz Card",
-        icon:FaRegCreditCard,
-        color:"#ADD8E6",
-        locate:"editName"
-    },
+   
+
 ]
 
 export default BusinessDashboardSpecificArr
