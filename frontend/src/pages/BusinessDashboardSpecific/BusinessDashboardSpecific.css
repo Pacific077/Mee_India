@@ -119,3 +119,25 @@ border: 1px solid var(--grayShade);
     height: 100%;
     gap: 3vh;
 }
+.BusinessNameAndLocation{
+    width: 85%;
+    margin: auto;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+.BusinessNameAndLocation h1{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    font-size: 5vh;
+    color: var(--tertiary);
+    text-shadow: 1px 1px 4px var(--indiaGreen);
+    margin-bottom: 0;
+}
+.BusinessNameAndLocation p{
+    height: 4vh;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
