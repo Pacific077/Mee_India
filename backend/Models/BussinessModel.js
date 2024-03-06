@@ -18,6 +18,11 @@ const bussinessSchema = mongoose.Schema(
         type: String,
       },
     ],
+    CatalougeImages: [
+      {
+        type: String,
+      },
+    ],
     address: { type: String, required: true },
     district: { type: String, required: true },
     state: { type: String, required: true },
@@ -25,6 +30,16 @@ const bussinessSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    websiteUrl:{
+      type:String,
+
+    },
+    Services:[{
+      type:String
+    }],
+    WebsiteDescription:{
+      type:String
     },
     location: {
       type: {

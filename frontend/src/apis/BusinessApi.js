@@ -34,3 +34,18 @@ export const FreeListApi = async (data) => {
   );
   return response;
 };
+
+export const BusienessEdit = async (EditDetails) => {
+
+
+  const response = await axios.post(
+    "http://localhost:5000/api/v1/bussiness/EditBusiness",
+    EditDetails,
+    {
+      withCredentials: true,
+    }
+  );
+
+  return response;
+
+};

@@ -18,7 +18,6 @@ const FreeList = async(req,res)=>{
         }
         // Extract business details from request body
         const {
-          
             title,
             address,
             district,
@@ -33,7 +32,6 @@ const FreeList = async(req,res)=>{
             pinCode,
             bio,
             imagelinkArr,
-
             latitude,
             longitude
         } = req.body;
@@ -131,8 +129,6 @@ const findByID = async (req, res) => {
     try {
       const { bussinessId } = req.body;
 
-    //   console.log(bussinessId);
-      // Check if required parameters are provided
       if (!bussinessId ) {
           return res.status(400).json({ message: "Required parameters are missing" });
       }
@@ -147,5 +143,36 @@ const findByID = async (req, res) => {
   }
 };
 
+const EditBusiness = async(req,res)=>{
+    try {
+        const {businessId,name,websiteUrl,photos,WebsiteDescription,Catalouge,Services} = req.body
 
-export { FreeList, FindBussiness, findByID };
+        const updateObject = {};
+        if (name) updateObject.title = name;
+        if (websiteUrl) updateObject.websiteUrl = websiteUrl;
+        if (WebsiteDescription) updateObject.WebsiteDescription = WebsiteDescription;
+        if (photos) updateObject.$push = { buseinessImages: { $each: photos } };
+        if (Catalouge) updateObject.$push = { CatalougeImages: { $each: Catalouge } };
+        if (Services) updateObject.Services = Services;
+        const business = await Bussiness.findByIdAndUpdate(businessId, updateObject, { new: true });
+        if (!business) {
+            return res.status(404).json({ message: "Business not found" });
+        }
+
+        // Send the response
+        res.status(200).json({
+            status: "Success",
+            message: "Business updated successfully",
+            data: business,
+        });
+
+        
+    } catch (error) {
+        console.log("errr",error.message)
+        res.status(500).json({
+            message:error.message
+        })
+    }
+}
+
+export { FreeList, FindBussiness, findByID,EditBusiness };
