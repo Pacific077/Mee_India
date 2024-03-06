@@ -1,0 +1,46 @@
+.BusinessAddPhotosdesc
+{
+    padding: 0.5vh 1vh 0.5vh 1vh;
+    box-sizing: border-box;
+    background-color:#f0fff0;
+    border-radius: 10px;
+}
+.BusinessAddphotodiv{
+    border: 2px dashed rebeccapurple;
+    min-height: 30vh;
+    margin-top: 3vh;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 4vh;
+}
+.BusinessAddphotoBtnCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* border: 1px solid forestgreen; */
+   
+    overflow: hidden;
+}
+.BusinessAddphotoBtnCont p{
+    margin: 0;
+}
+.BusinessAddphotodiv{
+    display:  flex;
+    flex-direction: column  ;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+.businessCameraIcon{
+    font-size: xx-large;
+    color: var(--tertiary);
+}
+.BusinessEditInptFile{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(3);
+    opacity: 0;
+}

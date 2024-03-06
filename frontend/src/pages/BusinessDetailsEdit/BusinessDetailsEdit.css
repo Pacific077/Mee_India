@@ -1,0 +1,22 @@
+.BusinessDetailsEditPage{
+    /* border: 1px solid black; */
+    height: 86vh;
+    padding: 0 29vh 0 29vh;
+}
+.businessDetailsEditForm{
+    border: 1px solid gray;
+    border-bottom: none;
+    /* height: 10vh; */
+    height: 100%;
+    padding: 4vh 3vh 4vh 3vh;
+    box-sizing: border-box;
+}
+.BusinessEditHeading{
+    color: var(--tertiary);
+    font-family: var(--fontMain);
+    font-weight: 500;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 4vh;
+    text-shadow: 2px 2px 1px var(--indiaGreen);
+}

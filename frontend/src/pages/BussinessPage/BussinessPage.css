@@ -41,7 +41,7 @@
     width: 100%;
 }
 .bussinessPageTiming h2{
-    font-family: var(--fontMain);
+    font-family: var(--fontNew1);
     font-weight: 500;
     
 }
@@ -56,7 +56,7 @@
     width: 100%;
 }
 .bussinessPageAddress h2,.bussinessPagesection3 h2{
-    font-family: var(--fontNew2);
+    font-family: var(--fontNew1);
     font-weight: 500;
     
 }
@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 2vh;
-    font-family: var(--fontNew2);
+    font-family: var(--fontNew1);
 }
 
 .reviewHead span{
@@ -80,7 +80,7 @@
     width: 6vh;
     border-radius: 10px;
     color: white;
-    font-family: var(--fontMain);
+    font-family: var(--fontNew1);
     font-size: 3vh;
     display: flex;
     justify-content: center;

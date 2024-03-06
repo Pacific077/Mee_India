@@ -1,4 +1,4 @@
-import React from "react";
+
 import t1 from "../../assets/t1.png";
 import "./BusinessDashboardSpecific.css";
 import BussinessDashIconsCard from "../../components/Card/BussinessDashIconsCard/BussinessDashIconsCard";
@@ -39,6 +39,7 @@ const BusinessDashboardSpecific = () => {
                 tag={ele.tag}
                 col={ele.color}
                 Icon={ele.icon}
+                loc={ele.locate}
               />
             );
           })}

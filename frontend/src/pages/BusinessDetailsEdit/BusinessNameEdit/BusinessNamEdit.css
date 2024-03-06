@@ -1,0 +1,27 @@
+.BusinessNameEditForm{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+}
+.BusinessNameEditFormDesc{
+    color: var(--grayShade);
+}
+.bussinessEditLabelandInp{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.bussinessEditLabelandInp label{
+    font-family: var(--fontMain);
+    color: var(--indiaGreen);
+}
+.bussinessEditLabelandInp input{
+    border: none;
+    width: 80%;
+    border-bottom: 2px solid var(--tertiary);
+    font-size: x-large;
+    caret-color: var(--secondary);
+    outline: none;
+}

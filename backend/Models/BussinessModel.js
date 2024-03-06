@@ -8,13 +8,18 @@ const bussinessSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    pincode: {
+    pinCode: {
       type: Number,
       required: true,
     },
     buseinessImages: [
       {
         //to do : validators to be added for checking at least 3 images
+        type: String,
+      },
+    ],
+    CatalougeImages: [
+      {
         type: String,
       },
     ],
@@ -25,6 +30,16 @@ const bussinessSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    websiteUrl:{
+      type:String,
+
+    },
+    Services:[{
+      type:String
+    }],
+    WebsiteDescription:{
+      type:String
     },
     location: {
       type: {
@@ -39,10 +54,12 @@ const bussinessSchema = mongoose.Schema(
     },
     //bussinessContact
     bussinessContact: { type: String, required: true },
+    bussinessAltContact: { type: String, required: true },
     bussinessMail: { type: String, unique: true, required: true },
     //timing
-    openTime: { type: String, required: true },
-    closeTime: { type: String, required: true },
+    // openTime: { type: String, required: true },
+    // closeTime: { type: String, required: true },
+    timingArr: { type: [String], required: true },
     openDays: { type: [String], required: true },
     //Category
     mainCategory: { type: String, required: true },

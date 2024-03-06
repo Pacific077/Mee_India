@@ -77,13 +77,24 @@
 }
 
 .timeField{
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 6vh;
+    align-items: center;
+    margin-bottom: 3vh;
 }
 .timeInput{
     margin: 0 2vh;
+}
+.addTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+.addTime:hover{
+    color: #0d45a5;
+    cursor: pointer;
 }
 
 .bio{
@@ -98,7 +109,7 @@
 }
 
 .btnContainer{
-    margin-top: 8vh;
+    /* margin-top: 8vh; */
     display: flex;
 }
 .busineesFormImageUploadCont{

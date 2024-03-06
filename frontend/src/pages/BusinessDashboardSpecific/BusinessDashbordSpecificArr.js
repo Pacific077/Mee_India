@@ -12,65 +12,49 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 const BusinessDashboardSpecificArr = [
     {
-        tag:"Edit Profile",
+        tag:"Edit Name",
         icon:FaShoppingBag,
-        color:"#FAEBD7"
+        color:"#FAEBD7",
+        locate:"editName"
     },
     {
         tag:"Advertise",
         icon:HiOutlineSpeakerphone,
-        color:"#E6E6FA"
+        color:"#E6E6FA",
+        locate:"editName"
     },
     {
         tag:"Photos",
         icon:IoMdPhotos,
-        color:"#F5F5DC"
-    },
-    {
-        tag:"Contact",
-        icon:MdContacts,
-        color:"#D3D3D3"
-    },
-    {
-        tag:"Timing",
-        icon:IoMdTime,
-        color:"#FFE4E1"
+        color:"#F5F5DC",
+        locate:"editPhoto"
     },
     {
         tag:"Catalouge",
         icon:FaClipboardList,
-        color:"#AFEEEE"
+        color:"#AFEEEE",
+        locate:"Catalouge"
     },
     {
         tag:"Offer",
         icon:BiSolidOffer,
-        color:"#FFE5B4"
+        color:"#FFE5B4",
+        locate:"Offers"
     },
     {
         tag:"Reviews",
         icon:MdOutlineReviews,
-        color:"#FFFFE0"
+        color:"#FFFFE0",
+        locate:"editName"
     },
     {
         tag:"website",
         icon:CgWebsite,
-        color:"#F5FFFA"
+        color:"#F5FFFA",
+        locate:"website"
     },
-    {
-        tag:"Videos",
-        icon:FaPhotoVideo,
-        color:"#F0FFF0"
-    },
-    {
-        tag:"Socials ",
-        icon:IoShareSocialSharp,
-        color:"#FFF0F5"
-    },
-    {
-        tag:"Biz Card",
-        icon:FaRegCreditCard,
-        color:"#ADD8E6"
-    },
+   
+
 ]
 
 export default BusinessDashboardSpecificArr

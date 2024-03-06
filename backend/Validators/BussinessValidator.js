@@ -8,9 +8,9 @@ const BussinessValidator = [
   body('district').notEmpty().withMessage('District is required'),
   body('state').notEmpty().withMessage('State is required'),
   body('bussinessContact').notEmpty().withMessage('Business contact is required'),
+  body('bussinessAltContact').notEmpty().withMessage('Business alternate contact is required'),
   body('bussinessMail').notEmpty().withMessage('Business email is required').isEmail().withMessage('Invalid email'),
-  body('openTime').notEmpty().withMessage('Opening time is required'),
-  body('closeTime').notEmpty().withMessage('Closing time is required'),
+  body('timingArr').isArray({ min: 1 }).withMessage('Atleast one Timing is required'),
   body('openDays').isArray({ min: 1 }).withMessage('Open days are required and should be an array with at least one day'),
   body('mainCategory').notEmpty().withMessage('Main category is required'),
 

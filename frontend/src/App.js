@@ -14,6 +14,7 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import Apitext from "./pages/apiTest/Apitext";
 import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
 
 const App = () => {
   return (
@@ -38,6 +39,10 @@ const App = () => {
           <Route
             path="/business-dashboard/:BusinessId"
             element={<BusinessDashboardSpecific />}
+          />
+          <Route
+            path="/business-dashboard/:BusinessId/:edit"
+            element={<BusinessDetailsEdit />}
           />
 
           <Route

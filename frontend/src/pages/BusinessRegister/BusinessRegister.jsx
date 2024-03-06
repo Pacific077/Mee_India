@@ -19,9 +19,11 @@ const BusinessRegister = () => {
   const [state, setState] = useState("");
   const [pinCode, setPinCode] = useState("");
   const [bussinessContact, setBussinessContact] = useState("");
+  const [bussinessAltContact, setBussinessAltContact] = useState("");
   const [bussinessMail, setBussinessMail] = useState("");
   const [openTime, setOpenTime] = useState("");
   const [closeTime, setCloseTime] = useState("");
+  const [timingArr, setTimingArr] = useState([]);
   const [openDays, setOpenDays] = useState([
     false,
     false,
@@ -48,34 +50,24 @@ const BusinessRegister = () => {
         district,
         state,
         bussinessContact,
+        bussinessAltContact,
         bussinessMail,
-        openTime,
-        closeTime,
+        timingArr,
         openDays,
         mainCategory,
         subCategory,
         pinCode,
         bio,
         imagelinkArr,
-        latitude:19.0760,
-        longitude:72.877
+        latitude:	23.6544338,
+        longitude:86.1456444
       });
       if(resp.status==200){
         navigate("/userdashboard")
         toast.success("Business Registered ")
       }
     } catch (error) {
-      if (axios.isAxiosError(error) && error.response.status === 400) {
-        error.response.data.err.map((msg) => {
-          toast.error(msg);
-        });
-      }else if(error.response.status===500){
-        toast.error("Email already registered")
-        
-      }else{
-
-        toast.error("Something went wrong")
-      }
+      console.log(error)
     }
   };
   return (
@@ -111,12 +103,16 @@ const BusinessRegister = () => {
               setBussinessMail={setBussinessMail}
               bussinessContact={bussinessContact}
               setBussinessContact={setBussinessContact}
+              bussinessAltContact={bussinessAltContact}
+              setBussinessAltContact={setBussinessAltContact}
               openDays={openDays}
               setOpenDays={setOpenDays}
               openTime={openTime}
               setOpenTime={setOpenTime}
               closeTime={closeTime}
               setCloseTime={setCloseTime}
+              timingArr={timingArr}
+              setTimingArr={setTimingArr}
               setCounter={setCounter}
             />
           )}
