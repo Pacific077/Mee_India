@@ -13,6 +13,9 @@
     font-size: xx-large;
 
 }
+.BusinessDashIconCont:hover{
+    cursor: pointer;
+}
 .BussinessDashIconsDesc{
     width: fit-content;
     margin: auto;

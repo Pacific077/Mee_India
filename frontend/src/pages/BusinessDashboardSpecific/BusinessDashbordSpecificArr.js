@@ -12,64 +12,76 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 const BusinessDashboardSpecificArr = [
     {
-        tag:"Edit Profile",
+        tag:"Edit Name",
         icon:FaShoppingBag,
-        color:"#FAEBD7"
+        color:"#FAEBD7",
+        locate:"editName"
     },
     {
         tag:"Advertise",
         icon:HiOutlineSpeakerphone,
-        color:"#E6E6FA"
+        color:"#E6E6FA",
+        locate:"editName"
     },
     {
         tag:"Photos",
         icon:IoMdPhotos,
-        color:"#F5F5DC"
+        color:"#F5F5DC",
+        locate:"editPhoto"
     },
     {
         tag:"Contact",
         icon:MdContacts,
-        color:"#D3D3D3"
+        color:"#D3D3D3",
+        locate:"editName"
     },
     {
         tag:"Timing",
         icon:IoMdTime,
-        color:"#FFE4E1"
+        color:"#FFE4E1",
+        locate:"editName"
     },
     {
         tag:"Catalouge",
         icon:FaClipboardList,
-        color:"#AFEEEE"
+        color:"#AFEEEE",
+        locate:"editName"
     },
     {
         tag:"Offer",
         icon:BiSolidOffer,
-        color:"#FFE5B4"
+        color:"#FFE5B4",
+        locate:"editName"
     },
     {
         tag:"Reviews",
         icon:MdOutlineReviews,
-        color:"#FFFFE0"
+        color:"#FFFFE0",
+        locate:"editName"
     },
     {
         tag:"website",
         icon:CgWebsite,
-        color:"#F5FFFA"
+        color:"#F5FFFA",
+        locate:"editName"
     },
     {
         tag:"Videos",
         icon:FaPhotoVideo,
-        color:"#F0FFF0"
+        color:"#F0FFF0",
+        locate:"editName"
     },
     {
         tag:"Socials ",
         icon:IoShareSocialSharp,
-        color:"#FFF0F5"
+        color:"#FFF0F5",
+        locate:"editName"
     },
     {
         tag:"Biz Card",
         icon:FaRegCreditCard,
-        color:"#ADD8E6"
+        color:"#ADD8E6",
+        locate:"editName"
     },
 ]
 
