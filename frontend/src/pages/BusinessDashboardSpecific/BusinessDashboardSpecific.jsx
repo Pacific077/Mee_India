@@ -33,7 +33,7 @@ const BusinessDashboardSpecific = () => {
           <h1 className="BusinessDashSpecBannerHead2">
             & Rank ahead Your Competition
           </h1>
-          <button className="btnPrim btn-lg">Advertise Now</button>
+          <button className="btnPrim btn-lg BusienesAdvertiseBtn ">Advertise Now</button>
         </div>
         <div className="BusinessDashSpecBannerRight">
           <img src={t1} alt="" />
