@@ -17,6 +17,7 @@ import { TextField } from '@mui/material';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 import { ProfileApi } from '../../apis/UserApi';
 import ReviewForm from './ReviewForm/ReviewForm';
+import Cookies from 'js-cookie';
 
 const BussinessPage = () => {
 
@@ -31,6 +32,8 @@ const BussinessPage = () => {
 
     const [rating,setRating] = useState(0);
     const [reviewMsg,setReviewMsg] = useState("");
+
+    const [isLoggedIn,setIsLoggedIn] = useState(false)
     
     const fecthBusinessByID = async () => {
       try {
@@ -49,8 +52,14 @@ const BussinessPage = () => {
       try{
         const resp = await ProfileApi()
       // console.log("Resp",resp);
-        setUser(resp.data.user);
-        setRatedBusinesses(resp.data.user.ratedBussinesses);
+        if(resp.status===200){
+          setUser(resp.data.user);
+          setRatedBusinesses(resp.data.user.ratedBussinesses);
+          if(!isLoggedIn)setIsLoggedIn(true);
+        }
+        else{
+          toast.warning(resp.message);
+        }
       }
       catch(error){
         console.log(error);
@@ -84,30 +93,34 @@ const BussinessPage = () => {
           bussinessId:currBusiness._id
         })
 
-        if(resp.status === 200)toast.success(resp.data.message);
-        else toast.warning(resp.data.message)
+        if(resp.status === 200)
+        {
+          toast.success(resp.data.message);
+          fetchUserByID();
+        }
       }
       catch(error)
       {
         console.log(error);
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     }
 
 
   useEffect(() => {
     fecthBusinessByID();
-    fetchUserByID();
+    const token = Cookies.get('token');
+    if(token)fetchUserByID();
     }, [])
 
   return (
     <div>{wait?<h1>WAIT</h1>:<div className='BusinesspecPage'>
         <div className='bussinessPagesection1'>
           <div className='ImagesSection'>
-            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[0]}/>
-            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[1]}/>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[0]} alt='businessPic'/>
+            <img className='imageSectionimg' style={{width:"30%", height:"40vh"}} src={currBusiness.buseinessImages[1]} alt='businessPic'/>
             <Carousel className='ImageSectioncarousel' showStatus={false} showIndicators={false} autoPlay={true} interval={3000} infiniteLoop={true}>
-                {currBusiness.buseinessImages.map((pic)=><div><img src={pic}/></div>)}
+                {currBusiness.buseinessImages.map((pic,i)=><div key={i}><img src={pic} alt='businessPic'/></div>)}
             </Carousel>
           </div>
           <div className='BussinessListCardRight'>
@@ -145,8 +158,14 @@ const BussinessPage = () => {
               <p>Rating index based on 293 ratings across the web</p>
             </div>
           </div>
-          {!ratedBusinesses.includes(currBusiness._id)?<ReviewForm rating={rating} setRating={setRating} reviewMsg={reviewMsg} setReviewMsg={setReviewMsg} handleReviewFormSubmit={handleReviewFormSubmit}/>:<h3>You have already Reviewed this Business.</h3>}
+          {!isLoggedIn&&<h3>Login to submit Review.</h3>}
+          {isLoggedIn&&!ratedBusinesses.includes(currBusiness._id)&&<ReviewForm rating={rating} setRating={setRating} reviewMsg={reviewMsg} setReviewMsg={setReviewMsg} handleReviewFormSubmit={handleReviewFormSubmit}/>}
+          {isLoggedIn&&ratedBusinesses.includes(currBusiness._id)&&<h3>You have already Reviewed this Business.</h3>}
           <div className='reviewList'>
+            {
+              currBusiness.reviews.map((rev,ind) => <Review key={ind} name={rev.userId.name} ratedCnt={rev.userId.ratedBussinesses?.length} message={rev.message}/>)
+            }
+            {/* <Review/>
             <Review/>
             <Review/>
             <Review/>
@@ -157,8 +176,7 @@ const BussinessPage = () => {
             <Review/>
             <Review/>
             <Review/>
-            <Review/>
-            <Review/>
+            <Review/> */}
           </div>
         </div>
     </div>}</div>

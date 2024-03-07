@@ -135,7 +135,15 @@ const findByID = async (req, res) => {
       }
 
       // Perform the proximity query
-      const requiredBusiness = await Bussiness.findOne({_id:bussinessId}).exec();
+      const requiredBusiness = await Bussiness.findById(bussinessId).populate({
+        path: 'reviews',
+        populate: {
+          path: 'userId',
+          select: 'name ratedBussinesses',
+          options: { strictPopulate: false } // Only populate the 'name' field of the user
+        },
+        options: { strictPopulate: false }
+      });
     //   console.log(requiredBusiness);
       res.status(200).json({ businessDetail: requiredBusiness });
   } catch (error) {
@@ -176,15 +184,17 @@ const EditBusiness = async(req,res)=>{
     }
 }
 const reviewSubmit = async (req, res) => {
+    
     try {
       const { userId,message,rating,bussinessId } = req.body;
 
+      console.log(userId, bussinessId, message, rating )
     //   console.log(message);
       // Check if required parameters are provided
       if (!userId || !message || !rating || !bussinessId ) {
           return res.status(400).json({ message: "Required parameters are missing" });
       }
-
+      console.log("reached")
       // Perform the proximity query
       const reviewedBusiness = await Bussiness.findOne({_id:bussinessId}).exec();
       
