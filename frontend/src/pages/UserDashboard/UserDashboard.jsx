@@ -46,8 +46,8 @@ const UserDashboard = () => {
         <div className='userDashUpperDivProfilePic'>
           <img className='UserDashboardImageDisplay' src={bikeService} />
           <div className="UserDashboardInfo">
-              <h3 className='userDashboardName'>Erik Stiffler</h3>
-              <p>@userId</p>
+              <h3 className='userDashboardName'>{user?user.name:"Dummy"}</h3>
+              <p>{user?user.email:"dummy Email"}</p>
           </div>
         </div>
        
