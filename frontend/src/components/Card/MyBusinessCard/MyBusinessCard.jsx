@@ -2,7 +2,7 @@ import React from 'react'
 import hotel from "../../../assets/hotels.jpg"
 import "./MyBusinessCard.css"
 import { useNavigate } from 'react-router-dom'
-const MyBusinessCard = ({title,id,district,state}) => {
+const MyBusinessCard = ({title,id,district,state,photo,address,pincode}) => {
   const navigate = useNavigate()
   const handleClick = ()=>{
     navigate(`/business-dashboard/${id}`)
@@ -10,16 +10,17 @@ const MyBusinessCard = ({title,id,district,state}) => {
   return (
     <div className='BusinessCardCont' onClick={handleClick}>
         <div className="businessCardLeft">
-        <img src={hotel} alt="" />
+        <img src={photo} alt="" />
 
         </div>
         <div className="BusinessCardRight">
             <h2 className="BusinessCardHead">{ title}</h2>
-            <p className="businessCardLocation">{district}, {state}</p>
+            <p>{address}, {district}</p>
+            <p>{state}, {pincode}</p>
             <div className="businessCardbtnCont">
-                <button className='btnPrim btn-md' >btn1</button>
-                <button className='btnPrim btn-md2'>btn2</button>
-                <button className='btnPrim btn-md2'>btn3</button>
+                <button className='btnPrim btn-md' >Advertise</button>
+                <button className='btnPrim btn-md2' onClick={()=>{navigate(`/business-dashboard/${id}/editName`)}}>Edit Business Profile</button>
+                <button className='btnPrim btn-md2'>Reviews</button>
             </div>
         </div>
     </div>

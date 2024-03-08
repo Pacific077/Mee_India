@@ -1,7 +1,5 @@
 .MyBusineesCont{
-    width: 85%;
     border: 1px solid var(--grayShade);
-    margin: auto;
     box-sizing: border-box;
 
     border-radius: 20px;
@@ -10,14 +8,11 @@
 }
 
 .BusinessDasboard{
-    padding: 4vh 0 4vh;
+    padding: 2vh 4vh;
 }
 .businessDashboardHead{
-    font-family: var(--fontMain);
-    font-size: 4.6vh;
-    font-weight: 500;
-    color: var(--tertiary);
-    text-shadow: 1px 1px 1px var(--indiaGreen);
+    font-family: var(--fontNew1);
+    color: rgba(0, 0, 0, 0.668);
 }
 @media screen and (max-width: 1091px) {
     .BusinessDasboard{

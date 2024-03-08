@@ -51,7 +51,7 @@ const BussinessList = () => {
                     bussinessId={bus._id}
                     name={bus.title}
                     ratingCnt={bus.ratingCount}
-                    ratersCnt={bus.review?.length===0?1:bus.review?.length}
+                    ratersCnt={bus.reviews?.length===0?1:bus.reviews?.length}
                     address={bus.address}
                     contact={bus.bussinessContact}
                 />)}

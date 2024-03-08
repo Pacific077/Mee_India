@@ -1,13 +1,14 @@
 import axios from "axios";
 
-export const SearchOnClickApi = async ({ district, mainCategory, latitude, longitude }) => {
+export const SearchOnClickApi = async ({ district, mainCategory, latitude, longitude, subCat }) => {
       const response = await axios.post(
         "/api/v1/bussiness/findBussiness",
         {
           district,
           mainCategory,
           latitude,
-          longitude
+          longitude,
+          subCat
         }
       );
       return response;

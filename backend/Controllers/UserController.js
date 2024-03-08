@@ -133,27 +133,24 @@ const UpdateProfile = async (req, res) => {
                 err:arr
             })
         }
-        const { _id, name, email } = req.body;
-        const user = await User.findOne({ _id: _id });
+        console.log(req.body)
+        const { _id, newName, newPic } = req.body.data;
 
-        //No chance
+        console.log(_id);
+        const updateObject = {};
+        if (newName) updateObject.name = newName;
+        if (newPic) updateObject.profileImage = newPic;
+
+        const user = await User.findByIdAndUpdate(_id, updateObject, { new: true });
         if (!user) {
-            return res.status(401).json({
-                message: "User not Found!!",
-            });
+            return res.status(404).json({ message: "User not found" });
         }
        
-        // Update user's information
-        user.name = name;
-        user.email = email;
-
         // Save the updated user
-        await user.save();
-
-        //send the response
+       // Send the response
         res.status(200).json({
             status: "Success",
-            message: "Profile Updated Successfully",
+            message: "Profile updated successfully",
             data: user,
         });
       
@@ -163,34 +160,34 @@ const UpdateProfile = async (req, res) => {
       })
     }
 };
-const ProfilpicUpload = async(req,res)=>{
-    console.log("bebejfmdnf")
-    console.log(req.files);
-    try {
-      if(!req.file){
-        return res.status(400).json({
-          msg:"no file found"
-        })
-      }
-      //find user to be updated
-      const UserId = req.user._id;
-      const userFound = await User.findById(UserId);
-      if (!userFound) {
-        return res.status(400).json({
-          err:"User not found"
-        })
-      }
-      console.log("req.file",req.file)
-    //   const updateduser = await User.findByIdAndUpdate(UserId, {
-    //     profileImage: req.file.path,
-    //   });
-      res.status(200).json("Profile Pic Updated")
-    } catch (Er) {
-      res.status(400).json({
-        err:Er
-      })
-    }
-}
+// const ProfilpicUpload = async(req,res)=>{
+//     console.log("bebejfmdnf")
+//     console.log(req.files);
+//     try {
+//       if(!req.file){
+//         return res.status(400).json({
+//           msg:"no file found"
+//         })
+//       }
+//       //find user to be updated
+//       const UserId = req.user._id;
+//       const userFound = await User.findById(UserId);
+//       if (!userFound) {
+//         return res.status(400).json({
+//           err:"User not found"
+//         })
+//       }
+//       console.log("req.file",req.file)
+//     //   const updateduser = await User.findByIdAndUpdate(UserId, {
+//     //     profileImage: req.file.path,
+//     //   });
+//       res.status(200).json("Profile Pic Updated")
+//     } catch (Er) {
+//       res.status(400).json({
+//         err:Er
+//       })
+//     }
+// }
 
 const getUserProfile = async(req,res)=>{
     try {
@@ -204,4 +201,4 @@ const getUserProfile = async(req,res)=>{
     }
 }
 
-export { RegisterUser, LoginUser, Logout,UpdateProfile ,ProfilpicUpload,getUserProfile};
+export { RegisterUser, LoginUser, Logout,UpdateProfile ,getUserProfile};

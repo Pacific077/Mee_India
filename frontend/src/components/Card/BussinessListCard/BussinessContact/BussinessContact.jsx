@@ -7,7 +7,7 @@ import { RiMessage2Fill } from "react-icons/ri";
 const BussinessContact = ({contact}) => {
   const handleClick = () => {
     console.log("clicked")
-    window.open('https://wa.me/917667327346', '_blank');
+    window.open(`https://wa.me/91${contact}`, '_blank');
   }
   return (
     <div className='ContactContainer'>

@@ -1,18 +1,5 @@
 .userdashCard{
-    background-color: var(--primary);   
-    border-color: rgb(209, 209, 209);
-    box-shadow: 2px 2px 4px var(--grayShade);
-    border-radius: 10px;
-    height: 100%;
-    width: 30%;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-    font-weight: 500;
-    font-family: var(--fontMain);
-    text-shadow: 3px 3px 8px var(--indiaGreen);
+    border: 1px solid black;
 
 }
 @media screen and (max-width: 1025px) {

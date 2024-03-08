@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import Catalouge from './Catalouge/Catalouge'
 import Websites from './Websites/Websites'
 import Offers from './Offers/Offers'
+import Services from './Services/ServiceAdd'
+
 const BusinessDetailsEdit = () => {
   const {edit} = useParams()
   const [editName,setEditname] = useState(false)
@@ -13,6 +15,8 @@ const BusinessDetailsEdit = () => {
   const [addCatalouge,setAddCatalouge] = useState(false)
   const [addWebsite,setAddWebsite] = useState(false)
   const [addOffer,setAddOffers] = useState(false)
+  const [addService,setAddService] = useState(false)
+
   useEffect(()=>{
     
     if(edit==='editName'){
@@ -26,6 +30,9 @@ const BusinessDetailsEdit = () => {
     }else if(edit==="Offers"){
       setAddOffers(true)
     }
+    else if(edit==="Services"){
+      setAddService(true)
+    }
   },[])
   return (
     <div className='BusinessDetailsEditPage'>
@@ -35,6 +42,7 @@ const BusinessDetailsEdit = () => {
             {addCatalouge&&<Catalouge/>}
             {addWebsite&&<Websites/>}
             {addOffer&&<Offers/>}
+            {addService&&<Services/>}
         </div>
     </div>
   )

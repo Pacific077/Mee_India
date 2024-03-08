@@ -5,7 +5,7 @@ import './UserDashboardCard.css'
 const UserDashboardCard = ({info,fun}) => {
   return (
     
-        <div className='userdashCard' onClick={fun}>
+        <div className='squareBtn userdashCard' onClick={fun}>
             {info}
         </div>
       

@@ -10,6 +10,8 @@ import { FaPhotoVideo } from "react-icons/fa";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { FaRegCreditCard } from "react-icons/fa";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+
 const BusinessDashboardSpecificArr = [
     {
         tag:"Edit Name",
@@ -40,6 +42,12 @@ const BusinessDashboardSpecificArr = [
         icon:BiSolidOffer,
         color:"#FFE5B4",
         locate:"Offers"
+    },
+    {
+        tag:"Services",
+        icon:MiscellaneousServicesIcon,
+        color:"#FFE5B4",
+        locate:"Services"
     },
     {
         tag:"Reviews",

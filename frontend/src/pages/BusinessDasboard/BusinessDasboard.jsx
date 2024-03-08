@@ -5,9 +5,9 @@ const BusinessDasboard = ({ businessList }) => {
   return (
     <div className="BusinessDasboard">
       <div className="MyBusiness">
-        <h1 className="businessDashboardHead">My Business</h1>
+        <h1 className="businessDashboardHead">My Businesses</h1>
         <div className="MyBusineesCont">
-          {console.log("list",businessList)}
+          {/* {console.log("list",businessList)} */}
           {businessList&&businessList.map((business, key) => {
             return (
               <MyBusinessCard
@@ -16,7 +16,9 @@ const BusinessDasboard = ({ businessList }) => {
                 id={business._id}
                 title={business.title}
                 district={business.district}
-                
+                photo = {business.buseinessImages[0]}
+                address={business.address}
+                pincode={business.pincode}
               />
             );
           })}

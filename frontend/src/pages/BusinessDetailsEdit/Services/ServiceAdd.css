@@ -1,0 +1,26 @@
+.BusinessServiceAddForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 4vh;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+}
+.bussinessServiceAddLabelandInp{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    width: 50%;
+}
+.bussinessServiceAddBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 1vh 2vh;
+    background-color: rgba(148, 148, 148, 0.19);
+    cursor: pointer;
+    max-height: 2vh;
+    margin-top: auto;
+}

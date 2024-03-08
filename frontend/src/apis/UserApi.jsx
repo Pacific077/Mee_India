@@ -50,3 +50,15 @@ export const LoginApi = async ({email,password}) => {
     );
     return response;
   };
+
+  export const EditProfileApi = async (data) => {
+    console.log("sdfd",data)
+    const response = await axios.post(
+      "/api/v1/user/editProfile",
+      {data},
+      {
+        withCredentials: true,
+      }
+    );
+    return response;
+  };

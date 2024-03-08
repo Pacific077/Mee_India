@@ -137,6 +137,13 @@
   position: absolute;
 }
 
+.navProfile{
+  overflow: hidden;
+}
+.profilePic{
+  height: 130%;
+  width: 100%;
+}
 
 .yellowtext {
   color: var(--tertiary);

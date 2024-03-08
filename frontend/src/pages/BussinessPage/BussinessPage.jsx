@@ -14,7 +14,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ReviewSubmit, findByID } from '../../apis/BusinessApi';
 import { TextField } from '@mui/material';
-import { TextareaAutosize } from '@mui/base/TextareaAutosize';
+import { TiTick } from "react-icons/ti";
 import { ProfileApi } from '../../apis/UserApi';
 import ReviewForm from './ReviewForm/ReviewForm';
 import Cookies from 'js-cookie';
@@ -105,7 +105,10 @@ const BussinessPage = () => {
         toast.error(error.response.data.message);
       }
     }
-
+    const openImageInNewTab = (e, pic) => {
+      e.preventDefault();
+      window.open(pic, '_blank');
+    }
 
   useEffect(() => {
     fecthBusinessByID();
@@ -136,23 +139,48 @@ const BussinessPage = () => {
             <h2>Timings</h2>
             <div>
               {groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
-                <p key={index}>{pair.join(' - ')}</p>
+                <h4 key={index}>{pair.join(' - ')}</h4>
               ))}
             </div>
             <Timing openDays={currBusiness.openDays}/>
-            <p> represents Open days<span style={{color:"var(--indiaGreen)",marginRight:"2px"}}><FaSquare/></span></p>
-            <p> represents Close days<span style={{color:"gray",marginRight:"2px"}}><FaSquare/></span></p>
+            <h> represents Open days <span style={{color:"var(--indiaGreen)",marginRight:"2px"}}><FaSquare/></span></h>
+            <p> represents Close days <span style={{color:"gray",marginRight:"2px"}}><FaSquare/></span></p>
           </div>
           <div className='bussinessPageAddress'>
             <h2>Address</h2>
-            <p>{currBusiness.address}</p>
+            <p>{currBusiness.address}, {currBusiness.district}</p>
+            <p>{currBusiness.state}, {currBusiness.pincode}</p>
+            <p>Contact: {currBusiness.bussinessContact}</p>
+            <p>Alternate: {currBusiness.bussinessContact}</p>
           </div>
         </div>
+
+        {currBusiness.Services.length>0&&<div className='bussinessPagesection21'>
+            <h2>Services</h2>
+            <div className='ServiceListContainer'>
+            {currBusiness.Services.map((service, index) => (
+                <p key={index}><TiTick style={{color:"blue",marginRight:"5px"}}/>{service}</p>
+            ))}
+
+            </div>
+        </div>}
+
+        {currBusiness.CatalougeImages.length>0&&<div className='bussinessPagesection21'>
+            <h2>Rate Cards</h2>
+            <div className='CataloguePicContainer'>
+            {currBusiness.CatalougeImages.map((pic, index) => (
+              <div className='CataloguePic' onClick={(e) => openImageInNewTab(e, pic)}><img className='imageSectionimg' src={pic} alt='businessPic'/></div>
+
+            ))}
+
+            </div>
+        </div>}
+
 
         <div className='bussinessPagesection3'>
           <h2>Reviews and Ratings</h2>
           <div className='reviewHead'>
-            <span>{parseFloat((currBusiness.ratingCnt/currBusiness.reviews.length).toFixed(1))}</span>
+            <span>{parseFloat((currBusiness.ratingCount/currBusiness.reviews.length).toFixed(1))}</span>
             <div>
               <h3>{currBusiness.reviews.length} Reviews</h3>
               <p>Rating index based on 293 ratings across the web</p>
@@ -165,18 +193,6 @@ const BussinessPage = () => {
             {
               currBusiness.reviews.map((rev,ind) => <Review key={ind} name={rev.userId.name} ratedCnt={rev.userId.ratedBussinesses?.length} message={rev.message}/>)
             }
-            {/* <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/>
-            <Review/> */}
           </div>
         </div>
     </div>}</div>

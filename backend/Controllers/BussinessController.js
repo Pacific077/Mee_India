@@ -114,8 +114,8 @@ const FindBussiness = async (req, res) => {
       // If subCat is provided, add subCategory condition to the base query
       if (subCat) {
         baseQuery.subCategory = { $in: [subCat] };
-        }
-
+      }
+      console.log(baseQuery);
     // Perform the proximity query
     const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
 
@@ -162,7 +162,8 @@ const EditBusiness = async(req,res)=>{
         if (WebsiteDescription) updateObject.WebsiteDescription = WebsiteDescription;
         if (photos) updateObject.$push = { buseinessImages: { $each: photos } };
         if (Catalouge) updateObject.$push = { CatalougeImages: { $each: Catalouge } };
-        if (Services) updateObject.Services = Services;
+        if (Services) updateObject.$push = { Services: { $each: Services } };
+        // if (Services) updateObject.Services = Services;
         const business = await Bussiness.findByIdAndUpdate(businessId, updateObject, { new: true });
         if (!business) {
             return res.status(404).json({ message: "Business not found" });

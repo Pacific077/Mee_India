@@ -7,14 +7,30 @@ import Cookies from 'js-cookie';
 import "./Navbar.css";
 import LocationAndSearch from "../Card/LocationAndSearch/LocationAndSearch";
 import SideNav from "../SideNav/SideNav";
+import { ProfileApi } from "../../apis/UserApi";
+import { toast } from "react-toastify";
 const Navbar = () => {
-
+  
+  const [user,setUser] = useState(false);
   const [IsSideNavVis,setIsSideNavVis] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  const fetchData = async ()=>{
+    try{
+    const resp = await ProfileApi()
+    console.log("Resp",resp);
+    setUser(resp.data.user);
+    }catch(e){
+      console.log(e);
+      toast.error("Something went Wrong")
+    }
+  };
+
   useEffect(() => {
     const token = Cookies.get('token');
     if(token){
+      fetchData();
       setIsLoggedIn(true);
     }
   }, []);
@@ -51,6 +67,7 @@ const Navbar = () => {
           {/* <p>Business</p>
       <p>Premium</p> */}
       {isLoggedIn?<div className="navProfile" onClick={MoveToProfile}>
+        <img className="profilePic" src={user?.profileImage}/>
       </div>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
           </button>}

@@ -1,5 +1,6 @@
-h3{
+h3,h2,h4{
     font-family: var(--fontNew1);
+    font-weight: 500;
 }
 
 .bussinessPagesection1{
@@ -8,10 +9,13 @@ h3{
     overflow: hidden;
     padding-bottom: 2vh;
     margin-bottom: 2vh;
+    background-color: white;
 }
 .BusinesspecPage{
-    margin-left: 18vh;
-    margin-right: 18vh;
+    padding-top: 2vh;
+    padding-left: 18vh;
+    padding-right: 18vh;
+    background-color: rgb(238, 255, 234);
 }
 
 .ImagesSection{
@@ -43,6 +47,7 @@ h3{
     border-radius: 10px;
     padding: 0 2vh 2vh;
     width: 100%;
+    background-color: white;
 }
 .bussinessPageTiming h2{
     font-family: var(--fontNew1);
@@ -50,6 +55,7 @@ h3{
     
 }
 .bussinessPageTiming p{
+    display: flex;
     flex-direction: row-reverse;
 }
 
@@ -58,17 +64,52 @@ h3{
     border-radius: 10px;
     padding: 0 2vh 2vh;
     width: 100%;
+    background-color: white;
 }
 .bussinessPageAddress h2,.bussinessPagesection3 h2{
     font-family: var(--fontNew1);
     font-weight: 500;
     
 }
+
+.bussinessPagesection21{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 2vh 2vh;
+    margin-bottom: 2vh;
+    background-color: white;
+}
+
+.ServiceListContainer{
+    margin: 0 2vh ;
+}
+
+.CataloguePicContainer{
+    display: flex;
+    width: 100%;
+    gap: 2vh;
+}
+.CataloguePic{
+    max-height: 30vh;
+    max-width: 30vh;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.CataloguePic img{
+    height: 100%;
+}
+.CataloguePic img:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
 .bussinessPagesection3{
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 0 2vh 2vh;
-
+    background-color: white;
 }
 
 .reviewHead{
