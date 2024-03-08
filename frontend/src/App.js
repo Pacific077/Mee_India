@@ -15,6 +15,7 @@ import Apitext from "./pages/apiTest/Apitext";
 import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
+import Admin from "./pages/Admin/Admin";
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
           />
 
           <Route path="/subList/:Category" element={<BussinessSubList />} />
+          <Route path="/admin/dashboard" element={<Admin />} />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>
       </BrowserRouter>

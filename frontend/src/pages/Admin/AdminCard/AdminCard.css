@@ -1,0 +1,38 @@
+.adminCard{
+    /* border: 1px solid var(--secondary); */
+    width: 25%;
+    height: 17vh;
+    box-shadow: 3px 1px 10px var(--grayShade);
+    border-radius: 10px;
+}
+.adminCard{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--tertiary); */
+}
+.adminCard h1,.adminCard p{
+    margin: 0;
+    /* color: white; */
+    font-family: var(--fontNew1);
+    font-weight: 500;
+}
+.adminCard h1{
+    text-shadow: 1px 1px 10px var(--indiaGreen);
+}
+.adminCard p{
+    font-size: larger;
+}
+.AdminCardListShowBtn{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: underline;
+    color: blue;
+}
+.AdminCardListShowBtn:hover{
+    cursor: pointer;
+}
