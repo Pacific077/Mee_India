@@ -112,10 +112,53 @@ const FindBussiness = async (req, res) => {
       };
 
       // If subCat is provided, add subCategory condition to the base query
-      if (subCat) {
+      if (subCat!=="null") {
         baseQuery.subCategory = { $in: [subCat] };
       }
       console.log(baseQuery);
+    // Perform the proximity query
+    const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
+
+    console.log(nearbyBusinesses);
+      res.status(200).json({ businesses: nearbyBusinesses });
+  } catch (error) {
+      console.error("Error finding nearby businesses:", error);
+      res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const FindBussinessByText = async (req, res) => {
+    
+  try {
+      const { district, text, latitude, longitude } = req.body;
+
+      // Check if required parameters are provided
+      if (!district || !latitude || !longitude || text==="" ) {
+          return res.status(400).json({ message: "Required parameters are missing" });
+      }
+
+      console.log(district, longitude, latitude, text);
+
+      // Perform the proximity query
+      const baseQuery = {
+          mainCategory: { $regex: text, $options: "i" },
+          district: district,
+          location: {
+              $near: {
+                  $geometry: {
+                      type: "Point",
+                      coordinates: [longitude, latitude]
+                  },
+                  $maxDistance: 20000
+              }
+          }
+      };
+
+      // If subCat is provided, add subCategory condition to the base query
+      // if (subCat) {
+      //   baseQuery.subCategory = { $in: [subCat] };
+      // }
+      // console.log(baseQuery);
     // Perform the proximity query
     const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
 
@@ -139,7 +182,7 @@ const findByID = async (req, res) => {
         path: 'reviews',
         populate: {
           path: 'userId',
-          select: 'name ratedBussinesses',
+          select: 'name ratedBussinesses profileImage',
           options: { strictPopulate: false } // Only populate the 'name' field of the user
         },
         options: { strictPopulate: false }
@@ -229,4 +272,4 @@ const reviewSubmit = async (req, res) => {
 };
 
 
-export { FreeList, FindBussiness, findByID,EditBusiness, reviewSubmit };
+export { FreeList, FindBussiness, findByID,EditBusiness, reviewSubmit,FindBussinessByText };

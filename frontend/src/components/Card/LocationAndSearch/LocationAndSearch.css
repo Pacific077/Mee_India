@@ -92,6 +92,11 @@
   border: 1px solid var(--secondary);
   width: 57%;
 }
+.textSuggestCont{
+  left: auto;
+  width: 50%;
+}
+
 .visible {
   visibility: visible;
   transform: translateY(0%);

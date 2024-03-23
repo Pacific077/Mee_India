@@ -6,16 +6,22 @@ import CatContext from "../../../context/CategoryContext.jsx"
 import "./LocationAndSearch.css";
 import axios from 'axios'
 import Districts from "../../Navbar/District";
-import { useLocation } from "react-router-dom";
+import CategoryArr from "../../../pages/Home/CategoriesArray.js"
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LocationAndSearch = () => {
   const location = useLocation()
   const [isVisible, setIsVisible] = useState(false);
   const [locinputValue, setlocInputValue] = useState("");
+  const [searchInput,SetSearchInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const CatCon = useContext(CatContext);
   const {latitude,longitude,setLatitude,setLongitude,district,setDistrict} = CatCon;
   const suggestionRef = useRef(null);
+  const categories = CategoryArr.map((cat=>cat.category));
+  const [suggestions2, setSuggestions2] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
 
     if (location.pathname === "/") {
@@ -38,11 +44,12 @@ const LocationAndSearch = () => {
       setIsVisible(true);
     }
   }, [location]);
-  const filterSuggestions = (input) => {
-    const filtered = Districts.filter((item) =>
+  const filterSuggestions = (arr,input,i) => {
+    const filtered = arr.filter((item) =>
       item.toLowerCase().includes(input.toLowerCase())
     );
-    setSuggestions(filtered);
+    if(i===1)setSuggestions(filtered);
+    if(i===2)setSuggestions2(filtered);
   };
   useEffect(() => {
     document.body.addEventListener("click", handleClickOutside);
@@ -56,6 +63,7 @@ const LocationAndSearch = () => {
   const handleClickOutside = (e) => {
     if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
       setSuggestions([]);
+      setSuggestions2([]);
     }
   };
   // const setlocallylocation  =()=>{
@@ -66,7 +74,12 @@ const LocationAndSearch = () => {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setlocInputValue(value);
-    filterSuggestions(value);
+    filterSuggestions(Districts,value,1);
+  }; 
+  const handleTextInputChange = (e) => {
+    const value = e.target.value;
+    SetSearchInput(value);
+    filterSuggestions(categories,value,2);
   };
   const handleLocationSelect =async (e) => {
     try {
@@ -98,6 +111,17 @@ const LocationAndSearch = () => {
       toast.warning("Not Supported on Your Device")
     }
   }
+
+  const handleSearchInput = ()=> {
+
+    const subCatArr = CategoryArr.find((cat)=>cat.category===searchInput)
+    if(!subCatArr)toast.warning("No Match!! Try something from List")
+    else if(subCatArr.subCat.length===0){
+      navigate(`/bussiness-list/${district}/${subCatArr.category}/null`)
+    }else{
+      navigate(`/subList/${subCatArr.category}`)
+    }
+  }
   return (
     <div className={`locationAndSrchCont ${isVisible ? "visible" : ""}`}>
       <div className="locationAndIcon" ref={suggestionRef}>
@@ -117,16 +141,26 @@ const LocationAndSearch = () => {
           })}
         </div>
       </div>
-      <div className="SearchAndIcon">
+      <div className="SearchAndIcon" ref={suggestionRef}>
         <input
           className="locAndSrcInp"
-          placeholder="Search Your Text here"
+          placeholder="What are you looking for?"
           type="text"
           name=""
           id=""
+          onChange={handleTextInputChange}
+          value={searchInput}
         />
-        <div className="searchIconCont">
+        <div className="searchIconCont" onClick={handleSearchInput}>
           <CiSearch className="locSrchIcon" />
+        </div>
+        <div className="locationSuggestCont textSuggestCont">
+          {suggestions2.map((cat,index) => {
+            return <p onClick={()=>{
+              SetSearchInput(cat);
+              setSuggestions2([]);
+              }} key={index}>{cat}</p>;
+          })}
         </div>
       </div>
     </div>

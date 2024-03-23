@@ -2,9 +2,10 @@ import jwt from "jsonwebtoken"
 import User from "../Models/UserModel.js";
 
 const IsAuthenticated = async (req,res,next)=>{
-    if(req.cookies.token){
+    if(req.cookies.token || req.headers.authorization){
         //verify the token
-        const decoded = jwt.verify(req.cookies.token,process.env.JWT_SECRET);
+        const token = req.cookies.token || req.headers.authorization;
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
         // console.log("decoded",decoded);
         //not necessary
         //req.user = decoded

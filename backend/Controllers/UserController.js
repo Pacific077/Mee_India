@@ -104,6 +104,51 @@ const LoginUser = async (req, res) => {
     }
 } ; 
 
+const LoginUserMobile = async (req, res) => {
+    try {
+      const errs = validationResult(req);
+      if (!errs.isEmpty()) {
+        let arr = [];
+        errs.array().forEach((error) => {
+          arr.push(error.msg);
+        });
+        return res.status(400).json({
+          message: "Something went wrong",
+          err: arr,
+        });
+      }
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(401).json({
+          message: "User not registered!",
+        });
+      }
+      //check valid password
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).json({
+          message: "Invalid Password!",
+        });
+      }
+      //genarate jwt
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: "7d",
+      });
+      //send the response
+      res.status(200).json({
+        token,
+        status: "Success",
+        message: "Logged in Successfully",
+        data: user,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: error.message,
+      });
+    }
+  };
+
 const Logout = async(req,res)=>{
     try{
         res.cookie("token", "", {
@@ -201,4 +246,4 @@ const getUserProfile = async(req,res)=>{
     }
 }
 
-export { RegisterUser, LoginUser, Logout,UpdateProfile ,getUserProfile};
+export { RegisterUser, LoginUser, Logout,UpdateProfile ,getUserProfile, LoginUserMobile};

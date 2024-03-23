@@ -155,7 +155,8 @@ const BussinessPage = () => {
           </div>
         </div>
 
-        {currBusiness.Services.length>0&&<div className='bussinessPagesection21'>
+        <div className='bussinessPagesection2'>
+        {currBusiness.Services.length>0&&<div className='bussinessPageServices'>
             <h2>Services</h2>
             <div className='ServiceListContainer'>
             {currBusiness.Services.map((service, index) => (
@@ -164,6 +165,17 @@ const BussinessPage = () => {
 
             </div>
         </div>}
+          <div className='bussinessPageAddress'>
+            <h2>Highlights</h2>
+            <h4>Highlight1</h4>
+            <h4>Highlight2</h4>
+            <h4>Highlight3</h4>
+            <h4>Highlight4</h4>
+            <h4>Highlight5</h4>
+          </div>
+        </div>
+
+        
 
         {currBusiness.CatalougeImages.length>0&&<div className='bussinessPagesection21'>
             <h2>Rate Cards</h2>
@@ -191,7 +203,7 @@ const BussinessPage = () => {
           {isLoggedIn&&ratedBusinesses.includes(currBusiness._id)&&<h3>You have already Reviewed this Business.</h3>}
           <div className='reviewList'>
             {
-              currBusiness.reviews.map((rev,ind) => <Review key={ind} name={rev.userId.name} ratedCnt={rev.userId.ratedBussinesses?.length} message={rev.message}/>)
+              currBusiness.reviews.map((rev,ind) => <Review key={ind} name={rev.userId.name} ratedCnt={rev.userId.ratedBussinesses?.length} message={rev.message} img={rev.userId.profileImage}/>)
             }
           </div>
         </div>

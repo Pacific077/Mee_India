@@ -1,9 +1,13 @@
 import cook1 from "../../assets/cook1.jpg";
 import doc from "../../assets/doc.jpg";
-import saloons from "../../assets/saloons.jpg";
-import Schools from "../../assets/school.jpg";
-import hotel from "../../assets/hotels.jpg";
-import gym from "../../assets/gym.jpg";
+import saloons from "../../assets/saloons.png";
+import Schools from "../../assets/school.png";
+import hotel from "../../assets/hotels.png";
+import hostel from "../../assets/hostel.png";
+import realestateagency from "../../assets/real-estate-agency.png";
+import analysisservices from "../../assets/analysisservices.png";
+import door from "../../assets/door.png";
+import gym from "../../assets/gym.png";
 import spa from "../../assets/spa.jpg";
 import petshop from "../../assets/petshop.jpg";
 import contractors from "../../assets/contractors.jpg";
@@ -386,7 +390,7 @@ const CategoriesArray = [
   {
     count: 1000,
     category: "PG & Hostel",
-    img: Schools,
+    img: hostel,
     desc: "",
     subCat: [
       {
@@ -436,7 +440,7 @@ const CategoriesArray = [
   {
     count: 1000,
     category: "Real Estate Agency",
-    img: Schools,
+    img: realestateagency,
     desc: "",
     subCat: [
       {
@@ -753,14 +757,14 @@ const CategoriesArray = [
   {
     count: 1000,
     category: "IT Repair Service",
-    img: Schools,
+    img: analysisservices,
     desc: "",
     subCat: [""],
   },
   {
     count: 1000,
     category: "Furniture Repair Service",
-    img: Schools,
+    img: door,
     desc: "",
     subCat: [
       {

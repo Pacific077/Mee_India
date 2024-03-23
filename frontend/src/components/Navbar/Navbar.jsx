@@ -42,7 +42,9 @@ const Navbar = () => {
   }
 
   const handleFreeListingClick =()=>{
+    if(isLoggedIn)
     navigate("/bussiness-register")
+    else toast.warning("Please Registered Users are allowed to register their business!")
   }
   const MoveToProfile =()=>{
     navigate('/userdashboard')

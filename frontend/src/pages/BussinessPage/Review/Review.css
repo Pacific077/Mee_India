@@ -20,7 +20,15 @@
     margin-bottom: 1vh;
     font-family: var(--fontNew1);
 }
-
+.ReviewUserPic{
+    width: 100%;
+    height: 120%;
+}
+.ReviewUserPicCntnr{
+    width: 8vh;
+    height: 10vh;
+    overflow: hidden;
+}
 .userInfo svg{
     background-color: var(--grayShade);
     height: 6vh;

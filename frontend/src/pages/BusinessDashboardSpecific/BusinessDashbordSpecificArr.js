@@ -53,7 +53,7 @@ const BusinessDashboardSpecificArr = [
         tag:"Reviews",
         icon:MdOutlineReviews,
         color:"#FFFFE0",
-        locate:"editName"
+        locate:"Reviews"
     },
     {
         tag:"website",

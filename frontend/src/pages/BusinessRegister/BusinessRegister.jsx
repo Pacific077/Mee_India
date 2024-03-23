@@ -12,6 +12,7 @@ import FormPage4 from "../../components/FormPage/FormPage4";
 import { FreeListApi } from "../../apis/BusinessApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import FormFrontPage from "../../components/FormPage/FormFrontPage";
 const BusinessRegister = () => {
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -39,7 +40,7 @@ const BusinessRegister = () => {
 
   const [imagelinkArr, setImageLinkArr] = useState([]);
 
-  const [counter, setCounter] = useState("1");
+  const [counter, setCounter] = useState("0");
   const navigate = useNavigate()
   // const formdata = new FormData()
   const handleSubmit = async () => {
@@ -81,6 +82,7 @@ const BusinessRegister = () => {
       </div>
       <div className="BusinessregisterRight">
         <div className="formContainer">
+          {counter==="0" && (<FormFrontPage setCounter={setCounter}/>)}
           {counter === "1" && (
             <FormPage1
               title={title}

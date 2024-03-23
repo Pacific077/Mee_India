@@ -1,3 +1,18 @@
+
+.FormPageContainer{
+    padding: 5vh;
+    background-color: #e1f6ff;
+}
+.formPageBannerCntnr button{
+    position: absolute;
+    bottom: 5vh;
+    right: 5vh;
+}
+.formBannerHeading{
+    font-size: 8vh;
+    color: #091650;
+    margin: 3vh;
+}
 .BusinessFromSelectedCubCategory{
     margin-top: 0;
 }

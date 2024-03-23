@@ -80,6 +80,14 @@ h3,h2,h4{
     background-color: white;
 }
 
+.bussinessPageServices{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 2vh 2vh;
+    background-color: white;
+    width: 60%;
+}
+
 .ServiceListContainer{
     margin: 0 2vh ;
 }
