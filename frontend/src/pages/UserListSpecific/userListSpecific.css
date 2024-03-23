@@ -1,5 +1,5 @@
 .userlistSpecificPage{
-    padding: 0 20vh 0 20vh;
+    padding: 0 20vh 20vh 20vh;
 }
 .userspecifcDetailHead{
     font-family: var(--fontMain);
@@ -23,4 +23,34 @@
 .UserSpecificDetails p {
     width: 30%;
     text-align: center;
+}
+.UserspecificdetailsBtnCont{
+    width: 80%;
+    margin: auto;
+    margin-top: 4vh;
+}
+.AdminEditUsersBtn{
+    height: 6vh;
+    width: 17vh;
+    background-color: var(--tertiary);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    margin-right: 10vh;
+}
+.adminDeluserBtn{
+    height: 6vh;
+    width: 17vh;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    margin-right: 10vh;
+}
+.adminDeluserBtn:hover,.AdminEditUsersBtn:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    transition: 0.3s ease;
 }

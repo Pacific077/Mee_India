@@ -22,6 +22,8 @@ import UserListSpecific from "./pages/UserListSpecific/UserListSpecific";
 import AllShopList from "./pages/AllShopList/AllShopList";
 import ShopListSpecific from "./pages/ShopListSpecific/ShopListSpecific";
 import PricingDeteails from "./pages/PricingDetails/PricingDeteails";
+import AdminEditUser from "./pages/AdminEditUser/AdminEditUser";
+import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 
 const App = () => {
   return (
@@ -71,8 +73,16 @@ const App = () => {
             element={<UserListSpecific />}
           />
           <Route
+            path="/admin/userList/specific/edit/:userId"
+            element={<AdminEditUser />}
+          />
+          <Route
             path="/admin/shoplist/specific/:shopId"
             element={<ShopListSpecific />}
+          />
+          <Route
+            path="/admin/shoplist/specific/edit/:shopId"
+            element={<AdminEditShop />}
           />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>

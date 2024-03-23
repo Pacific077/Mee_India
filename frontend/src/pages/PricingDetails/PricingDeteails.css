@@ -25,11 +25,17 @@
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
+.basicPricingbtn:hover{
+    cursor: pointer;
+}
 .ProPricingbtn{
     height: 5vh;
     font-size: large;
     width: 18vh;
 
+}
+.ProPricingbtn:hover{
+    cursor: pointer;
 }
 .PricingDetailsCont{
     margin-top: 8vh;

@@ -64,7 +64,9 @@ const GetPastSevenDaysRegitraionCount = async (req, res) => {
       success: true,
       data: past7DaysRegistrationCounts,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({message:error.message})
+  }
 };
 const GetAllCounts = async (req, res) => {
   try {
@@ -77,7 +79,11 @@ const GetAllCounts = async (req, res) => {
       shops: admin.totalBusinessCount,
     };
     res.status(200).json(data);
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
 };
 const getUserByID =async (req,res)=>{
   const {id} = req.body
@@ -99,18 +105,73 @@ const getBusinessById = async (req,res)=>{
     })
     
   } catch (error) {
-    res.status(400).json({
+    res.status(500).json({
       message:error.message
     })
   }
   
 }
+
+const searchUserByemail = async (req,res)=>{
+  try {
+    const {email} = req.body
+    const users =await User.find({email:email})
+    if(users.length===0){
+     return res.status(201).json({
+        message:"no email exists"
+      })
+    }
+    res.status(200).json({
+      message:"found",
+      users
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
+const EditUserDetails = async (req,res)=>{
+  try {
+    const {id} = req.params
+    const {name,email,contact,Membership} = req.body
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (contact) user.contact = contact;
+    if (Membership) user.Membership = Membership;
+    await user.save()
+    res.status(200).json({ message: 'User updated successfully', user });
+    
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+const Deleteuser = async(req,res)=>{
+  try {
+    const {id} = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
+    const admin =await Admin.findOne();
+    if (!deletedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+     admin.totaluserCount -= 1;
+     await admin.save()
+    res.status(200).json({ message: 'User deleted successfully', user: deletedUser });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
 export {
+  EditUserDetails,
   GetAllListUsers,
   GetAllBusinessList,
   CreateAdmin,
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById
+  getBusinessById,searchUserByemail,Deleteuser
 };

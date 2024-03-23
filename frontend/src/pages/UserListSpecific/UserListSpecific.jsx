@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import "./userListSpecific.css"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ExtractDate from '../../utils/ExtractDate';
 import { getUserbyId } from '../../apis/AdminApis';
 const UserListSpecific = () => {
+  const navigate = useNavigate()
     const [user,setUser] = useState() 
     const {userId} =useParams();
     useEffect(()=>{
@@ -39,6 +40,10 @@ const UserListSpecific = () => {
                 <p>MemeberShip Expiry Date : 12/12/12</p>
                 <p>Shop Owned : {user?user.ownedBussinesses.length:"-"}</p>
             </div>
+        </div>
+        <div className="UserspecificdetailsBtnCont">
+          <button onClick={()=>navigate(`/admin/userList/specific/edit/${userId}`)} className='AdminEditUsersBtn'>Edit Details</button>
+          <button className='adminDeluserBtn'>Delete User</button>
         </div>
     </div>
   )

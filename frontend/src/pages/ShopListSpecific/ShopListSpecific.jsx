@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getShopById } from "../../apis/AdminApis";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ExtractDate from "../../utils/ExtractDate";
 import "./ShopListsspecific.css";
 const ShopListSpecific = () => {
   const [shop, setshop] = useState();
   const { shopId } = useParams();
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,6 +51,7 @@ const ShopListSpecific = () => {
   return (
     <div className="userlistSpecificPage">
       <h1 className="userspecifcDetailHead">Shop Details </h1>
+   
       <div className="UserSpecificCard">
         <div className="UserSpecificDetails">
           <p>Name : {shop ? shop.title : "-"}</p>
@@ -94,6 +96,10 @@ const ShopListSpecific = () => {
           {shop ? FormatTimingArr(shop.timingArr)  : "-"}
         </p>
       </div>
+      <div className="UserspecificdetailsBtnCont">
+          <button onClick={()=>navigate(`/admin/shoplist/specific/edit/${shopId}`)} className='AdminEditUsersBtn'>Edit Details</button>
+          <button className='adminDeluserBtn'>Delete Shop</button>
+        </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@
 }
 .AdminPage{
     padding: 4vh 18vh 0 18vh;
+    position: relative;
 }
 .adminGraphscont{
     display: flex;
@@ -52,5 +53,14 @@
 
     height: 70%;
     margin-top: 1vh;
+}
+.AdminNavDrawerIcon{
+    font-size: 5vh;
+    position: absolute;
+    right: 0;
+    color: var(--tertiary);
+}
+.AdminNavDrawerIcon{
+    cursor: pointer;
 }
 /* user business totalamount */
