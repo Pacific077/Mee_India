@@ -21,6 +21,7 @@ import UserList from "./pages/UsersList/UserList";
 import UserListSpecific from "./pages/UserListSpecific/UserListSpecific";
 import AllShopList from "./pages/AllShopList/AllShopList";
 import ShopListSpecific from "./pages/ShopListSpecific/ShopListSpecific";
+import PricingDeteails from "./pages/PricingDetails/PricingDeteails";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
           <Route
             path="/bussiness-list/:district/:mainCategory/:subCat"
@@ -64,8 +66,14 @@ const App = () => {
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route path="/admin/showUserslist" element={<UserList />} />
           <Route path="/admin/showShopslist" element={<AllShopList />} />
-          <Route path="/admin/userList/specific/:userId" element={<UserListSpecific />} />
-          <Route path="/admin/shoplist/specific/:shopId" element={<ShopListSpecific />} />
+          <Route
+            path="/admin/userList/specific/:userId"
+            element={<UserListSpecific />}
+          />
+          <Route
+            path="/admin/shoplist/specific/:shopId"
+            element={<ShopListSpecific />}
+          />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>
       </BrowserRouter>

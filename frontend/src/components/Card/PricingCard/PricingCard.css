@@ -1,0 +1,65 @@
+.Pricingcard{
+    border: 1px solid black;
+    height: 60vh;
+    width: 40vh;
+    position: relative;
+}
+.pricingCardHead{
+    height: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    border-bottom: 1px solid black;
+    background-color: var(--whiteShade);
+}
+.pricingCardHead p {
+    margin: 0;
+    font-size: x-large;
+    color: var(--tertiary);
+}
+.PricingDetailsBtnCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    height: 30%;
+    border: 1px solid var(--grayShade);
+    position: absolute;
+    bottom:10px;
+    left: 12px;
+}
+.PurchaseBtn{
+    border: none;
+    height: 6vh;
+    border-radius: 7px;
+    width: 80%;
+    margin: auto;
+    background-color:var(--tertiary) ;
+    color: white;
+    font-size: larger;
+
+}
+.AmountInRs{
+    font-size: 7vh;
+    margin: 0;
+    margin-top: 1.5vh;
+    display: inline-block;
+    width: fit-content;
+    color:  var(--indiaGreen);
+    margin: auto;
+}
+.pricingdescpoints{
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:3vh;
+}
+.pricingdescpoints p{
+    margin: 0;
+}
+.smalltext{
+    font-size: medium;
+}
