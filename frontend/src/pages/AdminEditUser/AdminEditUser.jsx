@@ -70,7 +70,7 @@ const AdminEditUser = () => {
       </div>
       <div className="btnContEditUserAdmin">
         <button className="updateUserAdminBtn" onClick={handleSubmit}>Update</button>
-        <button className="CancelUserAdminBtn">Cancel</button>
+        <button className="CancelUserAdminBtn" onClick={()=>navigate(`/admin/userList/specific/${userId}`)}>Cancel</button>
       </div>
     </div>
   );

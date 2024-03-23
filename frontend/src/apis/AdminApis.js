@@ -75,4 +75,13 @@ export const AdminEditUserdetails = async ({id,name,email,contact,Membership}) =
   );
   return response;
 };
+export const AdminDeleteUser = async ({id}) => {
+  const response = await axios.delete(
+    `/api/v1/admin/deleteUser/${id}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
 

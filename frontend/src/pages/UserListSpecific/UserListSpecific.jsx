@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "./userListSpecific.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import ExtractDate from '../../utils/ExtractDate';
-import { getUserbyId } from '../../apis/AdminApis';
+import { AdminDeleteUser, getUserbyId } from '../../apis/AdminApis';
+import { toast } from 'react-toastify';
+
 const UserListSpecific = () => {
   const navigate = useNavigate()
     const [user,setUser] = useState() 
@@ -20,6 +22,18 @@ const UserListSpecific = () => {
       
           fetchData();
     },[])
+    const handleUserDelete =async ()=>{
+      try {
+        const resp = await AdminDeleteUser({id:userId});
+        console.log("resp",resp)
+        if(resp.status===200){
+          toast.success("User Deleted Successfully!!!!")
+          navigate("/admin/showUserslist")
+        }
+      } catch (error) {
+        toast.error(error.message);
+      }
+    }
   return (
     <div className='userlistSpecificPage'>
         <h1 className='userspecifcDetailHead'>User Details </h1>
@@ -43,7 +57,7 @@ const UserListSpecific = () => {
         </div>
         <div className="UserspecificdetailsBtnCont">
           <button onClick={()=>navigate(`/admin/userList/specific/edit/${userId}`)} className='AdminEditUsersBtn'>Edit Details</button>
-          <button className='adminDeluserBtn'>Delete User</button>
+          <button onClick={handleUserDelete} className='adminDeluserBtn'>Delete User</button>
         </div>
     </div>
   )
