@@ -4,11 +4,12 @@ import IsAuthenticated from '../Middleware/isAuthenticated.js';
 import { UserCredentialValidator, UserLoginValidator } from '../Validators/UserCredentialValidator.js';
 import storage from '../Config/Cloudinary.js';
 import multer from 'multer';
+import increaseRegistrationCountMiddleware from '../Middleware/IncreaseregistrationCount.js';
 
 const UserRoute = express.Router();
 const upload = multer({storage});
 
-UserRoute.post('/register',UserCredentialValidator,RegisterUser);
+UserRoute.post('/register',UserCredentialValidator,RegisterUser,increaseRegistrationCountMiddleware);
 UserRoute.post('/login',UserLoginValidator,LoginUser);
 UserRoute.post('/loginMobile',UserLoginValidator,LoginUserMobile);
 UserRoute.post('/logout',IsAuthenticated,Logout);

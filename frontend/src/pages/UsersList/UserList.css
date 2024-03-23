@@ -1,0 +1,40 @@
+.UserListpage{
+    padding-left:20vh ;
+    padding-right:20vh ;
+}
+.AllUserListHead{
+    font-family: var(--fontsecondary);
+    font-weight: 500;
+    color: var(--tertiary);
+    text-decoration: underline;
+}
+.userListTableHead{
+    display: flex;
+    justify-content: space-between;
+}
+.userListTableHead p{
+    font-size: larger;
+    color: var(--indiaGreen);
+    width: 25%;
+    text-align: center;
+}
+.AllUserListHeadCont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.AlluserListSearchBar{
+    height: 4vh;
+}
+.searchIcon{
+    font-size: xx-large;
+}
+.searchIcon:hover
+{
+    cursor: pointer;
+}
+.searchByEmailCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

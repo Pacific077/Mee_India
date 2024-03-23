@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import cors from "cors";
 import BussinessRoute from "./Routes/BussinessRoute.js";
+import AdminRoute from "./Routes/AdminRoutes.js";
+
 // import path from 'path'
 // import { dirname } from 'path';
 // import { fileURLToPath } from 'url';
@@ -30,6 +32,7 @@ app.use(cors());
 //routes
 app.use("/api/v1/user", UserRoute);
 app.use("/api/v1/bussiness",BussinessRoute);
+app.use("/api/v1/admin",AdminRoute);
 //deploymemt
 //-------------------------------------------------------------------------
 // const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -41,7 +44,6 @@ app.use("/api/v1/bussiness",BussinessRoute);
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
 // });
-
 
 //-------------------------------------------------------------------------
 const port = process.env.PORT || 4500;

@@ -4,7 +4,7 @@ import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 
 //register user
-const RegisterUser = async (req, res) => {
+const RegisterUser = async (req, res,next) => {
     try {
         const errs = validationResult(req);
     
@@ -38,12 +38,12 @@ const RegisterUser = async (req, res) => {
         });
 
         await newUser.save();
-
-        res.status(200).json({
-            success: true,
-            message: "User Registered",
-            data: newUser,
-        });
+next();
+        // res.status(200).json({
+        //     success: true,
+        //     message: "User Registered",
+        //     data: newUser,
+        // });
     } catch (error) {
             res.status(500).json({
             message:error.message
