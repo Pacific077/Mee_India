@@ -3,8 +3,8 @@ import { validationResult } from "express-validator";
 import User from "../Models/UserModel.js";
 import Review from "../Models/ReviewModel.js";
 
-const FreeList = async(req,res)=>{
-    console.log("i reached here");
+const FreeList = async(req,res,next)=>{
+
     try {
         const errs = validationResult(req);
         if(!errs.isEmpty()){
@@ -72,11 +72,12 @@ const FreeList = async(req,res)=>{
     await user.ownedBussinesses.push(savedBusiness._id);
     await user.save();
         // Respond with the saved business object
-        res.status(200).json({
-            success: true,
-            message: "Bussiness Registered",
-            data: savedBusiness,
-        });
+        next()
+        // res.status(200).json({
+        //     success: true,
+        //     message: "Bussiness Registered",
+        //     data: savedBusiness,
+        // });
       } catch (error) {
         console.log("Ereeresa",error)
         res.status(500).json({
