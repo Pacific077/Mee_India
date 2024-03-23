@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Admin.css"
 import LineGraph from './LineGraph/LineGraph'
 import BarGraph from './BarGraph/BarGraph'
 import AdminCard from './AdminCard/AdminCard'
 import AdminCardArr from './AdmiCardArr'
+import { getcounts } from '../../apis/AdminApis'
 const Admin = () => {
+    const [usercount, setUserCount] = useState();
+    const [shopcount, setShopCount] = useState();
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          // Define getcounts or import it from another module
+          const resp = await getcounts();
+          setUserCount(resp.data.users);
+          setShopCount(resp.data.shops);
+
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      fetchData();
+    }, []);
   return (
     <div className='AdminPage'>
         <div className="adminGraphscont">
@@ -21,7 +40,7 @@ const Admin = () => {
         <div className="adminDatabaseInfoCont">
             {AdminCardArr.map((ele,ind)=>{
                 return(
-                    <AdminCard text={ele.text} key={ind} name={ele.name} count={ele.count} color={ele.color}/>
+                    <AdminCard usercount={usercount} shopcount={shopcount} text={ele.text} key={ind} name={ele.name} count={ele.count} color={ele.color}/>
 
                 )
             })}

@@ -14,6 +14,7 @@ const increaseRegistrationCountMiddleware = async (req, res, next) => {
           } else {
             admin.dailyUserRegistrationCounts.push({ date: today, count: 1 });
           }
+          admin.totaluserCount += 1;
         await admin.save();
       }
       res.status(200).json({

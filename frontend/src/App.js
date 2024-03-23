@@ -16,6 +16,11 @@ import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
 import Admin from "./pages/Admin/Admin";
+import UserList from "./pages/UsersList/UserList";
+
+import UserListSpecific from "./pages/UserListSpecific/UserListSpecific";
+import AllShopList from "./pages/AllShopList/AllShopList";
+import ShopListSpecific from "./pages/ShopListSpecific/ShopListSpecific";
 
 const App = () => {
   return (
@@ -57,6 +62,10 @@ const App = () => {
 
           <Route path="/subList/:Category" element={<BussinessSubList />} />
           <Route path="/admin/dashboard" element={<Admin />} />
+          <Route path="/admin/showUserslist" element={<UserList />} />
+          <Route path="/admin/showShopslist" element={<AllShopList />} />
+          <Route path="/admin/userList/specific/:userId" element={<UserListSpecific />} />
+          <Route path="/admin/shoplist/specific/:shopId" element={<ShopListSpecific />} />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>
       </BrowserRouter>

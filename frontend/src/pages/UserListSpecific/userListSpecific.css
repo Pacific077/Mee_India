@@ -1,0 +1,26 @@
+.userlistSpecificPage{
+    padding: 0 20vh 0 20vh;
+}
+.userspecifcDetailHead{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    color: var(--tertiary);
+    text-align: center;
+}
+.UserSpecificCard{
+    /* height: 60vh; */
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+    border: 1px solid black;
+}
+.UserSpecificDetails{
+    margin-bottom: 4vh;
+    display:  flex;
+
+    justify-content: space-between;
+}
+.UserSpecificDetails p {
+    width: 30%;
+    text-align: center;
+}
