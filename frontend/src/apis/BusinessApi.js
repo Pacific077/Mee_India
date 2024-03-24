@@ -14,6 +14,19 @@ export const SearchOnClickApi = async ({ district, mainCategory, latitude, longi
       return response;
   };
 
+  export const SearchOnTypeApi = async ({ district, text, latitude, longitude}) => {
+    const response = await axios.post(
+      "/api/v1/bussiness/findBussinessbyText",
+      {
+        district,
+        text,
+        latitude,
+        longitude
+      }
+    );
+    return response;
+};
+
 export const findByID = async ({ bussinessId }) => {
     const response = await axios.post(
       "/api/v1/bussiness/findByID",
@@ -40,6 +53,18 @@ export const ReviewSubmit = async (data) => {
   console.log("start",data)
 const response = await axios.put(
   "http://localhost:5000/api/v1/bussiness/reviewSubmit",
+  data,
+  {
+    withCredentials: true,
+  }
+);
+return response;
+};
+
+export const EnquirySubmit = async (data) => {
+  console.log("start",data)
+const response = await axios.put(
+  "http://localhost:5000/api/v1/bussiness/enquirySubmit",
   data,
   {
     withCredentials: true,

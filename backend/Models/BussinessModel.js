@@ -67,6 +67,7 @@ const bussinessSchema = mongoose.Schema(
     //servicesProvided
     ratingCount: { type: Number, default: 0 },
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
+    enquiry: [{ type: mongoose.Schema.Types.ObjectId, ref: "Enquiry" }],
   },
   { timestamps: true }
 );

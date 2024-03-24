@@ -10,12 +10,12 @@ import BannerCard from '../Card/BannerCard/BannerCard'
 const Banner = () => {
   return (
     <div className='BannerCont'>
-      <BannerCard title={"EVENT PLANNERS"} image={eventPlanner} bg="#6F61C0"/>
-      <BannerCard title={"REAL ESTATE AGENTS"} image={realEstate} bg="#4477CE"/>
-      <BannerCard title={"DOCTORS"} image={doc} bg="#40A2E3"/>
-      <BannerCard title={"CONSULTANTS"} image={consultant} bg="#0E8388"/>
-      <BannerCard title={"PACKERS & MOVERS"} image={packers} bg="#22A699"/>
-      <BannerCard title={"HAIR DRESSERS"} image={dresser} bg="#34BE82"/>
+      <BannerCard name={"Event Organiser"} title={"EVENT PLANNERS"} image={eventPlanner} bg="#6F61C0"/>
+      <BannerCard name={"Real Estate Agency"} title={"REAL ESTATE AGENTS"} image={realEstate} bg="#4477CE"/>
+      <BannerCard name={"Medical"} sub={"Hospitals"} title={"DOCTORS"} image={doc} bg="#40A2E3"/>
+      <BannerCard name={"Consultancy"} title={"CONSULTANTS"} image={consultant} bg="#0E8388"/>
+      <BannerCard name={"Packers & Movers"} title={"PACKERS & MOVERS"} image={packers} bg="#22A699"/>
+      <BannerCard name={"Salon"} title={"HAIR DRESSERS"} image={dresser} bg="#34BE82"/>
    
     </div>
   )

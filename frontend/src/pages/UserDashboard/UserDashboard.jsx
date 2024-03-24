@@ -42,27 +42,42 @@ const UserDashboard = () => {
         newName,
         newPic,
       })
-      console.log("Resp",resp);
+      console.log("Resper",resp);
+      
+      localStorage.removeItem('userProfile');
+
       fetchData();
       setNewName("");
-      setNewPic("");
       setIsEditing(false);
     }
     catch(e){
       console.log(e);
-      toast.error("Soemthing went wrong!")
+      toast.error("Something went wrong!")
     }
   }
 
   const fetchData = async ()=>{
-    try{
-    const resp = await ProfileApi()
-    console.log("Resp",resp);
-    setUser(resp.data.user);
-    setBusinessList(resp.data.user.ownedBussinesses)
-    }catch(e){
-      console.log(e);
-      toast.error("Something went Wrong")
+    try {
+      const userProfileFromLocalStorage = localStorage.getItem('userProfile');
+      if (userProfileFromLocalStorage) {
+        // If user profile data is found in localStorage, set user state with that data
+        const userData = JSON.parse(userProfileFromLocalStorage);
+        setUser(userData);
+        setBusinessList(userData.ownedBussinesses);
+        setNewPic(userData.pic)
+      } else {
+        // If user profile data is not found in localStorage, fetch it from the API
+        const resp = await ProfileApi();
+        console.log('Resp', resp);
+        setUser(resp.data.user);
+        setBusinessList(resp.data.user.ownedBussinesses);
+        setNewPic(resp.data.user.pic)
+        // Store fetched user profile data in localStorage for future use
+        localStorage.setItem('userProfile', JSON.stringify(resp.data.user));
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong');
     }
   };
   useEffect(()=>{
@@ -76,6 +91,8 @@ const UserDashboard = () => {
       const resp = await LogoutApi()
       if(resp.status===200){
         toast.success("Logged Out")
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('userProfile');
         navigate('/login')
       }
     } catch (error) {

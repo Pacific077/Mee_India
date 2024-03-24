@@ -2,11 +2,11 @@ import React from 'react'
 import './Review.css'
 import { FaUser } from "react-icons/fa";
 
-const Review = ({name,ratedCnt,message}) => {
+const Review = ({name,ratedCnt,message,img}) => {
   return (
     <div className='reviewContainer'>
         <div className='userInfo'>
-            <FaUser/>
+            <div className="ReviewUserPicCntnr"><img className="ReviewUserPic" src={img}/></div>
             <div>
               <h3>{name}</h3>
               <p>{ratedCnt} reviews</p>

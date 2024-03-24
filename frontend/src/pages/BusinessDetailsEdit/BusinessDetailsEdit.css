@@ -1,3 +1,6 @@
+h1{
+    font-family: var(--fontNew2);
+}
 .BusinessDetailsEditPage{
     /* border: 1px solid black; */
     height: 86vh;

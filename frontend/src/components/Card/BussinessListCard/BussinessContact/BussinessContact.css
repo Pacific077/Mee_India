@@ -13,6 +13,7 @@
     background-color: var(--tertiary);
     color: white;
     margin-left: 2vh ;
+    max-width: 30%;
 }
 
 .Chat{

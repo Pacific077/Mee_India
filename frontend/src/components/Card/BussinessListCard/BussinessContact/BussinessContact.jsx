@@ -12,7 +12,9 @@ const BussinessContact = ({contact}) => {
   return (
     <div className='ContactContainer'>
     <div className='squareBtn ContactNo'><IoCallSharp/>{contact}</div>
-        <div className='squareBtn Enquiry'><RiMessage2Fill/>Send Enquiry</div>
+        <div className='squareBtn Enquiry' 
+          onClick={()=>document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' })}
+        ><RiMessage2Fill/>Send Enquiry</div>
         <div className='squareBtn Chat'  onClick={handleClick}><img style={{marginRight:"4px"}} src='https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/new_whatsapp.svg'/>Chat</div>
     </div>
   )
