@@ -1,0 +1,26 @@
+.mainDiv{
+    margin: 0% 10% 0%; 
+    border: 1px solid black;
+}
+.mainHeading{
+    text-align: center;
+    padding: 1% 2%;
+    font-size: 4vh;
+    border-bottom: 1px solid black; 
+    font-weight: 500; 
+    margin-bottom: 1%;  
+}
+.subHeading{
+    /* padding: 1%  1%; */
+    font-size: 3vh;
+    font-weight: 600;
+}
+.content{
+    padding: 0% 2%;
+    font-size: 17px;
+}
+.textStyle{
+    padding: 0.5% 0%;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif
+}

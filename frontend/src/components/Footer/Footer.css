@@ -1,3 +1,13 @@
+.appIconBox{
+    display: flex;
+    background-color: black;
+    color: white;
+    padding:2%;
+    font-weight:500 ;
+    width: 21vh;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
 .footerbrnds{
     margin-top: 4vh;
     display: flex;
@@ -39,6 +49,7 @@
 
 .foot2{
     width: 15%;
+    /* padding:5% */
 }
 .foot3{
     width: 18%;
@@ -51,11 +62,18 @@
     font-weight: 600;
     font-size: 18px;
 }
+.storeIcon{
+    height: 4.5vh;
+    width: 4.5vh;
+}
 .lastline{
 
     display: flex;
     justify-content: center;
     margin-bottom: 5vh;
+}
+.smallText{
+    font-size: 1.5vh;
 }
 @media screen and (max-width: 1502px) {
     .footerbrnds {

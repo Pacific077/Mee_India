@@ -16,6 +16,9 @@ import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
 import Admin from "./pages/Admin/Admin";
+import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
+import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks";
+import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 
 const App = () => {
   return (
@@ -58,6 +61,9 @@ const App = () => {
           <Route path="/subList/:Category" element={<BussinessSubList />} />
           <Route path="/admin/dashboard" element={<Admin />} />
           <Route path="/apitest" element={<Apitext />} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/quicklinks" element={<QuickLinks/>} />
+          <Route path="/reportbug" element={<ReportBug/>} />
         </Routes>
       </BrowserRouter>
     </>
