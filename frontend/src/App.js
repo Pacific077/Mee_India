@@ -24,6 +24,8 @@ import ShopListSpecific from "./pages/ShopListSpecific/ShopListSpecific";
 import PricingDeteails from "./pages/PricingDetails/PricingDeteails";
 import AdminEditUser from "./pages/AdminEditUser/AdminEditUser";
 import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
+import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
+import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
 
 const App = () => {
   return (
@@ -32,6 +34,9 @@ const App = () => {
         <Shownavbar>
           <Navbar />
         </Shownavbar>
+        <ShowAdminSideNav>
+          <AdminSideNav />
+        </ShowAdminSideNav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

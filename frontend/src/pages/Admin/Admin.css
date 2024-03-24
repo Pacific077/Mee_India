@@ -57,7 +57,8 @@
 .AdminNavDrawerIcon{
     font-size: 5vh;
     position: absolute;
-    right: 0;
+    left: -10vh;
+    top: 2vh;
     color: var(--tertiary);
 }
 .AdminNavDrawerIcon{
