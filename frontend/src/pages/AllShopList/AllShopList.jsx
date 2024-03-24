@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import "./AllshopList.css";
+import { TbFilterSearch } from "react-icons/tb";
 import AllShopListCard from "./AllShopListCard";
 import { getShopsList } from "../../apis/AdminApis";
+import ShopFilterList from "./ShopFilterList/ShopFilterList";
 const AllShopList = () => {
+  const [isFilterVis, setFilterVis] = useState(false);
   const [shopsArr, setshopsArr] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +23,8 @@ const AllShopList = () => {
   }, []);
   return (
     <div className="UserListpage">
+      {isFilterVis&&<ShopFilterList setshopsArr={setshopsArr} setFilterVis={setFilterVis}/>}
+      <TbFilterSearch className="filteSearchIcon" onClick={()=>setFilterVis(true)} />
       <div className="AllUserListHeadCont">
         <h1 className="AllUserListHead">All Shops List</h1>
         <div className="searchByEmailCont">
@@ -42,18 +47,17 @@ const AllShopList = () => {
         ? shopsArr.map((ele, ind) => {
             return (
               <AllShopListCard
-              id={ele._id}
+                id={ele._id}
                 key={ind}
                 title={ele.title}
-                district = {ele.districtCard}
+                district={ele.districtCard}
                 cat={ele.mainCategory}
                 dis={ele.district}
-                state = {ele.state}
+                state={ele.state}
               />
             );
           })
-        : "Please Wait Loaddng"}
-      
+        : "No Data Found"}
     </div>
   );
 };

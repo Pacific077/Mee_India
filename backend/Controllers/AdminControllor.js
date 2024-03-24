@@ -218,8 +218,6 @@ const FilterUserSearch =  async(req,res)=>{
     if (membership) {
       query.Membership = membership;
     }
-
-    
     if (startDate) {
       query.membershipPurchaseDate = {
         $gte: new Date(startDate)   
@@ -240,6 +238,42 @@ const FilterUserSearch =  async(req,res)=>{
     })
   }
 }
+
+
+const FilterShopSearch = async (req,res)=>{
+  try {
+    const {mainCategory,subCategory,state,district,owner} = req.query;
+    let query = {};
+    if (mainCategory) {
+      query.mainCategory = mainCategory;
+    }
+    if (subCategory) {
+      query.subCategory=subCategory
+    }
+    if (state) {
+      query.state=state
+    }
+    if (district) {
+      query.district=district
+    }
+    if (owner) {
+      query.owner=owner
+    }
+    console.log("shop query",query)
+    const shops = await Bussiness.find(query);
+    if (!shops || shops.length === 0) {
+      return res.status(200).json({ message: "No users found", data: [] });
+    }
+    res.status(200).json({
+      message:"found"
+      ,data:shops
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -249,5 +283,6 @@ export {
   GetAllCounts,
   getUserByID,
   getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
-  FilterUserSearch
+  FilterUserSearch,
+  FilterShopSearch
 };
