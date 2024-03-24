@@ -135,3 +135,17 @@ export const  AdminFilterShop = async ({
   );
   return response;
 };
+
+
+export const CreateNewAdminAccount = async ({ name,email,password }) => {
+  const response = await axios.post(
+    "/api/v1/admin/createNewAdmin",
+    {
+      name,email,password
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};

@@ -1,25 +1,28 @@
 import Admin from "../Models/AdminModel.js";
 import User from "../Models/UserModel.js";
+import bcrypt from "bcrypt";
+import { validationResult } from "express-validator";
+// import jwt from "jsonwebtoken";
 import Bussiness from "../Models/BussinessModel.js";
 //not to be used in frontend
-const CreateAdmin = async (req, res) => {
-  try {
-    const admin = await Admin.create({
-      dailyUserRegistrationCounts: [],
-      dailyBusinessRegistrationCounts: [],
-      totaluserCount: 0,
-      totalBusinessCount: 0,
-    });
-    return res.status(200).json({
-      message: "Admin Created Succesfully",
-      admin,
-    });
-  } catch (error) {
-    res.status(400).json({
-      message: error.message,
-    });
-  }
-};
+// const CreateAdminDB = async (req, res) => {
+//   try {
+//     const admin = await Admin.create({
+//       dailyUserRegistrationCounts: [],
+//       dailyBusinessRegistrationCounts: [],
+//       totaluserCount: 0,
+//       totalBusinessCount: 0,
+//     });
+//     return res.status(200).json({
+//       message: "Admin Created Succesfully",
+//       admin,
+//     });
+//   } catch (error) {
+//     res.status(400).json({
+//       message: error.message,
+//     });
+//   }
+// };
 const GetAllBusinessList =async (req, res) => {
   const business =await Bussiness.find()
   res.status(200).json({
@@ -274,15 +277,63 @@ const FilterShopSearch = async (req,res)=>{
     })
   }
 }
+
+const CreateAdminAccount = async (req,res,next)=>{
+  try {
+    const errs = validationResult(req);
+
+    if(!errs.isEmpty()){
+        let arr = [];
+        errs.array().forEach((error) => {
+            arr.push(error.msg);
+        });
+        return res.status(400).json({
+            message:"Something went wrong",
+            err:arr
+        })
+    }
+
+    const { name, email, password } = req.body;
+
+    const user = await User.findOne({ email });
+    if (user) {
+        return res.status(400).json({
+            message:"Something went wrong",
+            err:["Email is already registered!"]
+        })
+    }
+    //hashing the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPass = await bcrypt.hash(password, salt);
+    const newUser = await User.create({
+        name,
+        email,
+        role:"Admin",
+        password: hashedPass,
+    });
+
+    await newUser.save();
+next();
+    // res.status(200).json({
+    //     success: true,
+    //     message: "User Registered",
+    //     data: newUser,
+    // });
+} catch (error) {
+        res.status(500).json({
+        message:error.message
+    })
+}
+
+}
 export {
   EditUserDetails,
   GetAllListUsers,
   GetAllBusinessList,
-  CreateAdmin,
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
   getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
   FilterUserSearch,
-  FilterShopSearch
+  FilterShopSearch,CreateAdminAccount
 };

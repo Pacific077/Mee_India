@@ -1,0 +1,58 @@
+.createNewAdmin{
+    height: 65vh;
+    width: 49vh;
+    border:2px solid rebeccapurple;
+    margin: auto;
+    border-top-right-radius: 6vh;
+    border-bottom-left-radius: 6vh;
+    margin-top: 5%;
+}
+.createAdminHead{
+    width: fit-content;
+    margin: auto;
+    color: var(--tertiary);
+    font-weight: 500;
+    border-bottom: 4px dashed slateblue;
+    margin-top: 3vh;
+}
+.createAdminform{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 4vh;
+}
+.createAdminformItems input{
+    border: none;
+    caret-color: black;
+    font-family: var(--fontMain);
+    font-size: medium;
+    color: var(--tertiary);
+    outline: none;
+    border-bottom: 2px solid rebeccapurple;
+    width: 80%;
+}
+.createAdminformItems p{
+    margin-bottom: 1vh;
+    font-size: larger;
+}
+.createAdminBtn{
+    margin-top: 6vh;
+    margin-left: 3vh;
+    height: 5vh;
+    width: 16vh;
+    font-size: large;
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.createAdminEyeIcon{
+    font-size: x-large;
+    position: absolute;
+    color: #8B0000;
+}
+.createAdminEyeIcon:hover{
+    cursor: pointer;
+}

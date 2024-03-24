@@ -26,6 +26,7 @@ import AdminEditUser from "./pages/AdminEditUser/AdminEditUser";
 import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
 import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
+import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
 
 const App = () => {
   return (
@@ -89,6 +90,7 @@ const App = () => {
             path="/admin/shoplist/specific/edit/:shopId"
             element={<AdminEditShop />}
           />
+          <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>
       </BrowserRouter>
