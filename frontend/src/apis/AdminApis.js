@@ -105,3 +105,13 @@ export const AdminDeleteShop = async ({id}) => {
   );
   return response;
 };
+
+export const AdminFilterUser = async({membership,startDate})=>{
+  const response = await axios.get(
+    `/api/v1/admin/Usersearch/?membership=${membership}&startDate=${startDate}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+}

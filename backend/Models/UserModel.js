@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema(
       default: "Free List",
       enum: ["Free List", "Shop List", "Standard", "Premium", "Pro"],
     },
-    membershipPurchaseDate: { type: Date }, // Date when the membership was purchased
+    membershipPurchaseDate: { type: Date,default: Date.now }, // Date when the membership was purchased
     membershipExpiryDate: { type: Date },   // Date when the membership expires
     password: { type: String, required: true },
     ownedBussinesses: [

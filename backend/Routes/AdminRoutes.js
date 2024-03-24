@@ -5,6 +5,7 @@ import {
   Deleteuser,
   EditShopDetails,
   EditUserDetails,
+  FilterUserSearch,
   GetAllBusinessList,
   GetAllCounts,
   GetAllListUsers,
@@ -28,5 +29,6 @@ AdminRoute.put("/updateuser/:id", EditUserDetails);
 AdminRoute.delete("/deleteUser/:id", Deleteuser);
 AdminRoute.put("/updateShop/:id", EditShopDetails);
 AdminRoute.delete("/deleteShop/:id", DeleteShop);
+AdminRoute.get("/Usersearch", FilterUserSearch);
 
 export default AdminRoute;

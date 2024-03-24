@@ -210,6 +210,36 @@ const DeleteShop = async (req,res)=>{
     res.status(500).json({ error: error.message });
   }
 }
+
+const FilterUserSearch =  async(req,res)=>{
+  try {
+    const { membership, startDate } = req.query;
+    let query = {};
+    if (membership) {
+      query.Membership = membership;
+    }
+
+    
+    if (startDate) {
+      query.membershipPurchaseDate = {
+        $gte: new Date(startDate)   
+      };
+    }
+    console.log("query",query)
+    const users = await User.find(query);
+    if (!users || users.length === 0) {
+      return res.status(200).json({ message: "No users found", data: [] });
+    }
+    res.status(200).json({
+      message:"found"
+      ,data:users
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -218,5 +248,6 @@ export {
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop
+  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
+  FilterUserSearch
 };
