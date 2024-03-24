@@ -2,7 +2,7 @@ const PricingDetailsBasicArr = [
   {
     Name: "Free List",
     points: [
-      "Search visiblity : 0",
+      "Search visiblity : 0x",
       "No Verified Seal",
       "No Trust stamp",
       "No online Catalouge",
@@ -13,7 +13,7 @@ const PricingDetailsBasicArr = [
   {
     Name: "Shop List",
     points: [
-      "Search visiblity : 1",
+      "Search visiblity : 1x",
       "Verified Seal",
       "No Trust stamp",
       "No online Catalouge",
@@ -26,7 +26,7 @@ const PricingDetailsProArr = [
   {
     Name: "Standard List",
     points: [
-      "Search visiblity : 2",
+      "Search visiblity : 2x",
       "Verified Seal",
       "No Trust stamp",
       "Online Catalouge",
@@ -37,7 +37,7 @@ const PricingDetailsProArr = [
   {
     Name: "Premium List",
     points: [
-      "Search visiblity : 3",
+      "Search visiblity : 3x",
       "Verified Seal",
       "No Trust stamp",
       "Online Catalouge",
@@ -48,7 +48,7 @@ const PricingDetailsProArr = [
   {
     Name: "Pro List",
     points: [
-      "Search visiblity : 4",
+      "Search visiblity : 4x",
       "Verified Seal",
       "Trust stamp",
       "Onine Catalouge",

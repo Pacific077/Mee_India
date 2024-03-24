@@ -58,6 +58,28 @@ export const getShopById = async ({id}) => {
     },
     {
       withCredentials: true,
+    } 
+  );
+  return response;
+};
+export const AdminEditUserdetails = async ({id,name,email,contact,Membership}) => {
+  const response = await axios.put(
+    `/api/v1/admin/updateuser/${id}`,
+    {
+      name,email,contact,
+      Membership
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
+export const AdminDeleteUser = async ({id}) => {
+  const response = await axios.delete(
+    `/api/v1/admin/deleteUser/${id}`,
+    {
+      withCredentials: true,
     }
   );
   return response;
