@@ -96,3 +96,12 @@ export const AdminEditShopdetails = async ({id,title,bussinessMail,mainCategory,
   );
   return response;
 };
+export const AdminDeleteShop = async ({id}) => {
+  const response = await axios.delete(
+    `/api/v1/admin/deleteShop/${id}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};

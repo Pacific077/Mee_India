@@ -25,7 +25,6 @@ const UserListSpecific = () => {
     const handleUserDelete =async ()=>{
       try {
         const resp = await AdminDeleteUser({id:userId});
-        console.log("resp",resp)
         if(resp.status===200){
           toast.success("User Deleted Successfully!!!!")
           navigate("/admin/showUserslist")

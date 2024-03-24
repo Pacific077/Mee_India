@@ -1,6 +1,7 @@
 import express from "express";
 import {
   CreateAdmin,
+  DeleteShop,
   Deleteuser,
   EditShopDetails,
   EditUserDetails,
@@ -26,5 +27,6 @@ AdminRoute.post("/searchByEmail", searchUserByemail);
 AdminRoute.put("/updateuser/:id", EditUserDetails);
 AdminRoute.delete("/deleteUser/:id", Deleteuser);
 AdminRoute.put("/updateShop/:id", EditShopDetails);
+AdminRoute.delete("/deleteShop/:id", DeleteShop);
 
 export default AdminRoute;

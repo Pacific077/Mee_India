@@ -194,6 +194,22 @@ const EditShopDetails = async(req,res)=>{
     res.status(500).json({ error: error.message });
   }
 }
+
+const DeleteShop = async (req,res)=>{
+  try {
+    const {id} = req.params;
+    const deletedShop = await Bussiness.findByIdAndDelete(id);
+    const admin =await Admin.findOne();
+    if (!deletedShop) {
+      return res.status(404).json({ error: 'Shop not found' });
+    }
+     admin.totalBusinessCount -= 1;
+     await admin.save()
+    res.status(200).json({ message: 'Shop deleted successfully', shop: deletedShop });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -202,5 +218,5 @@ export {
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails
+  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop
 };
