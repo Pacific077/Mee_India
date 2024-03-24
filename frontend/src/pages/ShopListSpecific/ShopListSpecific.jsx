@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getShopById } from "../../apis/AdminApis";
+import { AdminDeleteShop, getShopById } from "../../apis/AdminApis";
 import { useNavigate, useParams } from "react-router-dom";
 import ExtractDate from "../../utils/ExtractDate";
 import "./ShopListsspecific.css";
+import { toast } from "react-toastify";
 const ShopListSpecific = () => {
   const [shop, setshop] = useState();
   const { shopId } = useParams();
@@ -42,6 +43,17 @@ const ShopListSpecific = () => {
     "Friday",
     "Saturday",
   ];
+  const handleDelteShop = async()=>{
+    try {
+      const resp = await AdminDeleteShop({id:shopId});
+      if(resp.status===200){
+        toast.success("Shop Deleted Successfully!!!!")
+        navigate("/admin/showShopslist")
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
   const displayedDays = shop
     ? shop.openDays
         .map((isOpen, index) => (isOpen === "true" ? daysOfWeek[index] : ""))
@@ -98,7 +110,7 @@ const ShopListSpecific = () => {
       </div>
       <div className="UserspecificdetailsBtnCont">
           <button onClick={()=>navigate(`/admin/shoplist/specific/edit/${shopId}`)} className='AdminEditUsersBtn'>Edit Details</button>
-          <button className='adminDeluserBtn'>Delete Shop</button>
+          <button onClick={handleDelteShop} className='adminDeluserBtn'>Delete Shop</button>
         </div>
     </div>
   );

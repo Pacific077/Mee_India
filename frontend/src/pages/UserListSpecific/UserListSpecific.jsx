@@ -25,7 +25,6 @@ const UserListSpecific = () => {
     const handleUserDelete =async ()=>{
       try {
         const resp = await AdminDeleteUser({id:userId});
-        console.log("resp",resp)
         if(resp.status===200){
           toast.success("User Deleted Successfully!!!!")
           navigate("/admin/showUserslist")
@@ -50,7 +49,7 @@ const UserListSpecific = () => {
                 <p>Role :{user?user.role:"-"}</p>
             </div>
             <div className="UserSpecificDetails">
-                <p>Membership : Premium</p>
+                <p>Membership : {user?user.Membership:"-"}</p>
                 <p>MemeberShip Expiry Date : 12/12/12</p>
                 <p>Shop Owned : {user?user.ownedBussinesses.length:"-"}</p>
             </div>

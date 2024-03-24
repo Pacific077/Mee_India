@@ -84,4 +84,34 @@ export const AdminDeleteUser = async ({id}) => {
   );
   return response;
 };
+export const AdminEditShopdetails = async ({id,title,bussinessMail,mainCategory,subCategory,state,district,pinCode}) => {
+  const response = await axios.put(
+    `/api/v1/admin/updateShop/${id}`,
+    {
+      title,bussinessMail,mainCategory,subCategory,state,district,pinCode
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
+export const AdminDeleteShop = async ({id}) => {
+  const response = await axios.delete(
+    `/api/v1/admin/deleteShop/${id}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
 
+export const AdminFilterUser = async({membership,startDate})=>{
+  const response = await axios.get(
+    `/api/v1/admin/Usersearch/?membership=${membership}&startDate=${startDate}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+}

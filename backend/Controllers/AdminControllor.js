@@ -147,7 +147,7 @@ const EditUserDetails = async (req,res)=>{
     res.status(200).json({ message: 'User updated successfully', user });
     
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 }
 const Deleteuser = async(req,res)=>{
@@ -165,6 +165,81 @@ const Deleteuser = async(req,res)=>{
     res.status(500).json({ error: 'Internal server error' });
   }
 }
+
+const EditShopDetails = async(req,res)=>{
+  try {
+    const {id} = req.params
+    const {title,bussinessMail,mainCategory,subCategory,state,district,pinCode} = req.body
+    const shop =await Bussiness.findById(id);
+    if(!shop){
+      return res.status(404).json({
+        message:"Shop Not found"
+      })
+    }
+    if(title) shop.title = title
+    if(bussinessMail) shop.bussinessMail = bussinessMail
+    if(mainCategory) shop.mainCategory = mainCategory
+    if(subCategory[0]==="empty"){
+      shop.subCategory=['']
+    }
+    if(subCategory.length>0&&subCategory[0]!=="empty") shop.subCategory = subCategory
+    if(state) shop.state = state
+    if(district) shop.district = district
+    if(pinCode) shop.pinCode = pinCode
+    await shop.save()
+    res.status(200).json({ message: 'Shop updated successfully', shop });
+
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+const DeleteShop = async (req,res)=>{
+  try {
+    const {id} = req.params;
+    const deletedShop = await Bussiness.findByIdAndDelete(id);
+    const admin =await Admin.findOne();
+    if (!deletedShop) {
+      return res.status(404).json({ error: 'Shop not found' });
+    }
+     admin.totalBusinessCount -= 1;
+     await admin.save()
+    res.status(200).json({ message: 'Shop deleted successfully', shop: deletedShop });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+const FilterUserSearch =  async(req,res)=>{
+  try {
+    const { membership, startDate } = req.query;
+    let query = {};
+    if (membership) {
+      query.Membership = membership;
+    }
+
+    
+    if (startDate) {
+      query.membershipPurchaseDate = {
+        $gte: new Date(startDate)   
+      };
+    }
+    console.log("query",query)
+    const users = await User.find(query);
+    if (!users || users.length === 0) {
+      return res.status(200).json({ message: "No users found", data: [] });
+    }
+    res.status(200).json({
+      message:"found"
+      ,data:users
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -173,5 +248,6 @@ export {
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById,searchUserByemail,Deleteuser
+  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
+  FilterUserSearch
 };

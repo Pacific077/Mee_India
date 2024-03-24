@@ -1,6 +1,15 @@
 .UserListpage{
     padding-left:20vh ;
     padding-right:20vh ;
+    position: relative;
+}
+.userlistCont{
+    position: relative;
+}
+.userListTableHead{
+    background-color: white;
+    position: sticky;
+    top: 17vh;
 }
 .AllUserListHead{
     font-family: var(--fontsecondary);
@@ -37,4 +46,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.filteSearchIcon{
+    position: absolute;
+    left: 0vh;
+    top: 8vh;
+    background-color: var(--tertiary);
+    padding: 1vh;
+    color: var(--primary);
+    border-radius: 2px;
+    font-size: xx-large;
+}
+.filteSearchIcon:hover{
+    cursor: pointer;
 }
