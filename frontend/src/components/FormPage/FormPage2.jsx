@@ -4,6 +4,7 @@ import Breaker from './Breaker/Breaker'
 import { toast } from "react-toastify";
 import list from './states-and-districts.json'
 import AddIcon from '@mui/icons-material/Add';
+import { TextField } from '@mui/material';
 
 const FormPage2 = ({
   bussinessMail,
@@ -66,18 +67,54 @@ return (
     {/* <Breaker field="Contacts" /> */}
     <div className='twoinputfield'>
       <div>
-        <label className='formLabel'>Email:</label>
-        <input type='email' placeholder='' className='formInput' onChange={(event)=>{setBussinessMail(event.target.value)}} value={bussinessMail}/>
+        {/* <label className='formLabel'>Email:</label>
+        <input type='email' placeholder='' className='formInput' onChange={(event)=>{setBussinessMail(event.target.value)}} value={bussinessMail}/> */}
+        <TextField
+          required
+          id="Email"
+          label="Email"
+          defaultValue=""
+          size="small"
+          placeholder='abc@123.com'
+          className='formInput'
+          onChange={(event)=>{setBussinessMail(event.target.value)}} 
+          value={bussinessMail}
+          margin='normal'
+        />
       </div>
     </div>
     <div className='twoinputfield'>
       <div>
-        <label className='formLabel'>Contact:</label>
-        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessContact(event.target.value)}} value={bussinessContact}/>
+        {/* <label className='formLabel'>Contact:</label>
+        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessContact(event.target.value)}} value={bussinessContact}/> */}
+        <TextField
+          required
+          id="Contact"
+          label="Contact"
+          defaultValue=""
+          size="small"
+          placeholder=''
+          className='formInput'
+          onChange={(event)=>{setBussinessContact(event.target.value)}} 
+          value={bussinessContact}
+          margin='normal'
+        />
       </div>
       <div>
-        <label className='formLabel'>Alternate Contact:</label>
-        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessAltContact(event.target.value)}} value={bussinessAltContact}/>
+        <TextField
+          required
+          id="Alternate Contact"
+          label="Alternate Contact"
+          defaultValue=""
+          size="small"
+          placeholder=''
+          className='formInput'
+          onChange={(event)=>{setBussinessAltContact(event.target.value)}} 
+          value={bussinessAltContact}
+          margin='normal'
+        />
+        {/* <label className='formLabel'>Alternate Contact:</label>
+        <input placeholder='' className='formInput' onChange={(event)=>{setBussinessAltContact(event.target.value)}} value={bussinessAltContact}/> */}
       </div>
     </div>
 
@@ -91,7 +128,13 @@ return (
         {/* </div> */}
     </div>
 
+    <div className='timeShowContainer'>
+      {timingArr.map((time,index)=><div>
+        {(index%2!==0)?(<div className='timeShow'><span>{timingArr[index-1]}</span><span> to </span><span>{timingArr[index]}</span></div>):<></>}
+      </div>)}
+    </div>
     <div className='timeField'>
+            
         <div>
             <label className='formLabel'>Opens At:</label>
             <input type='time' className='timeInput' onChange={(event)=>{setOpenTime(event.target.value)}} value={openTime}/>

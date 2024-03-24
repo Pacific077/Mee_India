@@ -14,6 +14,12 @@ import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices
 
 const BusinessDashboardSpecificArr = [
     {
+        tag:"Enquiries",
+        icon:MdContacts,
+        color:"#FAEBD7",
+        locate:"enquiry"
+    },
+    {
         tag:"Edit Name",
         icon:FaShoppingBag,
         color:"#FAEBD7",

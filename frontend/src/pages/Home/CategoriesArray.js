@@ -126,7 +126,7 @@ const CategoriesArray = [
     category: "Education",
     img: Schools,
     desc: "",
-    subCat: [""],
+    subCat: [],
   },
   {
     count: 1000,

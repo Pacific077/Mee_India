@@ -61,6 +61,18 @@ const response = await axios.put(
 return response;
 };
 
+export const EnquirySubmit = async (data) => {
+  console.log("start",data)
+const response = await axios.put(
+  "http://localhost:5000/api/v1/bussiness/enquirySubmit",
+  data,
+  {
+    withCredentials: true,
+  }
+);
+return response;
+};
+
 export const BusienessEdit = async (EditDetails) => {
 
 

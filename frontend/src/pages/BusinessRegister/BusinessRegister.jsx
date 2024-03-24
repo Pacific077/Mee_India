@@ -40,7 +40,7 @@ const BusinessRegister = () => {
 
   const [imagelinkArr, setImageLinkArr] = useState([]);
 
-  const [counter, setCounter] = useState("0");
+  const [counter, setCounter] = useState("1");
   const navigate = useNavigate()
   // const formdata = new FormData()
   const handleSubmit = async () => {
@@ -82,7 +82,7 @@ const BusinessRegister = () => {
       </div>
       <div className="BusinessregisterRight">
         <div className="formContainer">
-          {counter==="0" && (<FormFrontPage setCounter={setCounter}/>)}
+          {/* {counter==="0" && (<FormFrontPage setCounter={setCounter}/>)} */}
           {counter === "1" && (
             <FormPage1
               title={title}

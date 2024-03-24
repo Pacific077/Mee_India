@@ -20,6 +20,7 @@ const Navbar = () => {
     try{
     const resp = await ProfileApi()
     console.log("Resp",resp);
+    localStorage.setItem('userProfile', JSON.stringify(resp.data.user))
     setUser(resp.data.user);
     }catch(e){
       console.log(e);

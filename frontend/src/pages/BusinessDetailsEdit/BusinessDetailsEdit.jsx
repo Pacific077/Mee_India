@@ -8,6 +8,7 @@ import Websites from './Websites/Websites'
 import Offers from './Offers/Offers'
 import Services from './Services/ServiceAdd'
 import ManageReviews from './ManageReviews/ManageReviews'
+import ViewEnquiries from './ViewEnquiries/ViewEnquiries'
 
 const BusinessDetailsEdit = () => {
   const {edit} = useParams()
@@ -18,6 +19,7 @@ const BusinessDetailsEdit = () => {
   const [addOffer,setAddOffers] = useState(false)
   const [addService,setAddService] = useState(false)
   const [Reviews,setReviews] = useState(false)
+  const [Enquiries,setEnquiries] = useState(false)
 
   useEffect(()=>{
     
@@ -38,6 +40,9 @@ const BusinessDetailsEdit = () => {
     else if(edit==="Reviews"){
       setReviews(true)
     }
+    else if(edit==="enquiry"){
+      setEnquiries(true)
+    }
   },[])
   return (
     <div className='BusinessDetailsEditPage'>
@@ -48,7 +53,8 @@ const BusinessDetailsEdit = () => {
             {addWebsite&&<Websites/>}
             {addOffer&&<Offers/>}
             {addService&&<Services/>}            
-            {Reviews &&<ManageReviews/>}
+            {Reviews &&<ManageReviews/>}        
+            {Enquiries &&<ViewEnquiries/>}
         </div>
     </div>
   )

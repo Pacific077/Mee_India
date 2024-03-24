@@ -1,7 +1,10 @@
-
+.h1{
+    margin: 0;
+}
 .FormPageContainer{
     padding: 5vh;
-    background-color: #e1f6ff;
+    background-color: #fff;
+    font-family: var(--fontNew1);
 }
 .formPageBannerCntnr button{
     position: absolute;
@@ -90,7 +93,17 @@
     color: white !important;
     background-color: #62b462 !important;
 }
-
+.timeShowContainer{
+    display: flex;
+    justify-content: flex-start;
+    gap: 2vh;
+}
+.timeShow{
+    background-color: rgb(87, 20, 87);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
 .timeField{
     width: 60%;
     display: flex;
@@ -120,6 +133,7 @@
     font-family: var(--fontNew2);
     font-size: 6vh;
     margin-top: 0;
+    margin-bottom: 2vh;
     color: rgba(0, 0, 0, 0.749);
 }
 

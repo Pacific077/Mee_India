@@ -12,12 +12,13 @@ import { FaSquare } from "react-icons/fa";
 import Review from './Review/Review';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { ReviewSubmit, findByID } from '../../apis/BusinessApi';
+import { EnquirySubmit, ReviewSubmit, findByID } from '../../apis/BusinessApi';
 import { TextField } from '@mui/material';
 import { TiTick } from "react-icons/ti";
 import { ProfileApi } from '../../apis/UserApi';
 import ReviewForm from './ReviewForm/ReviewForm';
 import Cookies from 'js-cookie';
+import { RiMessage2Fill } from 'react-icons/ri';
 
 const BussinessPage = () => {
 
@@ -34,6 +35,9 @@ const BussinessPage = () => {
     const [reviewMsg,setReviewMsg] = useState("");
 
     const [isLoggedIn,setIsLoggedIn] = useState(false)
+
+    const [enquiry,setEnquiry] = useState("")
+    const [contact,setContact] = useState("")
     
     const fecthBusinessByID = async () => {
       try {
@@ -50,15 +54,27 @@ const BussinessPage = () => {
 
     const fetchUserByID = async()=>{
       try{
-        const resp = await ProfileApi()
-      // console.log("Resp",resp);
-        if(resp.status===200){
-          setUser(resp.data.user);
-          setRatedBusinesses(resp.data.user.ratedBussinesses);
+        setWait(false);
+        const userProfileFromLocalStorage = localStorage.getItem('userProfile');
+        if (userProfileFromLocalStorage){
+          const userData = JSON.parse(userProfileFromLocalStorage);
+          setUser(userData);
+          setRatedBusinesses(userData.ratedBussinesses);
+          setWait(true);
           if(!isLoggedIn)setIsLoggedIn(true);
-        }
-        else{
-          toast.warning(resp.message);
+        }else{
+          const resp = await ProfileApi()
+          // console.log("there")
+          // console.log("Resp",resp);
+          if(resp.status===200){
+            setUser(resp.data.user);
+            setRatedBusinesses(resp.data.user.ratedBussinesses);
+            setWait(false);
+            if(!isLoggedIn)setIsLoggedIn(true);
+          }
+          else{
+            toast.warning(resp.message);
+          }
         }
       }
       catch(error){
@@ -96,6 +112,7 @@ const BussinessPage = () => {
         if(resp.status === 200)
         {
           toast.success(resp.data.message);
+          localStorage.removeItem("userProfile")
           fetchUserByID();
         }
       }
@@ -105,6 +122,31 @@ const BussinessPage = () => {
         toast.error(error.response.data.message);
       }
     }
+
+    const handleEnquirySubmit = async()=>{
+      try{
+        const resp = await EnquirySubmit({
+          name:user.name,
+          question:enquiry,
+          email: user.email,
+          contact: contact,
+          bussinessId:currBusiness._id
+        })
+
+        if(resp.status === 200)
+        {
+          toast.success(resp.data.message);
+          localStorage.removeItem("userProfile")
+          fetchUserByID();
+        }
+      }
+      catch(error)
+      {
+        console.log(error);
+        toast.error(error.response.data.message);
+      }
+    }
+
     const openImageInNewTab = (e, pic) => {
       e.preventDefault();
       window.open(pic, '_blank');
@@ -176,18 +218,41 @@ const BussinessPage = () => {
         </div>
 
         
+        <div className='bussinessPagesection2'>      
+          {currBusiness.CatalougeImages.length>0&&<div className='bussinessPageTiming'>
+              <h2>Rate Cards</h2>
+              <div className='CataloguePicContainer'>
+              {currBusiness.CatalougeImages.map((pic, index) => (
+                <div className='CataloguePic' onClick={(e) => openImageInNewTab(e, pic)}><img className='imageSectionimg' key={index} src={pic} alt='businessPic'/></div>
 
-        {currBusiness.CatalougeImages.length>0&&<div className='bussinessPagesection21'>
-            <h2>Rate Cards</h2>
-            <div className='CataloguePicContainer'>
-            {currBusiness.CatalougeImages.map((pic, index) => (
-              <div className='CataloguePic' onClick={(e) => openImageInNewTab(e, pic)}><img className='imageSectionimg' src={pic} alt='businessPic'/></div>
+              ))}
 
-            ))}
-
-            </div>
-        </div>}
-
+              </div>
+          </div>}
+          <div className='bussinessPageAddress' id='enquiry'>
+            <h2>Enquire About this Business</h2>
+            <TextField fullWidth label="Question" id="fullWidth" onChange={(e)=>setEnquiry(e.target.value)} value={enquiry}/>
+            <TextField fullWidth label="Contact" id="fullWidth" margin='normal' onChange={(e)=>setContact(e.target.value)} value={contact}/>
+            
+            <TextField
+              disabled
+              id="outlined-disabled"
+              label="Name"
+              defaultValue={user.name}
+            />
+            <TextField
+              disabled
+              id="outlined-disabled"
+              label="Email"
+              defaultValue={user.email}
+            />
+            <div className='squareBtn Enquiry' style={{marginLeft:0,marginTop:"10px"}} 
+              onClick={
+                handleEnquirySubmit
+              }
+            ><RiMessage2Fill/>Send Enquiry</div>
+          </div>
+        </div>        
 
         <div className='bussinessPagesection3'>
           <h2>Reviews and Ratings</h2>
@@ -195,7 +260,7 @@ const BussinessPage = () => {
             <span>{parseFloat((currBusiness.ratingCount/currBusiness.reviews.length).toFixed(1))}</span>
             <div>
               <h3>{currBusiness.reviews.length} Reviews</h3>
-              <p>Rating index based on 293 ratings across the web</p>
+              <p>Rating index based on {currBusiness.reviews.length} ratings across the web</p>
             </div>
           </div>
           {!isLoggedIn&&<h3>Login to submit Review.</h3>}
