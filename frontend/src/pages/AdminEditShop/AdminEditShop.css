@@ -1,0 +1,12 @@
+.selectedSubcategoryAdmin{
+    position: absolute;
+    right: -3.5vh;
+    top: -3vh;
+    width: 50vh;
+    height: 4vh;
+    display: flex;
+    gap: 1vh;
+}
+.inputwithLabelbox{
+    position: relative;
+}

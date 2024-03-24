@@ -84,4 +84,15 @@ export const AdminDeleteUser = async ({id}) => {
   );
   return response;
 };
-
+export const AdminEditShopdetails = async ({id,title,bussinessMail,mainCategory,subCategory,state,district,pinCode}) => {
+  const response = await axios.put(
+    `/api/v1/admin/updateShop/${id}`,
+    {
+      title,bussinessMail,mainCategory,subCategory,state,district,pinCode
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};

@@ -50,7 +50,7 @@ const UserListSpecific = () => {
                 <p>Role :{user?user.role:"-"}</p>
             </div>
             <div className="UserSpecificDetails">
-                <p>Membership : Premium</p>
+                <p>Membership : {user?user.Membership:"-"}</p>
                 <p>MemeberShip Expiry Date : 12/12/12</p>
                 <p>Shop Owned : {user?user.ownedBussinesses.length:"-"}</p>
             </div>

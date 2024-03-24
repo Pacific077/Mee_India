@@ -147,7 +147,7 @@ const EditUserDetails = async (req,res)=>{
     res.status(200).json({ message: 'User updated successfully', user });
     
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 }
 const Deleteuser = async(req,res)=>{
@@ -165,6 +165,35 @@ const Deleteuser = async(req,res)=>{
     res.status(500).json({ error: 'Internal server error' });
   }
 }
+
+const EditShopDetails = async(req,res)=>{
+  try {
+    const {id} = req.params
+    const {title,bussinessMail,mainCategory,subCategory,state,district,pinCode} = req.body
+    const shop =await Bussiness.findById(id);
+    if(!shop){
+      return res.status(404).json({
+        message:"Shop Not found"
+      })
+    }
+    if(title) shop.title = title
+    if(bussinessMail) shop.bussinessMail = bussinessMail
+    if(mainCategory) shop.mainCategory = mainCategory
+    if(subCategory[0]==="empty"){
+      shop.subCategory=['']
+    }
+    if(subCategory.length>0&&subCategory[0]!=="empty") shop.subCategory = subCategory
+    if(state) shop.state = state
+    if(district) shop.district = district
+    if(pinCode) shop.pinCode = pinCode
+    await shop.save()
+    res.status(200).json({ message: 'Shop updated successfully', shop });
+
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -173,5 +202,5 @@ export {
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById,searchUserByemail,Deleteuser
+  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails
 };
