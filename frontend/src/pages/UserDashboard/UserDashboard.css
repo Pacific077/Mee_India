@@ -101,3 +101,45 @@
     padding: 0;
     padding-left: 4vh;
 }
+.DashboardAcntDetailsHead{
+    font-family: var(--fontNew1);
+    color: var(--tertiary);
+    font-size: xx-large;
+    margin-bottom: 2vh;
+    text-decoration: underline;
+}
+.mebershipDetails{
+    width: 50%;
+}
+.mebershipDetails p,.userDashTagDetails p{
+    font-size: larger;
+    color: var(--tertiary);
+}
+.mebershipDetails p span{
+    color: var(--indiaGreen);
+    font-size: medium;
+    margin-left: 1vh;
+}
+.userDashTagDetails{
+    width: 50%;
+
+}
+.userMebershipDetailsAndCard{
+    display: flex;
+}
+.CrossIcon{
+    color: red;
+    font-size: larger;
+}
+.userDashTagDetails p{
+    height: 4vh;
+    position: relative;
+}
+.userDashTagDetails p span{
+    margin-left :1vh ;
+position: absolute;
+}
+.checkIcon{
+    color: green;
+    font-size: larger;
+}

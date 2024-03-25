@@ -32,7 +32,8 @@ export const LoginApi = async ({email,password}) => {
     return response;
  
   };
-  export const ProfileApi = async () => {
+
+export const ProfileApi = async () => {
     const response = await axios.get(
       "/api/v1/user/getMyProfile",
       {
@@ -41,6 +42,7 @@ export const LoginApi = async ({email,password}) => {
     );
     return response;
   };
+
   export const LogoutApi = async () => {
     const response = await axios.post(
       "/api/v1/user/logout",

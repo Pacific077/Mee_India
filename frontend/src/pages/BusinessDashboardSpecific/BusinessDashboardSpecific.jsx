@@ -15,7 +15,7 @@ const BusinessDashboardSpecific = () => {
     const fetchData = async ()=>{
       try {
         const resp = await findByID({bussinessId:BusinessId})
-        console.log("Resp",resp);
+        // console.log("Resp",resp);
         setBusiness(resp.data.businessDetail);
         
       } catch (error) {

@@ -1,159 +1,193 @@
-import React, { useEffect, useState } from 'react'
-import "../UserDashboard/UserDashboard.css"
-import "./UserDashboardCard"
-import bikeService from '../../assets/bikeService.jpg'
-import UserDashboardCard from './UserDashboardCard'
-import BusinessDasboard from '../BusinessDasboard/BusinessDasboard'
-import { EditProfileApi, LogoutApi, ProfileApi } from '../../apis/UserApi'
+import React, { useEffect, useState } from "react";
+import "../UserDashboard/UserDashboard.css";
+import { FaCheckCircle } from "react-icons/fa";
+import "./UserDashboardCard";
+// import { RxCross2 } from "react-icons/rx";
+import { ImCross } from "react-icons/im";
+
+// import bikeService from "../../assets/bikeService.jpg";
+import UserDashboardCard from "./UserDashboardCard";
+import BusinessDasboard from "../BusinessDasboard/BusinessDasboard";
+import { EditProfileApi, LogoutApi, ProfileApi } from "../../apis/UserApi";
 import { toast } from "react-toastify";
-import { useNavigate } from 'react-router-dom'
-import { ImageToUrl } from '../../utils/ImagetoUrl'
+import { useNavigate } from "react-router-dom";
+import { ImageToUrl } from "../../utils/ImagetoUrl";
 import ReactLoading from "react-loading";
+import ExtractDate from "../../utils/ExtractDate";
 
 const UserDashboard = () => {
-  const [user,setUser] = useState(false);
-  const [businessList,setBusinessList] = useState ('')
-  const navigate = useNavigate()
+  const [user, setUser] = useState(false);
+  const [businessList, setBusinessList] = useState("");
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [newName,setNewName] = useState("")
-  const [newPic,setNewPic] = useState("")
-  const [isEditing,setIsEditing] = useState(false);
-
-  const HandleFileChange =async (e)=>{
+  const [newName, setNewName] = useState("");
+  const [newPic, setNewPic] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  // const navigate = useNavigate()
+  const HandleFileChange = async (e) => {
     const files = Array.from(e.target.files);
-    console.log(files)
-    setLoading(true)
+    console.log(files);
+    setLoading(true);
     const resp = await ImageToUrl(files);
     const Item = resp[0];
-    setLoading(false)
+    setLoading(false);
     // console.log("item",Item)
-    setNewPic(Item)
-  }
+    setNewPic(Item);
+  };
 
-  const handleEditFormSubmit = async()=>{
-    if(newName===""||newPic===""){
-      toast.warning("All fields are Required!")
+  const handleEditFormSubmit = async () => {
+    if (newName === "" || newPic === "") {
+      toast.warning("All fields are Required!");
       return;
     }
 
-    try{
+    try {
       const resp = await EditProfileApi({
         _id: user._id,
         newName,
         newPic,
-      })
-      console.log("Resper",resp);
-      
-      localStorage.removeItem('userProfile');
+      });
+      console.log("Resper", resp);
+
+      localStorage.removeItem("userProfile");
 
       fetchData();
       setNewName("");
       setIsEditing(false);
-    }
-    catch(e){
+    } catch (e) {
       console.log(e);
-      toast.error("Something went wrong!")
+      toast.error("Something went wrong!");
     }
-  }
+  };
 
-  const fetchData = async ()=>{
+  const fetchData = async () => {
     try {
-      const userProfileFromLocalStorage = localStorage.getItem('userProfile');
+      const userProfileFromLocalStorage = localStorage.getItem("userProfile");
       if (userProfileFromLocalStorage) {
         // If user profile data is found in localStorage, set user state with that data
         const userData = JSON.parse(userProfileFromLocalStorage);
         setUser(userData);
         setBusinessList(userData.ownedBussinesses);
-        setNewPic(userData.pic)
+        setNewPic(userData.pic);
       } else {
         // If user profile data is not found in localStorage, fetch it from the API
         const resp = await ProfileApi();
-        console.log('Resp', resp);
+        console.log("Resp", resp);
         setUser(resp.data.user);
         setBusinessList(resp.data.user.ownedBussinesses);
-        setNewPic(resp.data.user.pic)
+        setNewPic(resp.data.user.pic);
         // Store fetched user profile data in localStorage for future use
-        localStorage.setItem('userProfile', JSON.stringify(resp.data.user));
+        localStorage.setItem("userProfile", JSON.stringify(resp.data.user));
       }
     } catch (error) {
       console.error(error);
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  },[])
-  const UpdateProfilePicture = ()=>{
-    console.log("update profile")
-  }
-  const handleLogout = async()=>{
+  }, []);
+
+  const UpdateProfilePicture = () => {
+    navigate("/pricing-details");
+  };
+  const handleLogout = async () => {
     try {
-      const resp = await LogoutApi()
-      if(resp.status===200){
-        toast.success("Logged Out")
-        localStorage.removeItem('userInfo');
-        localStorage.removeItem('userProfile');
-        navigate('/login')
+      const resp = await LogoutApi();
+      if (resp.status === 200) {
+        toast.success("Logged Out");
+        localStorage.removeItem("userInfo");
+        localStorage.removeItem("userProfile");
+        navigate("/login");
       }
     } catch (error) {
-      toast.error("Something went Wrong")
+      toast.error("Something went Wrong");
     }
-    
-  }
+  };
   return (
-    
-    <div className='userDashboardMainDiv'>
-      <div className='userDashUpperDiv'>
+    <div className="userDashboardMainDiv">
+      <div className="userDashUpperDiv">
         <div className="logout" onClick={handleLogout}>
           Logout
         </div>
-        <div className='userDashUpperDivProfilePic'>
-          <img className='UserDashboardImageDisplay' src={user?.profileImage} />
+        <div className="userDashUpperDivProfilePic">
+          <img className="UserDashboardImageDisplay" src={user?.profileImage} />
           <div className="UserDashboardInfo">
-              <h3 className='userDashboardName'>{user?user.name:"Dummy"}</h3>
-              <p>{user?user.email:"dummy Email"}</p>
+            <h3 className="userDashboardName">{user ? user.name : "Dummy"}</h3>
+            <p>{user ? user.email : "dummy Email"}</p>
           </div>
         </div>
-       
       </div>
-      {isEditing&&<div className='profileEditForm'>
-        <div className="bussinessEditLabelandInp">
-          <label htmlFor="">New Name</label>
-          <input type="text" onChange={(e)=>setNewName(e.target.value)} value={newName}/>
-        </div>
-        {loading && (
-          <div className="Loading" style={{ width: "100%" }}>
-            <ReactLoading
-              type="spokes"
-              color="purple"
-              height={120}
-              width={120}
+      {isEditing && (
+        <div className="profileEditForm">
+          <div className="bussinessEditLabelandInp">
+            <label htmlFor="">New Name</label>
+            <input
+              type="text"
+              onChange={(e) => setNewName(e.target.value)}
+              value={newName}
             />
           </div>
+          {loading && (
+            <div className="Loading" style={{ width: "100%" }}>
+              <ReactLoading
+                type="spokes"
+                color="purple"
+                height={120}
+                width={120}
+              />
+            </div>
+          )}
+          {!loading && (
+            <div
+              className="BusinessEditCatalougeCont"
+              style={{ margin: "4vh" }}
+            >
+              <div className="AddCatalougeCard">
+                <p className="plusSign">+</p>
+                <p>Add Photo</p>
+                <input
+                  type="file"
+                  className="BussinessEditCatalougeFile"
+                  onChange={HandleFileChange}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+      <div className="userDashCardcontainer">
+        {isEditing ? (
+          <UserDashboardCard info={"Submit"} fun={handleEditFormSubmit} />
+        ) : (
+          <UserDashboardCard
+            info={"Edit Profile"}
+            fun={() => setIsEditing(true)}
+          />
         )}
-        {!loading&&<div className="BusinessEditCatalougeCont" style={{margin:"4vh"}}>
-          <div className="AddCatalougeCard">
-            <p className='plusSign'>+</p>
-            <p>Add Photo</p>
-            <input type="file" className='BussinessEditCatalougeFile' onChange={HandleFileChange} />
-          </div>
-        </div>}
-      </div>}
-      <div className='userDashCardcontainer'>
-        {isEditing?<UserDashboardCard info={"Submit"} fun={handleEditFormSubmit}  />:<UserDashboardCard info={"Edit Profile"} fun={()=>setIsEditing(true)}  />}
-        
-        
-        <UserDashboardCard info={"Upgrade"} fun={UpdateProfilePicture}/>
-        <UserDashboardCard info={"Get Verified"} fun={UpdateProfilePicture}/>
+
+        <UserDashboardCard info={"Upgrade"} fun={UpdateProfilePicture} />
+        {/* <UserDashboardCard info={"Get Verified"} fun={UpdateProfilePicture}/> */}
         {/* <UserDashboardCard/>
         <UserDashboardCard/> */}
-        
       </div>
-      <BusinessDasboard businessList={businessList}/>
+        <h2 className="DashboardAcntDetailsHead">Account Details</h2>
+      <div className="userMebershipDetailsAndCard">
+        <div className="mebershipDetails">
+          <p>Current Membership: <span>{user?user.Membership:""}</span></p>
+          <p>Purchased On:<span>{user?ExtractDate(user.membershipPurchaseDate):"-"}</span>  </p>
+          <p>Expiry Date: <span>{user?ExtractDate(user.membershipExpiryDate):"-"}</span></p>
+        </div>
+        <div className="userDashTagDetails">
+          <p>Verified Seal :<span>{user ? (user.verifiedSeal ? <FaCheckCircle className="checkIcon"/> :<ImCross className="CrossIcon"/>
+ ) : "-"}</span> </p>
+          <p>Trust Stamp :<span>{user ? (user.trustStamp ? <FaCheckCircle className="checkIcon"/> : <ImCross className="CrossIcon"/>
+) : "-"}</span> </p>
+        </div>
+      </div>
+      <BusinessDasboard businessList={businessList} />
     </div>
-    
-   
-  )
-}
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

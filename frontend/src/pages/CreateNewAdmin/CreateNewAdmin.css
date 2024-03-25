@@ -48,6 +48,11 @@
     border: none;
     border-radius: 5px;
 }
+.createAdminBtn:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
 .createAdminEyeIcon{
     font-size: x-large;
     position: absolute;
