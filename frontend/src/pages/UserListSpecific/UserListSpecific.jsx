@@ -46,7 +46,7 @@ const UserListSpecific = () => {
             <div className="UserSpecificDetails">
                 <p>Register Date: {user?ExtractDate(user.createdAt):"-"}</p>
                 <p>Last Updated :{user?ExtractDate(user.updatedAt):"-"}</p>
-                <p>Role :{user?user.role:"-"}</p>
+                <p>ID :{user?user._id:"-"}</p>
             </div>
             <div className="UserSpecificDetails">
                 <p>Membership : {user?user.Membership:"-"}</p>

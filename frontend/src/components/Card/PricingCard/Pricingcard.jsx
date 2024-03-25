@@ -20,7 +20,7 @@ const Pricingcard = ({name,points,price}) => {
             <p>No Premimum Support</p> */}
           </div>
           <div className="PricingDetailsBtnCont">
-            <p className='AmountInRs'>{price}₹<span className='smalltext'>/month</span></p>
+            <p className='AmountInRs'>{price}₹<span className='smalltext'>/day</span></p>
             <button className='PurchaseBtn'>Get Started</button>
           </div>
         </div>

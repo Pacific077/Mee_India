@@ -32,7 +32,7 @@ const FormPage3 = ({
 
   const handleNext = () => {
     console.log(mainCategory, subCategory, bio);
-    if (subCategory == "" || mainCategory == "" || bio == "") {
+    if ( mainCategory === "" || bio === "") {
       toast.warning("All fields compulsary");
     } else {
       setCounter("4");
@@ -100,7 +100,7 @@ const FormPage3 = ({
           value={bio}
         />
       </div>
-
+      <p>*Once selected these things can be changed by admins only.</p>
       <div className="btnContainer">
         <button className="btn orngBtn" onClick={handlePrev}>
           Previous

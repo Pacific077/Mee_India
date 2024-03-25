@@ -12,6 +12,14 @@ const userSchema = mongoose.Schema(
     },
     membershipPurchaseDate: { type: Date,default: Date.now }, // Date when the membership was purchased
     membershipExpiryDate: { type: Date },   // Date when the membership expires
+    verifiedSeal:{
+      type:Boolean,
+      default:false,
+    },
+    trustStamp:{
+      type:Boolean,
+      default:false,
+    },
     password: { type: String, required: true },
     ownedBussinesses: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Bussiness" },

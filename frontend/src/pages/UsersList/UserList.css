@@ -9,7 +9,7 @@
 .userListTableHead{
     background-color: white;
     position: sticky;
-    top: 17vh;
+    top: 13vh;
 }
 .AllUserListHead{
     font-family: var(--fontsecondary);

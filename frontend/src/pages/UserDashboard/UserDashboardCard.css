@@ -2,6 +2,9 @@
     border: 1px solid black;
 
 }
+.userdashCard:hover{
+    cursor: pointer;
+}
 @media screen and (max-width: 1025px) {
     .userDashboardMainDiv {
         padding: 0 10vh 0 10vh;

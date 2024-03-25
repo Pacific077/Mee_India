@@ -1,9 +1,9 @@
 .AdminSidenav{
     height: 86.5vh;
-    width: 0;
+    width: 0vh;
     position: fixed;
     top: 13.5vh;
-    right: 0;
+    right: -5vh;
     /* padding-left: 10px; */
     box-sizing: border-box;
     border: 1px solid black;
@@ -12,8 +12,9 @@
 
 }
 .AdminSideNavvis{
-    transition: width 2s;
+    transition: width 1s;
     width: 40vh;
+    right: 0;
 }
 .crossIconAdminSideNav{
     font-size: larger;

@@ -3,7 +3,7 @@ import Admin from "../Models/AdminModel.js"
 const increaseRegistrationCountMiddleware = async (req, res, next) => {
     try {
       const admin = await Admin.findOne();
-      console.log("admin",admin)
+      // console.log("admin",admin)
       if (admin) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);

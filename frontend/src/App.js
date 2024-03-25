@@ -16,11 +16,6 @@ import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
 import Admin from "./pages/Admin/Admin";
-<<<<<<< HEAD
-import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
-import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks";
-import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
-=======
 import UserList from "./pages/UsersList/UserList";
 
 import UserListSpecific from "./pages/UserListSpecific/UserListSpecific";
@@ -29,7 +24,9 @@ import ShopListSpecific from "./pages/ShopListSpecific/ShopListSpecific";
 import PricingDeteails from "./pages/PricingDetails/PricingDeteails";
 import AdminEditUser from "./pages/AdminEditUser/AdminEditUser";
 import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
->>>>>>> 55211399dfba68f8433b758241cc3038918dcc36
+import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
+import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
+import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
 
 const App = () => {
   return (
@@ -38,6 +35,9 @@ const App = () => {
         <Shownavbar>
           <Navbar />
         </Shownavbar>
+        <ShowAdminSideNav>
+          <AdminSideNav />
+        </ShowAdminSideNav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -90,6 +90,7 @@ const App = () => {
             path="/admin/shoplist/specific/edit/:shopId"
             element={<AdminEditShop />}
           />
+          <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
           <Route path="/apitest" element={<Apitext />} />
           <Route path="/aboutus" element={<AboutUs/>} />
           <Route path="/quicklinks" element={<QuickLinks/>} />

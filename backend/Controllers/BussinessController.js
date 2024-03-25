@@ -2,6 +2,7 @@ import Bussiness from "../Models/BussinessModel.js";
 import { validationResult } from "express-validator";
 import User from "../Models/UserModel.js";
 import Review from "../Models/ReviewModel.js";
+import Enquiry from "../Models/EnquiryModel.js";
 
 const FreeList = async(req,res,next)=>{
 
@@ -113,10 +114,53 @@ const FindBussiness = async (req, res) => {
       };
 
       // If subCat is provided, add subCategory condition to the base query
-      if (subCat) {
+      if (subCat!=="null") {
         baseQuery.subCategory = { $in: [subCat] };
       }
       console.log(baseQuery);
+    // Perform the proximity query
+    const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
+
+    console.log(nearbyBusinesses);
+      res.status(200).json({ businesses: nearbyBusinesses });
+  } catch (error) {
+      console.error("Error finding nearby businesses:", error);
+      res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const FindBussinessByText = async (req, res) => {
+    
+  try {
+      const { district, text, latitude, longitude } = req.body;
+
+      // Check if required parameters are provided
+      if (!district || !latitude || !longitude || text==="" ) {
+          return res.status(400).json({ message: "Required parameters are missing" });
+      }
+
+      console.log(district, longitude, latitude, text);
+
+      // Perform the proximity query
+      const baseQuery = {
+          mainCategory: { $regex: text, $options: "i" },
+          district: district,
+          location: {
+              $near: {
+                  $geometry: {
+                      type: "Point",
+                      coordinates: [longitude, latitude]
+                  },
+                  $maxDistance: 20000
+              }
+          }
+      };
+
+      // If subCat is provided, add subCategory condition to the base query
+      // if (subCat) {
+      //   baseQuery.subCategory = { $in: [subCat] };
+      // }
+      // console.log(baseQuery);
     // Perform the proximity query
     const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
 
@@ -136,15 +180,23 @@ const findByID = async (req, res) => {
       }
 
       // Perform the proximity query
-      const requiredBusiness = await Bussiness.findById(bussinessId).populate({
-        path: 'reviews',
-        populate: {
-          path: 'userId',
-          select: 'name ratedBussinesses',
-          options: { strictPopulate: false } // Only populate the 'name' field of the user
-        },
-        options: { strictPopulate: false }
-      });
+      const requiredBusiness = await Bussiness.findById(bussinessId)
+        .populate({
+          path: 'reviews',
+          populate: {
+            path: 'userId',
+            select: 'name ratedBussinesses profileImage',
+            options: { strictPopulate: false } // Only populate the 'name' field of the user
+          },
+          options: { strictPopulate: false }
+        })
+        .populate({
+          path: 'enquiry',
+          select: 'name date question email contact', // Select the fields you want to populate
+          options: { strictPopulate: false }
+        });
+         // Sort the enquiry array by date in descending order
+    // requiredBusiness.enquiry.sort((a, b) => b.date - a.date);
     //   console.log(requiredBusiness);
       res.status(200).json({ businessDetail: requiredBusiness });
   } catch (error) {
@@ -228,6 +280,43 @@ const reviewSubmit = async (req, res) => {
       res.status(500).json({ message: "Internal server error" });
   }
 };
+const enquirySubmit = async (req, res) => {
+  try {
+    const { question, name, email, contact, bussinessId } = req.body;
+
+    // Check if required parameters are provided
+    if (!name || !question || !email || !contact || !bussinessId) {
+      return res.status(400).json({ message: "Required parameters are missing" });
+    }
+
+    // Find the business by ID
+    const enquiredBusiness = await Bussiness.findOne({ _id: bussinessId }).exec();
+    
+    if (!enquiredBusiness) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+
+    // Create a new enquiry
+    const newEnquiry = await Enquiry.create({
+      question,
+      name,
+      email,
+      contact,
+      createdAt: new Date() // Set the creation date for the enquiry
+    });
+
+    // Add the new enquiry to the business's enquiry array
+    enquiredBusiness.enquiry.push(newEnquiry);
+      
+    // Save the updated business document
+    await enquiredBusiness.save();
+
+    res.status(200).json({ message: "Enquiry Sent Successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 
-export { FreeList, FindBussiness, findByID,EditBusiness, reviewSubmit };
+export { FreeList, FindBussiness, findByID,EditBusiness, reviewSubmit,FindBussinessByText,enquirySubmit };
