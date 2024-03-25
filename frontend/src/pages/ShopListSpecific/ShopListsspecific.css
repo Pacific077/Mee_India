@@ -1,0 +1,10 @@
+.ShopSpecificDetails{
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+}
+.boldHead{
+    font-size: larger;
+    color: var(--tertiary);
+    margin-right: 4vh;
+}

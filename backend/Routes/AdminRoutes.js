@@ -1,13 +1,34 @@
-import express from "express"
-import { CreateAdmin, GetAllBusinessList, GetAllListUsers, GetPastSevenDaysRegitraionCount } from "../Controllers/AdminControllor.js"
-import Admin from "../Models/AdminModel.js"
+import express from "express";
+import {
+  CreateAdmin,
+  DeleteShop,
+  Deleteuser,
+  EditShopDetails,
+  EditUserDetails,
+  FilterUserSearch,
+  GetAllBusinessList,
+  GetAllCounts,
+  GetAllListUsers,
+  GetPastSevenDaysRegitraionCount,
+  getBusinessById,
+  getUserByID,
+  searchUserByemail,
+} from "../Controllers/AdminControllor.js";
 
-const AdminRoute = express.Router()
+const AdminRoute = express.Router();
 
-AdminRoute.get("/userList",GetAllListUsers)
-AdminRoute.get("/businessList",GetAllBusinessList)
-AdminRoute.post("/create",CreateAdmin)
-AdminRoute.get("/last-7-days",GetPastSevenDaysRegitraionCount)
+AdminRoute.get("/userList", GetAllListUsers);
+AdminRoute.get("/businessList", GetAllBusinessList);
+AdminRoute.post("/create", CreateAdmin);
+AdminRoute.get("/last-7-days", GetPastSevenDaysRegitraionCount);
+AdminRoute.get("/getcounts", GetAllCounts);
+AdminRoute.post("/getuserById", getUserByID);
+AdminRoute.post("/getShopById", getBusinessById);
+AdminRoute.post("/searchByEmail", searchUserByemail);
+AdminRoute.put("/updateuser/:id", EditUserDetails);
+AdminRoute.delete("/deleteUser/:id", Deleteuser);
+AdminRoute.put("/updateShop/:id", EditShopDetails);
+AdminRoute.delete("/deleteShop/:id", DeleteShop);
+AdminRoute.get("/Usersearch", FilterUserSearch);
 
-
-export default AdminRoute
+export default AdminRoute;

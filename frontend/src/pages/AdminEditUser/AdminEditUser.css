@@ -1,0 +1,61 @@
+.EditUserAdminPAge{
+    padding: 0 20vh 0 20vh;
+}
+.inputwithLabelbox{
+    display: flex;
+    gap: 40vh;
+    margin-bottom: 6vh;
+}
+.singleInputlabel p{
+    font-size: larger;
+    margin-bottom: 6px;
+}
+.singleInputlabel input{
+    border: none;
+    outline:  none;
+    border-bottom: 2px solid var(--tertiary);
+    font-size: large;
+    color: var(--indiaGreen);
+    caret-color: black;
+}
+.singleInputlabel select{
+    /* background-color: red; */
+    width: 30vh;
+    height: 4vh;
+    border-radius: 0;
+
+}
+.AdminUserDetailsEditHead{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    text-shadow:1px 1px 1px var(--indiaGreen) ;
+    text-decoration: underline;
+    color: var(--tertiary);
+}
+.btnContEditUserAdmin{
+    margin-top: 12vh;
+}
+.updateUserAdminBtn{
+    height: 6vh;
+    width: 17vh;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    margin-right: 10vh;
+}
+.CancelUserAdminBtn{
+    height: 6vh;
+    width: 17vh;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+}
+.updateUserAdminBtn:hover,.CancelUserAdminBtn:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    transition: 0.3s ease;
+}

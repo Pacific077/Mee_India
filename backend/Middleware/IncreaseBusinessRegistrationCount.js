@@ -14,6 +14,7 @@ const increaseBusinessRegistrationCount = async (req, res, next) => {
           } else {
             admin.dailyBusinessRegistrationCounts.push({ date: today, count: 1 });
           }
+          admin.totalBusinessCount += 1;
         await admin.save();
       }
       res.status(200).json({

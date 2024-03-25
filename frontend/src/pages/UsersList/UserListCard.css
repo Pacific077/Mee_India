@@ -1,0 +1,14 @@
+.UserListCard{
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+}
+.UserListCard:hover{
+    cursor: pointer;
+    /* border: 2px solid var(--tertiary); */
+    background-color: var(--whiteShade);
+}
+.userlistCardP{
+    width: 25%;
+    text-align: center;
+}

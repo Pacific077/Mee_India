@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Admin.css"
+import { BsArrowLeftSquareFill } from "react-icons/bs";
 import LineGraph from './LineGraph/LineGraph'
 import BarGraph from './BarGraph/BarGraph'
 import AdminCard from './AdminCard/AdminCard'
 import AdminCardArr from './AdmiCardArr'
+import { getcounts } from '../../apis/AdminApis'
+import AdminSideNav from './AdminSideNav/AdminSideNav'
 const Admin = () => {
+    const [usercount, setUserCount] = useState();
+    const [shopcount, setShopCount] = useState();
+    const [showAdminnav,setshowAdminNAv] = useState(false);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          // Define getcounts or import it from another module
+          const resp = await getcounts();
+          setUserCount(resp.data.users);
+          setShopCount(resp.data.shops);
+
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      fetchData();
+    }, []);
+    const handleSideNavDisplay = ()=>{
+      setshowAdminNAv(true);
+    }
   return (
     <div className='AdminPage'>
+<BsArrowLeftSquareFill onClick={handleSideNavDisplay} className='AdminNavDrawerIcon'/>
+      {showAdminnav&&<AdminSideNav vis={showAdminnav} setshowAdminNAv={setshowAdminNAv}/>}
         <div className="adminGraphscont">
             <div className="AdminLineGraphs">
             <h1 className='GraphsHeading'>Registrations Count</h1>
@@ -21,7 +48,7 @@ const Admin = () => {
         <div className="adminDatabaseInfoCont">
             {AdminCardArr.map((ele,ind)=>{
                 return(
-                    <AdminCard text={ele.text} key={ind} name={ele.name} count={ele.count} color={ele.color}/>
+                    <AdminCard usercount={usercount} shopcount={shopcount} text={ele.text} key={ind} name={ele.name} count={ele.count} color={ele.color}/>
 
                 )
             })}

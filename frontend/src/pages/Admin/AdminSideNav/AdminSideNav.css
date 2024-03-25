@@ -1,0 +1,54 @@
+.AdminSidenav{
+    height: 86.5vh;
+    width: 0;
+    position: fixed;
+    top: 13.5vh;
+    right: 0;
+    /* padding-left: 10px; */
+    box-sizing: border-box;
+    border: 1px solid black;
+    z-index: 100;
+    background-color: var(--primary);
+
+}
+.AdminSideNavvis{
+    transition: width 2s;
+    width: 40vh;
+}
+.crossIconAdminSideNav{
+    font-size: larger;
+    /* position: absolute; */
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.crossIconAdminSideNav:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: 0.7s ease;
+}
+.AdminSideNavListCont p{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+}
+.AdminSideNavListCont p:hover{
+    background-color: var(--tertiary);
+    color: var(--primary);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.greetAdminSidenav{
+    height: 8vh;
+    border-radius: 10px;
+    background-color: var(--indiaGreen);
+    color: white;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}

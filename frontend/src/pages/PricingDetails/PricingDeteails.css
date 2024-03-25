@@ -1,0 +1,43 @@
+.PricingDetailsPage{
+    padding: 0 20vh 0 20vh;
+}
+.PricingMainHead{
+    text-align: center;
+    color: var(--tertiary);
+    font-family: var(--fontsecondary);
+    font-weight: 500;
+    font-size: 6vh;
+}
+.PricingMaindesc{
+    text-align: center;
+    color: var(--grayShade);
+}
+.PricinBtnCont{
+    width: fit-content;
+    margin: auto;
+}
+.basicPricingbtn{
+    height: 5vh;
+    width: 18vh;
+    background-color: var(--indiaGreen);
+    color: white;
+    font-size: large;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.basicPricingbtn:hover{
+    cursor: pointer;
+}
+.ProPricingbtn{
+    height: 5vh;
+    font-size: large;
+    width: 18vh;
+
+}
+.ProPricingbtn:hover{
+    cursor: pointer;
+}
+.PricingDetailsCont{
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+}
