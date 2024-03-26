@@ -170,3 +170,10 @@ export const GetAdminQueryById= async ({id}) => {
   );
   return response;
 };
+
+export const GetAllMembershipsCount = async () => {
+  const response = await axios.get("/api/v1/admin/getMembershipCount", {
+    withCredentials: true,
+  });
+  return response;
+};

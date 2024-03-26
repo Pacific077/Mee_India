@@ -15,6 +15,7 @@ import {
   GetPastSevenDaysRegitraionCount,
   GetQueryByID,
   getBusinessById,
+  getMembershipCounts,
   getUserByID,
   searchUserByemail,
 } from "../Controllers/AdminControllor.js";
@@ -40,5 +41,6 @@ AdminRoute.get("/Shopsearch", FilterShopSearch);
 AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,increaseRegistrationCountMiddleware);
 AdminRoute.get("/getAllQueries", GetAllAdminQueris);
 AdminRoute.post("/getQuerieByID", GetQueryByID);
+AdminRoute.get("/getMembershipCount", getMembershipCounts);
 
 export default AdminRoute;
