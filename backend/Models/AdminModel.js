@@ -20,6 +20,7 @@ const AdminSchema = mongoose.Schema(
     totalBusinessCount:{
       type:Number
     },
+    enquiry: [{ type: mongoose.Schema.Types.ObjectId, ref: "Enquiry" }],
   },
   { timestamps: true }
 );

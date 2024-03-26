@@ -8,10 +8,12 @@ import {
   EditUserDetails,
   FilterShopSearch,
   FilterUserSearch,
+  GetAllAdminQueris,
   GetAllBusinessList,
   GetAllCounts,
   GetAllListUsers,
   GetPastSevenDaysRegitraionCount,
+  GetQueryByID,
   getBusinessById,
   getUserByID,
   searchUserByemail,
@@ -36,5 +38,7 @@ AdminRoute.delete("/deleteShop/:id", DeleteShop);
 AdminRoute.get("/Usersearch", FilterUserSearch);
 AdminRoute.get("/Shopsearch", FilterShopSearch);
 AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,increaseRegistrationCountMiddleware);
+AdminRoute.get("/getAllQueries", GetAllAdminQueris);
+AdminRoute.post("/getQuerieByID", GetQueryByID);
 
 export default AdminRoute;

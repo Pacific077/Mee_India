@@ -4,6 +4,7 @@ import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import { startSession } from "mongoose";
 import Admin from "../Models/AdminModel.js";
+import Enquiry from "../Models/EnquiryModel.js";
 
 //test sessions
 //del agterwards
@@ -23,6 +24,30 @@ const testSessions = async (req, res) => {
     users,
   });
 };
+//send query to admin
+const SendQueryToAdmin = async(req,res)=>{
+  const session = await startSession()
+  session.startTransaction();
+  try {
+    const {question,UserId} = req.body
+    const newEnquiry = await Enquiry.create([{ question,SenderId: UserId}], {
+      session,
+    });
+    const admin = await Admin.findOne().session(session);
+    admin.enquiry.push(newEnquiry[0]._id);
+    // console.log("newEnquiry",newEnquiry[0]._id);
+    await admin.save({session});
+
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200).json({ message: "Enquiry sent to admin successfully" });
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    
+    res.status(500).json({ message:error.message });
+  }
+}
 
 //register user
 const RegisterUser = async (req, res, next) => {
@@ -298,4 +323,5 @@ export {
   getUserProfile,
   LoginUserMobile,
   testSessions,
+  SendQueryToAdmin
 };

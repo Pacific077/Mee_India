@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
 // import jwt from "jsonwebtoken";
 import Bussiness from "../Models/BussinessModel.js";
+import Enquiry from "../Models/EnquiryModel.js";
 //not to be used in frontend
 // const CreateAdminDB = async (req, res) => {
 //   try {
@@ -326,6 +327,51 @@ next();
 }
 
 }
+
+const GetAllAdminQueris = async(req,res)=>{
+  try {
+    const admin = await Admin.findOne().populate({
+      path: "enquiry",
+      populate: {
+        path: 'SenderId',
+        model: 'User'
+      } 
+    });
+    if(!admin){
+      res.status(500).json({
+        message:"No Admin Found"
+      })
+    }
+    const queries =await admin.enquiry
+    res.status(200).json({
+      message:"fetched successfull",
+      queries,
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
+
+const GetQueryByID = async (req,res)=>{
+  try {
+    const {id} =req.body
+    const query = await Enquiry.findById(id).populate("SenderId")
+    if(!query){
+      return res.status(404).json({ message: "No query Found" });
+    }
+    res.status(200).json({
+      message:"found query",
+      query
+    })
+    
+  } catch (error) {
+    res.status(500).json({
+      message:error.message
+    })
+  }
+}
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -335,5 +381,7 @@ export {
   getUserByID,
   getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
   FilterUserSearch,
-  FilterShopSearch,CreateAdminAccount
+  FilterShopSearch,CreateAdminAccount,
+  GetAllAdminQueris,
+  GetQueryByID
 };

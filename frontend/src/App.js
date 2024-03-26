@@ -27,6 +27,9 @@ import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
 import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
 import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
+import HelpAndSupport from "./components/HelpAndSupport/HelpAndSupport";
+import AdminQueriesList from "./pages/AdminQueriesList/AdminQueriesList";
+import AdminQuerySpecific from "./pages/AdminQuerySpecific/AdminQuerySpecific";
 
 const App = () => {
   return (
@@ -38,6 +41,7 @@ const App = () => {
         <ShowAdminSideNav>
           <AdminSideNav />
         </ShowAdminSideNav>
+        <HelpAndSupport/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -91,6 +95,11 @@ const App = () => {
             element={<AdminEditShop />}
           />
           <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
+          <Route path="/admin/queries" element={<AdminQueriesList/>} />
+          <Route
+            path="/admin/queries/specific/:queryId"
+            element={<AdminQuerySpecific />}
+          />
           <Route path="/apitest" element={<Apitext />} />
         </Routes>
       </BrowserRouter>
