@@ -1,46 +1,59 @@
 import mongoose from "mongoose";
+import Bussiness from "./BussinessModel.js";
+import Admin from "./AdminModel.js";
 
-const enquirySchema = mongoose.Schema({
-  question: {
-    type: String,
-    required: true
+const enquirySchema = mongoose.Schema(
+  {
+    question: {
+      type: String,
+      required: true,
+    },
+    createdAt: { 
+      type: Date,
+      expires: 10, // Set TTL to 10 seconds
+      default: Date.now
+    },
+    SenderId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    name: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    contact: {
+      type: String,
+    },
   },
-  SenderId:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User" 
-  },
-  // createTime:{
-  //   type:Date,
-  //   required:true,
-  //   default:Date.now()
-  // },
-  name: {
-    type: String,
-  },
-  email: {
-    type: String,
-  },  
-  contact: {
-    type: String,
+  { timestamps: true }
+);
+
+
+// Post middleware to remove references from Business and Admin models when an enquiry is removed
+enquirySchema.post('remove', async (doc)=>{
+  console.log("post got triggered")
+  const enquiryId = doc._id;
+  
+  try {
+    // Update Business documents to remove enquiry reference
+    await Bussiness.updateMany(
+      { enquiry: enquiryId },
+      { $pull: { enquiry: enquiryId } }
+    );
+
+    // Update Admin documents to remove enquiry reference
+    await Admin.updateMany(
+      { enquiry: enquiryId },
+      { $pull: { enquiry: enquiryId } }
+    );
+  } catch (error) {
+    console.error("Error removing enquiry references:", error);
   }
-}, { timestamps: true,});
+});
 
-// Define pre-remove middleware to remove reference from Bussiness document
-// enquirySchema.pre('remove', async function(next) {
-//   try {
-//       // Find the corresponding Bussiness document
-//       const bussiness = await mongoose.model('Bussiness').findByIdAndUpdate(
-//           this.bussinessId,
-//           { $pull: { enquiry: this._id } } // Remove the enquiry from the Bussiness document
-//       );
-//       next();
-//   } catch (error) {
-//       next(error);
-//   }
-// });
-// TTL index to expire documents after a certain time
-// enquirySchema.index({ createTime: 1 }, { expireAfterSeconds: 5 }); // Expire documents after 1 hour (3600 seconds)
 
 const Enquiry = mongoose.model("Enquiry", enquirySchema);
-
+// Enquiry.compile();
 export default Enquiry;
