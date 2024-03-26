@@ -101,6 +101,9 @@ const App = () => {
             element={<AdminQuerySpecific />}
           />
           <Route path="/apitest" element={<Apitext />} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/quicklinks" element={<QuickLinks/>} />
+          <Route path="/reportbug" element={<ReportBug/>} />
         </Routes>
       </BrowserRouter>
     </>

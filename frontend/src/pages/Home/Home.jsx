@@ -111,7 +111,7 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
