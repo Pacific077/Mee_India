@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { GetRazorPayKey, PaymentCheckOutApi} from '../../apis/PaymentApis';
 import "./Checkout.css";
-import ExtractDate from "../../utils/ExtractDate";
+import UserContext from "../../context/UserInfo/UserContext";
+
 const Checkout = () => {
+  const userCont = useContext(UserContext);
+  const {user} = userCont;
   const { type } = useParams();
   const [MebershipType, setMembershipType] = useState("");
   const [basicPrice, SetBasicPrice] = useState(0);
@@ -22,19 +26,19 @@ const Checkout = () => {
 
   useEffect(() => {
     if (type === "freeList") {
-      setMembershipType("FreeList");
+      setMembershipType("Free List");
       SetBasicPrice(0);
     } else if (type === "shopList") {
       setMembershipType("Shop List");
       SetBasicPrice(30);
     } else if (type === "standard") {
-      setMembershipType("Standard List");
+      setMembershipType("Standard");
       SetBasicPrice(600);
     } else if (type === "premium") {
-      setMembershipType("Premium List");
+      setMembershipType("Premium");
       SetBasicPrice(1500);
     } else {
-      setMembershipType("Pro List");
+      setMembershipType("Pro");
       SetBasicPrice(3000);
     }
   }, [type]);
@@ -50,6 +54,41 @@ const Checkout = () => {
     console.log(e.target.value);
     SetMonthDuration(parseInt(e.target.value));
   };
+
+  const createOrderId = async ()=>{
+    const amount = (basicPrice * monthDuration) -(basicPrice * monthDuration * (discoun / 100))
+    const resp = await PaymentCheckOutApi({amount})
+    // const {data} =resp;
+    const order =  resp.data.order
+    const keyresp = await GetRazorPayKey()
+    const key = keyresp.data.key;
+    // console.log(key)
+    const options = {
+      key: key, // Enter the Key ID generated from the Dashboard
+      amount: order.amount, 
+      currency: "INR",
+      name: "Mee India",
+      description: "Test Transaction mee India",
+      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fpicsum.photos%2Fid%2F237%2F250&tbnid=p9Y4RLzHUuxwuM&vet=12ahUKEwjzov3boJKFAxVNS2wGHRaRC4QQMygVegQIARB7..i&imgrefurl=https%3A%2F%2Fpicsum.photos%2F&docid=KbxSwCHn8X-q5M&w=250&h=250&q=image%20url%20for%20testing&ved=2ahUKEwjzov3boJKFAxVNS2wGHRaRC4QQMygVegQIARB7",
+      order_id: order.id, //
+      callback_url: `http://localhost:5000/api/v1/payments/verification/${MebershipType}/${monthDuration}`,
+      prefill: {
+          name: user.name,
+          email: user.email,
+          contact: user.contact?user.contact:""
+      },
+      notes: {
+          address: "Razorpay Corporate Office"
+      },
+      theme: {
+          "color": "#158000"
+      }
+  };
+  var razor = new window.Razorpay(options);
+    razor.open();
+   
+    // console.log(resp)
+  }
   return (
     <div className="CheckoutPageCont">
       <h1 className="CheckOutPageHead">Your Order Details</h1>
@@ -131,7 +170,7 @@ const Checkout = () => {
         </div>
       </div>
       <div className="btnContCheckout">
-        <button className="PaynowCheckBtn">Pay Now</button>
+        <button onClick={createOrderId} className="PaynowCheckBtn">Pay Now</button>
         <button className="GoBackCheckBtn" onClick={()=>navigate('/pricing-details')}>Go Back</button>
       </div>
     </div>

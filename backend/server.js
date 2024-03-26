@@ -7,6 +7,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import BussinessRoute from "./Routes/BussinessRoute.js";
 import AdminRoute from "./Routes/AdminRoutes.js";
+import  Razorpay  from "razorpay"
+import PaymentRoutes from "./Routes/PaymentRoutes.js";
+
+
 
 // import path from 'path'
 // import { dirname } from 'path';
@@ -17,6 +21,10 @@ const app = express();
 dotenv.config();
 ConnectDb();
 
+export const instance = new Razorpay({
+  key_id: process.env.RAZOR_PAY_API_KEY,
+  key_secret: process.env.RAZOR_PAY_API_SECRET,
+});
 //middlewares
 // app.use(bodyParser.json());
 app.use(express.json());
@@ -33,6 +41,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1/user", UserRoute);
 app.use("/api/v1/bussiness",BussinessRoute);
 app.use("/api/v1/admin",AdminRoute);
+app.use("/api/v1/payments",PaymentRoutes);
 //deploymemt
 //-------------------------------------------------------------------------
 // const __dirname = dirname(fileURLToPath(import.meta.url));

@@ -26,7 +26,7 @@ const PricingDetailsBasicArr = [
 ];
 const PricingDetailsProArr = [
   {
-    Name: "Standard List",path:"standard",
+    Name: "Standard",path:"standard",
     points: [
       "Search visiblity : 2x",
       "Verified Seal",
@@ -37,7 +37,7 @@ const PricingDetailsProArr = [
     price:20
   },
   {
-    Name: "Premium List",path:"premium",
+    Name: "Premium",path:"premium",
     points: [
       "Search visiblity : 3x",
       "Verified Seal",
@@ -48,7 +48,7 @@ const PricingDetailsProArr = [
     price:50
   },
   {
-    Name: "Pro List",path:"pro",
+    Name: "Pro",path:"pro",
     points: [
       "Search visiblity : 4x",
       "Verified Seal",

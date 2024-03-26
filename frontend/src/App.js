@@ -33,6 +33,7 @@ import AdminQuerySpecific from "./pages/AdminQuerySpecific/AdminQuerySpecific";
 import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
 import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 import Checkout from "./pages/CheckoutPage/Checkout";
+import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
 
 const App = () => {
   return (
@@ -104,6 +105,7 @@ const App = () => {
             element={<AdminQuerySpecific />}
           />
           <Route path="/checkout/:type" element={<Checkout />} />
+          <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
           <Route path="/apitest" element={<Apitext />} />
           <Route path="/aboutus" element={<AboutUs/>} />
           {/* <Route path="/quicklinks" element={<QuickLinks/>} /> */}
