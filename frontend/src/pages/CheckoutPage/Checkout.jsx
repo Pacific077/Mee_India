@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Checkout.css";
+import ExtractDate from "../../utils/ExtractDate";
 const Checkout = () => {
   const { type } = useParams();
   const [MebershipType, setMembershipType] = useState("");
   const [basicPrice, SetBasicPrice] = useState(0);
   const [monthDuration, SetMonthDuration] = useState(1);
   const [discoun, setDiscount] = useState(0);
-
+  const [validTillDate, setValidTillDate] = useState(0);
+  const navigate = useNavigate()
   useEffect(() => {
     if (monthDuration === 1) {
       setDiscount(0);
@@ -36,6 +38,14 @@ const Checkout = () => {
       SetBasicPrice(3000);
     }
   }, [type]);
+  useEffect(() => {
+    const currentDate = new Date();
+    const newDate = new Date(currentDate.setMonth(currentDate.getMonth() + monthDuration));
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = newDate.toLocaleDateString('en-US', options);
+
+    setValidTillDate(formattedDate);
+}, [monthDuration]);
   const handleMonthChange = (e) => {
     console.log(e.target.value);
     SetMonthDuration(parseInt(e.target.value));
@@ -52,6 +62,7 @@ const Checkout = () => {
           <div>
             <input
               type="radio"
+              checked={monthDuration === 1} 
               name="duration"
               value="1"
               onChange={handleMonthChange}
@@ -62,6 +73,7 @@ const Checkout = () => {
             <input
               type="radio"
               name="duration"
+              checked={monthDuration === 2} 
               onChange={handleMonthChange}
               value="2"
             />
@@ -70,6 +82,7 @@ const Checkout = () => {
           <div>
             <input
               type="radio"
+              checked={monthDuration === 3} 
               name="duration"
               onChange={handleMonthChange}
               value="3"
@@ -96,7 +109,7 @@ const Checkout = () => {
             </span>
           </p>
           <p>
-            Valid Till :<span>22/22/22</span>
+            Valid Till :<span>{validTillDate}</span>
           </p>
         </div>
       </div>
@@ -119,7 +132,7 @@ const Checkout = () => {
       </div>
       <div className="btnContCheckout">
         <button className="PaynowCheckBtn">Pay Now</button>
-        <button className="GoBackCheckBtn">Go Back</button>
+        <button className="GoBackCheckBtn" onClick={()=>navigate('/pricing-details')}>Go Back</button>
       </div>
     </div>
   );
