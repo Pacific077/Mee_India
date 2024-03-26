@@ -1,0 +1,90 @@
+.CheckoutPageCont{
+    border: 3px solid var(--tertiary);
+    width: 54vh;
+    margin: auto;
+    height: 69vh;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding: 2vh;
+    border-radius: 10px;
+}
+.CheckOutPageHead{
+    width: fit-content;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--fontMain);
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--tertiary);
+}
+.SelectPlanCheckout h1,.AmountDetailsCont h1,.PaymentMethodCheckOut h3{
+    margin: 0;
+    font-size: x-large;
+    font-weight: 500;
+    color: var(--tertiary);
+    margin-bottom: 1vh;
+}
+.subscriptionTypeCheckout{
+    font-size: large;
+    color: green;
+}
+.monthsCheckout,.PaymentCheckout{
+    display: flex;
+    gap: 2vh;
+    align-items: center;
+}
+.amountDetailsCheckOut{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding-left: 4vh;
+
+}
+.amountDetailsCheckOut p{
+    margin: 0;
+    position: relative;
+}
+.amountDetailsCheckOut p span{
+    color: green;
+    position: absolute;
+    right: 4vh;
+
+}
+.AmountDetailsCont{
+    margin-top: 2vh;
+}
+.PaymentMethodCheckOut{
+    margin-top: 2vh;
+}
+.PaynowCheckBtn,.GoBackCheckBtn{
+    height: 5vh;
+    width: 16vh;
+    font-size: large;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.PaynowCheckBtn:hover,.GoBackCheckBtn:hover{
+    cursor: pointer;
+}
+.PaynowCheckBtn{
+    background-color: green;
+}
+.GoBackCheckBtn{
+    background-color: red;
+}
+.btnContCheckout{
+    margin-top: 4vh;
+    display: flex;
+    gap: 1vh;
+}
+.subscriptionTypeCheckout span{
+    background-color: green;
+    color: white;
+    padding: 1vh;
+    border-radius: 10px;
+    margin-left: 1vh;
+}

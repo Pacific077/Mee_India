@@ -297,12 +297,13 @@ const enquirySubmit = async (req, res) => {
     }
 
     // Create a new enquiry
+    //add user id
     const newEnquiry = await Enquiry.create({
       question,
-      name,
-      email,
-      contact,
-      createdAt: new Date() // Set the creation date for the enquiry
+      // name,
+      // email,
+      // contact,
+      // createdAt: new Date() // Set the creation date for the enquiry
     });
 
     // Add the new enquiry to the business's enquiry array

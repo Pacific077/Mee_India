@@ -9,6 +9,11 @@ const enquirySchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User" 
   },
+  // createTime:{
+  //   type:Date,
+  //   required:true,
+  //   default:Date.now()
+  // },
   name: {
     type: String,
   },
@@ -18,23 +23,23 @@ const enquirySchema = mongoose.Schema({
   contact: {
     type: String,
   }
-}, { timestamps: true });
+}, { timestamps: true,});
 
 // Define pre-remove middleware to remove reference from Bussiness document
-enquirySchema.pre('remove', async function(next) {
-  try {
-      // Find the corresponding Bussiness document
-      const bussiness = await mongoose.model('Bussiness').findByIdAndUpdate(
-          this.bussinessId,
-          { $pull: { enquiry: this._id } } // Remove the enquiry from the Bussiness document
-      );
-      next();
-  } catch (error) {
-      next(error);
-  }
-});
+// enquirySchema.pre('remove', async function(next) {
+//   try {
+//       // Find the corresponding Bussiness document
+//       const bussiness = await mongoose.model('Bussiness').findByIdAndUpdate(
+//           this.bussinessId,
+//           { $pull: { enquiry: this._id } } // Remove the enquiry from the Bussiness document
+//       );
+//       next();
+//   } catch (error) {
+//       next(error);
+//   }
+// });
 // TTL index to expire documents after a certain time
-enquirySchema.index({ createdAt: 1 }, { expireAfterSeconds: 60 }); // Expire documents after 1 hour (3600 seconds)
+// enquirySchema.index({ createTime: 1 }, { expireAfterSeconds: 5 }); // Expire documents after 1 hour (3600 seconds)
 
 const Enquiry = mongoose.model("Enquiry", enquirySchema);
 
