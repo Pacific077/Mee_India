@@ -175,7 +175,7 @@ const Deleteuser = async (req, res) => {
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
-    console.log("errrrrrrr",error)
+    // console.log("errrrrrrr",error)
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -217,19 +217,27 @@ const EditShopDetails = async (req, res) => {
 };
 
 const DeleteShop = async (req, res) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     const { id } = req.params;
-    const deletedShop = await Bussiness.findByIdAndDelete(id);
-    const admin = await Admin.findOne();
+    const deletedShop = await Bussiness.findByIdAndDelete(id).session(session);
     if (!deletedShop) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ error: "Shop not found" });
     }
+    const admin = await Admin.findOne().session(session);
     admin.totalBusinessCount -= 1;
-    await admin.save();
+    await admin.save({session});
+    await session.commitTransaction();
+    session.endSession();
     res
       .status(200)
       .json({ message: "Shop deleted successfully", shop: deletedShop });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
     res.status(500).json({ error: error.message });
   }
 };
