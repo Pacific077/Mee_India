@@ -1,0 +1,74 @@
+.Filtersearchcomponent{
+    position: fixed;
+    left: 0;
+    background-color: var(--primary);
+    width: 40vh;
+    height: 86.5vh;
+    border-right:1px solid black ;
+    z-index: 100;
+}
+.filtersearcCrossIcon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: var(--tertiary);
+    font-size: xx-large;
+}
+.filtersearcCrossIcon:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+.filterSearcHead{
+    font-family: var(--fontMain);
+    font-weight: 500;
+    text-align: center;
+    margin-top: 7vh;
+    text-decoration: underline;
+}
+.filtersearchBtnCont{
+    position: absolute;
+    bottom: 10vh;
+    display: flex;
+    gap: 4vh;
+    margin-left: 4vh;
+}
+.ApplyfilterBtn,.CancelFilterBtn{
+    height: 5vh;
+    width: 14vh;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: large;
+}
+.ApplyfilterBtn{
+    background-color: green;
+}
+.CancelFilterBtn{
+    background-color: red;
+}
+.ApplyfilterBtn:hover,.CancelFilterBtn:hover{
+    cursor: pointer;
+}
+.filterSearchItemsCont{
+    width: 90%;
+    margin: auto;
+    margin-top: 6vh;
+
+}
+.filterSearchItems{
+    display: flex;
+    height: 4vh;
+    margin-bottom: 5vh;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 4vh;
+}
+.filterSearchItems p {
+    margin: 0;
+}
+.filterSearchItems select{
+    width: 40%;
+    height: 100%;
+}

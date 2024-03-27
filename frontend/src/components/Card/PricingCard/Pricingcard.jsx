@@ -1,6 +1,8 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom"
 import "./PricingCard.css"
-const Pricingcard = ({name,points,price}) => {
+const Pricingcard = ({name,points,price,path}) => {
+  const navigate = useNavigate()
   return (
     <div className='Pricingcard'>
       <div className="pricingCardHead">
@@ -21,7 +23,7 @@ const Pricingcard = ({name,points,price}) => {
           </div>
           <div className="PricingDetailsBtnCont">
             <p className='AmountInRs'>{price}₹<span className='smalltext'>/day</span></p>
-            <button className='PurchaseBtn'>Get Started</button>
+            <button onClick={()=>navigate(`/checkout/${path}`)} className='PurchaseBtn'>Get Started</button>
           </div>
         </div>
     </div>

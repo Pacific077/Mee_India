@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,ResponsiveContainer } from 'recharts';
+import { GetAllMembershipsCount } from '../../../apis/AdminApis';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -50,13 +51,27 @@ const TriangleBar = (props) => {
 };
 
 const BarGraph = () => {
+  const [dataw,setData] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await GetAllMembershipsCount();
+        setData(resp.data.membershipCountsArray);
+        // console.log("res", resp.data.membershipCountsArray);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <ResponsiveContainer width="100%" height="80%">
 
     <BarChart
       width={500}
       height={300}
-      data={data}
+      data={dataw}
       margin={{
           top: 20,
           right: 10,
@@ -65,9 +80,9 @@ const BarGraph = () => {
         }}
         >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="membershipType" />
       <YAxis />
-      <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+      <Bar dataKey="count" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
         {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}

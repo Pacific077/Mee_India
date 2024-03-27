@@ -7,7 +7,7 @@ const Pro = () => {
     <div className='ProPricing'>
         {PricingDetailsProArr.map((ele,ind)=>{
             return(
-                <Pricingcard key={ind} name={ele.Name} points={ele.points} price={ele.price} />
+                <Pricingcard path={ele.path} key={ind} name={ele.Name} points={ele.points} price={ele.price} />
             )
         })}
     </div>

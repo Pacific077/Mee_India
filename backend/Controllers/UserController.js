@@ -4,6 +4,8 @@ import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import { startSession } from "mongoose";
 import Admin from "../Models/AdminModel.js";
+import mongoose from "mongoose";
+import Enquiry from "../Models/EnquiryModel.js";
 
 //test sessions
 //del agterwards
@@ -23,7 +25,56 @@ const testSessions = async (req, res) => {
     users,
   });
 };
+//drop a collection
+const Dropcollection = async(req,res)=>{
+  await mongoose.connection.db.dropCollection('enquiries');
+    res.status(200).json({
+      message: "Collection 'enquiries' dropped successfully."
+    });
+}
+//send query to admin
+const SendQueryToAdmin = async(req,res)=>{
+  // await mongoose.connection.db.dropCollection('enquiries');
+  //   res.status(200).json({
+  //     message: "Collection 'enquiries' dropped successfully."
+  //   });
+  const session = await startSession()
+  session.startTransaction();
+  try {
+    const {question,UserId} = req.body
+    const newEnquiry = await Enquiry.create([{ question,SenderId: UserId}], {
+      session,
+    });
+    const admin = await Admin.findOne().session(session);
+    admin.enquiry.push(newEnquiry[0]._id);
+    // console.log("newEnquiry",newEnquiry[0]._id);
+    await admin.save({session});
 
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200).json({ message: "Enquiry sent to admin successfully" });
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    
+    res.status(500).json({ message:error.message });
+  }
+}
+//del qerybyid
+const DelQueryById =async (req,res)=>{
+  const {id} = req.body;
+  try {
+    const query = await Enquiry.findByIdAndDelete(id);
+    res.status(200).json({
+      message:"del"
+    })
+  } catch (error) {
+    res.status(500).json({
+      message:"del not done"
+    })
+    
+  }
+}
 //register user
 const RegisterUser = async (req, res, next) => {
   const session = await startSession();
@@ -298,4 +349,7 @@ export {
   getUserProfile,
   LoginUserMobile,
   testSessions,
+  SendQueryToAdmin,
+  DelQueryById,
+  Dropcollection
 };

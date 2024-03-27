@@ -120,6 +120,7 @@ export const AdminFilterUser = async ({ membership, startDate }) => {
   );
   return response;
 };
+
 export const  AdminFilterShop = async ({
   mainCategory,
   subCategory,
@@ -147,5 +148,32 @@ export const CreateNewAdminAccount = async ({ name,email,password }) => {
       withCredentials: true,
     }
   );
+  return response;
+};
+
+export const GetAllAdminqueries = async () => {
+  const response = await axios.get("/api/v1/admin/getAllQueries", {
+    withCredentials: true,
+  });
+  return response;
+};
+
+export const GetAdminQueryById= async ({id}) => {
+  const response = await axios.post(
+    "/api/v1/admin/getQuerieByID",
+    {
+      id
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
+
+export const GetAllMembershipsCount = async () => {
+  const response = await axios.get("/api/v1/admin/getMembershipCount", {
+    withCredentials: true,
+  });
   return response;
 };
