@@ -37,12 +37,13 @@ import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
 
 
 // import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"   
-import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
+// import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
 // import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
 import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
 import AllPaymentsList from "./pages/AllPaymentsList/AllPaymentsList";
 import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaymentListSpecific";
+
 
 const App = () => {
   return (
@@ -56,8 +57,9 @@ const App = () => {
         </ShowAdminSideNav>
         <HelpAndSupport/>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+     
+          <Route path="/" element={<Home />} />
           <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
           <Route
@@ -134,6 +136,7 @@ const App = () => {
           <Route path="/reportbug" element={<ReportBug/>} />
           <Route path="/we-are-hiring" element={<WeAreHiring/>} />
           <Route path="/whats-new" element={<WhatsNew/>} />
+
         </Routes>
       </BrowserRouter>
     </>
