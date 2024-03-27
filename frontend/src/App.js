@@ -36,11 +36,13 @@ import Checkout from "./pages/CheckoutPage/Checkout";
 import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
 
 
-import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"
+// import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"   
 import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
-import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
+// import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
 import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
+import AllPaymentsList from "./pages/AllPaymentsList/AllPaymentsList";
+import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaymentListSpecific";
 
 const App = () => {
   return (
@@ -111,9 +113,22 @@ const App = () => {
             path="/admin/queries/specific/:queryId"
             element={<AdminQuerySpecific />}
           />
+          
+          <Route path="/admin/ShowAllPayments" element={<AllPaymentsList />} />
+          <Route
+            path="/admin/ShowAllPayments/specific/:paymentId"
+            element={<AdminPaymentListSpecific />}
+          />
+
+          
           <Route path="/checkout/:type" element={<Checkout />} />
           <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
-          <Route path="/apitest" element={<Apitext />} />
+          
+
+
+          {/* uncomment and use only when testing an Api (not for general purpouse)*/}
+          {/* <Route path="/apitest" element={<Apitext />} /> */}
+
           <Route path="/aboutus" element={<AboutUs/>} />
           {/* <Route path="/quicklinks" element={<QuickLinks/>} /> */}
           <Route path="/reportbug" element={<ReportBug/>} />

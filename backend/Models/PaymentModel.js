@@ -22,7 +22,8 @@ const PaymentSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     }
-})
+},
+{ timestamps: true })
 
 const Payment = mongoose.model("Payment", PaymentSchema);
 // Enquiry.compile();

@@ -26,57 +26,40 @@ const testSessions = async (req, res) => {
   });
 };
 //drop a collection
-const Dropcollection = async(req,res)=>{
-  await mongoose.connection.db.dropCollection('enquiries');
-    res.status(200).json({
-      message: "Collection 'enquiries' dropped successfully."
-    });
-}
+const Dropcollection = async (req, res) => {
+  await Enquiry.collection.drop();
+  // await mongoose.connection.db.dropCollection('Enquiry');
+  res.status(200).json({
+    message: "Collection 'enquiries' dropped successfully.",
+  });
+};
 //send query to admin
-const SendQueryToAdmin = async(req,res)=>{
-  // await mongoose.connection.db.dropCollection('enquiries');
-  //   res.status(200).json({
-  //     message: "Collection 'enquiries' dropped successfully."
-  //   });
-  const session = await startSession()
+const SendQueryToAdmin = async (req, res) => {
+  const session = await startSession();
   session.startTransaction();
   try {
-    const {question,UserId} = req.body
-    const newEnquiry = await Enquiry.create([{ question,SenderId: UserId}], {
+    const { question, UserId } = req.body; ///
+    const newEnquiry = await Enquiry.create([{ question, SenderId: UserId }], {
       session,
     });
     const admin = await Admin.findOne().session(session);
     admin.enquiry.push(newEnquiry[0]._id);
     // console.log("newEnquiry",newEnquiry[0]._id);
-    await admin.save({session});
+    await admin.save({ session });
 
     await session.commitTransaction();
     session.endSession();
-    res.status(200).json({ message: "Enquiry sent to admin successfully" });
+    res.status(200).json({ message: "qnquiry sent to admin successfully" });
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
-    
-    res.status(500).json({ message:error.message });
+
+    res.status(500).json({ message: error.message });
   }
-}
-//del qerybyid
-const DelQueryById =async (req,res)=>{
-  const {id} = req.body;
-  try {
-    const query = await Enquiry.findByIdAndDelete(id);
-    res.status(200).json({
-      message:"del"
-    })
-  } catch (error) {
-    res.status(500).json({
-      message:"del not done"
-    })
-    
-  }
-}
+};
+
 //register user
-const RegisterUser = async (req, res, next) => {
+const RegisterUser = async (req, res) => {
   const session = await startSession();
   session.startTransaction();
   try {
@@ -88,8 +71,8 @@ const RegisterUser = async (req, res, next) => {
       errs.array().forEach((error) => {
         arr.push(error.msg);
       });
-    await session.abortTransaction();
-    session.endSession();
+      await session.abortTransaction();
+      session.endSession();
       return res.status(400).json({
         message: "Something went wrong",
         err: arr,
@@ -103,7 +86,7 @@ const RegisterUser = async (req, res, next) => {
       await session.abortTransaction();
       session.endSession();
       return res.status(400).json({
-        message: "Something went wrong",
+        message: "Email is already registered!",
         err: ["Email is already registered!"],
       });
     }
@@ -130,6 +113,7 @@ const RegisterUser = async (req, res, next) => {
         admin.dailyUserRegistrationCounts.push({ date: today, count: 1 });
       }
       admin.totaluserCount += 1;
+      
       await admin.save({ session });
     }
     // throw new Error("mera error")
@@ -141,7 +125,7 @@ const RegisterUser = async (req, res, next) => {
       data: newUser,
     });
   } catch (error) {
-    console.log("Err", error);
+    // console.log("Err", error);
     await session.abortTransaction();
     session.endSession();
     res.status(500).json({
@@ -350,6 +334,5 @@ export {
   LoginUserMobile,
   testSessions,
   SendQueryToAdmin,
-  DelQueryById,
-  Dropcollection
+  Dropcollection,
 };

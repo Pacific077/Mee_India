@@ -50,9 +50,8 @@
     text-align: center;
 }
 .PayemntListsCont{
-
     height: 70%;
-    margin-top: 1vh;
+    overflow-y: scroll;
 }
 .AdminNavDrawerIcon{
     font-size: 5vh;

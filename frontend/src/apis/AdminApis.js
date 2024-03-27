@@ -177,3 +177,44 @@ export const GetAllMembershipsCount = async () => {
   });
   return response;
 };
+
+export const DeleteQueryByID= async ({id}) => {
+  const response = await axios.post(
+    "/api/v1/admin/delQueryById",
+    {
+      id
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
+
+
+export const GetLastTenPayments = async ()=>{
+  const resp =  await axios.get("/api/v1/admin/LastfewPays",{
+    withCredentials:true,
+  }) 
+  return resp
+}
+
+export const GetAllPaymentsList = async ()=>{
+  const resp =  await axios.get("/api/v1/admin/allPayments",{
+    withCredentials:true,
+  }) 
+  return resp
+}
+
+export const GetpaymentById= async ({id}) => {
+  const response = await axios.post(
+    "/api/v1/admin/paymentById",
+    {
+      id
+    },
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};

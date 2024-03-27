@@ -70,7 +70,7 @@ const Navbar = () => {
           {/* <p>Business</p>
       <p>Premium</p> */}
       {isLoggedIn?<div className="navProfile" onClick={MoveToProfile}>
-        <img className="profilePic" src={user?.profileImage}/>
+        <img className="profilePic" src={user ?user.profileImage:''}/>
       </div>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
           </button>}

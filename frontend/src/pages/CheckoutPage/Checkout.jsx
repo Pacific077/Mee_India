@@ -69,7 +69,7 @@ const Checkout = () => {
       currency: "INR",
       name: "Mee India",
       description: "Test Transaction mee India",
-      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fpicsum.photos%2Fid%2F237%2F250&tbnid=p9Y4RLzHUuxwuM&vet=12ahUKEwjzov3boJKFAxVNS2wGHRaRC4QQMygVegQIARB7..i&imgrefurl=https%3A%2F%2Fpicsum.photos%2F&docid=KbxSwCHn8X-q5M&w=250&h=250&q=image%20url%20for%20testing&ved=2ahUKEwjzov3boJKFAxVNS2wGHRaRC4QQMygVegQIARB7",
+      image: "https://ibb.co/ZMd9J8n",
       order_id: order.id, //
       callback_url: `http://localhost:5000/api/v1/payments/verification/${MebershipType}/${monthDuration}`,
       prefill: {

@@ -7,7 +7,6 @@ import {
   getUserProfile,
   LoginUserMobile,
   SendQueryToAdmin,
-  DelQueryById,
   Dropcollection,
 } from "../Controllers/UserController.js";
 import IsAuthenticated from "../Middleware/isAuthenticated.js";
@@ -30,7 +29,7 @@ UserRoute.post("/editProfile", IsAuthenticated, UpdateProfile);
 // UserRoute.put("/profile-photo-upload" , IsAuthenticated ,upload.array("imgs",10) ,ProfilpicUpload);
 UserRoute.get("/getMyProfile", IsAuthenticated, getUserProfile);
 UserRoute.post("/sendqueryAdmin", IsAuthenticated, SendQueryToAdmin);
-UserRoute.post("/delQueryById", DelQueryById);
+
 UserRoute.delete("/dropCollection", Dropcollection);
 
 export default UserRoute;
