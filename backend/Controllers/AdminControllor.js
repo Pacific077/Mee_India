@@ -154,19 +154,28 @@ const EditUserDetails = async (req, res) => {
   }
 };
 const Deleteuser = async (req, res) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     const { id } = req.params;
-    const deletedUser = await User.findByIdAndDelete(id);
-    const admin = await Admin.findOne();
+    const deletedUser = await User.findByIdAndDelete(id).session(session);
     if (!deletedUser) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ error: "User not found" });
     }
+    const admin = await Admin.findOne().session(session);
     admin.totaluserCount -= 1;
-    await admin.save();
-    res
-      .status(200)
+    await admin.save({ session });
+    // throw new Error("mera error")
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200)
       .json({ message: "User deleted successfully", user: deletedUser });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    console.log("errrrrrrr",error)
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -327,31 +336,31 @@ const CreateAdminAccount = async (req, res, next) => {
         session,
       }
     );
-     //admin part
-     const admin = await Admin.findOne().session(session);
-     if (admin) {
-       const today = new Date();
-       today.setHours(0, 0, 0, 0);
-       const todayRecordIndex = admin.dailyUserRegistrationCounts.findIndex(
-         (record) => record.date.getTime() === today.getTime()
-       );
-       if (todayRecordIndex !== -1) {
-         admin.dailyUserRegistrationCounts[todayRecordIndex].count++;
-       } else {
-         admin.dailyUserRegistrationCounts.push({ date: today, count: 1 });
-       }
-       admin.totalAdminCount += 1;
-       admin.totaluserCount += 1;
-       await admin.save({ session });
-     }
-  
-     await session.commitTransaction();
-     session.endSession();
-     res.status(200).json({
-       success: true,
-       message: "Admin Registered",
-       data: newUser,
-     });
+    //admin part
+    const admin = await Admin.findOne().session(session);
+    if (admin) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const todayRecordIndex = admin.dailyUserRegistrationCounts.findIndex(
+        (record) => record.date.getTime() === today.getTime()
+      );
+      if (todayRecordIndex !== -1) {
+        admin.dailyUserRegistrationCounts[todayRecordIndex].count++;
+      } else {
+        admin.dailyUserRegistrationCounts.push({ date: today, count: 1 });
+      }
+      admin.totalAdminCount += 1;
+      admin.totaluserCount += 1;
+      await admin.save({ session });
+    }
+
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200).json({
+      success: true,
+      message: "Admin Registered",
+      data: newUser,
+    });
 
     // res.status(200).json({
     //     success: true,
@@ -361,7 +370,7 @@ const CreateAdminAccount = async (req, res, next) => {
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
-    console.log("ererere",error)
+    console.log("ererere", error);
     res.status(500).json({
       message: error.message,
     });
