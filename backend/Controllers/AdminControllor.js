@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
 // import jwt from "jsonwebtoken";
 import Bussiness from "../Models/BussinessModel.js";
+import Enquiry from "../Models/EnquiryModel.js";
 //not to be used in frontend
 // const CreateAdminDB = async (req, res) => {
 //   try {
@@ -23,18 +24,18 @@ import Bussiness from "../Models/BussinessModel.js";
 //     });
 //   }
 // };
-const GetAllBusinessList =async (req, res) => {
-  const business =await Bussiness.find()
+const GetAllBusinessList = async (req, res) => {
+  const business = await Bussiness.find();
   res.status(200).json({
     message: "all list of GetAllBusinessList",
-    business
+    business,
   });
 };
-const GetAllListUsers =async (req, res) => {
-  const users =await User.find()
+const GetAllListUsers = async (req, res) => {
+  const users = await User.find();
   res.status(200).json({
     message: "all list of users",
-    users
+    users,
   });
 };
 const GetPastSevenDaysRegitraionCount = async (req, res) => {
@@ -68,7 +69,7 @@ const GetPastSevenDaysRegitraionCount = async (req, res) => {
       data: past7DaysRegistrationCounts,
     });
   } catch (error) {
-    res.status(500).json({message:error.message})
+    res.status(500).json({ message: error.message });
   }
 };
 const GetAllCounts = async (req, res) => {
@@ -84,137 +85,143 @@ const GetAllCounts = async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
-      message:error.message
-    })
+      message: error.message,
+    });
   }
 };
-const getUserByID =async (req,res)=>{
-  const {id} = req.body
+const getUserByID = async (req, res) => {
+  const { id } = req.body;
   const user = await User.findById(id);
-  res.status(200).json(
-    user
-  )
-}
-const getBusinessById = async (req,res)=>{
+  res.status(200).json(user);
+};
+const getBusinessById = async (req, res) => {
   try {
-    const {id} =req.body
-    const business = await Bussiness.findById(id)
-    if(!business){
+    const { id } = req.body;
+    const business = await Bussiness.findById(id);
+    if (!business) {
       return res.status(404).json({ message: "No Business Found" });
     }
     res.status(200).json({
-      message:"found business",
-      business
-    })
-    
+      message: "found business",
+      business,
+    });
   } catch (error) {
     res.status(500).json({
-      message:error.message
-    })
+      message: error.message,
+    });
   }
-  
-}
+};
 
-const searchUserByemail = async (req,res)=>{
+const searchUserByemail = async (req, res) => {
   try {
-    const {email} = req.body
-    const users =await User.find({email:email})
-    if(users.length===0){
-     return res.status(201).json({
-        message:"no email exists"
-      })
+    const { email } = req.body;
+    const users = await User.find({ email: email });
+    if (users.length === 0) {
+      return res.status(201).json({
+        message: "no email exists",
+      });
     }
     res.status(200).json({
-      message:"found",
-      users
-    })
+      message: "found",
+      users,
+    });
   } catch (error) {
     res.status(500).json({
-      message:error.message
-    })
+      message: error.message,
+    });
   }
-}
-const EditUserDetails = async (req,res)=>{
+};
+const EditUserDetails = async (req, res) => {
   try {
-    const {id} = req.params
-    const {name,email,contact,Membership} = req.body
+    const { id } = req.params;
+    const { name, email, contact, Membership } = req.body;
     const user = await User.findById(id);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
     if (name) user.name = name;
     if (email) user.email = email;
     if (contact) user.contact = contact;
     if (Membership) user.Membership = Membership;
-    await user.save()
-    res.status(200).json({ message: 'User updated successfully', user });
-    
+    await user.save();
+    res.status(200).json({ message: "User updated successfully", user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
-const Deleteuser = async(req,res)=>{
+};
+const Deleteuser = async (req, res) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const deletedUser = await User.findByIdAndDelete(id);
-    const admin =await Admin.findOne();
+    const admin = await Admin.findOne();
     if (!deletedUser) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).json({ error: "User not found" });
     }
-     admin.totaluserCount -= 1;
-     await admin.save()
-    res.status(200).json({ message: 'User deleted successfully', user: deletedUser });
+    admin.totaluserCount -= 1;
+    await admin.save();
+    res
+      .status(200)
+      .json({ message: "User deleted successfully", user: deletedUser });
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
-}
+};
 
-const EditShopDetails = async(req,res)=>{
+const EditShopDetails = async (req, res) => {
   try {
-    const {id} = req.params
-    const {title,bussinessMail,mainCategory,subCategory,state,district,pinCode} = req.body
-    const shop =await Bussiness.findById(id);
-    if(!shop){
+    const { id } = req.params;
+    const {
+      title,
+      bussinessMail,
+      mainCategory,
+      subCategory,
+      state,
+      district,
+      pinCode,
+    } = req.body;
+    const shop = await Bussiness.findById(id);
+    if (!shop) {
       return res.status(404).json({
-        message:"Shop Not found"
-      })
+        message: "Shop Not found",
+      });
     }
-    if(title) shop.title = title
-    if(bussinessMail) shop.bussinessMail = bussinessMail
-    if(mainCategory) shop.mainCategory = mainCategory
-    if(subCategory[0]==="empty"){
-      shop.subCategory=['']
+    if (title) shop.title = title;
+    if (bussinessMail) shop.bussinessMail = bussinessMail;
+    if (mainCategory) shop.mainCategory = mainCategory;
+    if (subCategory[0] === "empty") {
+      shop.subCategory = [""];
     }
-    if(subCategory.length>0&&subCategory[0]!=="empty") shop.subCategory = subCategory
-    if(state) shop.state = state
-    if(district) shop.district = district
-    if(pinCode) shop.pinCode = pinCode
-    await shop.save()
-    res.status(200).json({ message: 'Shop updated successfully', shop });
-
-
+    if (subCategory.length > 0 && subCategory[0] !== "empty")
+      shop.subCategory = subCategory;
+    if (state) shop.state = state;
+    if (district) shop.district = district;
+    if (pinCode) shop.pinCode = pinCode;
+    await shop.save();
+    res.status(200).json({ message: "Shop updated successfully", shop });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+};
 
-const DeleteShop = async (req,res)=>{
+const DeleteShop = async (req, res) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const deletedShop = await Bussiness.findByIdAndDelete(id);
-    const admin =await Admin.findOne();
+    const admin = await Admin.findOne();
     if (!deletedShop) {
-      return res.status(404).json({ error: 'Shop not found' });
+      return res.status(404).json({ error: "Shop not found" });
     }
-     admin.totalBusinessCount -= 1;
-     await admin.save()
-    res.status(200).json({ message: 'Shop deleted successfully', shop: deletedShop });
+    admin.totalBusinessCount -= 1;
+    await admin.save();
+    res
+      .status(200)
+      .json({ message: "Shop deleted successfully", shop: deletedShop });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+};
 
-const FilterUserSearch =  async(req,res)=>{
+const FilterUserSearch = async (req, res) => {
   try {
     const { membership, startDate } = req.query;
     let query = {};
@@ -223,109 +230,185 @@ const FilterUserSearch =  async(req,res)=>{
     }
     if (startDate) {
       query.membershipPurchaseDate = {
-        $gte: new Date(startDate)   
+        $gte: new Date(startDate),
       };
     }
-    console.log("query",query)
+    console.log("query", query);
     const users = await User.find(query);
     if (!users || users.length === 0) {
       return res.status(200).json({ message: "No users found", data: [] });
     }
     res.status(200).json({
-      message:"found"
-      ,data:users
-    })
+      message: "found",
+      data: users,
+    });
   } catch (error) {
     res.status(500).json({
-      message:error.message
-    })
+      message: error.message,
+    });
   }
-}
+};
 
-
-const FilterShopSearch = async (req,res)=>{
+const FilterShopSearch = async (req, res) => {
   try {
-    const {mainCategory,subCategory,state,district,owner} = req.query;
+    const { mainCategory, subCategory, state, district, owner } = req.query;
     let query = {};
     if (mainCategory) {
       query.mainCategory = mainCategory;
     }
     if (subCategory) {
-      query.subCategory=subCategory
+      query.subCategory = subCategory;
     }
     if (state) {
-      query.state=state
+      query.state = state;
     }
     if (district) {
-      query.district=district
+      query.district = district;
     }
     if (owner) {
-      query.owner=owner
+      query.owner = owner;
     }
-    console.log("shop query",query)
+    console.log("shop query", query);
     const shops = await Bussiness.find(query);
     if (!shops || shops.length === 0) {
       return res.status(200).json({ message: "No users found", data: [] });
     }
     res.status(200).json({
-      message:"found"
-      ,data:shops
-    })
+      message: "found",
+      data: shops,
+    });
   } catch (error) {
     res.status(500).json({
-      message:error.message
-    })
+      message: error.message,
+    });
   }
-}
+};
 
-const CreateAdminAccount = async (req,res,next)=>{
+const CreateAdminAccount = async (req, res, next) => {
   try {
     const errs = validationResult(req);
 
-    if(!errs.isEmpty()){
-        let arr = [];
-        errs.array().forEach((error) => {
-            arr.push(error.msg);
-        });
-        return res.status(400).json({
-            message:"Something went wrong",
-            err:arr
-        })
+    if (!errs.isEmpty()) {
+      let arr = [];
+      errs.array().forEach((error) => {
+        arr.push(error.msg);
+      });
+      return res.status(400).json({
+        message: "Something went wrong",
+        err: arr,
+      });
     }
 
     const { name, email, password } = req.body;
 
     const user = await User.findOne({ email });
     if (user) {
-        return res.status(400).json({
-            message:"Something went wrong",
-            err:["Email is already registered!"]
-        })
+      return res.status(400).json({
+        message: "Something went wrong",
+        err: ["Email is already registered!"],
+      });
     }
     //hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(password, salt);
     const newUser = await User.create({
-        name,
-        email,
-        role:"Admin",
-        password: hashedPass,
+      name,
+      email,
+      role: "Admin",
+      password: hashedPass,
     });
 
     await newUser.save();
-next();
+    next();
     // res.status(200).json({
     //     success: true,
     //     message: "User Registered",
     //     data: newUser,
     // });
-} catch (error) {
-        res.status(500).json({
-        message:error.message
-    })
-}
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
 
-}
+const GetAllAdminQueris = async (req, res) => {
+  try {
+    const admin = await Admin.findOne().populate({
+      path: "enquiry",
+      populate: {
+        path: "SenderId",
+        model: "User",
+      },
+    });
+    if (!admin) {
+      res.status(500).json({
+        message: "No Admin Found",
+      });
+    }
+    const queries = await admin.enquiry;
+    res.status(200).json({
+      message: "fetched successfull",
+      queries,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+const GetQueryByID = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const query = await Enquiry.findById(id).populate("SenderId");
+    if (!query) {
+      return res.status(404).json({ message: "No query Found" });
+    }
+    res.status(200).json({
+      message: "found query",
+      query,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+const getMembershipCounts = async (req, res) => {
+  try {
+    const membershipCounts = await User.aggregate([
+      {
+        $group: {
+          _id: "$Membership", 
+          count: { $sum: 1 }, 
+        },
+      },
+    ]);
+
+
+    const allMembershipTypes = ["Free List", "Shop List", "Standard", "Premium", "Pro"];
+
+
+    const countsObject = Object.fromEntries(allMembershipTypes.map(type => [type, 0]));
+    for (const { _id, count } of membershipCounts) {
+      countsObject[_id] = count;
+    }
+
+    const membershipCountsArray = Object.entries(countsObject).map(([membershipType, count]) => ({
+      membershipType,
+      count,
+    }));
+
+    res.status(200).json({ message: "Membership counts", membershipCountsArray });
+  } catch (error) {
+    res.status(500).json({
+      message: "Could not fetch membership counts",
+      error: error.message,
+    });
+  }
+};
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -333,7 +416,15 @@ export {
   GetPastSevenDaysRegitraionCount,
   GetAllCounts,
   getUserByID,
-  getBusinessById,searchUserByemail,Deleteuser,EditShopDetails,DeleteShop,
+  getBusinessById,
+  searchUserByemail,
+  Deleteuser,
+  EditShopDetails,
+  DeleteShop,
   FilterUserSearch,
-  FilterShopSearch,CreateAdminAccount
+  FilterShopSearch,
+  CreateAdminAccount,
+  GetAllAdminQueris,
+  GetQueryByID,
+  getMembershipCounts
 };

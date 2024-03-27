@@ -27,6 +27,13 @@ import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
 import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
 import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
+import HelpAndSupport from "./components/HelpAndSupport/HelpAndSupport";
+import AdminQueriesList from "./pages/AdminQueriesList/AdminQueriesList";
+import AdminQuerySpecific from "./pages/AdminQuerySpecific/AdminQuerySpecific";
+import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
+import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
+import Checkout from "./pages/CheckoutPage/Checkout";
+import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
 
 
 import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"
@@ -45,6 +52,7 @@ const App = () => {
         <ShowAdminSideNav>
           <AdminSideNav />
         </ShowAdminSideNav>
+        <HelpAndSupport/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -98,9 +106,16 @@ const App = () => {
             element={<AdminEditShop />}
           />
           <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
+          <Route path="/admin/queries" element={<AdminQueriesList/>} />
+          <Route
+            path="/admin/queries/specific/:queryId"
+            element={<AdminQuerySpecific />}
+          />
+          <Route path="/checkout/:type" element={<Checkout />} />
+          <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
           <Route path="/apitest" element={<Apitext />} />
           <Route path="/aboutus" element={<AboutUs/>} />
-          <Route path="/quicklinks" element={<QuickLinks/>} />
+          {/* <Route path="/quicklinks" element={<QuickLinks/>} /> */}
           <Route path="/reportbug" element={<ReportBug/>} />
           <Route path="/we-are-hiring" element={<WeAreHiring/>} />
           <Route path="/whats-new" element={<WhatsNew/>} />

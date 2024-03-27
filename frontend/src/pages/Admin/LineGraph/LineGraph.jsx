@@ -2,47 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { GetPast7daysData } from '../../../apis/AdminApis';
 
-const data = [
-  {
-    name: 'Day 1',
-    users: 4000,
-    business: 2400,
-  },
-  {
-    name: 'Day 2',
-    users: 3000,
-    business: 1398,
-
-  },
-  {
-    name: 'Day 3',
-    users: 2000,
-    business: 9800,
-
-  },
-  {
-    name: 'Day 4',
-    users: 2780,
-    business: 3908,
-
-  },
-  {
-    name: 'Day 5',
-    users: 1890,
-    business: 4800,
-
-  },
-  {
-    name: 'Day 6',
-    users: 2390,
-    business: 3800,
-  }, 
-  {
-    name: 'Day 7',
-    users: 3490,
-    business: 4300,
-  },
-];
 
 const LineGraph = () => {
   const [dataw,setData] = useState([])

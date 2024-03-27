@@ -1,0 +1,81 @@
+.chatBotCont
+{
+    height: 50vh;
+    /* border: 1px solid black;   */
+    box-shadow: -7px 10px 10px gray;
+    width: 40vh;
+    border-radius: 20px;
+    background-color: rgb(249, 227, 198);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+.ChatIcon{
+    font-size: 5vh;
+    color: var(--tertiary);
+}
+.chatbotHeader{
+    height: 20%;
+    background-color: var(--primary);
+    padding: 2vh;
+    display: flex;
+    gap:1vh;
+    box-sizing: border-box;
+}
+.ChtHeadleft{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ChatBotCrossIcon{
+    position: absolute;
+    right: 10px;
+    font-size: larger;
+}
+.ChtHeadRight h3,.ChtHeadRight h5{
+    margin: 0;
+}
+.ChtHeadRight{
+    width: 70%;
+}
+.ChatBotCrossIcon:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: 0.7s ease;
+}
+.ChatBotBody{
+    height: 65%;
+    box-sizing: border-box;
+    padding: 1vh;
+}
+.ChatBotBody p{
+    background-color: var(--primary);
+    border-radius: 20px;
+    padding: 2vh;
+}
+.ChatbotInput{
+    height: 15%;
+    background-color: white ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ChatbotInput input{
+    width: 80%;
+    font-size: medium;
+    font-family: var(--fontMain);
+    height: 90%;
+    border: none;
+    outline: none;
+    caret-color: black;
+}
+.ChatbotSenBtn{
+    font-size: xx-large;
+    color: var(--tertiary);
+}
+.ChatbotSenBtn:hover{
+    cursor: pointer;
+}
