@@ -35,11 +35,12 @@ const Footer = () => {
           <p className="footehead">MeeIndia</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/aboutus')}}>About Us</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Advertise or Media</p>
-          {/* <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Get on IOS/Android</p> */}
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Highlights</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Enquire Now</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/quicklinks')}}>Quick Links</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/reportbug')}}>Report a bug</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/whats-new')}}>What's new</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/we-are-hiring')}}>We are hiring</p>
           {/* <p>We are Hiring</p> */}
 
 

@@ -1,0 +1,16 @@
+.newFeaturesHeading{
+    text-align: center;
+    /* height: 7vh; */
+    font-size: 7vh;
+    padding: 1%;
+    border-bottom: 3px solid rgb(255, 224, 209);
+}
+.whatsNewMainDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.whatNewMainContainer{
+    margin: 2% 10%;
+   
+}

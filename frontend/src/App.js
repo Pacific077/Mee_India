@@ -28,6 +28,13 @@ import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
 import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
 import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
 
+
+import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"
+import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
+import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
+import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
+import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
+
 const App = () => {
   return (
     <>
@@ -95,6 +102,8 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs/>} />
           <Route path="/quicklinks" element={<QuickLinks/>} />
           <Route path="/reportbug" element={<ReportBug/>} />
+          <Route path="/we-are-hiring" element={<WeAreHiring/>} />
+          <Route path="/whats-new" element={<WhatsNew/>} />
         </Routes>
       </BrowserRouter>
     </>
