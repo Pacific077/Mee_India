@@ -6,6 +6,7 @@ import { AdminFilterUser } from "../../../apis/AdminApis";
 const QueryFilterSearch = ({ setFilterVis,setQueryList }) => {
   const [membership, setMembership] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
+  
 
   const handleSubmit = async () => {
     //add precentage for query with spaces
@@ -16,7 +17,7 @@ const QueryFilterSearch = ({ setFilterVis,setQueryList }) => {
         startDate: purchaseDate,
       });
       if(resp.status===200){
-        setUserList(resp.data.data);
+        // setUserList(resp.data.data);
       }
     } catch (error) {
       toast.error("Internal server error")

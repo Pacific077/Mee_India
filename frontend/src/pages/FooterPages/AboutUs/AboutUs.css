@@ -1,9 +1,10 @@
 
-.carddiv{
+.aboutUscarddiv{
     display: flex;
     justify-content: space-between;
+
 }
-.firstheading{
+.aboutUsMaindivFirstHeading{
     font-size: 4vh;
     display: flex;
     justify-content: center;
@@ -13,7 +14,7 @@
     margin: 4px 0px;
     border-radius: 4px;
 }
-.maindiv{
+.aboutUsMaindiv{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -22,7 +23,7 @@
     margin: 4px 0px;
     
 }
-.secondprofile{
+.aboutUsMaindivSecondProfile{
     background-color: rgb(246, 246, 246);
     height: 8vh;
     display: flex;
@@ -32,13 +33,10 @@
     margin: 4px 0px;
     border-radius: 4px;
 }
-.titlename{
+.aboutUstitlename{
    /* padding-left: ; */
 }
-.touchlink{
-    
-}
-.firstdivcontainer{
+.aboutUsfirstdivcontainer{
     background-color: rgb(237, 237, 237);
     display: flex;
     justify-content: space-between;
@@ -46,7 +44,7 @@
     margin: 4px 0px;
     border-radius: 25px;
 }
-.firstdivecontainer1_firstdiv{
+.aboutUsfirstdivecontainer1_firstdiv{
     background-color:rgb(254, 254, 254);
     /* height: 55vh; */
     border-radius: 4px;
@@ -59,7 +57,7 @@
     
 
 }
-.firstDivSubContainer1{
+.aboutUsfirstDivSubContainer1{
     width: 100%;
 }
 /* .firstDivSubContainer2{
@@ -68,27 +66,42 @@
     flex: 1;
     padding: 0% 2%;
 } */
-.firstdivecontainer1_seconddiv{
+.aboutUsfirstdivecontainer1_seconddiv{
     background-color: white;
-    height: 60vh;
+    height: 50vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.storyheading{
+.aboutUsfirstdivecontainer1_seconddivHeading{
+    padding: 2%;
+    font-size: 7vh;
+}
+.aboutUsfirstdivecontainer1_seconddivContent{
+    font-size: 3vh;
+    padding: 3% 7%;
+
+}
+.aboutUsstoryheading{
     font-weight: 600;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 6vh;
     padding: 2%;
     color: rgb(246, 189, 34);
 }
-.SecondDivContainer{
+.aboutUsSecondDivContainer{
     padding: 1% 2%;
-    font-style: oblique;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.secondDivContainerHeading{
+.aboutUssecondDivContainerHeading{
     padding: 1% 0%;
+    border-bottom: 2px solid rgb(242, 191, 95);
+
 }
-.secondDivContainerContent{
-    font-size: 3vh;
+.aboutUssecondDivContainerContent{
+    padding-top: 2%;
+    padding-bottom: 3%;
+    font-size: 2.5vh;
+
 }

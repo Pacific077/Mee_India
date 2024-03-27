@@ -34,11 +34,8 @@ import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
 import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 import Checkout from "./pages/CheckoutPage/Checkout";
 import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
-
-
-import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"
 import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
-import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
+// import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
 import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
 
