@@ -27,6 +27,8 @@ import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
 import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
 import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
+import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
+import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 
 const App = () => {
   return (
@@ -93,7 +95,7 @@ const App = () => {
           <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
           <Route path="/apitest" element={<Apitext />} />
           <Route path="/aboutus" element={<AboutUs/>} />
-          <Route path="/quicklinks" element={<QuickLinks/>} />
+          {/* <Route path="/quicklinks" element={<QuickLinks/>} /> */}
           <Route path="/reportbug" element={<ReportBug/>} />
         </Routes>
       </BrowserRouter>
