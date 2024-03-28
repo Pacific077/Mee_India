@@ -15,7 +15,7 @@
         padding: 0 ;
     }
     .userdashCard{
-        font-size: x-large;
+        font-size: large;
     }
 }
 @media screen and (max-width: 667px) {
@@ -42,18 +42,19 @@
         min-height: 33vh;
     }
     .userdashCard{
-        height: 10vh;
-    width: 71%;
+
+        height: 5vh;
+        width: 32%;
     }
     .userDashCardcontainer {
-        
-        flex-direction: column;
+/*         
+        flex-direction: column; */
        height: fit-content;
     }
 }
 @media screen and (max-width: 376px) {
     .userDashUpperDivProfilePic {
-        width: 95%;
+        width: 90%;
     }
     .UserDashboardImageDisplay{
         height: 90%;

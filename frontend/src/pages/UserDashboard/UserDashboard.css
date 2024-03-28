@@ -143,3 +143,19 @@ position: absolute;
     color: green;
     font-size: larger;
 }
+@media screen and (max-width: 769px) {
+    .userDashboardAcntDetails{
+        padding-left: 2vh;
+    }
+}
+@media screen and (max-width: 551px) {
+    .userMebershipDetailsAndCard{
+        flex-direction: column;
+    }
+    .marginTop0{
+        margin-top: 0;
+    }
+    .mebershipDetails,.userDashTagDetails{
+        width: 100%;
+    }
+}
