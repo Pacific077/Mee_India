@@ -24,9 +24,10 @@ const AdminSideNav = () => {
         <p onClick={()=> navigate("/admin/dashboard")}>Admin Dashboard</p>
         <p onClick={()=> navigate('/admin/showUserslist')}>All Users Lists</p>
         <p onClick={()=> navigate("/admin/showShopslist")}>All Shops Lists</p>
-        <p onClick={()=> alert("kya ji")}>Payment Details</p>
+        <p onClick={()=> navigate("/admin/ShowAllPayments")}>Payment Details</p>
         <p onClick={()=> navigate("/admin/queries")}>All Queries</p>
         <p onClick={()=> navigate("/admin/createNewAdmin")}>Create Admin</p>
+        <p onClick={()=> navigate("/admin/listBusinessByAdmin")}>List a Business</p>
       </div>
     </div>
   )

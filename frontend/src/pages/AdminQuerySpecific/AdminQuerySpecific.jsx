@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { GetAdminQueryById } from '../../apis/AdminApis'
-import { useParams } from 'react-router-dom'
+import { DeleteQueryByID, GetAdminQueryById } from '../../apis/AdminApis'
+import { useNavigate, useParams } from 'react-router-dom'
 import ExtractDate from '../../utils/ExtractDate'
 import "./AdminQuerySpecific.css"
+import { toast } from 'react-toastify'
 const AdminQuerySpecific = () => {
     const [query,setQuery] = useState('')
     const {queryId} = useParams();
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -19,6 +21,17 @@ const AdminQuerySpecific = () => {
     
         fetchData();
       }, []);
+      const handleDelteQuery= async ()=>{
+        try {
+          const resp = await DeleteQueryByID({id:queryId});
+          if(resp.status ===200){
+            toast.success("Query Deleted Successfully")
+            navigate("/admin/queries")
+          }
+        } catch (err) {
+          toast.error(err.message)
+        }
+      }
   return (
     <div className='userlistSpecificPage'>
     <h1 className='userspecifcDetailHead'>Query Details </h1>
@@ -40,10 +53,10 @@ const AdminQuerySpecific = () => {
             <p>Shop Owned : {user?user.ownedBussinesses.length:"-"}</p> */}
         </div>
     </div>
-    {/* <div className="UserspecificdetailsBtnCont">
-      <button onClick={()=>navigate(`/admin/userList/specific/edit/${userId}`)} className='AdminEditUsersBtn'>Edit Details</button>
-      <button  className='adminDeluserBtn'>Delete User</button>
-    </div> */}
+    <div className="UserspecificdetailsBtnCont">
+      {/* <button onClick={()=>navigate(`/admin/userList/specific/edit/${userId}`)} className='AdminEditUsersBtn'>Edit Details</button> */}
+      <button  className='adminDeluserBtn' onClick={handleDelteQuery}>Delete Query</button>
+    </div>
 </div>
   )
 }

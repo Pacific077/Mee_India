@@ -36,8 +36,17 @@ import Checkout from "./pages/CheckoutPage/Checkout";
 import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
 import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
 // import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
+import ListBusinessByAdmin from "./pages/ListBusinessByAdmin.js/ListBusinessByAdmin";
+
+
+// import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"   
+// import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
+// import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
 import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
+import AllPaymentsList from "./pages/AllPaymentsList/AllPaymentsList";
+import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaymentListSpecific";
+
 import CustomerCare from "./pages/FooterPages/CustomerCare/CustomerCare";
 import TermsAndServices from "./pages/FooterPages/TermsAndServices/TermsAndServices";
 
@@ -53,8 +62,9 @@ const App = () => {
         </ShowAdminSideNav>
         <HelpAndSupport/>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+     
+          <Route path="/" element={<Home />} />
           <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
           <Route
@@ -105,19 +115,34 @@ const App = () => {
             element={<AdminEditShop />}
           />
           <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
+          <Route path="/admin/listBusinessByAdmin" element={<ListBusinessByAdmin/>} />
           <Route path="/admin/queries" element={<AdminQueriesList/>} />
           <Route
             path="/admin/queries/specific/:queryId"
             element={<AdminQuerySpecific />}
           />
+          
+          <Route path="/admin/ShowAllPayments" element={<AllPaymentsList />} />
+          <Route
+            path="/admin/ShowAllPayments/specific/:paymentId"
+            element={<AdminPaymentListSpecific />}
+          />
+
+          
           <Route path="/checkout/:type" element={<Checkout />} />
           <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
-          <Route path="/apitest" element={<Apitext />} />
+          
+
+
+          {/* uncomment and use only when testing an Api (not for general purpouse)*/}
+          {/* <Route path="/apitest" element={<Apitext />} /> */}
+
           <Route path="/aboutus" element={<AboutUs/>} />
           <Route path="/customer-care" element={<CustomerCare/>} />
           <Route path="/reportbug" element={<ReportBug/>} />
           <Route path="/we-are-hiring" element={<WeAreHiring/>} />
           <Route path="/whats-new" element={<WhatsNew/>} />
+
           <Route path="/terms-and-services" element={<TermsAndServices/>}/>
         </Routes>
       </BrowserRouter>

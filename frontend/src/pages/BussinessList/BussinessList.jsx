@@ -57,8 +57,9 @@ const BussinessList = () => {
         </h1>
       </div>
       <div className="ListContainer">
-        {businessArray.map((bus) => (
+        {businessArray.map((bus,ind) => (
           <BussinessListCard
+          key={ind}
             bussinessId={bus._id}
             name={bus.title}
             ratingCnt={bus.ratingCount}

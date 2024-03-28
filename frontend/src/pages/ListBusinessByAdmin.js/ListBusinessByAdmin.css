@@ -1,0 +1,10 @@
+.formContainer{
+    max-width: 100vh;
+    margin-top: 10vh;
+}
+.form{
+    padding: 5vh;
+}
+.ListByAdminHeading{
+    text-align: center;
+}

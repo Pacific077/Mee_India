@@ -2,6 +2,7 @@ import express from "express";
 import {
 
   CreateAdminAccount,
+  DelQueryById,
   DeleteShop,
   Deleteuser,
   EditShopDetails,
@@ -12,8 +13,12 @@ import {
   GetAllBusinessList,
   GetAllCounts,
   GetAllListUsers,
+  GetAllPaymentList,
+  GetLastTenPaymentHistory,
   GetPastSevenDaysRegitraionCount,
+  GetPaymentById,
   GetQueryByID,
+  freeListByAdmin,
   getBusinessById,
   getMembershipCounts,
   getUserByID,
@@ -42,5 +47,10 @@ AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,in
 AdminRoute.get("/getAllQueries", GetAllAdminQueris);
 AdminRoute.post("/getQuerieByID", GetQueryByID);
 AdminRoute.get("/getMembershipCount", getMembershipCounts);
+AdminRoute.post("/delQueryById", DelQueryById);
+AdminRoute.get("/LastfewPays", GetLastTenPaymentHistory);
+AdminRoute.get("/allPayments", GetAllPaymentList);
+AdminRoute.post("/paymentById", GetPaymentById);
+AdminRoute.post("/freeList", freeListByAdmin);
 
 export default AdminRoute;

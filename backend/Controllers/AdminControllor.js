@@ -5,7 +5,10 @@ import { validationResult } from "express-validator";
 // import jwt from "jsonwebtoken";
 import Bussiness from "../Models/BussinessModel.js";
 import Enquiry from "../Models/EnquiryModel.js";
-//not to be used in frontend
+import Payment from "../Models/PaymentModel.js";
+import { startSession } from "mongoose";
+
+//not to be used in anymore
 // const CreateAdminDB = async (req, res) => {
 //   try {
 //     const admin = await Admin.create({
@@ -24,6 +27,7 @@ import Enquiry from "../Models/EnquiryModel.js";
 //     });
 //   }
 // };
+
 const GetAllBusinessList = async (req, res) => {
   const business = await Bussiness.find();
   res.status(200).json({
@@ -150,19 +154,28 @@ const EditUserDetails = async (req, res) => {
   }
 };
 const Deleteuser = async (req, res) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     const { id } = req.params;
-    const deletedUser = await User.findByIdAndDelete(id);
-    const admin = await Admin.findOne();
+    const deletedUser = await User.findByIdAndDelete(id).session(session);
     if (!deletedUser) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ error: "User not found" });
     }
+    const admin = await Admin.findOne().session(session);
     admin.totaluserCount -= 1;
-    await admin.save();
-    res
-      .status(200)
+    await admin.save({ session });
+    // throw new Error("mera error")
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200)
       .json({ message: "User deleted successfully", user: deletedUser });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    // console.log("errrrrrrr",error)
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -204,19 +217,27 @@ const EditShopDetails = async (req, res) => {
 };
 
 const DeleteShop = async (req, res) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     const { id } = req.params;
-    const deletedShop = await Bussiness.findByIdAndDelete(id);
-    const admin = await Admin.findOne();
+    const deletedShop = await Bussiness.findByIdAndDelete(id).session(session);
     if (!deletedShop) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ error: "Shop not found" });
     }
+    const admin = await Admin.findOne().session(session);
     admin.totalBusinessCount -= 1;
-    await admin.save();
+    await admin.save({session});
+    await session.commitTransaction();
+    session.endSession();
     res
       .status(200)
       .json({ message: "Shop deleted successfully", shop: deletedShop });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
     res.status(500).json({ error: error.message });
   }
 };
@@ -285,6 +306,8 @@ const FilterShopSearch = async (req, res) => {
 };
 
 const CreateAdminAccount = async (req, res, next) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     const errs = validationResult(req);
 
@@ -293,6 +316,8 @@ const CreateAdminAccount = async (req, res, next) => {
       errs.array().forEach((error) => {
         arr.push(error.msg);
       });
+      await session.abortTransaction();
+      session.endSession();
       return res.status(400).json({
         message: "Something went wrong",
         err: arr,
@@ -301,31 +326,59 @@ const CreateAdminAccount = async (req, res, next) => {
 
     const { name, email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).session(session);
     if (user) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(400).json({
-        message: "Something went wrong",
+        message: "Email is already registered!",
         err: ["Email is already registered!"],
       });
     }
     //hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(password, salt);
-    const newUser = await User.create({
-      name,
-      email,
-      role: "Admin",
-      password: hashedPass,
+    const newUser = await User.create(
+      [{ name, email, password: hashedPass, role: "Admin" }],
+      {
+        session,
+      }
+    );
+    //admin part
+    const admin = await Admin.findOne().session(session);
+    if (admin) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const todayRecordIndex = admin.dailyUserRegistrationCounts.findIndex(
+        (record) => record.date.getTime() === today.getTime()
+      );
+      if (todayRecordIndex !== -1) {
+        admin.dailyUserRegistrationCounts[todayRecordIndex].count++;
+      } else {
+        admin.dailyUserRegistrationCounts.push({ date: today, count: 1 });
+      }
+      admin.totalAdminCount += 1;
+      admin.totaluserCount += 1;
+      await admin.save({ session });
+    }
+
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200).json({
+      success: true,
+      message: "Admin Registered",
+      data: newUser,
     });
 
-    await newUser.save();
-    next();
     // res.status(200).json({
     //     success: true,
     //     message: "User Registered",
     //     data: newUser,
     // });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    console.log("ererere", error);
     res.status(500).json({
       message: error.message,
     });
@@ -381,27 +434,37 @@ const getMembershipCounts = async (req, res) => {
     const membershipCounts = await User.aggregate([
       {
         $group: {
-          _id: "$Membership", 
-          count: { $sum: 1 }, 
+          _id: "$Membership",
+          count: { $sum: 1 },
         },
       },
     ]);
 
+    const allMembershipTypes = [
+      "Free List",
+      "Shop List",
+      "Standard",
+      "Premium",
+      "Pro",
+    ];
 
-    const allMembershipTypes = ["Free List", "Shop List", "Standard", "Premium", "Pro"];
-
-
-    const countsObject = Object.fromEntries(allMembershipTypes.map(type => [type, 0]));
+    const countsObject = Object.fromEntries(
+      allMembershipTypes.map((type) => [type, 0])
+    );
     for (const { _id, count } of membershipCounts) {
       countsObject[_id] = count;
     }
 
-    const membershipCountsArray = Object.entries(countsObject).map(([membershipType, count]) => ({
-      membershipType,
-      count,
-    }));
+    const membershipCountsArray = Object.entries(countsObject).map(
+      ([membershipType, count]) => ({
+        membershipType,
+        count,
+      })
+    );
 
-    res.status(200).json({ message: "Membership counts", membershipCountsArray });
+    res
+      .status(200)
+      .json({ message: "Membership counts", membershipCountsArray });
   } catch (error) {
     res.status(500).json({
       message: "Could not fetch membership counts",
@@ -409,6 +472,146 @@ const getMembershipCounts = async (req, res) => {
     });
   }
 };
+
+//del qerybyid
+const DelQueryById = async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Enquiry.findByIdAndDelete(id);
+
+    res.status(200).json({
+      message: "del",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "del not done",
+      error: error.message,
+    });
+  }
+};
+
+const GetLastTenPaymentHistory = async (req, res) => {
+  try {
+    const payments = await Payment.find()
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .populate({
+        path: "User",
+        select: "name profileImage",
+      });
+    res.status(200).json({ payments });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const GetAllPaymentList = async (req, res) => {
+  try {
+    const payments = await Payment.find().sort({ createdAt: -1 }).populate({
+      path: "User",
+      select: "name profileImage",
+    });
+    res.status(200).json({ payments });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const GetPaymentById = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const payment = await Payment.findById(id).populate({
+      path: "User",
+    });
+    res.status(200).json({ payment });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const freeListByAdmin = async (req, res) => {
+  try {
+    // const errs = validationResult(req);
+    // if (!errs.isEmpty()) {
+    //   let arr = [];
+    //   errs.array().forEach((error) => {
+    //     arr.push(error.msg);
+    //   });
+    //   return res.status(400).json({
+    //     message: "Something went wrong",
+    //     err: arr
+    //   });
+    // }
+
+    // Extract business details from request body
+    console.log(req.body)
+    const {
+      formData: {
+        email,
+        title,
+        address,
+        bussinessContact,
+        bussinessAltContact,
+        bussinessMail,
+        pinCode,
+        bio
+      },
+      state,
+      district,
+      timingArr,
+      openDays,
+      mainCategory,
+      subCategory,
+      imagelinkArr,
+      latitude,
+      longitude
+    } = req.body;
+
+    const location = {
+      type: "Point",
+      coordinates: [longitude, latitude]
+    };
+
+    const user = await User.findOne({ email });
+
+    if (!user) return res.status(201).json({ message: "User Not Found!" });
+
+    const owner = user._id;
+
+    // Create a new business object using the schema
+    const newBusiness = await Bussiness.create({
+      title,
+      address,
+      district,
+      state,
+      owner,
+      pinCode,
+      bio,
+      location,
+      bussinessContact,
+      bussinessAltContact,
+      bussinessMail,
+      timingArr,
+      openDays,
+      mainCategory,
+      subCategory,
+      businessImages: imagelinkArr
+    });
+
+    // Save the business object to the database
+    const savedBusiness = await newBusiness.save();
+
+    // Save new business to user's array of owned businesses
+    await User.findByIdAndUpdate(user._id, { $push: { ownedBusinesses: savedBusiness._id } });
+
+    console.log("Business created successfully");
+    res.status(200).json({ message: "Business created successfully", business: savedBusiness });
+  } catch (error) {
+    console.log("Error:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -426,5 +629,10 @@ export {
   CreateAdminAccount,
   GetAllAdminQueris,
   GetQueryByID,
-  getMembershipCounts
+  getMembershipCounts,
+  DelQueryById,
+  GetLastTenPaymentHistory,
+  GetAllPaymentList,
+  GetPaymentById,,
+  freeListByAdmin
 };

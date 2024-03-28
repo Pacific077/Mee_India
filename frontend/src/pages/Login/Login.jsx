@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LoginApi, RegisterApi } from "../../apis/UserApi";
 import {  useNavigate  } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { FaEyeSlash } from "react-icons/fa6";
 import "./Login.css";
+import UserContext from "../../context/UserInfo/UserContext";
 const Login = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -13,6 +14,8 @@ const Login = () => {
   const [showPass, setshowPass] = useState(false);
   const [IsSigningup, setIsSigningup] = useState(false);
   const navigate  = useNavigate();
+  const usercon = useContext(UserContext);
+  const {setUser} = usercon;
   const handleIconClick = () => {
     setshowPass(!showPass);
   };
@@ -39,9 +42,11 @@ const Login = () => {
         try{
           console.log("loginapi")
           const resp = await LoginApi({ email, password });
-          console.log("resp",resp)
+          // console.log("resp",resp)
           if (resp.status === 200) {
             navigate('/')
+            // console.log("loggendin",resp.data.data)
+            setUser(resp.data.data)
             toast.success("Logged in !!");
           }
         }catch(error){

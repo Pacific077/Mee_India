@@ -17,6 +17,9 @@ const AdminSchema = mongoose.Schema(
     totaluserCount:{
       type:Number
     },
+    totalAdminCount:{
+      type:Number
+    },
     totalBusinessCount:{
       type:Number
     },

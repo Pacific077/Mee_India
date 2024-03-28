@@ -116,19 +116,6 @@ const FormPage1 = ({
             </MenuItem>
           ))}
         </TextField>
-          {/* <label className='formLabel'>State:</label>
-          <select
-            className='formInput half'
-            onChange={handleStateChange}
-            value={state}
-          >
-            <option value=''>Select State</option>
-            {stateList.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
-              </option>
-            ))}
-          </select> */}
         </div>
         <div>
           <TextField
@@ -148,19 +135,6 @@ const FormPage1 = ({
               </MenuItem>
             ))}
           </TextField>
-          {/* <label className='formLabel'>District:</label>
-          <select
-            className='formInput half'
-            onChange={handleDistChange}
-            value={district}
-          >
-            <option value=''>Select District</option>
-            {distList.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
-              </option>
-            ))}
-          </select> */}
         </div>
       </div>
       <TextField

@@ -5,20 +5,23 @@ import LineGraph from './LineGraph/LineGraph'
 import BarGraph from './BarGraph/BarGraph'
 import AdminCard from './AdminCard/AdminCard'
 import AdminCardArr from './AdmiCardArr'
-import { getcounts } from '../../apis/AdminApis'
+import { GetLastTenPayments, getcounts } from '../../apis/AdminApis'
+import PaymentCard from './PaymentCard/PaymentCard'
 
 const Admin = () => {
     const [usercount, setUserCount] = useState();
     const [shopcount, setShopCount] = useState();
-    // const [showAdminnav,setshowAdminNAv] = useState(false);
+    const [payemntArr,setPaymentArr] = useState([]);
+
   
     useEffect(() => {
       const fetchData = async () => {
         try {
-          // Define getcounts or import it from another module
           const resp = await getcounts();
+          const resp1 = await GetLastTenPayments()
           setUserCount(resp.data.users);
           setShopCount(resp.data.shops);
+          setPaymentArr(resp1.data.payments)
 
         } catch (error) {
           console.error("Error fetching data:", error);
@@ -55,12 +58,16 @@ const Admin = () => {
             {/* <AdminCard/>
             <AdminCard/> */}
         </div>
-        <div className="AdminPaymentDetails">
-            <h1 className="paymentDetailsHead">Payments History</h1>
+     <div className="AdminPaymentDetails">
+            <h1 className="paymentDetailsHead">Recent Transactions</h1>
             <div className="PayemntListsCont">
-
+              {payemntArr.map((ele,ind)=>{
+                return (
+                  <PaymentCard key={ind} date={ele.createdAt?ele.createdAt:"xx-xx-xx"} amnt={ele.AmountPaid}  name={ele.User.name} dp={ele.User.profileImage} />
+                )
+              })}
             </div>
-        </div>
+        </div> 
     </div>
   )
 }
