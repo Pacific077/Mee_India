@@ -25,3 +25,8 @@
     caret-color: var(--secondary);
     outline: none;
 }
+@media screen and (max-width: 427px) {
+    .bussinessEditLabelandInp input{
+        width: 90%;
+    }
+}

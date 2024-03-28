@@ -3,15 +3,20 @@
     font-size: 15px;
 }
 .reviewContainer {
-    padding: 2vh 3vh;
+    padding: 1vh 1vh;
+    border-bottom: 1px solid;
     transition: border-color 0.3s; /* Add transition for smoother hover effect */
 }
 
-.reviewContainer:hover {
+/* .reviewContainer:hover {
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    padding-top: calc(2vh - 1px); /* Compensate for the top border */
-    padding-bottom: calc(2vh - 1px); /* Compensate for the bottom border */
+    padding-top: calc(2vh - 1px);
+    padding-bottom: calc(2vh - 1px); 
+} */
+.comment p{
+    margin: 0;
+    
 }
 
 .userInfo{

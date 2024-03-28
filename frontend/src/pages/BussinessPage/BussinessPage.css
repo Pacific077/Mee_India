@@ -151,13 +151,30 @@ h3,h2,h4{
 .reviewHead p{
     margin: 1vh 2vh;
 }
-
+@media screen and (max-width: 1250px) {
+    .BusinesspecPage {
+        padding-left: 8vh;
+        padding-right: 8vh;
+    }
+        
+}
 
 @media screen and (max-width: 1025px) {
     .BusinesspecPage{
         margin:0;
+        padding-left: 0vh;
+        padding-right: 0vh;
     }
    
+  }
+
+  @media screen and (max-width: 769px) {
+    .bussinessPagesection2 {
+        flex-direction: column;
+    }
+    .bussinessPageAddress,.bussinessPageTiming,.bussinessPageServices{
+        width: 95%;
+    }
   }
 @media screen and (max-width: 550px) {
     .bussinessPagesection2{
@@ -170,7 +187,25 @@ h3,h2,h4{
    .imageSectionimg{
     display: none;
    }
-   .ImageSectioncarousel{
+   .ImageSectioncarousel{   
     margin: auto;
    }
   }
+  @media screen and (max-width: 426px) {
+    .CataloguePicContainer {
+        
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 376px) {
+    .reviewHead span,.reviewHead h3,.reviewHead p{
+        font-size: small;
+    }
+    .alreadyreview{
+        font-size: small;
+        /* color: var(--grayShade); */
+        color: red;
+        font-weight: 200;
+    }
+}

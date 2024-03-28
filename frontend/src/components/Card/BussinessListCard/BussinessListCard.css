@@ -2,7 +2,7 @@
     padding: 2vh;
     display: flex;
     margin: 2vh 0;
-    border: 1px solid lightgray;
+    border: 1px solid var(--grayShade);
     border-radius: 4px;
     cursor: pointer;
 }
@@ -55,8 +55,29 @@
 @media screen and (max-width: 551px) {
     .BussinessListCardContainer {
         flex-direction: column;
+        /* border: 1px solid black; */
         width: 90%;
         margin: auto;
         margin-bottom: 2vh;
+    }
+}
+@media screen and (max-width: 428px) {
+    .ListPageHeading{
+        font-size: 4vh;
+    }
+    .BussinessListCardRight h2 {
+        margin-bottom: 1vh;
+        font-size: large;
+    }
+    .RatingPoint {
+        padding: 2px 3px;
+        font-size: small;
+    }
+    .RatingStars{
+        font-size: small;
+    }
+    .address {
+        margin-top: 1vh;
+        font-size: small;
     }
 }
