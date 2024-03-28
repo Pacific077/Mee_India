@@ -1,0 +1,56 @@
+.EnquiryCard{
+    height: 30vh;
+    border-radius: 10px;
+    border: 3px solid var(--tertiary);
+    width: 35vh;
+    background-color: var(--whiteShade);
+}
+.EnquiryCardSenderDetails{
+    /* border: 1px solid black; */
+    height: 35%;
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--grayShade);
+    padding: 10px;
+    box-sizing: border-box;
+}
+.EnquiryCardSenderPic{
+    width: 25%;
+    border-radius: 100%;
+    height: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.EnquiryCardSenderPic img{
+    height: 100%;
+    width: 100%;
+}
+.EnquiryCardSenderDesc{
+    /* border: 1px solid black; */
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.EnquiryCardSenderDesc p{
+    margin: 0;
+    color: var(--tertiary);
+}
+.EnquiryCardQuestion{
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    height: 65%;
+}
+.EnquiryCardQuestion p{
+    margin: 0;
+}
+.EnquiryCardContact{
+    color: var(--indiaGreen);
+    font-weight: 800;
+}
+.EnquiryCardQ span{
+    font-weight: 800;
+}

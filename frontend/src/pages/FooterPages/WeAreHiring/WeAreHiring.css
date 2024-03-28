@@ -1,0 +1,82 @@
+.firstDivContainer{
+    display: flex;
+    
+}
+.firstDivContainer-firstBox{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8% 5%;
+    width: 40%;
+}
+.firstDivContainer-secondBox{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fistBox-firstHeading{
+    font-size: 9vh;
+    display: flex;
+}
+.fistBox-secondHeading{
+    font-size: 9vh;
+    font-weight: 700;
+    
+}
+.fistBox-thirdHeading{
+    font-size: 3vh;
+    padding: 2%;
+}
+/* .firstsBox-buttonDiv{
+    display: flex;
+    justify-content: space-between;
+
+}
+.fistBox-button{
+    padding:2% 10%;
+    font-weight: 600;
+    background-color: rgb(102, 102, 233);
+    border-radius: 10px;
+} */
+.hiringImage{
+    height: 70vh;
+    width: 95vh;
+    /* padding: 8% 8%; */
+    box-shadow: 0 4px 4px 2px rgba(240, 240, 240, 0.566), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.secondDivContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0%;
+}
+.hiringForm{
+    background-color:rgb(146, 219, 146);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: column;
+    height: 30vh;
+
+}
+.inputField{
+    height: 5vh;
+    width: 40vh;
+    margin: 4px;
+    border-radius: 4px;
+    padding: 0 1%;
+    border-color: none;
+    font-size: 16px;
+    
+}
+.submitButton{
+    width: 15vh;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.submitButton:hover{
+    background-color: rgb(56, 56, 236);
+    cursor: pointer;
+
+}

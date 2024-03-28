@@ -1,37 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-
-
-// import Districts from "./District";
 import "./Navbar.css";
 import LocationAndSearch from "../Card/LocationAndSearch/LocationAndSearch";
 import SideNav from "../SideNav/SideNav";
-import { ProfileApi } from "../../apis/UserApi";
+// import { ProfileApi } from "../../apis/UserApi";
 import { toast } from "react-toastify";
+import NavProfile from "./NavProfile/NavProfile";
 const Navbar = () => {
   
-  const [user,setUser] = useState(false);
+  // const [user,setUser] = useState(false);
   const [IsSideNavVis,setIsSideNavVis] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const fetchData = async ()=>{
-    try{
-    const resp = await ProfileApi()
-    console.log("Resp",resp);
-    localStorage.setItem('userProfile', JSON.stringify(resp.data.user))
-    setUser(resp.data.user);
-    }catch(e){
-      console.log(e);
-      toast.error("Something went Wrong")
-    }
-  };
 
   useEffect(() => {
     const token = Cookies.get('token');
     if(token){
-      fetchData();
+      // fetchData();
       setIsLoggedIn(true);
     }
   }, []);
@@ -45,10 +32,7 @@ const Navbar = () => {
   const handleFreeListingClick =()=>{
     if(isLoggedIn)
     navigate("/bussiness-register")
-    else toast.warning("Please Registered Users are allowed to register their business!")
-  }
-  const MoveToProfile =()=>{
-    navigate('/userdashboard')
+    else toast.warning("Login to List your Business !!")
   }
   return (
     <>
@@ -64,14 +48,12 @@ const Navbar = () => {
           
         </div>
         <div className="navItems">
-          <p>English</p>
-          <p onClick={()=>navigate('/')}>Home</p>
-          <p onClick={handleFreeListingClick}>Free Listing</p>
+          <p className="Navitem">English</p>
+          <p className="Navitem" onClick={()=>navigate('/')}>Home</p>
+          <p className="Navitem" onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
-      {isLoggedIn?<div className="navProfile" onClick={MoveToProfile}>
-        <img className="profilePic" src={user?.profileImage}/>
-      </div>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
+      {isLoggedIn?<NavProfile/>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
           </button>}
       

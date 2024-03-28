@@ -1,0 +1,27 @@
+.whatsNewcardContent{
+    display: flex;
+    text-align: left;
+    width: 70vh;   
+   align-items: center;
+}
+.cardNumbering{
+    
+}
+.WhatsNewMainCardDiv{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* width: ; */
+    height: 30% ;
+    padding: 2%;
+
+}
+.WhatsNewCardImage{
+    height: 27vh;
+    width:25vh;
+    padding: 0% 1%;
+}
+.whatsNewImage{
+    height: 100%;
+    width: 100%;
+}

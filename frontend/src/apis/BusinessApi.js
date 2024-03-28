@@ -61,11 +61,10 @@ const response = await axios.put(
 return response;
 };
 
-export const EnquirySubmit = async (data) => {
-  console.log("start",data)
+export const EnquirySubmit = async ({question, bussinessId}) => {
 const response = await axios.put(
   "http://localhost:5000/api/v1/bussiness/enquirySubmit",
-  data,
+  {question, bussinessId},
   {
     withCredentials: true,
   }
@@ -74,8 +73,6 @@ return response;
 };
 
 export const BusienessEdit = async (EditDetails) => {
-
-
   const response = await axios.post(
     "http://localhost:5000/api/v1/bussiness/EditBusiness",
     EditDetails,
@@ -87,3 +84,13 @@ export const BusienessEdit = async (EditDetails) => {
   return response;
 
 };
+
+export const GetBusinessEnquiries = async ({ businessId }) => {
+  const response = await axios.post(
+    "/api/v1/bussiness/BusinessEnquiries",
+    {
+      businessId
+    }
+  );
+  return response;
+}
