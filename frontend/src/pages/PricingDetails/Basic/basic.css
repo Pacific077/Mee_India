@@ -1,4 +1,28 @@
 .BasicPricing{
+    padding: 0 20vh 0 20vh;
     display: flex;
+    gap: 2vh;
     justify-content: space-around;
+}
+@media screen and (max-width: 1091px) {
+    .BasicPricing{
+        padding: 0 10vh 0 10vh;
+    }
+}
+@media screen and (max-width: 935px) {
+    .BasicPricing{
+        padding: 0 2vh 0 2vh;
+    }
+}
+@media screen and (max-width: 770px) {
+    .ProPricing{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 518px) {
+    .BasicPricing{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
