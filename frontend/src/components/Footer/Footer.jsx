@@ -36,7 +36,7 @@ const Footer = () => {
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/aboutus')}}>About Us</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Advertise or Media</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Highlights</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Enquire Now</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/enquire-now')}}>Enquire Now</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/quicklinks')}}>Quick Links</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/reportbug')}}>Report a bug</p>
           <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/whats-new')}}>What's new</p>
@@ -47,9 +47,9 @@ const Footer = () => {
         </div>
         <div className="foot3">
           <p className="footehead">LEGAL</p>
-          <p>Terms of Services</p>
-          <p>Privacy Policy</p>
-          <p>Return & Refund Policy</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/terms-and-services')}}>Terms and Services</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/privacy-policies')}}>Privacy Policies</p>
+          {/* <p>Return & Refund Policy</p> */}
           <div className="appIconBox">
           <img className="storeIcon" src={googlePlaystore} alt="Google Play Store" />
             <div>
@@ -67,8 +67,8 @@ const Footer = () => {
         </div>
         <div className="foot4">
           <p className="footehead">CONTACT</p>
-          <p>hello</p>
-          <p>7420994331</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/customer-care')}}>Customer Care</p>
+          <p>+91 9987420994</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
             deleniti.
