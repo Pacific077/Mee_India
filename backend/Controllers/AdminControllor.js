@@ -530,6 +530,8 @@ const GetPaymentById = async (req, res) => {
 };
 
 const freeListByAdmin = async (req, res) => {
+  const session = await startSession();
+  session.startTransaction();
   try {
     // const errs = validationResult(req);
     // if (!errs.isEmpty()) {
@@ -544,7 +546,7 @@ const freeListByAdmin = async (req, res) => {
     // }
 
     // Extract business details from request body
-    console.log(req.body)
+    // console.log(req.body)
     const {
       formData: {
         email,
@@ -572,14 +574,19 @@ const freeListByAdmin = async (req, res) => {
       coordinates: [longitude, latitude]
     };
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).session(session);
 
-    if (!user) return res.status(201).json({ message: "User Not Found!" });
+    if (!user){
+      await session.abortTransaction();
+      session.endSession();
+      return res.status(201).json({ message: "User Not Found!" });
+    } 
 
     const owner = user._id;
-
+    // console.log("owner",owner)
     // Create a new business object using the schema
-    const newBusiness = await Bussiness.create({
+    // console.log("imagearr",imagelinkArr);
+    const newBusiness = await Bussiness.create([{
       title,
       address,
       district,
@@ -595,18 +602,37 @@ const freeListByAdmin = async (req, res) => {
       openDays,
       mainCategory,
       subCategory,
-      businessImages: imagelinkArr
-    });
-
-    // Save the business object to the database
-    const savedBusiness = await newBusiness.save();
-
+      buseinessImages: imagelinkArr
+    }],{session});
+    // console.log("business",newBusiness[0]);
     // Save new business to user's array of owned businesses
-    await User.findByIdAndUpdate(user._id, { $push: { ownedBusinesses: savedBusiness._id } });
+    await user.ownedBussinesses.push(newBusiness[0]._id);
+    await user.save({session})
 
-    console.log("Business created successfully");
-    res.status(200).json({ message: "Business created successfully", business: savedBusiness });
+
+    //admin Part
+    const admin = await Admin.findOne().session(session);
+    if (admin) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const todayRecordIndex = admin.dailyBusinessRegistrationCounts.findIndex(
+        (record) => record.date.getTime() === today.getTime()
+      );
+      if (todayRecordIndex !== -1) {
+        admin.dailyBusinessRegistrationCounts[todayRecordIndex].count++;
+      } else {
+        admin.dailyBusinessRegistrationCounts.push({ date: today, count: 1 });
+      }
+      admin.totalBusinessCount += 1;
+      await admin.save({ session });
+    }
+    
+    await session.commitTransaction();
+    session.endSession();
+    res.status(200).json({ message: "Business created successfully", business: newBusiness[0] });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
     console.log("Error:", error);
     res.status(500).json({ message: error.message });
   }
@@ -633,6 +659,6 @@ export {
   DelQueryById,
   GetLastTenPaymentHistory,
   GetAllPaymentList,
-  GetPaymentById,,
+  GetPaymentById,
   freeListByAdmin
 };
