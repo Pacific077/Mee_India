@@ -21,12 +21,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
               <div className='aboutUsfirstdivecontainer1_firstdiv'>
                   <div className='aboutUsstoryheading'>Our story</div>
                   <div className='aboutUscarddiv'>
-                 
                     <AboutUsCard/>
                     <AboutUsCard/>
                     <AboutUsCard/>
                     <AboutUsCard/>
-
                   </div>
               </div>
               <div className='aboutUsfirstdivecontainer1_seconddiv'>

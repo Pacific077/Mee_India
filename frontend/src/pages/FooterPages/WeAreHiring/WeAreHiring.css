@@ -1,55 +1,39 @@
-.firstDivContainer{
+.hiringFirstDivContainer{
     display: flex;
     
 }
-.firstDivContainer-firstBox{
+.hiringFirstDivContainer-firstBox{
     font-family: Arial, Helvetica, sans-serif;
     padding: 8% 5%;
-    width: 40%;
+    /* width: 40%; */
 }
-.firstDivContainer-secondBox{
+.hiringFirstDivContainer-secondBox{
     width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.fistBox-firstHeading{
+.hiringFistBox-firstHeading{
     font-size: 9vh;
     display: flex;
 }
-.fistBox-secondHeading{
+.hiringFistBox-secondHeading{
     font-size: 9vh;
     font-weight: 700;
     
 }
-.fistBox-thirdHeading{
+.hiringFistBox-thirdHeading{
     font-size: 3vh;
     padding: 2%;
 }
-/* .firstsBox-buttonDiv{
-    display: flex;
-    justify-content: space-between;
 
-}
-.fistBox-button{
-    padding:2% 10%;
-    font-weight: 600;
-    background-color: rgb(102, 102, 233);
-    border-radius: 10px;
-} */
 .hiringImage{
     height: 70vh;
-    width: 95vh;
-    /* padding: 8% 8%; */
+    width: 90vh;
+    
     box-shadow: 0 4px 4px 2px rgba(240, 240, 240, 0.566), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
-.secondDivContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 2% 0%;
-}
+
 .hiringForm{
     background-color:rgb(146, 219, 146);
     display: flex;
@@ -60,7 +44,7 @@
     height: 30vh;
 
 }
-.inputField{
+.hiringInputField{
     height: 5vh;
     width: 40vh;
     margin: 4px;
@@ -79,4 +63,88 @@
     background-color: rgb(56, 56, 236);
     cursor: pointer;
 
+}
+
+
+@media screen and (max-width: 1000px) {
+    .hiringFistBox-firstHeading {
+        font-size: 6vh;
+        display: flex;
+    }
+    .hiringFistBox-secondHeading {
+        font-size: 7vh;
+        font-weight: 700;
+    }
+    .hiringInputField {
+        height: 5vh;
+        width: 40vh;
+        margin: 4px;
+        border-radius: 4px;
+        padding: 0 1%;
+        border-color: none;
+        font-size: 16px;
+    }
+    .hiringImage{
+        height: 54%vh;
+        width: 95%;
+        
+        box-shadow: 0 4px 4px 2px rgba(240, 240, 240, 0.566), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .hiringFirstDivContainer {
+        flex-direction: row; /* Change back to row layout for larger screens */
+    }
+
+    .hiringFirstDivContainer-firstBox {
+        width: 40%; /* Set width for first box on larger screens */
+    }
+
+    .hiringFirstDivContainer-secondBox {
+        width: 60%; /* Set width for second box on larger screens */
+    }
+
+    .hiringImage {
+        margin-top: 0; /* Remove margin for larger screens */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hiringFirstDivContainer {
+        flex-direction: column-reverse; /* Reverse column layout for mobile screens */
+    }
+    .hiringFistBox-firstHeading{
+        font-size: 5vh;
+        display: flex;
+    }
+    .hiringFistBox-secondHeading{
+        font-size: 5vh;
+        font-weight: 700;   
+    }
+    .hiringFistBox-thirdHeading{
+        font-size: 2vh;
+        /* padding: 2%; */
+    }
+    .hiringImage{
+        height: 50%;
+        width: 100%;
+        
+        box-shadow: 0 4px 4px 2px rgba(240, 240, 240, 0.566), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+    .hiringFirstDivContainer-firstBox {
+        width: 88%; /* Take full width on mobile screens */
+        margin: 0 1%;
+    }
+    .hiringFirstDivContainer-secondBox{
+        width: 100%;
+    }
+    .hiringInputField{
+        height: 13%;
+        width: 79%;
+        margin: 3px;
+        border-radius: 4px;
+        padding: 0 1%;
+        border-color: none;
+        font-size: 14px;
+        
+    }
 }

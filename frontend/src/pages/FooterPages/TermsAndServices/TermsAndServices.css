@@ -21,13 +21,21 @@
 font-size: 3vh;
 margin: 4% 0;
 }
-.termsAndServicesListsHead{
-
-}
 .termsAndServicesLists{
     padding-top: 1%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .termsAndServicesBoldWords{
     padding-right: 1%;
+}
+
+
+@media screen and (max-width: 767px) {
+    .termsAndServicesMainDivContainer {
+        margin: 2% 2%; /* Adjust margin for smaller screens */
+    }
+
+    .termsAndServicesLists {
+        font-size: 1.8vh; /* Further adjust font size for smaller screens */
+    }
 }

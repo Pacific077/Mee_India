@@ -21,3 +21,34 @@
     width: 15vh;
     text-align: center;
 }
+.customerCarelabel{
+
+}
+.customerCareContacts{
+
+}
+
+@media screen and (max-width: 767px) {
+    .customerCareMainDivContainer {
+        margin: 0 5%; 
+    }
+
+    .customerCareTextArea {
+        height: 11vh; 
+        width: 90%;
+    }
+
+    .customeCareProblemHeading {
+        font-size: 2.5vh; 
+    }
+
+    .customerCareSubmitButton {
+        font-size: 14px;
+        width: 50%;
+        padding: 2% 0%;
+    }
+
+    .customerCareContacts{
+        font-size: 14px;
+    }
+}

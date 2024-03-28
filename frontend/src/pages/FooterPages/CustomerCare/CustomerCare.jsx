@@ -12,10 +12,10 @@ const CustomerCare = () => {
         <div>
             <div className='customeCareProblemHeading'>Contact Us</div>
             <div>
-                <label>HeadQuater 1 <p>+91-2165451845</p><p>meeIndiaHeadquater1@gmail.com</p></label>
-                <label>HeadQuater 2 <p>+91-2165451845</p><p>meeIndiaHeadquater2@gmail.com</p></label>
-                <label>HeadQuater 3 <p>+91-2165451845</p><p>meeIndiaHeadquater3@gmail.com</p></label>
-                <label>HeadQuater 4 <p>+91-2165451845</p><p>meeIndiaHeadquater4@gmail.com</p></label>
+                <label className='customerCarelabel'>HeadQuater 1 <p className='customerCareContacts'>+91-2165451845</p><p className='customerCareContacts'>meeIndiaHeadquater1@gmail.com</p></label>
+                <label className='customerCarelabel' >HeadQuater 2 <p className='customerCareContacts'>+91-2165451845</p><p className='customerCareContacts'>meeIndiaHeadquater2@gmail.com</p></label>
+                <label className='customerCarelabel'>HeadQuater 3 <p className='customerCareContacts'>+91-2165451845</p><p className='customerCareContacts'>meeIndiaHeadquater3@gmail.com</p></label>
+                <label className='customerCarelabel'>HeadQuater 4 <p className='customerCareContacts'>+91-2165451845</p><p className='customerCareContacts'>meeIndiaHeadquater4@gmail.com</p></label>
             </div>
         </div>
       

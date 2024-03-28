@@ -8,7 +8,7 @@ const Privacy = () => {
       <div className='privacySecondTopHeading'>Learn more about how Dribbble collects and uses data and your rights as a meeIndia user.</div>
       <div className='privacyUpdateHeading'>Updated on March 27 2024</div>
       <div className='privacyIntroductionHeading'>introduction</div>
-      <div>
+      <div className='privacyLastDiv'>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis sint dolores veritatis aperiam pariatur numquam quibusdam molestias tenetur minus, quia deleniti sunt ea cupiditate magnam similique praesentium fuga? Eaque, atque?
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eligendi fugiat labore rem ducimus odit error omnis? Fuga sapiente excepturi ex ipsam, nam maxime at aspernatur magnam quam animi alias.
         </p>

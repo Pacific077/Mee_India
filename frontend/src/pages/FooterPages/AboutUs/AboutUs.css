@@ -1,7 +1,8 @@
 
 .aboutUscarddiv{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap ;
 
 }
 .aboutUsMaindivFirstHeading{
@@ -33,9 +34,6 @@
     margin: 4px 0px;
     border-radius: 4px;
 }
-.aboutUstitlename{
-   /* padding-left: ; */
-}
 .aboutUsfirstdivcontainer{
     background-color: rgb(237, 237, 237);
     display: flex;
@@ -54,18 +52,17 @@
     justify-content: center;
     padding: 5% 0%;
     border-bottom: 1px gray solid;
-    
 
 }
 .aboutUsfirstDivSubContainer1{
     width: 100%;
 }
-/* .firstDivSubContainer2{
+.firstDivSubContainer2{
     overflow-y: show;
     display:flex;
     flex: 1;
     padding: 0% 2%;
-} */
+} 
 .aboutUsfirstdivecontainer1_seconddiv{
     background-color: white;
     height: 50vh;
@@ -104,4 +101,38 @@
     padding-bottom: 3%;
     font-size: 2.5vh;
 
+} 
+
+
+
+@media screen and (max-width: 768px) {
+    .aboutUsMaindiv {
+        padding: 0% 5% 0%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .aboutUsMaindiv {
+        padding: 0% 2% 0%;
+    }
+
+    .aboutUsCard {
+        width: calc(50% - 20px);
+    }
+
+    .aboutUsfirstdivcontainer {
+        flex-direction: column;
+    }
+
+    .aboutUsfirstdivecontainer1_seconddivHeading {
+        font-size: 5vh;
+    }
+
+    .aboutUsfirstdivecontainer1_seconddivContent {
+        font-size: 2.5vh;
+    }
+
+    .aboutUssecondDivContainerContent {
+        font-size: 2vh;
+    }
 }

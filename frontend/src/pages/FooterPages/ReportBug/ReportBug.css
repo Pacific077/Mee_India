@@ -1,29 +1,51 @@
-.mainDiv{
-    /* margin: 0% 10% 0%;  */
-    /* border: 1px solid black; */
+
+.reportBugMainDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10% 5%;
-    background-image: url("../../../assets/reportBug.jpg");
-    background-size: cover;
-    /* background-position: center; */
-    /* width: 100%; */
+    /* background-image: url("../../../assets/reportBug.jpg"); */
+    /* background-size: cover; */
     height: 100%;
 }
-.messageField{
+
+.reportBugMessageField {
     height: 20vh;
-    width: 80vh;
+    width: 80%; 
+    max-width: 500px;
     margin: 3% 0%;
-    opacity: 97%;
+    opacity: 0.97;
     padding: 1%;
     cursor: text;
 }
-.submitButton{
-    /* height: 10vh; */
+
+.submitButton {
     background-color: blue;
     padding: 1% 2%;
     border-radius: 10px;
-    font-size: 20PX;
+    font-size: 20px; 
+    
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .reportBugMessageField {
+        height: 15vh; 
+        width: 90%; 
+    }
+
+    .submitButton {
+        font-size: 16px; 
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .reportBugMessageField {
+        height: 10vh; 
+    }
+
+    .reportBugSubmitButton {
+        font-size: 14px; 
+    }
 }
