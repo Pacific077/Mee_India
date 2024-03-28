@@ -71,6 +71,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .SearchAndIcon input {
   width: 80%;

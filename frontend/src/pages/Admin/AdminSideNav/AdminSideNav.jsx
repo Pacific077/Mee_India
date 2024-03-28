@@ -27,6 +27,7 @@ const AdminSideNav = () => {
         <p onClick={()=> alert("kya ji")}>Payment Details</p>
         <p onClick={()=> navigate("/admin/queries")}>All Queries</p>
         <p onClick={()=> navigate("/admin/createNewAdmin")}>Create Admin</p>
+        <p onClick={()=> navigate("/admin/listBusinessByAdmin")}>List a Business</p>
       </div>
     </div>
   )

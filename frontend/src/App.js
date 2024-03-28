@@ -34,6 +34,7 @@ import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
 import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 import Checkout from "./pages/CheckoutPage/Checkout";
 import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
+import ListBusinessByAdmin from "./pages/ListBusinessByAdmin.js/ListBusinessByAdmin";
 
 const App = () => {
   return (
@@ -99,6 +100,7 @@ const App = () => {
             element={<AdminEditShop />}
           />
           <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
+          <Route path="/admin/listBusinessByAdmin" element={<ListBusinessByAdmin/>} />
           <Route path="/admin/queries" element={<AdminQueriesList/>} />
           <Route
             path="/admin/queries/specific/:queryId"

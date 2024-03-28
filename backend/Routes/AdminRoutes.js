@@ -14,6 +14,7 @@ import {
   GetAllListUsers,
   GetPastSevenDaysRegitraionCount,
   GetQueryByID,
+  freeListByAdmin,
   getBusinessById,
   getMembershipCounts,
   getUserByID,
@@ -42,5 +43,6 @@ AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,in
 AdminRoute.get("/getAllQueries", GetAllAdminQueris);
 AdminRoute.post("/getQuerieByID", GetQueryByID);
 AdminRoute.get("/getMembershipCount", getMembershipCounts);
+AdminRoute.post("/freeList", freeListByAdmin);
 
 export default AdminRoute;

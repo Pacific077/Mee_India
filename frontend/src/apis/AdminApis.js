@@ -177,3 +177,12 @@ export const GetAllMembershipsCount = async () => {
   });
   return response;
 };
+
+export const FreeListByAdmin = async (data) => {
+  const response = await axios.post("/api/v1/admin/freeList",
+    data,
+  {
+    withCredentials: true,
+  });
+  return response;
+}

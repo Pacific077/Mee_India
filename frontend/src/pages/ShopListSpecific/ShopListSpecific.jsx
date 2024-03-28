@@ -79,12 +79,12 @@ const ShopListSpecific = () => {
         <div className="UserSpecificDetails">
           <p>Register Date:{shop ? ExtractDate(shop.createdAt) : "-"} </p>
           <p>Last Updated :{shop ? ExtractDate(shop.updatedAt) : "-"}</p>
-          <p>Longitude :{shop ? shop.location.coordinates[1] : "-"}</p>
+          <p>Longitude :{shop ? shop.location.coordinates[0] : "-"}</p>
         </div>
         <div className="UserSpecificDetails">
           <p>State : {shop ? shop.state : "-"}</p>
           <p>District : {shop ? shop.district : "-"}</p>
-          <p>Latitude : {shop ? shop.location.coordinates[0] : "-"} </p>
+          <p>Latitude : {shop ? shop.location.coordinates[1] : "-"} </p>
         </div>
       </div>
         <div className="ShopSpecificDetails">

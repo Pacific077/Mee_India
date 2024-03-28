@@ -409,6 +409,90 @@ const getMembershipCounts = async (req, res) => {
     });
   }
 };
+
+const freeListByAdmin = async (req, res) => {
+  try {
+    // const errs = validationResult(req);
+    // if (!errs.isEmpty()) {
+    //   let arr = [];
+    //   errs.array().forEach((error) => {
+    //     arr.push(error.msg);
+    //   });
+    //   return res.status(400).json({
+    //     message: "Something went wrong",
+    //     err: arr
+    //   });
+    // }
+
+    // Extract business details from request body
+    console.log(req.body)
+    const {
+      formData: {
+        email,
+        title,
+        address,
+        bussinessContact,
+        bussinessAltContact,
+        bussinessMail,
+        pinCode,
+        bio
+      },
+      state,
+      district,
+      timingArr,
+      openDays,
+      mainCategory,
+      subCategory,
+      imagelinkArr,
+      latitude,
+      longitude
+    } = req.body;
+
+    const location = {
+      type: "Point",
+      coordinates: [longitude, latitude]
+    };
+
+    const user = await User.findOne({ email });
+
+    if (!user) return res.status(201).json({ message: "User Not Found!" });
+
+    const owner = user._id;
+
+    // Create a new business object using the schema
+    const newBusiness = await Bussiness.create({
+      title,
+      address,
+      district,
+      state,
+      owner,
+      pinCode,
+      bio,
+      location,
+      bussinessContact,
+      bussinessAltContact,
+      bussinessMail,
+      timingArr,
+      openDays,
+      mainCategory,
+      subCategory,
+      businessImages: imagelinkArr
+    });
+
+    // Save the business object to the database
+    const savedBusiness = await newBusiness.save();
+
+    // Save new business to user's array of owned businesses
+    await User.findByIdAndUpdate(user._id, { $push: { ownedBusinesses: savedBusiness._id } });
+
+    console.log("Business created successfully");
+    res.status(200).json({ message: "Business created successfully", business: savedBusiness });
+  } catch (error) {
+    console.log("Error:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export {
   EditUserDetails,
   GetAllListUsers,
@@ -426,5 +510,6 @@ export {
   CreateAdminAccount,
   GetAllAdminQueris,
   GetQueryByID,
-  getMembershipCounts
+  getMembershipCounts,
+  freeListByAdmin
 };

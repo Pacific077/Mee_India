@@ -16,7 +16,7 @@ const QueryFilterSearch = ({ setFilterVis,setQueryList }) => {
         startDate: purchaseDate,
       });
       if(resp.status===200){
-        setUserList(resp.data.data);
+        // setUserList(resp.data.data);
       }
     } catch (error) {
       toast.error("Internal server error")

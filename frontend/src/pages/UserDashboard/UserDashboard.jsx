@@ -48,11 +48,10 @@ const UserDashboard = () => {
         newPic,
       });
       console.log("Resper", resp);
-
+      toast.success("Profile Updated Successfully!")
       localStorage.removeItem("userProfile");
 
       fetchData();
-      setNewName("");
       setIsEditing(false);
     } catch (e) {
       console.log(e);
@@ -69,6 +68,7 @@ const UserDashboard = () => {
         setUser(userData);
         setBusinessList(userData.ownedBussinesses);
         setNewPic(userData.pic);
+        setNewName(userData.name)
       } else {
         // If user profile data is not found in localStorage, fetch it from the API
         const resp = await ProfileApi();
@@ -76,6 +76,7 @@ const UserDashboard = () => {
         setUser(resp.data.user);
         setBusinessList(resp.data.user.ownedBussinesses);
         setNewPic(resp.data.user.pic);
+        setNewName(resp.data.name)
         // Store fetched user profile data in localStorage for future use
         localStorage.setItem("userProfile", JSON.stringify(resp.data.user));
       }
@@ -88,7 +89,7 @@ const UserDashboard = () => {
     fetchData();
   }, []);
 
-  const UpdateProfilePicture = () => {
+  const GotoPricing = () => {
     navigate("/pricing-details");
   };
   const handleLogout = async () => {
@@ -105,7 +106,8 @@ const UserDashboard = () => {
     }
   };
   return (
-    <div className="userDashboardMainDiv">
+    <>
+    {user&&<div className="userDashboardMainDiv">
       <div className="userDashUpperDiv">
         <div className="logout" onClick={handleLogout}>
           Logout
@@ -166,7 +168,7 @@ const UserDashboard = () => {
           />
         )}
 
-        <UserDashboardCard info={"Upgrade"} fun={UpdateProfilePicture} />
+        <UserDashboardCard info={"Upgrade"} fun={GotoPricing} />
         {/* <UserDashboardCard info={"Get Verified"} fun={UpdateProfilePicture}/> */}
         {/* <UserDashboardCard/>
         <UserDashboardCard/> */}
@@ -186,7 +188,8 @@ const UserDashboard = () => {
         </div>
       </div>
       <BusinessDasboard businessList={businessList} />
-    </div>
+    </div>}
+    </>
   );
 };
 

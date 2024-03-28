@@ -147,7 +147,7 @@ const LocationAndSearch = () => {
           placeholder="What are you looking for?"
           type="text"
           name=""
-          id=""
+          id="CategorySearch"
           onChange={handleTextInputChange}
           value={searchInput}
         />
