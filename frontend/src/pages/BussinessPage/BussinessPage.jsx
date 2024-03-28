@@ -6,11 +6,11 @@ import { IoLocationOutline } from 'react-icons/io5';
 import BussinessContact from '../../components/Card/BussinessListCard/BussinessContact/BussinessContact';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import bussinesspic from './bussinessPic.png'
+
 import Timing from './Timing/Timing';
 import { FaSquare } from "react-icons/fa";
 import Review from './Review/Review';
-import axios from 'axios';
+
 import { toast } from 'react-toastify';
 import { EnquirySubmit, ReviewSubmit, findByID } from '../../apis/BusinessApi';
 import { TextField } from '@mui/material';
@@ -223,7 +223,7 @@ const BussinessPage = () => {
               <h2>Rate Cards</h2>
               <div className='CataloguePicContainer'>
               {currBusiness.CatalougeImages.map((pic, index) => (
-                <div className='CataloguePic' onClick={(e) => openImageInNewTab(e, pic)}><img className='imageSectionimg' key={index} src={pic} alt='businessPic'/></div>
+                <div className='CataloguePic' onClick={(e) => openImageInNewTab(e, pic)}><img className='' key={index} src={pic} alt='businessPic'/></div>
 
               ))}
 
@@ -233,6 +233,8 @@ const BussinessPage = () => {
             <h2>Enquire About this Business</h2>
             <TextField fullWidth label="Question" id="fullWidth" onChange={(e)=>setEnquiry(e.target.value)} value={enquiry}/>
             <TextField fullWidth label="Contact" id="fullWidth" margin='normal' onChange={(e)=>setContact(e.target.value)} value={contact}/>
+            <div style={{display:"flex",justifyContent:"space-between"}}>
+
             
             <TextField
               disabled
@@ -246,6 +248,7 @@ const BussinessPage = () => {
               label="Email"
               defaultValue={user.email}
             />
+            </div>
             <div className='squareBtn Enquiry' style={{marginLeft:0,marginTop:"10px"}} 
               onClick={
                 handleEnquirySubmit
@@ -265,7 +268,7 @@ const BussinessPage = () => {
           </div>
           {!isLoggedIn&&<h3>Login to submit Review.</h3>}
           {isLoggedIn&&!ratedBusinesses.includes(currBusiness._id)&&<ReviewForm rating={rating} setRating={setRating} reviewMsg={reviewMsg} setReviewMsg={setReviewMsg} handleReviewFormSubmit={handleReviewFormSubmit}/>}
-          {isLoggedIn&&ratedBusinesses.includes(currBusiness._id)&&<h3>You have already Reviewed this Business.</h3>}
+          {isLoggedIn&&ratedBusinesses.includes(currBusiness._id)&&<h3 className='alreadyreview'>You have already Reviewed this Business.</h3>}
           <div className='reviewList'>
             {
               currBusiness.reviews.map((rev,ind) => <Review key={ind} name={rev.userId.name} ratedCnt={rev.userId.ratedBussinesses?.length} message={rev.message} img={rev.userId.profileImage}/>)

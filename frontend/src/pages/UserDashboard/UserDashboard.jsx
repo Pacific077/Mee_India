@@ -173,6 +173,7 @@ const UserDashboard = () => {
         {/* <UserDashboardCard/>
         <UserDashboardCard/> */}
       </div>
+        <div className="userDashboardAcntDetails">
         <h2 className="DashboardAcntDetailsHead">Account Details</h2>
       <div className="userMebershipDetailsAndCard">
         <div className="mebershipDetails">
@@ -181,11 +182,12 @@ const UserDashboard = () => {
           <p>Expiry Date: <span>{user?ExtractDate(user.membershipExpiryDate):"-"}</span></p>
         </div>
         <div className="userDashTagDetails">
-          <p>Verified Seal :<span>{user ? (user.verifiedSeal ? <FaCheckCircle className="checkIcon"/> :<ImCross className="CrossIcon"/>
+          <p className="marginTop0">Verified Seal :<span>{user ? (user.verifiedSeal ? <FaCheckCircle className="checkIcon"/> :<ImCross className="CrossIcon"/>
  ) : "-"}</span> </p>
           <p>Trust Stamp :<span>{user ? (user.trustStamp ? <FaCheckCircle className="checkIcon"/> : <ImCross className="CrossIcon"/>
 ) : "-"}</span> </p>
         </div>
+      </div>
       </div>
       <BusinessDasboard businessList={businessList} />
     </div>}

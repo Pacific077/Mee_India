@@ -23,3 +23,31 @@ h1{
     margin-bottom: 4vh;
     text-shadow: 2px 2px 1px var(--indiaGreen);
 }
+
+@media screen and (max-width: 1091px) {
+    .BusinessDetailsEditPage {
+        border: 1px solid black;
+        height: 86vh;
+        padding: 0 2vh 0 2vh;
+    }
+   
+    
+}
+@media screen and (max-width: 518px) {
+    .btn-lg{
+     height: 7vh;   
+    width: 20vh;
+    }
+
+}
+@media screen and (max-width: 481px) {
+    .btn-lg{
+     height: 5vh;   
+    width: 15vh;
+    font-size: large;
+    }
+    .BusinessNameEditFormDesc p{
+        display:  none;
+    }
+
+}
