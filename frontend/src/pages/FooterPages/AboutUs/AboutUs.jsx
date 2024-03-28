@@ -1,8 +1,8 @@
   import React from 'react'
   import "./AboutUs.css"
-import Footer from '../../../components/Footer/Footer'
+
 import AboutUsCard from './AboutUsCard'
-import {Carousel} from 'react-responsive-carousel'
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
   const AboutUs = () => {

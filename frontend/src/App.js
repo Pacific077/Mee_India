@@ -38,6 +38,8 @@ import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
 // import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
 import WhatsNew from "./pages/FooterPages/WhatsNew/WhatsNew";
+import CustomerCare from "./pages/FooterPages/CustomerCare/CustomerCare";
+import TermsAndServices from "./pages/FooterPages/TermsAndServices/TermsAndServices";
 
 const App = () => {
   return (
@@ -112,10 +114,11 @@ const App = () => {
           <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
           <Route path="/apitest" element={<Apitext />} />
           <Route path="/aboutus" element={<AboutUs/>} />
-          {/* <Route path="/quicklinks" element={<QuickLinks/>} /> */}
+          <Route path="/customer-care" element={<CustomerCare/>} />
           <Route path="/reportbug" element={<ReportBug/>} />
           <Route path="/we-are-hiring" element={<WeAreHiring/>} />
           <Route path="/whats-new" element={<WhatsNew/>} />
+          <Route path="/terms-and-services" element={<TermsAndServices/>}/>
         </Routes>
       </BrowserRouter>
     </>

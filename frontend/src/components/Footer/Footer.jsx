@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
         <div className="foot3">
           <p className="footehead">LEGAL</p>
-          <p>Terms of Services</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/terms-and-services')}}>Terms and Services</p>
           <p>Privacy Policy</p>
           <p>Return & Refund Policy</p>
           <div className="appIconBox">
@@ -67,8 +67,8 @@ const Footer = () => {
         </div>
         <div className="foot4">
           <p className="footehead">CONTACT</p>
-          <p>hello</p>
-          <p>7420994331</p>
+          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/customer-care')}}>Customer Care</p>
+          <p>+91 9987420994</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
             deleniti.
