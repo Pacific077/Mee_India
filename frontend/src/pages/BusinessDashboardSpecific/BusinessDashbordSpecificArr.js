@@ -26,10 +26,10 @@ const BusinessDashboardSpecificArr = [
         locate:"editName"
     },
     {
-        tag:"Advertise",
+        tag:"Keywords",
         icon:HiOutlineSpeakerphone,
         color:"#E6E6FA",
-        locate:"editName"
+        locate:"addKeywords"
     },
     {
         tag:"Photos",

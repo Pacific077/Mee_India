@@ -13,7 +13,6 @@ const BussinessDashIconsCard = ({tag,col,Icon,loc}) => {
     if(user.Membership==="Premimum"){
       navigate(`/business-dashboard/${BusinessId}/${loc}`)
     }else{
-      // console.log("usermen",user.Membership)
       navigate('/pricing-details')
     }
     }else{

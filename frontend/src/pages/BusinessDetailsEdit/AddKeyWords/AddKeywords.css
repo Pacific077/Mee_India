@@ -1,0 +1,67 @@
+.keywordCont{
+    border: 2px solid rebeccapurple;
+    min-height: 14vh;
+    border-radius: 20px;
+    padding: 2vh;
+    width: 40%;
+    display: flex;
+    gap: 2vh;
+}
+.KeywordItems{
+    height: fit-content;
+    width: fit-content;
+    padding: 1vh;
+    color: rgb(0, 255, 0);
+    background-color: gray;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.KeywordItems p{
+    margin: 0;
+    
+}
+.Deliconkeyword{
+    display: none;
+    position: absolute;
+    margin: auto;
+    font-size: xx-large;
+}
+.KeywordItems:hover .turngray{
+    transition: 0.3s ease;
+    color: gray;
+}
+.KeywordItems:hover .Deliconkeyword{
+    display: block;
+}
+.KeywordItems:hover{
+    cursor: pointer;
+    /* animation: flyAwayAnimation 0.5s forwards; */
+}
+.addkeywordinp{
+    width: 50%;
+}
+.sendbtnkeywrd{
+    font-size: x-large;
+}
+.sendbtnkeywrd:hover{
+    cursor: pointer;
+}
+
+
+.flyAway {
+    animation: flyAwayAnimation 1s forwards;
+}
+
+@keyframes flyAwayAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(-360deg);
+    }
+}
