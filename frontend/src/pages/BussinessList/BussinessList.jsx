@@ -69,7 +69,7 @@ const BussinessList = () => {
       
       <div>
         <h1 className="ListPageHeading">
-          Top {subCat !== "null" ? subCat : ""} {mainCategory} in {district}{" "}
+          Top {subCat !== "null" ? subCat : ""} {searchQuery?searchQuery.toString():mainCategory} in {district}{" "}
         </h1>
       </div>
       <div className="ListContainer">
