@@ -1,5 +1,4 @@
 import React from 'react'
-import hall from "../../../assets/hall.jpg"
 import "./MainCatCard.css"
 const MainCatCard = ({name,img}) => {
   return (

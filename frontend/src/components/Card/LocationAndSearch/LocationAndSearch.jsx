@@ -6,8 +6,10 @@ import CatContext from "../../../context/CategoryContext.jsx"
 import "./LocationAndSearch.css";
 import axios from 'axios'
 import Districts from "../../Navbar/District";
-import CategoryArr from "../../../pages/Home/CategoriesArray.js"
+// import CategoryArr from "../../../pages/Home/CategoriesArray.js"
 import { useLocation, useNavigate } from "react-router-dom";
+import { SearchOnTypeApi } from "../../../apis/BusinessApi.js";
+import isEmpty from "../../../utils/IsEmpty.jsx";
 
 const LocationAndSearch = () => {
   const location = useLocation()
@@ -18,7 +20,7 @@ const LocationAndSearch = () => {
   const CatCon = useContext(CatContext);
   const {latitude,longitude,setLatitude,setLongitude,district,setDistrict} = CatCon;
   const suggestionRef = useRef(null);
-  const categories = CategoryArr.map((cat=>cat.category));
+  // const categories = CategoryArr.map((cat=>cat.category));
   const [suggestions2, setSuggestions2] = useState([]);
   const navigate = useNavigate();
 
@@ -76,11 +78,11 @@ const LocationAndSearch = () => {
     setlocInputValue(value);
     filterSuggestions(Districts,value,1);
   }; 
-  const handleTextInputChange = (e) => {
-    const value = e.target.value;
-    SetSearchInput(value);
-    filterSuggestions(categories,value,2);
-  };
+  // const handleTextInputChange = (e) => {
+  //   const value = e.target.value;
+  //   SetSearchInput(value);
+  //   filterSuggestions(categories,value,2);
+  // };
   const handleLocationSelect =async (e) => {
     try {
       const resp =await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.innerText},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
@@ -112,15 +114,26 @@ const LocationAndSearch = () => {
     }
   }
 
-  const handleSearchInput = ()=> {
+  const handleSearchInput =async ()=> {
 
-    const subCatArr = CategoryArr.find((cat)=>cat.category===searchInput)
-    if(!subCatArr)toast.warning("No Match!! Try something from List")
-    else if(subCatArr.subCat.length===0){
-      navigate(`/bussiness-list/${district}/${subCatArr.category}/null`)
-    }else{
-      navigate(`/subList/${subCatArr.category}`)
+    try {
+      if(isEmpty(searchInput)){
+        toast.warning("Search field can't be empty")
+        return;
+      }else{
+        
+        navigate(`/bussiness-list/${district}/null/null?search=${searchInput}`)
+      }
+    } catch (error) {
+      toast.error("somthing is wrong")
     }
+    // const subCatArr = CategoryArr.find((cat)=>cat.category===searchInput)
+    // if(!subCatArr)toast.warning("No Match!! Try something from List")
+    // else if(subCatArr.subCat.length===0){
+    //   navigate(`/bussiness-list/${district}/${subCatArr.category}/null`)
+    // }else{
+    //   navigate(`/subList/${subCatArr.category}`)
+    // }
   }
   return (
     <div className={`locationAndSrchCont ${isVisible ? "visible" : ""}`}>
@@ -148,7 +161,7 @@ const LocationAndSearch = () => {
           type="text"
           name=""
           id="CategorySearch"
-          onChange={handleTextInputChange}
+          onChange={(e)=>SetSearchInput(e.target.value)}
           value={searchInput}
         />
         <div className="searchIconCont" onClick={handleSearchInput}>

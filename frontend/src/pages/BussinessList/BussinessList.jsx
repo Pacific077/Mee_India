@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./BussinessList.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import CatContext from "../../context/CategoryContext.jsx";
 import BussinessListCard from "../../components/Card/BussinessListCard/BussinessListCard";
 import axios from "axios";
 
-import { SearchOnClickApi } from "../../apis/BusinessApi.js";
+import { SearchOnClickApi, SearchOnTypeApi } from "../../apis/BusinessApi.js";
 import { toast } from "react-toastify";
+import isEmpty from "../../utils/IsEmpty.jsx";
 
 
 const BussinessList = () => {
@@ -15,7 +16,8 @@ const BussinessList = () => {
   const { latitude, longitude } = CatCon;
 
   const [businessArray, setBusinessArray] = useState([]);
-
+  const searchParams = new URLSearchParams(useLocation().search);
+  const searchQuery = searchParams.get('search');
   const SearchOnCLick = async () => {
     try {
       const resp = await SearchOnClickApi({
@@ -41,10 +43,24 @@ const BussinessList = () => {
       }
     }
   };
-
+  const TextSearch = async  ()=>{
+    try {
+      console.log("Search query:", searchQuery);
+      const resp = await SearchOnTypeApi({ query: searchQuery.toString() });
+      setBusinessArray(resp.data.result)
+      console.log("resp on search",resp)
+    } catch (error) {
+      console.log("err")
+    }
+  }
   useEffect(() => {
-    SearchOnCLick();
-  }, []);
+    if(!searchQuery){
+      SearchOnCLick();
+
+    }else{
+      TextSearch();
+    }
+  }, [searchQuery]);
 
   //use it to find the list
 

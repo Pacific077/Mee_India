@@ -52,6 +52,8 @@ const bussinessSchema = mongoose.Schema(
         required: true,
       },
     },
+    //keyword search
+    keywords:[{type:String}],
     //bussinessContact
     bussinessContact: { type: String, required: true },
     bussinessAltContact: { type: String, required: true },
@@ -74,6 +76,26 @@ const bussinessSchema = mongoose.Schema(
 
 bussinessSchema.index({ location: "2dsphere" });
 
+
+bussinessSchema.index({
+  mainCategory: "text",
+  subCategory: "text",
+  keywords: "text",
+  Services: "text",
+  title: "text",
+},
+{
+  weights: {
+    mainCategory: 50, 
+    subCategory:45,
+    keywords: 44,
+    Services: 35,
+    title: 10,        
+},
+name: "SearchTextIndex"
+});
+
 const Bussiness = mongoose.model("Bussiness", bussinessSchema);
+
 
 export default Bussiness;

@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema(
       type:Boolean,
       default:false,
     },
+    isKeywordSearchEnable:{
+      type:Boolean,
+      default:false,
+    },
     password: { type: String, required: true },
     ownedBussinesses: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Bussiness" },

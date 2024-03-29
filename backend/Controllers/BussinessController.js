@@ -51,35 +51,39 @@ const FreeList = async (req, res, next) => {
     const owner = req.user._id;
 
     // Create a new business object using the schema
-    const newBusiness = await Bussiness.create([{
-      title,
-      address,
-      district,
-      state,
-      owner,
-      pinCode,
-      bio,
-      location,
-      bussinessContact,
-      bussinessAltContact,
-      bussinessMail,
-      timingArr,
-      openDays,
-      mainCategory,
-      subCategory,
-      buseinessImages: imagelinkArr,
-    }],{session});
+    const newBusiness = await Bussiness.create(
+      [
+        {
+          title,
+          address,
+          district,
+          state,
+          owner,
+          pinCode,
+          bio,
+          location,
+          bussinessContact,
+          bussinessAltContact,
+          bussinessMail,
+          timingArr,
+          openDays,
+          mainCategory,
+          subCategory,
+          buseinessImages: imagelinkArr,
+        },
+      ],
+      { session }
+    );
 
     // console.log("created",newBusiness[0]._id);
     // Save the business object to the database
     // const savedBusiness = await newBusiness.save();
     // save new businnes to users arrat
 
-
     //reduce time cost by fetching from req.user
     const user = await User.findById(owner).session(session);
     await user.ownedBussinesses.push(newBusiness[0]._id);
-    await user.save({session});
+    await user.save({ session });
 
     //admin part
     const admin = await Admin.findOne().session(session);
@@ -95,7 +99,7 @@ const FreeList = async (req, res, next) => {
         admin.dailyBusinessRegistrationCounts.push({ date: today, count: 1 });
       }
       admin.totalBusinessCount += 1;
-      
+
       await admin.save({ session });
     }
 
@@ -169,45 +173,67 @@ const FindBussiness = async (req, res) => {
 
 const FindBussinessByText = async (req, res) => {
   try {
-    const { district, text, latitude, longitude } = req.body;
-
-    // Check if required parameters are provided
-    if (!district || !latitude || !longitude || text === "") {
-      return res
-        .status(400)
-        .json({ message: "Required parameters are missing" });
+    const { query } = req.body;
+    console.log("search query",query)
+    const result = await Bussiness.find({
+      $text: { $search: query },
+    });
+    if(result){
+      return res.status(200).json({
+        message:"fetched",
+        result
+      })
     }
-
-    console.log(district, longitude, latitude, text);
-
-    // Perform the proximity query
-    const baseQuery = {
-      mainCategory: { $regex: text, $options: "i" },
-      district: district,
-      location: {
-        $near: {
-          $geometry: {
-            type: "Point",
-            coordinates: [longitude, latitude],
-          },
-          $maxDistance: 20000,
-        },
-      },
-    };
-
-    // If subCat is provided, add subCategory condition to the base query
-    // if (subCat) {
-    //   baseQuery.subCategory = { $in: [subCat] };
-    // }
-    // console.log(baseQuery);
-    // Perform the proximity query
-    const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
-
-    res.status(200).json({ businesses: nearbyBusinesses });
+    res.status(201).json({
+      message:"nothing Found",
+      result
+    })
   } catch (error) {
-    console.error("Error finding nearby businesses:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({
+      message:"error Found",
+      error:error.message
+    })
   }
+  // try {
+  //   const { district, text, latitude, longitude } = req.body;
+
+  //   // Check if required parameters are provided
+  //   if (!district || !latitude || !longitude || text === "") {
+  //     return res
+  //       .status(400)
+  //       .json({ message: "Required parameters are missing" });
+  //   }
+
+  //   console.log(district, longitude, latitude, text);
+
+  //   // Perform the proximity query
+  //   const baseQuery = {
+  //     mainCategory: { $regex: text, $options: "i" },
+  //     district: district,
+  //     location: {
+  //       $near: {
+  //         $geometry: {
+  //           type: "Point",
+  //           coordinates: [longitude, latitude],
+  //         },
+  //         $maxDistance: 20000,
+  //       },
+  //     },
+  //   };
+
+  //   // If subCat is provided, add subCategory condition to the base query
+  //   // if (subCat) {
+  //   //   baseQuery.subCategory = { $in: [subCat] };
+  //   // }
+  //   // console.log(baseQuery);
+  //   // Perform the proximity query
+  //   const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
+
+  //   res.status(200).json({ businesses: nearbyBusinesses });
+  // } catch (error) {
+  //   console.error("Error finding nearby businesses:", error);
+  //   res.status(500).json({ message: "Internal server error" });
+  // }
 };
 
 const findByID = async (req, res) => {

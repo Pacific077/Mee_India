@@ -14,14 +14,11 @@ export const SearchOnClickApi = async ({ district, mainCategory, latitude, longi
       return response;
   };
 
-  export const SearchOnTypeApi = async ({ district, text, latitude, longitude}) => {
+  export const SearchOnTypeApi = async ({ query}) => {
     const response = await axios.post(
       "/api/v1/bussiness/findBussinessbyText",
       {
-        district,
-        text,
-        latitude,
-        longitude
+        query,
       }
     );
     return response;
