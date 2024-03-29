@@ -171,6 +171,21 @@ const LoginUser = async (req, res) => {
       httpOnly: false, //setting false se that i can acees cookie from frontend
       maxAge: 24 * 60 * 60 * 1000,
     });
+
+    //
+    if (user.role === 'Admin') {
+      // Set cookie for admin
+      res.cookie("admin", true, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+      });
+    } else {
+      // Use local storage for non-admin users
+      res.cookie("admin", false, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+      });
+    }
     //send the response
     res.status(200).json({
       status: "Success",

@@ -34,13 +34,12 @@ import AboutUs from "./pages/FooterPages/AboutUs/AboutUs";
 import ReportBug from "./pages/FooterPages/ReportBug/ReportBug";
 import Checkout from "./pages/CheckoutPage/Checkout";
 import PaymentSuccess from "./pages/PaymentSucess/PaymentSuccess";
-import Privacy from "./pages/FooterPages/Privacy/Privacy"
-import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
+import Privacy from "./pages/FooterPages/Privacy/Privacy";
+import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks";
 // import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import ListBusinessByAdmin from "./pages/ListBusinessByAdmin.js/ListBusinessByAdmin";
 
-
-// import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"   
+// import AboutUs from "./pages/FooterPages/AboutUs/AboutUs"
 // import QuickLinks from "./pages/FooterPages/QuickLinks/QuickLinks"
 // import ReportBug from "./pages/FooterPages/ReportBug/ReportBug"
 import WeAreHiring from "./pages/FooterPages/WeAreHiring/WeAreHiring";
@@ -50,6 +49,7 @@ import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaym
 
 import CustomerCare from "./pages/FooterPages/CustomerCare/CustomerCare";
 import TermsAndServices from "./pages/FooterPages/TermsAndServices/TermsAndServices";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
 
 const App = () => {
   return (
@@ -61,10 +61,9 @@ const App = () => {
         <ShowAdminSideNav>
           <AdminSideNav />
         </ShowAdminSideNav>
-        <HelpAndSupport/>
+        <HelpAndSupport />
         <Routes>
           <Route path="/login" element={<Login />} />
-     
           <Route path="/" element={<Home />} />
           <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
@@ -96,55 +95,61 @@ const App = () => {
           />
 
           <Route path="/subList/:Category" element={<BussinessSubList />} />
-          <Route path="/admin/dashboard" element={<Admin />} />
-          <Route path="/admin/showUserslist" element={<UserList />} />
-          <Route path="/admin/showShopslist" element={<AllShopList />} />
+         
+
+          <Route path="/admin/dashboard" element={<AdminRoute Component={Admin} />} />
+          
+          <Route path="/admin/showUserslist" element={<AdminRoute Component={UserList} />} />
+          <Route path="/admin/showShopslist" element={<AdminRoute Component={AllShopList} />} />
           <Route
             path="/admin/userList/specific/:userId"
-            element={<UserListSpecific />}
+            element={<AdminRoute Component={UserListSpecific} />}
           />
           <Route
             path="/admin/userList/specific/edit/:userId"
-            element={<AdminEditUser />}
+            element={<AdminRoute Component={AdminEditUser} />}
           />
           <Route
             path="/admin/shoplist/specific/:shopId"
-            element={<ShopListSpecific />}
+            element={<AdminRoute Component={ShopListSpecific} />}
           />
           <Route
             path="/admin/shoplist/specific/edit/:shopId"
-            element={<AdminEditShop />}
+            element={<AdminRoute Component={AdminEditShop} />}
           />
-          <Route path="/admin/createNewAdmin" element={<CreateNewAdmin/>} />
-          <Route path="/admin/listBusinessByAdmin" element={<ListBusinessByAdmin/>} />
-          <Route path="/admin/queries" element={<AdminQueriesList/>} />
+          <Route path="/admin/createNewAdmin" element={<AdminRoute Component={CreateNewAdmin} />} />
+          <Route
+            path="/admin/listBusinessByAdmin"
+            element={<AdminRoute Component={ListBusinessByAdmin} />}
+          />
+          <Route path="/admin/queries" element={<AdminRoute Component={AdminQueriesList} />} />
           <Route
             path="/admin/queries/specific/:queryId"
-            element={<AdminQuerySpecific />}
+            element={<AdminRoute Component={AdminQuerySpecific} />}
           />
-          
-          <Route path="/admin/ShowAllPayments" element={<AllPaymentsList />} />
+
+          <Route path="/admin/ShowAllPayments" element={<AdminRoute Component={AllPaymentsList} />} />
           <Route
             path="/admin/ShowAllPayments/specific/:paymentId"
-            element={<AdminPaymentListSpecific />}
+            element={<AdminRoute Component={AdminPaymentListSpecific} />}
           />
 
-          
           <Route path="/checkout/:type" element={<Checkout />} />
-          <Route path="/payment/success/:type/:refId" element={<PaymentSuccess/>} />
-          
-
+          <Route
+            path="/payment/success/:type/:refId"
+            element={<PaymentSuccess />}
+          />
 
           {/* uncomment and use only when testing an Api (not for general purpouse)*/}
           {/* <Route path="/apitest" element={<Apitext />} /> */}
 
-          <Route path="/aboutus" element={<AboutUs/>} />
-          <Route path="/customer-care" element={<CustomerCare/>} />
-          <Route path="/reportbug" element={<ReportBug/>} />
-          <Route path="/we-are-hiring" element={<WeAreHiring/>} />
-          <Route path="/whats-new" element={<WhatsNew/>} />
-          <Route path="/privacy-policies" element={<Privacy/>}/>
-          <Route path="/terms-and-services" element={<TermsAndServices/>}/>
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/customer-care" element={<CustomerCare />} />
+          <Route path="/reportbug" element={<ReportBug />} />
+          <Route path="/we-are-hiring" element={<WeAreHiring />} />
+          <Route path="/whats-new" element={<WhatsNew />} />
+          <Route path="/privacy-policies" element={<Privacy />} />
+          <Route path="/terms-and-services" element={<TermsAndServices />} />
         </Routes>
       </BrowserRouter>
     </>

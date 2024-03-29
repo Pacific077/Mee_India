@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 
 const UserInfoProvider = ({children}) => {
   const [user,setUser] = useState("faisal");
+  const [isAdmin,setIsAdmin] = useState(false);
   // console.log("hi")
   const token = Cookies.get('token');
   useEffect(()=>{
@@ -13,6 +14,9 @@ const UserInfoProvider = ({children}) => {
         const resp = await ProfileApi();
         setUser(resp.data.user)
         console.log("userProfile",resp.data.user)
+        if(resp.data.user.role==="Admin"){
+          setIsAdmin(true);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -24,7 +28,7 @@ const UserInfoProvider = ({children}) => {
     }
   },[token])
   return (
-    <UserContext.Provider value={{user,setUser}}>
+    <UserContext.Provider value={{user,setUser,isAdmin}}>
         {children}
     </UserContext.Provider>
   )
