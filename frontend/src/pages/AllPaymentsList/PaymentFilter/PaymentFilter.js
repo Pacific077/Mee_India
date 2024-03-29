@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { GiSkullCrossedBones } from "react-icons/gi";
 import {toast} from "react-toastify"
-import "./FilterSearch.css";
-import { AdminFilterUser } from "../../../apis/AdminApis";
-const FilterSearch = ({ setFilterVis,setUserList }) => {
+import { AdminFilterPayment, AdminFilterUser } from "../../../apis/AdminApis";
+const PaymentFilter = ({ setFilterVis,setPaymentListArr }) => {
   const [membership, setMembership] = useState("");
-  // const [purchaseDate, setPurchaseDate] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
@@ -13,17 +11,18 @@ const FilterSearch = ({ setFilterVis,setUserList }) => {
     //add precentage for query with spaces
     const encodedMembership = encodeURIComponent(membership);
     try {
-      const resp = await AdminFilterUser({
+      const resp = await AdminFilterPayment({
         membership: encodedMembership,
         startDate: startDate,
         endDate: endDate,
-        email: "" 
+        email:""
       });
       if(resp.status===200){
-        setUserList(resp.data.data);
+        setPaymentListArr(resp.data.data);
       }
     } catch (error) {
       toast.error("Internal server error")
+      console.log(error)
     }
     setFilterVis(false);
     // console.log("details",encodedMembership,purchaseDate)
@@ -48,6 +47,14 @@ const FilterSearch = ({ setFilterVis,setUserList }) => {
             <option value="Pro">Pro</option>
           </select>
         </div>
+        {/* <div className="filterSearchItems">
+          <p>Exact Payment Date</p>
+          <input
+            type="date"
+            value={paymentDate}
+            onChange={(e) => setPaymentDate(e.target.value)}
+          />
+        </div> */}
         <div className="filterSearchItems">
           <p>From Payment Date</p>
           <input
@@ -77,4 +84,4 @@ const FilterSearch = ({ setFilterVis,setUserList }) => {
   );
 };
 
-export default FilterSearch;
+export default PaymentFilter;

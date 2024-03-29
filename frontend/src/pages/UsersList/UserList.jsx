@@ -3,11 +3,35 @@ import { TbFilterSearch } from "react-icons/tb";
 import "./UserList.css";
 import { IoMdSearch } from "react-icons/io";
 import UserListCard from "./UserListCard";
-import { getUserList } from "../../apis/AdminApis";
+import { AdminFilterUser, getUserList } from "../../apis/AdminApis";
 import FilterSearch from "./FilterSearch/FilterSearch";
+import { toast } from "react-toastify";
 const UserList = () => {
   const [UserListArr, setUserList] = useState([]);
   const [isFilterVis,setFilterVis] = useState(false)
+  const [email,setEmail] = useState("");
+
+  const handleSubmit = async () => {
+    //add precentage for query with spaces
+    try {
+      const encodedEmail = encodeURIComponent(email);
+      const resp = await AdminFilterUser({
+        membership: "",
+        startDate: "",
+        endDate: "",
+        email: encodedEmail
+      });
+      if(resp.status===200){
+        setUserList(resp.data.data);
+      }
+    } catch (error) {
+      toast.error("Internal server error")
+      console.log(error)
+    }
+    setFilterVis(false);
+    // console.log("details",encodedMembership,purchaseDate)
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,10 +53,12 @@ const UserList = () => {
         <div className="searchByEmailCont">
           <input
             type="text"
+            value={email}
             className="AlluserListSearchBar"
             placeholder="Search by email"
+            onChange={(e)=>setEmail(e.target.value)}
           />
-          <IoMdSearch className="searchIcon" />
+          <IoMdSearch className="searchIcon" onClick={handleSubmit}/>
         </div>
       </div>
       <div className="userlistCont">

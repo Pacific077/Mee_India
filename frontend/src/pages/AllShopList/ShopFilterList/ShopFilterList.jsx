@@ -16,6 +16,8 @@ const ShopFilterList = ({setFilterVis,setshopsArr}) => {
   const [state, setstate] = useState('');
   const [district, setdistrict] = useState('');
   const [owner, setowner] = useState('');
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const stateList = list.states.map((obj) => obj.state);
   const handleCatChange = (event) => {
@@ -54,7 +56,10 @@ const ShopFilterList = ({setFilterVis,setshopsArr}) => {
         subCategory: encodedsubCategory,
         state:encodedstate,
         district:encodeddistrict,
-        owner
+        owner:owner,
+        startDate: startDate,
+        endDate: endDate,
+        email:""
       });
       if(resp.status===200){
         setshopsArr(resp.data.data);
@@ -132,6 +137,22 @@ const ShopFilterList = ({setFilterVis,setshopsArr}) => {
             onChange={(e) => setPurchaseDate(e.target.value)}
           />
         </div> */}
+        <div className="filterSearchItems">
+          <p>From Payment Date</p>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
+        <div className="filterSearchItems">
+          <p>To Payment Date</p>
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </div>
       </div>
       <div className="filtersearchBtnCont">
         <button onClick={handleSubmit}  className="ApplyfilterBtn">

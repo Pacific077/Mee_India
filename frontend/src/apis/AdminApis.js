@@ -111,9 +111,9 @@ export const AdminDeleteShop = async ({ id }) => {
   return response;
 };
 
-export const AdminFilterUser = async ({ membership, startDate }) => {
+export const AdminFilterUser = async ({ membership, startDate, endDate, email }) => {
   const response = await axios.get(
-    `/api/v1/admin/Usersearch/?membership=${membership}&startDate=${startDate}`,
+    `/api/v1/admin/Usersearch/?membership=${membership}&startDate=${startDate}&endDate=${endDate}&email=${email}`,
     {
       withCredentials: true,
     }
@@ -126,10 +126,10 @@ export const  AdminFilterShop = async ({
   subCategory,
   state,
   district,
-  owner,
+  owner, startDate, endDate,email
 }) => {
   const response = await axios.get(
-    `/api/v1/admin/Shopsearch/?mainCategory=${mainCategory}&subCategory=${subCategory}&state=${state}&district=${district}&owner=${owner}`,
+    `/api/v1/admin/Shopsearch/?mainCategory=${mainCategory}&subCategory=${subCategory}&state=${state}&district=${district}&owner=${owner}&startDate=${startDate}&endDate=${endDate}&email=${email}`,
     {
       withCredentials: true,
     }
@@ -137,6 +137,27 @@ export const  AdminFilterShop = async ({
   return response;
 };
 
+export const AdminFilterPayment = async ({ membership, startDate, endDate, email }) => {
+  console.log("email"+email)
+  const response = await axios.get(
+    `/api/v1/admin/Paymentsearch/?membership=${membership}&startDate=${startDate}&endDate=${endDate}&&email=${email}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
+
+export const AdminFilterQueries = async ({ membership, startDate, endDate, district, email }) => {
+
+  const response = await axios.get(
+    `/api/v1/admin/Querysearch/?membership=${membership}&startDate=${startDate}&endDate=${endDate}&district=${district}&email=${email}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response;
+};
 
 export const CreateNewAdminAccount = async ({ name,email,password }) => {
   const response = await axios.post(

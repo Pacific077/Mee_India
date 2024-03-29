@@ -60,7 +60,7 @@
 .filterSearchItems{
     display: flex;
     height: 4vh;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
     /* justify-content: center; */
     align-items: center;
     gap: 4vh;

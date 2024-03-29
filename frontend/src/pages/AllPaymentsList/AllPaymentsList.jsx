@@ -1,11 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import "./AllPaymentsList.css";
-import { GetAllPaymentsList } from "../../apis/AdminApis";
+import { AdminFilterPayment, GetAllPaymentsList } from "../../apis/AdminApis";
 import AllPaymentListcard from "./AllPaymentListcard/AllPaymentListcard";
 import ExtractDate from "../../utils/ExtractDate";
+import PaymentFilter from "./PaymentFilter/PaymentFilter";
+import { TbFilterSearch } from "react-icons/tb";
+import { toast } from "react-toastify";
 const AllPaymentsList = () => {
   const [paymentListArr,setPaymentListArr] = useState([]);
+  const [isFilterVis, setFilterVis] = useState(false);
+  const [email,setEmail] = useState("");
+
+  const handleSubmit = async () => {
+    //add precentage for query with spaces
+    try {
+      const encodedEmail = encodeURIComponent(email);
+      const resp = await AdminFilterPayment({
+        membership:"",
+        startDate:"",
+        endDate:"",
+        email:encodedEmail
+      });
+      if(resp.status===200){
+        setPaymentListArr(resp.data.data);
+      }
+    } catch (error) {
+      toast.error("Internal server error")
+      console.log(error)
+    }
+    setFilterVis(false);
+    // console.log("details",encodedMembership,purchaseDate)
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,17 +47,19 @@ const AllPaymentsList = () => {
   }, []);
   return (
     <div className="UserListpage">
-      {/* {isFilterVis&&<FilterSearch setUserList={setUserList} setFilterVis={setFilterVis}/>} */}
-      {/* <TbFilterSearch className="filteSearchIcon" onClick={()=>setFilterVis(true)} /> */}
+      {isFilterVis&&<PaymentFilter setPaymentListArr={setPaymentListArr} setFilterVis={setFilterVis}/>}
+      <TbFilterSearch className="filteSearchIcon" onClick={()=>setFilterVis(true)} />
       <div className="AllUserListHeadCont">
         <h1 className="AllUserListHead">All Payment List</h1>
         <div className="searchByEmailCont">
           <input
             type="text"
+            value={email}
             className="AlluserListSearchBar"
             placeholder="Search by email"
+            onChange={(e)=>setEmail(e.target.value)}
           />
-          <IoMdSearch className="searchIcon" />
+          <IoMdSearch className="searchIcon" onClick={handleSubmit}/>
         </div>
       </div>
       <div className="userlistCont">

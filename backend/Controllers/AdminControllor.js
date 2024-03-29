@@ -244,15 +244,21 @@ const DeleteShop = async (req, res) => {
 
 const FilterUserSearch = async (req, res) => {
   try {
-    const { membership, startDate } = req.query;
+    const { membership, startDate, endDate, email } = req.query;
     let query = {};
     if (membership) {
       query.Membership = membership;
     }
-    if (startDate) {
-      query.membershipPurchaseDate = {
+    if (startDate && endDate) {
+      query.createdAt = {
         $gte: new Date(startDate),
+        $lt: new Date(endDate)
       };
+    }
+    if(email) {
+      // console.log("s")
+      // const user = await User.findOne({email:email})
+      query.email = email
     }
     console.log("query", query);
     const users = await User.find(query);
@@ -272,7 +278,7 @@ const FilterUserSearch = async (req, res) => {
 
 const FilterShopSearch = async (req, res) => {
   try {
-    const { mainCategory, subCategory, state, district, owner } = req.query;
+    const { mainCategory, subCategory, state, district, owner, startDate, endDate, email } = req.query;
     let query = {};
     if (mainCategory) {
       query.mainCategory = mainCategory;
@@ -289,10 +295,21 @@ const FilterShopSearch = async (req, res) => {
     if (owner) {
       query.owner = owner;
     }
+    if (startDate && endDate) {
+      query.createdAt = {
+        $gte: new Date(startDate),
+        $lt: new Date(endDate)
+      };
+    }
+    if(email) {
+      // console.log("s")
+      // const user = await User.findOne({email:email})
+      query.bussinessMail = email
+    }
     console.log("shop query", query);
     const shops = await Bussiness.find(query);
     if (!shops || shops.length === 0) {
-      return res.status(200).json({ message: "No users found", data: [] });
+      return res.status(200).json({ message: "No Shops found", data: [] });
     }
     res.status(200).json({
       message: "found",
@@ -304,6 +321,94 @@ const FilterShopSearch = async (req, res) => {
     });
   }
 };
+
+const FilterPaymentSearch = async (req, res) => {
+  try {
+    const { membership, startDate, endDate, email } = req.query;
+    console.log(req.query)
+    let query = {};
+    if(email) {
+      // console.log("s")
+      const user = await User.findOne({email:email})
+      query.User = user._id
+    }
+    if (membership) {
+      query.MembershipType = membership;
+    }
+    // if(paymentDate){
+    //   query.createdAt = new Date(paymentDate)
+    // }
+    if (startDate && endDate) {
+      query.createdAt = {
+        $gte: new Date(startDate),
+        $lt: new Date(endDate)
+      };
+    }
+    console.log("query", query);
+    const payments = await Payment.find(query);
+    if (!payments || payments.length === 0) {
+      return res.status(200).json({ message: "No payments found", data: [] });
+    }
+    res.status(200).json({
+      message: "found",
+      data: payments,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+// const FilterQuerySearch = async (req, res) => {
+//   try {
+//     const { membership, startDate, endDate, email } = req.query;
+//     console.log(req.query)
+//     let query = {};
+//     if(email) {
+//       // console.log("s")
+//       // const user = await User.findOne({email:email})
+//       query.enquiry.email = email
+//     }
+//     // if(paymentDate){
+//     //   query.createdAt = new Date(paymentDate)
+//     // }
+//     // if (startDate && endDate) {
+//     //   query.createdAt = {
+//     //     $gte: new Date(startDate),
+//     //     $lt: new Date(endDate)
+//     //   };
+//     // }
+//     // if (district) {
+//     //   // Populate the 'SenderId' field to get the associated User document
+//     //   query.SenderId = {
+//     //     $in: await User.find({ district: district }).distinct('_id')
+//     //   };
+//     // }
+
+//     console.log("query", query);
+//     const enquiry = await Admin.findOne().populate({
+//       path: "enquiry",
+//       populate: {
+//         path: "SenderId",
+//         model: "User",
+//       },
+//     });
+//     console.log(enquiry)
+//     if (!enquiry || enquiry.length === 0) {
+//       return res.status(200).json({ message: "No Enquiry found", data: [] });
+//     }
+
+//     res.status(200).json({
+//       message: "found",
+//       data: enquiry,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// };
 
 const CreateAdminAccount = async (req, res, next) => {
   const session = await startSession();
@@ -402,7 +507,7 @@ const GetAllAdminQueris = async (req, res) => {
     const queries = await admin.enquiry;
     res.status(200).json({
       message: "fetched successfull",
-      queries,
+      Queries:queries,
     });
   } catch (error) {
     res.status(500).json({
@@ -626,6 +731,8 @@ export {
   DeleteShop,
   FilterUserSearch,
   FilterShopSearch,
+  FilterPaymentSearch,
+  // FilterQuerySearch,
   CreateAdminAccount,
   GetAllAdminQueris,
   GetQueryByID,
@@ -633,6 +740,6 @@ export {
   DelQueryById,
   GetLastTenPaymentHistory,
   GetAllPaymentList,
-  GetPaymentById,,
+  GetPaymentById,
   freeListByAdmin
 };

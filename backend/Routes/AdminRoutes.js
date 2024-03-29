@@ -7,6 +7,8 @@ import {
   Deleteuser,
   EditShopDetails,
   EditUserDetails,
+  FilterPaymentSearch,
+  // FilterQuerySearch,
   FilterShopSearch,
   FilterUserSearch,
   GetAllAdminQueris,
@@ -43,6 +45,8 @@ AdminRoute.put("/updateShop/:id", EditShopDetails);
 AdminRoute.delete("/deleteShop/:id", DeleteShop);
 AdminRoute.get("/Usersearch", FilterUserSearch);
 AdminRoute.get("/Shopsearch", FilterShopSearch);
+AdminRoute.get("/Paymentsearch", FilterPaymentSearch);
+// AdminRoute.get("/Querysearch", FilterQuerySearch);
 AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,increaseRegistrationCountMiddleware);
 AdminRoute.get("/getAllQueries", GetAllAdminQueris);
 AdminRoute.post("/getQuerieByID", GetQueryByID);
