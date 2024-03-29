@@ -1,27 +1,40 @@
-.whatsNewcardContent{
+.WhatsNewMainCardDiv {
     display: flex;
-    text-align: left;
-    width: 70vh;   
-   align-items: center;
-}
-.cardNumbering{
-    
-}
-.WhatsNewMainCardDiv{
-    display: flex;
-    /* justify-content: center; */
     align-items: center;
-    /* width: ; */
-    height: 30% ;
+    height: 50%;
+    width: 95%;
+    flex-direction: row;
     padding: 2%;
-
+    border: 1px solid #ccc; 
+    margin-bottom: 2%; 
 }
+
 .WhatsNewCardImage{
-    height: 27vh;
-    width:25vh;
-    padding: 0% 1%;
+    height: 23%;
+    width:23%;
+    margin-right:2%;
 }
 .whatsNewImage{
     height: 100%;
     width: 100%;
+} 
+
+.whatsNewcardContent {
+    display: flex;
+    text-align: left;
+    width: 70%; 
+    align-items: center;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 576px) {
+    .WhatsNewCardImage {
+        height: 10vh; 
+        width: 10vh;
+    }
+
+    .whatsNewcardContent {
+        width: 80vw; 
+        font-size: 2vh;
+    }
 }

@@ -44,3 +44,9 @@
     transform: scale(3);
     opacity: 0;
 }
+@media screen and (max-width: 427px) {
+    .BusinessAddPhotosdesc{
+        display: none;
+    }
+
+}

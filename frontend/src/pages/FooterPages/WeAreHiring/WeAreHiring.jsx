@@ -6,18 +6,18 @@ const WeAreHiring = () => {
    
   return (
     <div>
-        <div className='firstDivContainer'>
-            <div className='firstDivContainer-firstBox'>
-                <div className='fistBox-firstHeading'>Grow with Us And Build Your</div>
-                <div className='fistBox-secondHeading'>Career</div>
-                <div className='fistBox-thirdHeading'>Come on board with the India's No 1 Local Search Engine</div>
+        <div className='hiringFirstDivContainer'>
+            <div className='hiringFirstDivContainer-firstBox'>
+                <div className='hiringFistBox-firstHeading'>Grow with Us And Build Your</div>
+                <div className='hiringFistBox-secondHeading'>Career</div>
+                <div className='hiringFistBox-thirdHeading'>Come on board with the India's No 1 Local Search Engine</div>
                 <div className='hiringForm'>
-                    <input className='inputField' placeholder='name' ></input>
-                    <input className='inputField' placeholder='abc@gmail.com'></input>
+                    <input className='hiringInputField' placeholder='name' ></input>
+                    <input className='hiringInputField' placeholder='abc@gmail.com'></input>
                     <div className='submitButton' >Submit</div>
                 </div>
             </div>
-            <div className='firstDivContainer-secondBox'>
+            <div className='hiringFirstDivContainer-secondBox'>
                 <div>
                     <img className='hiringImage' src={wearehiring}/>
                 </div>

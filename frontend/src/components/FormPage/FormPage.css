@@ -203,6 +203,7 @@ input[type=file]::file-selector-button:hover {
   }
   .btn{
     margin: 0;
+    margin-top: 3vh;
   }
   .btnContainer {
     margin-top: 0;
@@ -220,6 +221,10 @@ width: 100%;
 .formLabel{
     font-size: 2.5vh;
 }
+.small{
+    width: 40%;
+    margin-bottom: 3vh;
+}
 }
 @media screen and (max-width: 550px) {
     .formContainer{
@@ -236,6 +241,11 @@ width: 100%;
             width: 281px;
             MARGIN-BOTTOM: 4VH;
         }
+}
+@media screen and (max-width: 427px) {
+    .FormPageContainer{
+        padding: 2vh;
+    }
 }
 @media screen and (max-width: 377px) {
     .twoinputfield{

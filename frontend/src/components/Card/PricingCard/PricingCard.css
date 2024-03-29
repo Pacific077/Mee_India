@@ -1,8 +1,11 @@
 .Pricingcard{
     border: 1px solid black;
-    height: 66vh;
+    height: 70vh;
     width: 40vh;
     position: relative;
+}
+.PricingCardDetails{
+    height: fit-content;
 }
 .pricingCardHead{
     height: 18%;
@@ -23,7 +26,7 @@
     justify-content: center;
     width: 90%;
     margin: auto;
-    height: 30%;
+    height: 27%;
     border: 1px solid var(--grayShade);
     position: absolute;
     bottom:10px;

@@ -4,13 +4,13 @@
     /* border: 1px solid black; */
     position: fixed;
     z-index: 30;
-    bottom: 6vh;
+    bottom: 3vh;
     background-color: var(--grayShade);
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 7vh;
+    right: 3vh;
 }
 .supportIcon:hover{
     cursor: pointer;

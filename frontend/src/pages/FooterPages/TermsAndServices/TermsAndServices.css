@@ -1,0 +1,41 @@
+.termsAndServicesMainDivContainer{
+    margin: 2% 17%;
+    border-left: 2px solid black;
+    padding-left: 2%;
+}
+.termsAndServicesMainHeading{
+    font-size: 7vh;
+    text-align: center;
+    font-weight: 600;
+
+}
+.termsAndServicesMainSubHeading{
+    font-size: 4vh;
+   margin:4% 0;
+}
+.termsAndServicesUpdateHeading{
+    font-size: 3vh;
+    font-weight: 600;
+}
+.termsAndServicesSecondHeading{
+font-size: 3vh;
+margin: 4% 0;
+}
+.termsAndServicesLists{
+    padding-top: 1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.termsAndServicesBoldWords{
+    padding-right: 1%;
+}
+
+
+@media screen and (max-width: 767px) {
+    .termsAndServicesMainDivContainer {
+        margin: 2% 2%; /* Adjust margin for smaller screens */
+    }
+
+    .termsAndServicesLists {
+        font-size: 1.8vh; /* Further adjust font size for smaller screens */
+    }
+}

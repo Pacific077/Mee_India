@@ -1,0 +1,54 @@
+.customerCareMainDivContainer{
+    margin: 0 15%;
+}
+.customerCareTextArea{
+    padding-left: 2% ;
+    height: 10vh;
+    width: 60vh;
+}
+.customeCareProblemHeading{
+    font-size: 3vh;
+    font-weight: 600;
+    padding: 2% 0%;
+
+}
+.customerCareSubmitButton{
+    padding: 0.5% ;
+    background-color: green;
+    color: white;
+    font-size:20px;
+    border-radius: 4px;
+    width: 15vh;
+    text-align: center;
+}
+.customerCarelabel{
+
+}
+.customerCareContacts{
+
+}
+
+@media screen and (max-width: 767px) {
+    .customerCareMainDivContainer {
+        margin: 0 5%; 
+    }
+
+    .customerCareTextArea {
+        height: 11vh; 
+        width: 90%;
+    }
+
+    .customeCareProblemHeading {
+        font-size: 2.5vh; 
+    }
+
+    .customerCareSubmitButton {
+        font-size: 14px;
+        width: 50%;
+        padding: 2% 0%;
+    }
+
+    .customerCareContacts{
+        font-size: 14px;
+    }
+}

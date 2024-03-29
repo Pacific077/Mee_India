@@ -75,6 +75,8 @@ const FreeList = async (req, res, next) => {
     // const savedBusiness = await newBusiness.save();
     // save new businnes to users arrat
 
+
+    //reduce time cost by fetching from req.user
     const user = await User.findById(owner).session(session);
     await user.ownedBussinesses.push(newBusiness[0]._id);
     await user.save({session});

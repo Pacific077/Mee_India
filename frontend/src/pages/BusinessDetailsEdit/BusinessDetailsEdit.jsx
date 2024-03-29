@@ -21,8 +21,7 @@ const BusinessDetailsEdit = () => {
   const [Reviews,setReviews] = useState(false)
   const [Enquiries,setEnquiries] = useState(false)
 
-  useEffect(()=>{
-    
+  useEffect(()=>{  
     if(edit==='editName'){
       setEditname(true)
     }else if(edit==="editPhoto"){

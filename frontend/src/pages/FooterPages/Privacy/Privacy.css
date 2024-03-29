@@ -1,0 +1,95 @@
+.privacyMainDivContainer{
+    margin: 2% 17%;
+}
+.privacyTopHeading{
+    font-size: 7vh;
+    font-weight: 600;
+    padding:2% 0;
+}
+.privacySecondTopHeading{
+    font-size: 4vh;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom:2% ;
+}
+.privacyUpdateHeading{
+    font-size: 3vh;
+    font-weight: 500;
+    padding: 2% 0;
+}
+.privacyIntroductionHeading{
+    padding: 1% 0;
+    font-size: 3vh;
+    font-weight: 600;
+}
+.privacyJdintd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    padding: 2% 0;
+}
+.privacyTable{
+    width: 50%;
+}
+.privacyTableLevel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1% 0;
+    font-weight: 600;
+    font-size: 20px;
+}
+.privacyTableFirstColumn{
+    text-align: center;
+}
+.privacyInformationHeading{
+    margin: 4% 0;
+    font-weight: 600;
+    font-size: 4vh;
+}
+.privacyLastDiv{
+    margin: 5% 0;
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 770px) {
+    .privacyMainDivContainer {
+        margin: 2% 2%; 
+    }
+
+    .privacyTopHeading {
+        font-size: 4vh; 
+    }
+
+    .privacySecondTopHeading {
+        font-size: 2.5vh; 
+    }
+
+    .privacyUpdateHeading {
+        font-size: 2vh; 
+        font-weight: 600;
+    }
+
+    .privacyIntroductionHeading {
+        font-size: 2vh; 
+    }
+
+    .privacyTableLevel {
+        font-size: 14px; 
+    }
+
+    .privacyInformationHeading {
+        font-size: 3vh; 
+    }
+
+    .privacyLastDiv {
+        font-size: 14px; 
+    }
+    .privacyTable{
+        width: 50%;
+        font-size: 2vh;
+    }
+}
