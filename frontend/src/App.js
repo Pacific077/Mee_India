@@ -50,6 +50,10 @@ import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaym
 import CustomerCare from "./pages/FooterPages/CustomerCare/CustomerCare";
 import TermsAndServices from "./pages/FooterPages/TermsAndServices/TermsAndServices";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
+import Footer from "./components/Footer/Footer";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import CreateBlogPageAdmin from "./pages/CreateBlogPageAdmin/CreateBlogPageAdmin";
+import AdminBlogList from "./pages/AdminBlogList/AdminBlogList";
 
 const App = () => {
   return (
@@ -67,6 +71,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
+          <Route path="/blogs" element={<BlogPage />} />
+
           <Route
             path="/bussiness-list/:district/:mainCategory/:subCat"
             element={<BussinessList />}
@@ -75,7 +81,6 @@ const App = () => {
             path="/bussiness-list/:district/:mainCategory/:subCat/:bussinessId"
             element={<BussinessPage />}
           />
-
           <Route
             path="/business-dashboard/:BusinessId"
             element={<BusinessDashboardSpecific />}
@@ -84,7 +89,6 @@ const App = () => {
             path="/business-dashboard/:BusinessId/:edit"
             element={<BusinessDetailsEdit />}
           />
-
           <Route
             path="/userdashboard"
             element={
@@ -93,12 +97,8 @@ const App = () => {
               </PrivateRoute>
             }
           />
-
           <Route path="/subList/:Category" element={<BussinessSubList />} />
-         
-
           <Route path="/admin/dashboard" element={<AdminRoute Component={Admin} />} />
-          
           <Route path="/admin/showUserslist" element={<AdminRoute Component={UserList} />} />
           <Route path="/admin/showShopslist" element={<AdminRoute Component={AllShopList} />} />
           <Route
@@ -127,22 +127,27 @@ const App = () => {
             path="/admin/queries/specific/:queryId"
             element={<AdminRoute Component={AdminQuerySpecific} />}
           />
-
           <Route path="/admin/ShowAllPayments" element={<AdminRoute Component={AllPaymentsList} />} />
           <Route
             path="/admin/ShowAllPayments/specific/:paymentId"
             element={<AdminRoute Component={AdminPaymentListSpecific} />}
           />
-
+          <Route
+            path="/admin/createBlog"
+            element={<AdminRoute Component={CreateBlogPageAdmin} />}
+          />
+          <Route
+            path="/admin/blogList"
+            element={<AdminRoute Component={AdminBlogList} />}
+          />
+          
           <Route path="/checkout/:type" element={<Checkout />} />
           <Route
             path="/payment/success/:type/:refId"
             element={<PaymentSuccess />}
           />
-
           {/* uncomment and use only when testing an Api (not for general purpouse)*/}
           {/* <Route path="/apitest" element={<Apitext />} /> */}
-
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/customer-care" element={<CustomerCare />} />
           <Route path="/reportbug" element={<ReportBug />} />
@@ -151,6 +156,9 @@ const App = () => {
           <Route path="/privacy-policies" element={<Privacy />} />
           <Route path="/terms-and-services" element={<TermsAndServices />} />
         </Routes>
+        <Shownavbar>
+          <Footer/>
+        </Shownavbar>
       </BrowserRouter>
     </>
   );

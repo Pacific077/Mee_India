@@ -102,6 +102,9 @@ body {
   height: 18vh;
   width: 25vh;
 }
+.mainLogo:hover{
+  cursor: pointer;
+}
 .mainLogo1 {
   height: 18vh;
   width: 30vh;

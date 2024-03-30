@@ -9,6 +9,7 @@ import BussinessRoute from "./Routes/BussinessRoute.js";
 import AdminRoute from "./Routes/AdminRoutes.js";
 import  Razorpay  from "razorpay"
 import PaymentRoutes from "./Routes/PaymentRoutes.js";
+import BlogRoutes from "./Routes/BlogRoutes.js";
 
 
 
@@ -42,6 +43,7 @@ app.use("/api/v1/user", UserRoute);
 app.use("/api/v1/bussiness",BussinessRoute);
 app.use("/api/v1/admin",AdminRoute);
 app.use("/api/v1/payments",PaymentRoutes);
+app.use("/api/v1/blogs",BlogRoutes)
 //deploymemt
 //-------------------------------------------------------------------------
 // const __dirname = dirname(fileURLToPath(import.meta.url));

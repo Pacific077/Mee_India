@@ -10,6 +10,10 @@ const userSchema = mongoose.Schema(
       default: "Free List",
       enum: ["Free List", "Shop List", "Standard", "Premium", "Pro"],
     },
+    SearchVisibility:{
+      type:Number,
+      default:1
+    },
     membershipPurchaseDate: { type: Date,default: Date.now }, // Date when the membership was purchased
     membershipExpiryDate: { type: Date },   // Date when the membership expires
     verifiedSeal:{

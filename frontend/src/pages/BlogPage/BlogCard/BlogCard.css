@@ -1,0 +1,35 @@
+.BlogCard{
+    height: 43vh;
+    width: 34vh;
+    /* border: 2px solid var(--tertiary); */
+}
+.blogCardImg{
+    height: 50%;
+    width: 100%;
+}
+.blogCardImg img{
+    height: 100%;
+    width: 100%;
+}
+.blogCardDescCont h3 ,.blogCardDescCont p{
+    margin: 0;
+}
+.blogCardDescCont h3{
+    font-size: medium;
+}
+.blogCardDescCont p{
+    font-size: small;
+}
+.blogCardDescCont{
+    padding: 1vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.blogCardNameAndDate{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+    color: var(--grayShade);
+}

@@ -1,3 +1,12 @@
+.crossnavbarham{
+  font-size: xx-large ;
+  margin-right: 2vh;
+  color: var(--tertiary);
+}
+.crossnavbarham :hover{
+  cursor: pointer;
+}
+
 .green-col{
   color: #046A38 ;
 }
@@ -95,6 +104,9 @@
   justify-content: space-evenly;
   border: 3px solid var(--tertiary);
   display: none;
+}
+.Navhamburger:hover{
+  cursor: pointer;
 }
 .navItems {
   display: flex;

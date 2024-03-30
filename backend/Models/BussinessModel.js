@@ -14,7 +14,6 @@ const bussinessSchema = mongoose.Schema(
     },
     buseinessImages: [
       {
-        //to do : validators to be added for checking at least 3 images
         type: String,
       },
     ],
@@ -33,7 +32,6 @@ const bussinessSchema = mongoose.Schema(
     },
     websiteUrl:{
       type:String,
-
     },
     Services:[{
       type:String

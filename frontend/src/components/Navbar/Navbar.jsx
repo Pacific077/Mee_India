@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import "./Navbar.css";
 import LocationAndSearch from "../Card/LocationAndSearch/LocationAndSearch";
 import SideNav from "../SideNav/SideNav";
+import { GiCrossedBones } from "react-icons/gi";
 // import { ProfileApi } from "../../apis/UserApi";
 import { toast } from "react-toastify";
 import NavProfile from "./NavProfile/NavProfile";
@@ -41,12 +42,13 @@ const Navbar = () => {
           <h2 className="navbarBrand"><span className="green-col">Mee</span>India</h2>
         
         <LocationAndSearch/>
-        <div className="Navhamburger" onClick={handelSideNavDisplay}>
+        {!IsSideNavVis?<div className="Navhamburger" onClick={handelSideNavDisplay}>
           <p className="hamburgerline1"></p>
           <p className="hamburgerline2"></p>
           <p className="hamburgerline3"></p>
           
-        </div>
+        </div>:<GiCrossedBones className="crossnavbarham" onClick={()=>setIsSideNavVis(!IsSideNavVis)} />}
+        
         <div className="navItems">
           <p className="Navitem">English</p>
           <p className="Navitem" onClick={()=>navigate('/')}>Home</p>

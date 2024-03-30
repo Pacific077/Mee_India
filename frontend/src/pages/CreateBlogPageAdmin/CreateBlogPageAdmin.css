@@ -1,0 +1,52 @@
+.CreateBlogPageAdmin{
+    padding: 0 20vh 0 20vh;
+}
+.CreateBlogPageAdmin h1{
+    color: var(--tertiary);
+    font-weight: 500;
+    font-family: var(--fontMain);
+    font-size: 4.5vh;
+    text-decoration: underline;
+}
+.createBlogForm h2{
+    margin: 0vh;
+    margin-bottom: 2vh;
+}
+.createBlogForm input{
+    border: none;
+    outline:  none;
+    width: 100%;
+    caret-color: black;
+    border-bottom: 2px solid var(--tertiary);
+}
+.createBlogForm{
+    margin-top: 6vh;
+}
+.blogInputTitle{
+    margin-bottom: 10vh;
+}
+.blogInputDesc textarea{
+    height: 40vh;
+    width: 100%;
+    resize: none;
+    border: 2px solid var(--tertiary);
+    outline: none;
+    caret-color: black;
+}
+.bloguploadImage{
+    margin-top: 8vh;
+}
+.createBlogbtn{
+    margin-top: 8vh;
+    height: 6vh;
+    width: 25vh;
+    background-color: var(--indiaGreen);
+    color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    font-size: larger;
+}
+.createBlogbtn:hover{
+    cursor: pointer;
+    background-color: green;
+}
