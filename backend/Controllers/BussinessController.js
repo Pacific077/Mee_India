@@ -222,7 +222,10 @@ const findByID = async (req, res) => {
         path: "enquiry",
         select: "name date question email contact", // Select the fields you want to populate
         options: { strictPopulate: false },
-      });
+      }).populate({
+        path: "owner"
+      })
+      ;
     // Sort the enquiry array by date in descending order
     // requiredBusiness.enquiry.sort((a, b) => b.date - a.date);
     //   console.log(requiredBusiness);
