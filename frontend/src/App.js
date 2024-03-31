@@ -13,7 +13,7 @@ import BusinessDashboardSpecific from "./pages/BusinessDashboardSpecific/Busines
 import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import Apitext from "./pages/apiTest/Apitext";
 import BussinessSubList from "./pages/BussinessSubList/BussinessSubList";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./components/Authorization/PrivateRoute/PrivateRoute";
 import BusinessDetailsEdit from "./pages/BusinessDetailsEdit/BusinessDetailsEdit";
 import Admin from "./pages/Admin/Admin";
 import UserList from "./pages/UsersList/UserList";
@@ -25,7 +25,7 @@ import PricingDeteails from "./pages/PricingDetails/PricingDeteails";
 import AdminEditUser from "./pages/AdminEditUser/AdminEditUser";
 import AdminEditShop from "./pages/AdminEditShop/AdminEditShop";
 import AdminSideNav from "./pages/Admin/AdminSideNav/AdminSideNav";
-import ShowAdminSideNav from "./components/ShowAdminSideNav/ShowAdminSideNav";
+import ShowAdminSideNav from "./components/Authorization/ShowAdminSideNav/ShowAdminSideNav";
 import CreateNewAdmin from "./pages/CreateNewAdmin/CreateNewAdmin";
 import HelpAndSupport from "./components/HelpAndSupport/HelpAndSupport";
 import AdminQueriesList from "./pages/AdminQueriesList/AdminQueriesList";
@@ -49,13 +49,14 @@ import AdminPaymentListSpecific from "./pages/AdminPaymentListSpecific/AdminPaym
 
 import CustomerCare from "./pages/FooterPages/CustomerCare/CustomerCare";
 import TermsAndServices from "./pages/FooterPages/TermsAndServices/TermsAndServices";
-import AdminRoute from "./components/AdminRoute/AdminRoute";
+import AdminRoute from "./components/Authorization/AdminRoute/AdminRoute";
 import Footer from "./components/Footer/Footer";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import CreateBlogPageAdmin from "./pages/CreateBlogPageAdmin/CreateBlogPageAdmin";
 import AdminBlogList from "./pages/AdminBlogList/AdminBlogList";
 import AdminBlogSpecific from "./pages/Admin/AdminBLogSpecific/AdminBlogSpecific";
 import DetailedBogPage from "./pages/DetailedBlogPage/DetailedBogPage";
+import MemberShipRoute from "./components/Authorization/Membership/MemberShipRoute";
 
 const App = () => {
   return (
@@ -90,7 +91,11 @@ const App = () => {
           />
           <Route
             path="/business-dashboard/:BusinessId/:edit"
-            element={<BusinessDetailsEdit />}
+            element={
+              <MemberShipRoute>
+                <BusinessDetailsEdit />
+              </MemberShipRoute>
+          }
           />
           <Route
             path="/userdashboard"

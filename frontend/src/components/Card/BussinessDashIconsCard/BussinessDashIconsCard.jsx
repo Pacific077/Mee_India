@@ -8,15 +8,15 @@ const BussinessDashIconsCard = ({tag,col,Icon,loc,member}) => {
   const {user} = UserContex
   const {BusinessId} = useParams()
   const handleClick = ()=>{
-    if(loc==='Catalouge'){
-    if(user.Membership==="Premimum"){
+    // if(loc==='Catalouge'){
+    // if(user.Membership==="Pro"){
+    //   navigate(`/business-dashboard/${BusinessId}/${loc}`)
+    // }else{
+    //   navigate('/pricing-details')
+    // }
+    // }else{
       navigate(`/business-dashboard/${BusinessId}/${loc}`)
-    }else{
-      navigate('/pricing-details')
-    }
-    }else{
-      navigate(`/business-dashboard/${BusinessId}/${loc}`)
-    }
+    // }
   }
   return (
     <div className='BussinessDashIconsCard'>

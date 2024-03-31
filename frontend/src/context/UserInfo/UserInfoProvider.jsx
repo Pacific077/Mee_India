@@ -17,6 +17,8 @@ const UserInfoProvider = ({children}) => {
         if(resp.data.user.role==="Admin"){
           setIsAdmin(true);
         }
+        localStorage.setItem('membership', resp.data.user.Membership);
+        localStorage.setItem('role', resp.data.user.role);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
