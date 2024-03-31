@@ -42,6 +42,9 @@ const AddblogToFeaturedBLog = async (req, res) => {
     }
 
     const admin = await Admin.findOne();
+    if (admin.featuredBlogs.includes(blogId)) {
+      return res.status(400).json({ message: "Blog already featured" });
+    }
     if (admin.featuredBlogs.length >= 5) {
       return res
         .status(400)
@@ -96,10 +99,62 @@ const GetAllFeaturedBlogs = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+const GetBlogById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const blog = await Blog.findById(id);
+    if (!blog) {
+      res.status(400).json({
+        message: "NO blog Found",
+      });
+    }
+    res.status(200).json({
+      message: "got blog",
+      blog,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+const RemoveBlogFromFeaturedBlogs = async (req, res) => {
+  try {
+    const { blogId } = req.body;
+
+    const admin = await Admin.findOne();
+    if (!admin) {
+      return res.status(404).json({ message: "Admin not found" });
+    }
+    
+    // console.log("featuredid",admin.featuredBlogs)
+    const updatedFeaturedBlogs = admin.featuredBlogs.filter(
+      (id) => id.toString() !== blogId
+    );
+    if (updatedFeaturedBlogs.length === admin.featuredBlogs.length) {
+      return res
+        .status(404)
+        .json({ message: "Blog not found in featured blogs" });
+    }
+
+    admin.featuredBlogs = updatedFeaturedBlogs;
+    await admin.save();
+
+    res
+      .status(200)
+      .json({ message: "Blog removed from featuredBlogs successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export {
   CreatBlog,
   getTop20blogs,
   AddblogToFeaturedBLog,
   DelBlogById,
   GetAllFeaturedBlogs,
+  GetBlogById,
+  RemoveBlogFromFeaturedBlogs
 };

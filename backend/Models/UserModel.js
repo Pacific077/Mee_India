@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
     },
     SearchVisibility:{
       type:Number,
-      default:1
+      default:0
     },
     membershipPurchaseDate: { type: Date,default: Date.now }, // Date when the membership was purchased
     membershipExpiryDate: { type: Date },   // Date when the membership expires

@@ -33,3 +33,9 @@
     margin-top: 2vh;
     color: var(--grayShade);
 }
+.featureBlogHead:hover{
+    cursor: pointer;
+}
+.ReadMore:hover{
+    cursor: pointer;
+}

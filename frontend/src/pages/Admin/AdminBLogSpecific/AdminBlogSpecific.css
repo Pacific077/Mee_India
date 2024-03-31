@@ -1,0 +1,23 @@
+.BlogSpecificDetails{
+    padding: 0 10vh 0 10vh;
+}
+.BlogSpecificDetails h1{
+    font-size: 4vh;
+    font-family: var(--fontMain);
+    color: var(--tertiary);
+}
+.MarkAsFeaturebtn{
+    height: 6vh;
+    width: 30vh;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-size: large;
+    background-color: green;
+    margin-right: 4vh;
+}
+.MarkAsFeaturebtn:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    transition: 0.3s ease;
+}

@@ -87,3 +87,11 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
+.TopBlogdescDynamic
+{
+    color: white;
+}
+.TopBlogdescDynamic:hover{
+    color: var(--grayShade);
+    cursor: pointer;
+}

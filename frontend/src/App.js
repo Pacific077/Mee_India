@@ -54,6 +54,8 @@ import Footer from "./components/Footer/Footer";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import CreateBlogPageAdmin from "./pages/CreateBlogPageAdmin/CreateBlogPageAdmin";
 import AdminBlogList from "./pages/AdminBlogList/AdminBlogList";
+import AdminBlogSpecific from "./pages/Admin/AdminBLogSpecific/AdminBlogSpecific";
+import DetailedBogPage from "./pages/DetailedBlogPage/DetailedBogPage";
 
 const App = () => {
   return (
@@ -72,6 +74,7 @@ const App = () => {
           <Route path="/pricing-details" element={<PricingDeteails />} />
           <Route path="/bussiness-register" element={<BusinessRegister />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/detail/:id" element={<DetailedBogPage />} />
 
           <Route
             path="/bussiness-list/:district/:mainCategory/:subCat"
@@ -139,6 +142,10 @@ const App = () => {
           <Route
             path="/admin/blogList"
             element={<AdminRoute Component={AdminBlogList} />}
+          />
+          <Route
+            path="/admin/blogList/specific/:blogId"
+            element={<AdminRoute Component={AdminBlogSpecific} />}
           />
           
           <Route path="/checkout/:type" element={<Checkout />} />

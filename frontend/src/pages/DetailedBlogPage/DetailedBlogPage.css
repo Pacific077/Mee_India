@@ -1,0 +1,36 @@
+.DetailedBogPage{
+    padding: 6vh 20vh 0 20vh;
+    text-align: center;
+    
+}
+.detaileBLogHead{
+    font-size: 6.7vh;
+    font-weight: 500;
+    width: 80%;
+    margin: auto;
+    
+    font-family: var(--fontMain);
+    color: var(--tertiary);
+}
+.DetaileBlogWrittenby{
+    font-size: larger;
+}
+.detailedBlogimg{
+    /* border: 1px solid red; */
+    height: 60vh;
+    width: 70%;
+    margin: auto;
+    margin-top: 6vh;
+}
+.detailedBlogimg img{
+    height: 100%;
+    width: 100%;
+}
+.detailedBlogDesc{
+    width: 70%;
+    margin: auto;
+    margin-top: 7vh;
+    text-align: left;
+    font-size: large;
+    line-height: 4vh;
+}

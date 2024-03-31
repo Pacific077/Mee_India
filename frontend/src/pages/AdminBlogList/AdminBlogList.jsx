@@ -43,6 +43,7 @@ const AdminBlogList = () => {
                   title={ele.title}
                   desc={ele.description}
                   date={ele.createdAt}
+                  id={ele._id}
                 />
               );
             })

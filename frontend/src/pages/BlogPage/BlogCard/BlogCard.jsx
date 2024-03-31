@@ -1,9 +1,11 @@
 import React from "react";
 // import img from "../../../assets/bus.jpg";
+import {useNavigate} from "react-router-dom"
 import "./BlogCard.css";
 import ClipSentence from "../../../utils/ClipSentence";
 import ExtractDate from "../../../utils/ExtractDate";
-const BlogCard = ({title,desc,img,date}) => {
+const BlogCard = ({title,desc,img,date,id}) => {
+  const navigate = useNavigate()
   return (
     <div className="BlogCard">
       <div className="blogCardImg">
@@ -19,7 +21,7 @@ const BlogCard = ({title,desc,img,date}) => {
       </div>
       <div className="blogCardDesc">
         <p>
-          {ClipSentence(desc,19)}<span style={{color:"red"}}>...ReadMore</span> 
+          {ClipSentence(desc,19)}<span onClick={()=>navigate(`/blogs/detail/${id}`)} className="ReadMore" style={{color:"red"}}>...ReadMore</span> 
         </p>
       </div>
       <div className="blogCardNameAndDate">
