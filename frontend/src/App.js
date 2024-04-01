@@ -58,6 +58,7 @@ import AdminBlogSpecific from "./pages/Admin/AdminBLogSpecific/AdminBlogSpecific
 import DetailedBogPage from "./pages/DetailedBlogPage/DetailedBogPage";
 import MemberShipRoute from "./components/Authorization/Membership/MemberShipRoute";
 import GlobalSendQueryForm from "./components/GlobalSendQueryForm/GlobalSendQueryForm";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 const App = () => {
   return (
@@ -169,6 +170,7 @@ const App = () => {
           <Route path="/whats-new" element={<WhatsNew />} />
           <Route path="/privacy-policies" element={<Privacy />} />
           <Route path="/terms-and-services" element={<TermsAndServices />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Shownavbar>
           <Footer/>
