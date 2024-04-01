@@ -65,7 +65,6 @@ const MemberShipRoute = ({ children }) => {
     }
   }
   return isAllowed ? (
-    // Render children if membership is "Pro"
     <>{children}</>
   ) : (
     // Redirect to login page if membership is not "Pro"

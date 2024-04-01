@@ -34,3 +34,15 @@
     font-size: large;
     line-height: 4vh;
 }
+@media screen and (max-width: 935px) {
+.DetailedBogPage{
+    padding: 6vh 10vh 0 10vh;
+}
+
+}
+@media screen and (max-width: 767px) {
+.DetailedBogPage{
+    padding: 6vh 0vh 0 0vh;
+}
+
+}

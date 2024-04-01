@@ -57,6 +57,7 @@ import AdminBlogList from "./pages/AdminBlogList/AdminBlogList";
 import AdminBlogSpecific from "./pages/Admin/AdminBLogSpecific/AdminBlogSpecific";
 import DetailedBogPage from "./pages/DetailedBlogPage/DetailedBogPage";
 import MemberShipRoute from "./components/Authorization/Membership/MemberShipRoute";
+import GlobalSendQueryForm from "./components/GlobalSendQueryForm/GlobalSendQueryForm";
 
 const App = () => {
   return (
@@ -69,6 +70,7 @@ const App = () => {
           <AdminSideNav />
         </ShowAdminSideNav>
         <HelpAndSupport />
+        <GlobalSendQueryForm/>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />

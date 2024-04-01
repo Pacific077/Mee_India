@@ -14,7 +14,7 @@
 .blogPageBanner{
     display: flex;
     justify-content: space-between;
-    height: 70vh;
+    height: fit-content;
     margin-top: 6vh;
 }
 .blogPageHead{
@@ -57,6 +57,7 @@
 .topBlogHeadAndDesc{
     padding: 2vh;
     box-sizing: border-box;
+    overflow: hidden;
 }
 .TopBlogNameDateDynamic{
     /* padding-left:1vh ; */
@@ -94,4 +95,51 @@
 .TopBlogdescDynamic:hover{
     color: var(--grayShade);
     cursor: pointer;
+}
+@media screen and (max-width: 1249px) {
+    
+.BlogPage {
+    padding: 0px 10vh 0 10vh;
+}
+}
+@media screen and (max-width: 1090px) {
+    .BlogPage {
+        padding: 0;
+    }
+    .topBlogHeadAndDesc {
+        padding: 1vh;
+    }
+    .TopBlogHeadDynamic{
+        font-size: 4vh;
+    }
+    .blogContainers{
+        justify-content: center;
+    }
+
+}
+@media screen and (max-width: 934px) {
+
+    .blogPageBanner {
+        align-items: center;
+        gap: 5vh;
+        flex-direction: column;
+    }
+    .blogBannerLeft ,.blogBannerRight{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 580px) {
+    .blogBannerLeft ,.blogBannerRight{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .blogBannerLeft ,.blogBannerRight{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 377px) {
+    .blogBannerLeft ,.blogBannerRight{
+        width: 100%;
+    }
 }

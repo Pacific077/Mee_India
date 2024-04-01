@@ -42,8 +42,8 @@ const BussinessPage = () => {
   const fecthBusinessByID = async () => {
     try {
       const resp = await findByID({ bussinessId });
+      console.log("resp",resp.data.businessDetail)
       if (resp.status === 200) {
-        // console.log("resp",resp)
         setCurrBusiness(resp.data.businessDetail);
         setMembership(resp.data.businessDetail.owner.Membership);
         setWait(false);
@@ -51,6 +51,7 @@ const BussinessPage = () => {
     } catch (error) {
       console.log(error);
     }
+    // consol.log("Resp,")
   };
 
   const fetchUserByID = async () => {
@@ -85,7 +86,9 @@ const BussinessPage = () => {
   // Function to group timingArr into pairs
   const groupIntoPairs = (arr) => {
     const result = [];
-    for (let i = 0; i < arr.length; i += 2) {
+    console.log("arrr",arr);
+    let n = arr.length
+    for (let i = 0; i < n; i += 2) {
       const pair = arr.slice(i, i + 2);
       const formattedPair = pair.map((time) => {
         const [hour, minute] = time.split(":");
@@ -162,13 +165,13 @@ const BussinessPage = () => {
               <img
                 className="imageSectionimg"
                 style={{ width: "30%", height: "40vh" }}
-                src={currBusiness.buseinessImages[0]}
+                src={currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages[0]}
                 alt="businessPic"
               />
               <img
                 className="imageSectionimg"
                 style={{ width: "30%", height: "40vh" }}
-                src={currBusiness.buseinessImages[1]}
+                src={currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages[1]}
                 alt="businessPic"
               />
               <Carousel
@@ -179,7 +182,7 @@ const BussinessPage = () => {
                 interval={3000}
                 infiniteLoop={true}
               >
-                {currBusiness.buseinessImages.map((pic, i) => (
+                {currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages.map((pic, i) => (
                   <div key={i}>
                     <img src={pic} alt="businessPic" />
                   </div>
@@ -189,8 +192,8 @@ const BussinessPage = () => {
             <div className="BussinessListCardRight">
               <h2>{currBusiness.title}</h2>
               <BussinessRating
-                ratingCnt={currBusiness.ratingCount}
-                ratersCnt={currBusiness.reviews.length}
+                ratingCnt={currBusiness.ratingCount?currBusiness.ratingCount:0}
+                ratersCnt={currBusiness.reviews?currBusiness.reviews.length:0}
               />
               <p className="address">
                 <IoLocationOutline /> {currBusiness.address}
@@ -203,11 +206,11 @@ const BussinessPage = () => {
             <div className="bussinessPageTiming">
               <h2>Timings</h2>
               <div>
-                {groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
+                {currBusiness&&currBusiness.timingArr&&groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
                   <h4 key={index}>{pair.join(" - ")}</h4>
                 ))}
               </div>
-              <Timing openDays={currBusiness.openDays} />
+              <Timing openDays={currBusiness.openDays&&currBusiness.openDays} />
               <h>
                 {" "}
                 represents Open days{" "}
@@ -239,7 +242,7 @@ const BussinessPage = () => {
           </div>
 
           <div className="bussinessPagesection2">
-            {currBusiness.Services.length > 0 && (
+            {currBusiness&&currBusiness.Services&&currBusiness.Services.length > 0 && (
               <div className="bussinessPageServices">
                 <h2>Services</h2>
                 <div className="ServiceListContainer">
@@ -263,12 +266,12 @@ const BussinessPage = () => {
           </div>
 
           <div className="bussinessPagesection2">
-            {(membership === "Pro"||membership==="Standard"||membership==="Premium") &&
+            {(membership === "Pro"||membership==="Standard"||membership==="Premium") &&currBusiness&&
               currBusiness.CatalougeImages.length > 0 && (
                 <div className="bussinessPageTiming">
                   <h2>Rate Cards</h2>
                   <div className="CataloguePicContainer">
-                    {currBusiness.CatalougeImages.map((pic, index) => (
+                    {currBusiness&&currBusiness.CatalougeImages.map((pic, index) => (
                       <div
                         className="CataloguePic"
                         onClick={(e) => openImageInNewTab(e, pic)}
@@ -330,16 +333,16 @@ const BussinessPage = () => {
             <h2>Reviews and Ratings</h2>
             <div className="reviewHead">
               <span>
-                {parseFloat(
+                {currBusiness&&currBusiness.ratingCount&&parseFloat(
                   (
                     currBusiness.ratingCount / currBusiness.reviews.length
                   ).toFixed(1)
                 )}
               </span>
               <div>
-                <h3>{currBusiness.reviews.length} Reviews</h3>
+                <h3>{currBusiness&&currBusiness.reviews&&currBusiness.reviews.length} Reviews</h3>
                 <p>
-                  Rating index based on {currBusiness.reviews.length} ratings
+                  Rating index based on {currBusiness&&currBusiness.reviews&&currBusiness.reviews.length} ratings
                   across the web
                 </p>
               </div>
@@ -360,7 +363,7 @@ const BussinessPage = () => {
               </h3>
             )}
             <div className="reviewList">
-              {currBusiness.reviews.map((rev, ind) => (
+              {currBusiness&&currBusiness.reviews&&currBusiness.reviews.map((rev, ind) => (
                 <Review
                   key={ind}
                   name={rev.userId.name}
