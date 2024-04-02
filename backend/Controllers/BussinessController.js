@@ -161,7 +161,10 @@ const FindBussiness = async (req, res) => {
     }
     console.log(baseQuery);
     // Perform the proximity query
-    const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
+    const nearbyBusinesses = await Bussiness.find(baseQuery).populate({
+      path: "owner",
+      options: { strictPopulate: false },
+    }).exec();
 
     console.log(nearbyBusinesses);
     res.status(200).json({ businesses: nearbyBusinesses });
@@ -255,6 +258,10 @@ const findByID = async (req, res) => {
           select: "name ratedBussinesses profileImage",
           options: { strictPopulate: false }, // Only populate the 'name' field of the user
         },
+        options: { strictPopulate: false },
+      })
+      .populate({
+        path: "owner",
         options: { strictPopulate: false },
       })
       .populate({

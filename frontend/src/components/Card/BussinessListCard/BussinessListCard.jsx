@@ -7,8 +7,10 @@ import BussinessContact from './BussinessContact/BussinessContact';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel'
 import { useNavigate } from 'react-router-dom';
+import Trusted from '../../../pages/BussinessPage/Trusted/Trusted';
+import Verified from '../../../pages/BussinessPage/Verified/Verified';
 
-const BussinessListCard = ({bussinessId,name,ratingCnt,ratersCnt,address,contact}) => {
+const BussinessListCard = ({bussinessId,name,ratingCnt,ratersCnt,address,contact,owner}) => {
     const navigate = useNavigate();
 
     // const bussinessId = '65d435dfd33ee75a91e2a98a';
@@ -22,7 +24,7 @@ const BussinessListCard = ({bussinessId,name,ratingCnt,ratersCnt,address,contact
     <div className='BussinessListCardContainer' onClick={handleClick}>
         <div className='BussinessListCardLeft'><img src={bussinesspic} alt='bussinesspic'/></div>
         <div className='BussinessListCardRight'>
-            <h2>{name}</h2>
+            <h2>{name} {owner.trustStamp&&<Trusted/>} {owner.verifiedSeal&&<Verified/>}</h2>
             <BussinessRating ratingCnt={ratingCnt} ratersCnt={ratersCnt}/>
             <p className='address'><IoLocationOutline/> {address}</p>    
             <BussinessContact contact={contact}/>        

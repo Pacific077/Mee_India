@@ -82,6 +82,7 @@ const BussinessList = () => {
             ratersCnt={bus.reviews?.length === 0 ? 1 : bus.reviews?.length}
             address={bus.address}
             contact={bus.bussinessContact}
+            owner={bus.owner}
           />
         ))}
         {/* <BussinessListCard/>

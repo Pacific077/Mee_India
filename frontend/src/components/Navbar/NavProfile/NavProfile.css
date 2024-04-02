@@ -50,3 +50,12 @@ display: inline-block;
     width: 100%;
     border-radius: 100%;
   }
+
+  .mainIcons{
+    display: none;
+  }
+  @media screen and (max-width: 667px) {
+    .mainIcons{
+      display: flex;
+    }
+  }

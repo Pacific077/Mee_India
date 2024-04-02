@@ -19,6 +19,8 @@ import { ProfileApi } from '../../apis/UserApi';
 import ReviewForm from './ReviewForm/ReviewForm';
 import Cookies from 'js-cookie';
 import { RiMessage2Fill } from 'react-icons/ri';
+import Trusted from './Trusted/Trusted';
+import Verified from './Verified/Verified';
 
 const BussinessPage = () => {
 
@@ -169,7 +171,7 @@ const BussinessPage = () => {
             </Carousel>
           </div>
           <div className='BussinessListCardRight'>
-            <h2>{currBusiness.title}</h2>
+            <h2>{currBusiness.title} {currBusiness.owner.trustStamp&&<Trusted/>} {currBusiness.owner.verifiedSeal&&<Verified/>}</h2>
             <BussinessRating ratingCnt={currBusiness.ratingCount} ratersCnt={currBusiness.reviews.length}/>
             <p className='address'><IoLocationOutline/> {currBusiness.address}</p>    
             <BussinessContact contact={currBusiness.bussinessContact}/>        

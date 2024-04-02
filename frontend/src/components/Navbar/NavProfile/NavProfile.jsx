@@ -4,12 +4,15 @@ import { CgProfile } from "react-icons/cg";
 import { IoDiamondOutline } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
 import { IoWalletOutline } from "react-icons/io5"
+import { IoHomeOutline } from "react-icons/io5";
+import { GiArchiveRegister } from "react-icons/gi";
+import { IoLanguageSharp } from "react-icons/io5";
 // import UserContext from '../../../context/UserInfo/UserContext'
 import { useNavigate } from 'react-router-dom';
 import { ProfileApi } from '../../../apis/UserApi';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
-const NavProfile = () => {
+const NavProfile = ({handleFreeListingClick}) => {
     //using usecontext will cause delay
     const [user,setUser] = useState('')
     const [IsDropDownVis,setIsDropDownVis] = useState(false)
@@ -38,6 +41,18 @@ const NavProfile = () => {
             <img className="profilePic" src={user ? user.profileImage : ''} />
 
             {IsDropDownVis&&<div class="dropdown-content-profile">
+                <div className='dropdownContentItems mainIcons'>
+                    <IoLanguageSharp className='dropsownICons'/>
+                    <p >English</p>
+                </div>
+                <div onClick={()=>navigate("/")} className='dropdownContentItems mainIcons'>
+                    <IoHomeOutline className='dropsownICons'/>
+                    <p >Home</p>
+                </div>
+                <div onClick={handleFreeListingClick} className='dropdownContentItems mainIcons'>
+                    <GiArchiveRegister className='dropsownICons'/>
+                    <p >FreeListing</p>
+                </div>
                 <div onClick={()=>navigate("/userdashboard")} className='dropdownContentItems'>
                     <CgProfile className='dropsownICons'/>
                     <p >Profile</p>

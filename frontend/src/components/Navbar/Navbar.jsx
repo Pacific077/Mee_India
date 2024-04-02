@@ -41,26 +41,26 @@ const Navbar = () => {
           <h2 className="navbarBrand"><span className="green-col">Mee</span>India</h2>
         
         <LocationAndSearch/>
-        <div className="Navhamburger" onClick={handelSideNavDisplay}>
+        {/* <div className="Navhamburger" onClick={handelSideNavDisplay}>
           <p className="hamburgerline1"></p>
           <p className="hamburgerline2"></p>
           <p className="hamburgerline3"></p>
           
-        </div>
+        </div> */}
         <div className="navItems">
           <p className="Navitem">English</p>
           <p className="Navitem" onClick={()=>navigate('/')}>Home</p>
           <p className="Navitem" onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
-      {isLoggedIn?<NavProfile/>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
+      {isLoggedIn?<NavProfile handleFreeListingClick={handleFreeListingClick}/>:<button className="btnPrim loginbtn" onClick={HandleLoginclick}>
             Login
           </button>}
       
           
         </div>
       </div>
-      {<SideNav vis = {IsSideNavVis}/>}
+      {/* {<SideNav vis = {IsSideNavVis}/>} */}
     </>
   );
 };

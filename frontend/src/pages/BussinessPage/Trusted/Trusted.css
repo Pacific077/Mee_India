@@ -1,0 +1,34 @@
+.trusted-container {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1vh;
+    cursor: pointer;
+    position: relative;
+}
+.trusted-description {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 3px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    color: gray;
+}
+  
+.trusted-container:hover .trusted-description {
+display: block;
+}
+  
+.trusted-icon {
+width: 24px;
+height: 26px;
+margin: 0;
+}
+
+.trusted-text {
+color: blue; /* Change to your desired color */
+font-weight: bold; /* Optional: Add bold font weight */
+}
+  
