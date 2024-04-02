@@ -9,7 +9,7 @@ import CategoriesArrray from "./CategoriesArray";
 import PopularServiceCard from "../../components/Card/PopularServiceCard";
 import Marquee from "react-fast-marquee";
 import PopularServiceArr from "./PopularServiceArr";
-import Footer from "../../components/Footer/Footer";
+
 import Subcategories from "../../components/Subcategories/Subcategories";
 import LocationAndSearch2 from "../../components/Card/LocationAndSearch2/LocationAndSearch2";
 import Banner from "../../components/Banners/Banner";
@@ -17,9 +17,11 @@ import MainCategories from "../../components/MainCat/MainCategories";
 import BillsAndBooking from "../../components/BillsAndBookings/BillsAndBooking";
 import MainCategoriesArray from "./MainCategories";
 import BillsAndBookingArray from "./BillsAndBookingsArray";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [showSubCat, setShowSub] = useState(false);
+  const navigate = useNavigate()
   return (
     <div className="homePage">
       {showSubCat && <Subcategories setShowSub={setShowSub} />}
@@ -48,7 +50,7 @@ const Home = () => {
         <div className="section11">
           <div className="mainLogoCont">
             <div className="mainLogo1"></div>
-            <img className="mainLogo" src={logo} alt="" srcset="" />
+            <img className="mainLogo" onClick={()=>navigate('/blogs')} src={logo} alt="" srcset="" />
             <div className="mainLogo3"> </div>
           </div>
           <div className="HomePageSrch">
@@ -111,7 +113,7 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-        {/* <Footer /> */}
+
       </div>
     </div>
   );

@@ -27,7 +27,6 @@ import {
   searchUserByemail,
 } from "../Controllers/AdminControllor.js";
 import { UserCredentialValidator } from "../Validators/UserCredentialValidator.js";
-import increaseRegistrationCountMiddleware from "../Middleware/IncreaseregistrationCount.js";
 
 const AdminRoute = express.Router();
 
@@ -47,7 +46,7 @@ AdminRoute.get("/Usersearch", FilterUserSearch);
 AdminRoute.get("/Shopsearch", FilterShopSearch);
 AdminRoute.get("/Paymentsearch", FilterPaymentSearch);
 // AdminRoute.get("/Querysearch", FilterQuerySearch);
-AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount,increaseRegistrationCountMiddleware);
+AdminRoute.post("/createNewAdmin", UserCredentialValidator,CreateAdminAccount);
 AdminRoute.get("/getAllQueries", GetAllAdminQueris);
 AdminRoute.post("/getQuerieByID", GetQueryByID);
 AdminRoute.get("/getMembershipCount", getMembershipCounts);

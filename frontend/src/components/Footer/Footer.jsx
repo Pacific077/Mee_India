@@ -24,57 +24,57 @@ const Footer = () => {
               maxime. Eum iusto animi dolorum odit perferendis.
             </p>
           </div>
-          <di className="footerbrnds">
+          <div className="footerbrnds">
             <BiLogoFacebookSquare className="ftrbrnds" />
             <BiLogoLinkedinSquare className="ftrbrnds" />
             <BsInstagram className="ftrbrnd" />
             <FaXTwitter className="ftrbrnd" />
-          </di>
+          </div>
         </div>
-        <div className="foot2">
+        <div className="footerSecondContentDiv">
+        <div className="footerColumn">
           <p className="footehead">MeeIndia</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/aboutus')}}>About Us</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Advertise or Media</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Highlights</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/enquire-now')}}>Enquire Now</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/quicklinks')}}>Quick Links</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/reportbug')}}>Report a bug</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/whats-new')}}>What's new</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/we-are-hiring')}}>We are hiring</p>
+          <p  className='footerSubHead'  style = { { cursor:"pointer"}} onClick={()=>{navigate('/aboutus')}}>About Us</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Advertise or Media</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('')}}>Highlights</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/enquire-now')}}>Enquire Now</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/quicklinks')}}>Quick Links</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/reportbug')}}>Report a bug</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/whats-new')}}>What's new</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/we-are-hiring')}}>We are hiring</p>
           {/* <p>We are Hiring</p> */}
-
-
         </div>
-        <div className="foot3">
-          <p className="footehead">LEGAL</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/terms-and-services')}}>Terms and Services</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/privacy-policies')}}>Privacy Policies</p>
+        <div className="footerColumn">
+          <p className="footehead">Legal</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/terms-and-services')}}>Terms and Services</p>
+          <p className='footerSubHead' style = { { cursor:"pointer"}} onClick={()=>{navigate('/privacy-policies')}}>Privacy Policies</p>
           {/* <p>Return & Refund Policy</p> */}
           <div className="appIconBox">
           <img className="storeIcon" src={googlePlaystore} alt="Google Play Store" />
-            <div>
+            <div className="storeIconText">
               <div className="smallText">GET IT ON</div>
               <div className="largeText">Google Play</div>
             </div>
           </div>
           <div className="appIconBox">
-          <img className="storeIcon" src={appleStore} alt="Google Play Store" />
-            <div>
+          <img className="storeIcon" src={appleStore} alt="Apple Store" />
+            <div className="storeIconText">
               <div className="smallText">GET IT ON</div>
               <div className="largeText">Apple Store</div>
             </div>
           </div>
         </div>
-        <div className="foot4">
-          <p className="footehead">CONTACT</p>
-          <p style = { { cursor:"pointer"}} onClick={()=>{navigate('/customer-care')}}>Customer Care</p>
-          <p>+91 9987420994</p>
-          <p>
+        <div className="footerColumn">
+          <p className="footehead">Contact</p>
+          <p  className='footerSubHead'style = { { cursor:"pointer"}} onClick={()=>{navigate('/customer-care')}}>Customer Care</p>
+          <p className='footerSubHead'>+91 9987420994</p>
+          <p className='footerSubHead'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
             deleniti.
           </p>
         </div>
       </div>
+        </div>
       <div className="lastline">
         <p>
           © 2024. All rights reserved.
@@ -82,6 +82,7 @@ const Footer = () => {
           India
         </p>
       </div>
+        
     </div>
   );
 };

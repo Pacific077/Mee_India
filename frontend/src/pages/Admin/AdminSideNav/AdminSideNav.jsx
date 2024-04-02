@@ -28,6 +28,8 @@ const AdminSideNav = () => {
         <p onClick={()=> navigate("/admin/queries")}>All Queries</p>
         <p onClick={()=> navigate("/admin/createNewAdmin")}>Create Admin</p>
         <p onClick={()=> navigate("/admin/listBusinessByAdmin")}>List a Business</p>
+        <p onClick={()=> navigate("/admin/createBlog")}>Create Blog</p>
+        <p onClick={()=> navigate("/admin/blogList")}>Blog List</p>
       </div>
     </div>
   )

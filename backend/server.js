@@ -7,10 +7,12 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import BussinessRoute from "./Routes/BussinessRoute.js";
 import AdminRoute from "./Routes/AdminRoutes.js";
-import  Razorpay  from "razorpay"
+import Razorpay from "razorpay";
 import PaymentRoutes from "./Routes/PaymentRoutes.js";
-
-
+import BlogRoutes from "./Routes/BlogRoutes.js";
+import cron from "node-cron";
+import User from "./Models/UserModel.js";
+import Bussiness from "./Models/BussinessModel.js";
 
 // import path from 'path'
 // import { dirname } from 'path';
@@ -39,9 +41,52 @@ app.use(cors(corsOptions));
 
 //routes
 app.use("/api/v1/user", UserRoute);
-app.use("/api/v1/bussiness",BussinessRoute);
-app.use("/api/v1/admin",AdminRoute);
-app.use("/api/v1/payments",PaymentRoutes);
+app.use("/api/v1/bussiness", BussinessRoute);
+app.use("/api/v1/admin", AdminRoute);
+app.use("/api/v1/payments", PaymentRoutes);
+app.use("/api/v1/blogs", BlogRoutes);
+
+//corns
+//for updating user membership 
+//runs everyday at midnight
+cron.schedule("0 0 * * * ", async () => {
+  try {
+    const today = new Date();
+    const updateObject = {
+      Membership: "Free List",
+      SearchVisibility: 0,
+      verifiedSeal: false,
+      trustStamp: false,
+      isKeywordSearchEnable: false,
+    };
+    const filter = { membershipExpiryDate: { $lte: today } };
+    const result = await User.updateMany(filter, updateObject);    
+    console.log(`${result.modifiedCount} documents updated.`);
+    console.log("Membership updated successfully for expired users.");
+  } catch (error) {
+    console.error("Error occurred while updating membership:", error);
+  }
+});
+//updating keywords
+cron.schedule("0 0 * * *", async () => {
+  try {
+    const today = new Date();
+    const filter = { membershipExpiryDate: { $lte: today } };
+    const usersToUpdate = await User.find(filter);
+    for (const user of usersToUpdate) {
+      await Bussiness.updateMany(
+        { owner: user._id },
+        { $set: { keywords: [] } }
+      );
+    }
+
+    console.log("Keywords array emptied");
+  } catch (error) {
+    console.error("Error occurred while emptying keywords array:", error);
+  }
+});
+
+
 //deploymemt
 //-------------------------------------------------------------------------
 // const __dirname = dirname(fileURLToPath(import.meta.url));

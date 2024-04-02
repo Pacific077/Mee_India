@@ -61,6 +61,7 @@
     height: 70%;
     width: 24%;
     border-radius: 100%;
+    border: 2px solid var(--primary);
 }
 /* @keyframes sidenavanim{
     from{

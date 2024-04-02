@@ -171,6 +171,8 @@ const LoginUser = async (req, res) => {
       httpOnly: false, //setting false se that i can acees cookie from frontend
       maxAge: 24 * 60 * 60 * 1000,
     });
+    
+    
     //send the response
     res.status(200).json({
       status: "Success",

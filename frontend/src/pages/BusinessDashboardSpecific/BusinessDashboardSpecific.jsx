@@ -55,12 +55,13 @@ const BusinessDashboardSpecific = () => {
                 col={ele.color}
                 Icon={ele.icon}
                 loc={ele.locate}
+                member={ele.membership}
               />
             );
           })}
         </div>
       </div>
-      <CompleteBusinessDetails />
+      {/* <CompleteBusinessDetails /> */}
     </div>
   );
 };

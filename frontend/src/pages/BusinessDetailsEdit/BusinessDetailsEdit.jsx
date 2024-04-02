@@ -9,6 +9,7 @@ import Offers from './Offers/Offers'
 import Services from './Services/ServiceAdd'
 import ManageReviews from './ManageReviews/ManageReviews'
 import ViewEnquiries from './ViewEnquiries/ViewEnquiries'
+import AddKeywords from './AddKeyWords/AddKeywords'
 
 const BusinessDetailsEdit = () => {
   const {edit} = useParams()
@@ -20,6 +21,7 @@ const BusinessDetailsEdit = () => {
   const [addService,setAddService] = useState(false)
   const [Reviews,setReviews] = useState(false)
   const [Enquiries,setEnquiries] = useState(false)
+  const [addKeywords,setaddKeywords] = useState(false)
 
   useEffect(()=>{  
     if(edit==='editName'){
@@ -41,6 +43,8 @@ const BusinessDetailsEdit = () => {
     }
     else if(edit==="enquiry"){
       setEnquiries(true)
+    }else if(edit==="addKeywords"){
+      setaddKeywords(true);
     }
   },[])
   return (
@@ -54,6 +58,7 @@ const BusinessDetailsEdit = () => {
             {addService&&<Services/>}            
             {Reviews &&<ManageReviews/>}        
             {Enquiries &&<ViewEnquiries/>}
+            {addKeywords&&<AddKeywords/>}
         </div>
     </div>
   )

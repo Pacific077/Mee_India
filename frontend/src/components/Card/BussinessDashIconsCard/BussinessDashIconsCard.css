@@ -1,6 +1,7 @@
 .BussinessDashIconsCard{
     height: 15vh;
     width: 12vh;
+
     /* border: 1px solid black; */
 }
 .BusinessDashIconCont{
@@ -11,6 +12,8 @@
     justify-content: center;
     align-items: center;
     font-size: xx-large;
+    position: relative;
+    overflow: hidden;
 
 }
 .BusinessDashIconCont:hover{
@@ -21,4 +24,15 @@
     margin: auto;
     margin-top: 1vh;
     
+}
+.bussinessIconMemTag{
+    position: absolute;
+    background-color: rebeccapurple;
+    color: white;
+    transform: rotate(-35deg);
+    top: 0;
+    width: 12vh;
+    text-align: center;
+    font-size: small;
+    left: -2.5vh;
 }

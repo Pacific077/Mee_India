@@ -23,6 +23,7 @@ const AdminSchema = mongoose.Schema(
     totalBusinessCount:{
       type:Number
     },
+    featuredBlogs:[{type: mongoose.Schema.Types.ObjectId, ref: "Blog" }],
     enquiry: [{ type: mongoose.Schema.Types.ObjectId, ref: "Enquiry" }],
   },
   { timestamps: true }

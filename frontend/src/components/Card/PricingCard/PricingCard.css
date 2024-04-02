@@ -6,6 +6,9 @@
 }
 .PricingCardDetails{
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 .pricingCardHead{
     height: 18%;
@@ -26,11 +29,11 @@
     justify-content: center;
     width: 90%;
     margin: auto;
-    height: 27%;
+    height: 18vh;
     border: 1px solid var(--grayShade);
-    position: absolute;
+    /* position: absolute;
     bottom:10px;
-    left: 12px;
+    left: 12px; */
 }
 .PurchaseBtn{
     border: none;
@@ -58,7 +61,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:3vh;
+    gap:2vh;
 }
 .pricingdescpoints p{
     margin: 0;

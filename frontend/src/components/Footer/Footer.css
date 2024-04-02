@@ -4,17 +4,20 @@
     color: white;
     padding:2%;
     font-weight:500 ;
-    width: 21vh;
+    width: 77%;
     border-radius: 6px;
     margin-bottom: 4px;
+    align-items: center;
 }
 .footerbrnds{
     margin-top: 4vh;
     display: flex;
     gap:3vh;
+    align-items: center;
+    padding: 1% 0%;
 }
 .footerdesc{
-    width: 60%;
+    width: 100%;
     letter-spacing: 1px;
     line-height: 1.5em;
 }
@@ -22,7 +25,9 @@
 .footersec{
     padding-top: 4vh;
     margin-top: 20vh;
-    height: 40vh;
+    padding-left: 20vh;
+    padding-right: 20vh;
+    /* height: 54vh; */
     display: flex;
     justify-content: space-evenly;
     font-family:var(--fontsecondary);
@@ -34,9 +39,10 @@
     width: 43%;
 }
 .foot1{
-    width: 40%;
+    width: 48%;
     display: flex;
     flex-direction: column;
+    padding-left: 1% ;
     
 }
 .ftrbrnds{
@@ -47,50 +53,165 @@
     margin-bottom: 2px;
 }
 
-.foot2{
-    width: 15%;
+.footerSecondContentDiv{
+    display: flex;
+    justify-content: space-evenly;
+}
+.footerColumn{
+    width: 26%;
     /* padding:5% */
 }
-.foot3{
+/* .footerColumn{
     width: 18%;
 }
 .foot4{
     width: 22%;
-}
+} */
 .footehead{
     font-family: var(--fontsecondary);
     font-weight: 600;
     font-size: 18px;
 }
 .storeIcon{
-    height: 4.5vh;
-    width: 4.5vh;
+    height: 20%;;
+    width: 20%;
 }
 .lastline{
 
     display: flex;
     justify-content: center;
-    margin-bottom: 5vh;
+    margin: 5vh 0vh;
 }
 .smallText{
     font-size: 1.5vh;
 }
-@media screen and (max-width: 1502px) {
+
+@media screen and (max-width: 1100px) {
+.footersec{
+    padding-left:0vh ;
+    padding-right: 0vh;
+}
+}
+@media screen and ( min-width:500px) and  (max-width: 970px) {
     .footerbrnds {
         margin-top: 0;
         
     }
+    .footerSubHead{
+        font-size: 2vh;
+        font-weight: 500;
+    }
+    .footerdesc {
+
+        width: 100%;
+        letter-spacing: 1px;
+        /* line-height: 1.5em; */
+        font-size: 2vh;
+    }
+    .footerlogo{
+        height: 16vh;
+        width: 59%;
+    }
+    .largeText{
+        font-size: 2vh;
+        width: 100%;
+    }
+    .smallText{
+        font-size: 1.3vh;
+        width: 100%;
+    }
+    .lastline{
+
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin: 5vh 0vh;
+    }
+    
+
   }
-@media screen and (max-width: 769px) {
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
     .footerdesc {
         width: 99%;
+        font-size: 7px;
+        font-size: 1vh;
     }
     .footersec{
         font-size: small;
 
     }
-    .foot2,.foot3,.foot4{
+    /* .foot2,.foot3,.foot4{
         height: fit-content;
         margin: auto;
+    } */
+    .storeIcon{
+        height: 10%;
+        width: 23%;
+    }
+    .appIconBox{
+        display: flex;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: black;
+        color: white;
+        padding:2%;
+        font-weight:500 ;
+        width: 93%;
+        border-radius: 3px;
+        margin-bottom: 4px;
+        align-items: center;
+    }
+    .smallText{
+        font-size: 4px;
+        width: 100%;
+    }
+    .ftrbrnd {
+        font-size: 3vh;
+        margin-bottom: 2px;
+    }
+    .ftrbrnds {
+        font-size: 3.7vh;
+        margin-bottom: 2px;
+    }
+    .footerlogo{
+        height: 27%;
+        width: 43%;
+    }
+    .largeText{
+        font-size: 5px;
+        width: 100%;
+    }
+    .footehead{
+        font-family: var(--fontsecondary);
+        font-weight: 600;
+        font-size: 8px;
+    }
+    .footerSubHead{
+        font-size: 6px;
+        font-weight: 500;
+    }
+
+    .storeIconText{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .lastline{
+
+        display: flex;
+        justify-content: center;
+        font-size: 10px;
+        margin: 3vh 0vh;
     }
   }

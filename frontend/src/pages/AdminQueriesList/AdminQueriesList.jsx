@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 const AdminQueriesList = () => {
   const [QueryListArr, setQueryList] = useState([]);
   const [isFilterVis, setFilterVis] = useState(false);
-  const [email,setEmail] = useState("")
+  const [email, setEmail] = useState("");
 
   const handleSubmit = async () => {
     //add precentage for query with spaces
@@ -66,11 +66,11 @@ const AdminQueriesList = () => {
           <input
             type="text"
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className="AlluserListSearchBar"
             placeholder="Search by email"
           />
-          <IoMdSearch className="searchIcon" onClick={handleSubmit}/>
+          <IoMdSearch className="searchIcon" onClick={handleSubmit} />
         </div>
       </div>
       <div className="userlistCont">
@@ -80,7 +80,7 @@ const AdminQueriesList = () => {
           <p>Query Date</p>
           <p>Question Asked</p>
         </div>
-        {QueryListArr&&QueryListArr.length > 0
+        {QueryListArr && QueryListArr.length > 0
           ? QueryListArr.map((ele, index) => {
               return (
                 <AdminQueryListCard
@@ -89,7 +89,7 @@ const AdminQueriesList = () => {
                   name={ele.SenderId.name}
                   email={ele.SenderId.email}
                   qdate={ExtractDate(ele.createdAt)}
-                  qasked={ele.question.substring(0,10)+"...read more"}
+                  qasked={ele.question.substring(0, 10) + "...read more"}
                 />
               );
             })

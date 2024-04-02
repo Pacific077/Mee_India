@@ -1,0 +1,75 @@
+.GlobalSendQueryForm{
+    border: 1px solid red;
+    height: 30vh;
+    width: 0;
+    padding: 1vh;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 35%;
+    margin: 1vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 3vh;
+    background-color: var(--primary);
+    transition: 0.3s ease;
+    margin-right: -8vh;
+}
+.getbstDealbtn{
+    background-color: var(--tertiary);
+    color: var(--primary);
+    height: 5vh;
+    width: 90%;
+    font-size: large;
+    border: none;
+    border-radius: 8px;
+}
+.GlobalSendQueryForm input{
+    height: 4vh;
+    width: 90%;
+}
+.GetBestdealHead{
+    margin: 0%;
+    margin-top: 1vh;
+    font-size: x-large;
+}
+.GetBestdealHead span{
+    color: var(--tertiary);
+}
+.GetBestDealsTag{
+    position: absolute;
+    /* border: 2px solid black; */
+    background-color: var(--tertiary);
+    color: white;
+    height: 4vh;
+    width: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -20vh;
+}
+.GetBestDealsTag:hover{
+    cursor: pointer;
+
+}
+.showGlobalform{
+    margin-right: 1vh;
+    width: 35vh;
+}
+.HideGlobalFormbtn{
+    position: absolute;
+    background-color: var(--tertiary);
+    color: white;
+    height: 4vh;
+    width: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -4vh;
+}
+.HideGlobalFormbtn:hover{
+    cursor: pointer;
+}

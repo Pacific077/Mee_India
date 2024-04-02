@@ -197,46 +197,7 @@ const FindBussinessByText = async (req, res) => {
       error:error.message
     })
   }
-  // try {
-  //   const { district, text, latitude, longitude } = req.body;
 
-  //   // Check if required parameters are provided
-  //   if (!district || !latitude || !longitude || text === "") {
-  //     return res
-  //       .status(400)
-  //       .json({ message: "Required parameters are missing" });
-  //   }
-
-  //   console.log(district, longitude, latitude, text);
-
-  //   // Perform the proximity query
-  //   const baseQuery = {
-  //     mainCategory: { $regex: text, $options: "i" },
-  //     district: district,
-  //     location: {
-  //       $near: {
-  //         $geometry: {
-  //           type: "Point",
-  //           coordinates: [longitude, latitude],
-  //         },
-  //         $maxDistance: 20000,
-  //       },
-  //     },
-  //   };
-
-  //   // If subCat is provided, add subCategory condition to the base query
-  //   // if (subCat) {
-  //   //   baseQuery.subCategory = { $in: [subCat] };
-  //   // }
-  //   // console.log(baseQuery);
-  //   // Perform the proximity query
-  //   const nearbyBusinesses = await Bussiness.find(baseQuery).exec();
-
-  //   res.status(200).json({ businesses: nearbyBusinesses });
-  // } catch (error) {
-  //   console.error("Error finding nearby businesses:", error);
-  //   res.status(500).json({ message: "Internal server error" });
-  // }
 };
 
 const findByID = async (req, res) => {
@@ -268,7 +229,10 @@ const findByID = async (req, res) => {
         path: "enquiry",
         select: "name date question email contact", // Select the fields you want to populate
         options: { strictPopulate: false },
-      });
+      }).populate({
+        path: "owner"
+      })
+      ;
     // Sort the enquiry array by date in descending order
     // requiredBusiness.enquiry.sort((a, b) => b.date - a.date);
     //   console.log(requiredBusiness);
@@ -440,6 +404,68 @@ const GetAllBusinessReview = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+const Addkeywords = async (req, res) => {
+  try {
+    const { id, keyword } = req.body;
+    const business = await Bussiness.findById(id);
+
+    if (!business) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+    if (business.keywords.includes(keyword)) {
+      return res.status(400).json({ message: "Keyword already exists" });
+    }
+    if (business.keywords.length>=10) {
+      return res.status(400).json({ message: "Cant add more than 10 keywords" });
+    }
+    business.keywords.push(keyword);
+    await business.save();
+
+    return res.status(200).json({ message: "Keyword added successfully", business });
+  } catch (error) {
+    console.error("Error adding keyword:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const GetAllKeywords = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const business = await Bussiness.findById(id);
+
+    if (!business) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+    const allKeywords = business.keywords;
+
+    return res.status(200).json({ keywords: allKeywords });
+  } catch (error) {
+    console.error("Error fetching keywords:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const DeleteKeywordWithString = async (req, res) => {
+  try {
+    const { id, string } = req.body;
+    // console.log("req.body")
+    // console.log("id ke",id,string)
+    const business = await Bussiness.findById(id);
+
+    if (!business) {
+      return res.status(404).json({ message: "Business not found" });
+    }
+    business.keywords = business.keywords.filter(keyword => keyword !== string);
+    await business.save();
+
+    return res.status(200).json({ message: "Keyword deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting keyword:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export {
   FreeList,
   FindBussiness,
@@ -449,4 +475,8 @@ export {
   FindBussinessByText,
   enquirySubmit,
   GetAllBusinessReview,
+  Addkeywords,
+  GetAllKeywords,
+  DeleteKeywordWithString
+
 };

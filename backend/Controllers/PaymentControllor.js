@@ -53,21 +53,28 @@ const PaymentVerfication =async (req,res)=>{
     let baseAmnt;
     let VerifiedSeal = false;
     let trustStamp = false;
+    let SearchVisibility = 1;
+    let isKeywordSearchEnable = false;
     if (membership === "Free List") {
       baseAmnt=0
     } else if (membership === "Shop List") {
       baseAmnt=30
       VerifiedSeal=true;
+      SearchVisibility=1;
     } else if (membership === "Standard") {
       VerifiedSeal=true;
       baseAmnt=600
+      SearchVisibility=2;
     } else if (membership === "Premium") {
       VerifiedSeal=true;
       baseAmnt=1500
+      SearchVisibility=3;
     } else {
       trustStamp=true;
       VerifiedSeal=true;
       baseAmnt=3000
+      SearchVisibility=4;
+      isKeywordSearchEnable=true;
     }
     const totalAmount = (baseAmnt*months)-(baseAmnt * months * (discount / 100))
     const payment =await Payment.create({
@@ -93,6 +100,8 @@ const PaymentVerfication =async (req,res)=>{
     user.membershipExpiryDate = newDate
     user.verifiedSeal = VerifiedSeal
     user.trustStamp = trustStamp;
+    user.SearchVisibility= SearchVisibility;
+    user.isKeywordSearchEnable = isKeywordSearchEnable;
     
     await user.save();
     // console.log("payment and user",payment)
