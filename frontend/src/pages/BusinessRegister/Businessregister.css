@@ -4,6 +4,7 @@ p{
 
 .BusinessregisterLeft {
     width: 25%;
+    height: 100vh;
     overflow: hidden;
     border-right: 1px solid black;
     display: flex;
@@ -14,9 +15,9 @@ p{
     position: absolute;
     background-color: rgba(245, 245, 245, 0.67);
     width: 25%;
-    height: 87%;
+    height:100%;
     left: 0px;
-    z-index: 10;
+    z-index: 1;
     box-sizing: border-box;
     font-family: Cabin;
     font-size: 4vh;
@@ -37,7 +38,7 @@ p{
 
 .formContainer{
     width: 80%;
-    min-height: 100%;
+    min-height: fit-content;
     border-radius: 10px;
     background-color: white;
     box-sizing: border-box;
@@ -52,7 +53,7 @@ p{
 
 
 .BusinessRegisterPage {
-    height: 87vh;
+    height: fit-content;
     display: flex;
 }
 @media screen and (max-width: 1025px) {

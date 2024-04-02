@@ -38,8 +38,8 @@ const SendQueryToAdmin = async (req, res) => {
   const session = await startSession();
   session.startTransaction();
   try {
-    const { question, UserId } = req.body; ///
-    const newEnquiry = await Enquiry.create([{ question, SenderId: UserId }], {
+    const { question, UserId, contact } = req.body; ///
+    const newEnquiry = await Enquiry.create([{ question, SenderId: UserId, contact }], {
       session,
     });
     const admin = await Admin.findOne().session(session);
@@ -49,7 +49,7 @@ const SendQueryToAdmin = async (req, res) => {
 
     await session.commitTransaction();
     session.endSession();
-    res.status(200).json({ message: "qnquiry sent to admin successfully" });
+    res.status(200).json({ message: "enquiry sent to admin successfully" });
   } catch (error) {
     await session.abortTransaction();
     session.endSession();

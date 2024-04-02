@@ -71,7 +71,7 @@ const App = () => {
           <AdminSideNav />
         </ShowAdminSideNav>
         <HelpAndSupport />
-        <GlobalSendQueryForm/>
+        {/* <GlobalSendQueryForm/> */}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />

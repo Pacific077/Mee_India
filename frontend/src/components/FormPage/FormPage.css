@@ -49,7 +49,13 @@
     justify-content: flex-start;
     gap: 10%;
 }
-
+.setCoordinateBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: baseline;
+}
 .btn{
     display: block;
     height: 5vh;

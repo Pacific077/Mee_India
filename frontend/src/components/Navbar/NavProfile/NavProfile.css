@@ -3,7 +3,7 @@
   overflow: hidden;
   position: absolute;
   top: 50px;
-  right: -50px;
+  right: -20px;
   background-color: var(--primary);
   min-width: 160px;
   border-radius: 10px;

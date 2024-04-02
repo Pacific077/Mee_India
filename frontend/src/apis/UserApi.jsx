@@ -65,12 +65,13 @@ export const ProfileApi = async () => {
     return response;
   };
 
-  export const SendQueryToAdmin = async ({question,UserId}) => {
+  export const SendQueryToAdmin = async ({question,UserId,contact}) => {
     const response = await axios.post(
       "/api/v1/user/sendqueryAdmin",
       {
         question,
-        UserId
+        UserId,
+        contact
       },
       {
         withCredentials: true,

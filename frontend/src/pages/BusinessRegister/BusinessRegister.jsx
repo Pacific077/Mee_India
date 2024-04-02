@@ -19,6 +19,8 @@ const BusinessRegister = () => {
   const [district, setDistrict] = useState("");
   const [state, setState] = useState("");
   const [pinCode, setPinCode] = useState("");
+  const [longitude,setLongitude] = useState('')
+  const [latitude,setLatitude] = useState('')
   const [bussinessContact, setBussinessContact] = useState("");
   const [bussinessAltContact, setBussinessAltContact] = useState("");
   const [bussinessMail, setBussinessMail] = useState("");
@@ -60,8 +62,8 @@ const BusinessRegister = () => {
         pinCode,
         bio,
         imagelinkArr,
-        latitude:	23.6544338,
-        longitude:86.1456444
+        latitude,
+        longitude
       });
       if(resp.status==200){
         navigate("/userdashboard")
@@ -95,6 +97,10 @@ const BusinessRegister = () => {
               setAddress={setAddress}
               district={district}
               setDistrict={setDistrict}
+              longitude={longitude}
+              setLongitude={setLongitude}
+              latitude={latitude}
+              setLatitude={setLatitude}
               state={state}
               setState={setState}
               pinCode={pinCode}

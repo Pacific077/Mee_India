@@ -7,11 +7,15 @@ import axios from "axios";
 
 import { SearchOnClickApi, SearchOnTypeApi } from "../../apis/BusinessApi.js";
 import { toast } from "react-toastify";
+import GlobalSendQueryForm from "../../components/GlobalSendQueryForm/GlobalSendQueryForm.jsx";
 import isEmpty from "../../utils/IsEmpty.jsx";
+import UserContext from "../../context/UserInfo/UserContext.jsx";
 
 
 const BussinessList = () => {
   const { mainCategory, district, subCat } = useParams();
+  const userCon = useContext(UserContext) 
+  const {user} = userCon
   const CatCon = useContext(CatContext);
   const { latitude, longitude } = CatCon;
 
@@ -66,7 +70,7 @@ const BussinessList = () => {
 
   return (
     <div className="ListPageContainer">
-      
+      {user&&<GlobalSendQueryForm user={user} subCat={subCat} mainCategory={mainCategory} district={district}/>}
       <div>
         <h1 className="ListPageHeading">
           Top {subCat !== "null" ? subCat : ""} {searchQuery?searchQuery.toString():mainCategory} in {district}{" "}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import "./Navbar.css";
@@ -8,10 +8,12 @@ import { GiCrossedBones } from "react-icons/gi";
 // import { ProfileApi } from "../../apis/UserApi";
 import { toast } from "react-toastify";
 import NavProfile from "./NavProfile/NavProfile";
+import UserContext from "../../context/UserInfo/UserContext";
 const Navbar = () => {
   
   // const [user,setUser] = useState(false);
-  const [IsSideNavVis,setIsSideNavVis] = useState(false);
+  // const [IsSideNavVis,setIsSideNavVis] = useState(false);
+  const {user} = useContext(UserContext)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -26,9 +28,9 @@ const Navbar = () => {
   const HandleLoginclick = () => {
     navigate("/login");
   };
-  const handelSideNavDisplay =()=>{
-    setIsSideNavVis(!IsSideNavVis);
-  }
+  // const handelSideNavDisplay =()=>{
+  //   setIsSideNavVis(!IsSideNavVis);
+  // }
 
   const handleFreeListingClick =()=>{
     if(isLoggedIn)
@@ -48,11 +50,13 @@ const Navbar = () => {
           <p className="hamburgerline3"></p>
           
         </div> */}
-        </div>:<GiCrossedBones className="crossnavbarham" onClick={()=>setIsSideNavVis(!IsSideNavVis)} />}
+        {/* </div>:<GiCrossedBones className="crossnavbarham" onClick={()=>setIsSideNavVis(!IsSideNavVis)} />} */}
         
         <div className="navItems">
-          <p className="Navitem">English</p>
+          {/* <p className="Navitem">English</p> */}
           <p className="Navitem" onClick={()=>navigate('/')}>Home</p>
+          <p className="Navitem" onClick={()=>navigate('/pricing-details')}>Upgrade</p>
+          {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/userdashboard')}>My Businesses</p>}
           <p className="Navitem" onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}

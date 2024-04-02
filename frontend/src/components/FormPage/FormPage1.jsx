@@ -4,7 +4,8 @@ import Breaker from './Breaker/Breaker';
 import list from './states-and-districts.json';
 import { toast } from "react-toastify";
 import TextField from '@mui/material/TextField';
-import { MenuItem } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
+import axios from 'axios';
 const FormPage1 = ({
   title,
   setTitle,
@@ -12,6 +13,10 @@ const FormPage1 = ({
   setAddress,
   district,
   setDistrict,
+  longitude,
+  setLongitude,
+  latitude,
+  setLatitude,
   state,
   setState,
   pinCode,
@@ -43,8 +48,25 @@ const FormPage1 = ({
   const handlePinCodeChange = (event) => {
     setPinCode(event.target.value);
   };
+
+  const setCoordinates = async()=>{
+    if(!district){
+      toast.warning("Please select a District!")
+    }
+    try {
+      const resp = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${district},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
+      setDistrict(resp.data[0].name)
+      setLatitude(resp.data[0].lat)
+      setLongitude(resp.data[0].lon)
+      console.log(resp.data[0])
+    } catch (error) {
+      console.log(error)
+      toast.error("Something went wrong!")
+    }
+  }
+
   const handleNextClick = ()=>{
-    if(title===''||pinCode===''||address===''||state===''||district===''){
+    if(title===''||pinCode===''||address===''||state===''||district===''||longitude===''||latitude===''){
       toast.warning("All fields compulsary")
     }else{
       console.log(title,pinCode,address,state,district) 
@@ -122,7 +144,7 @@ const FormPage1 = ({
             id="outlined-select-currency"
             select
             label="District"
-            defaultValue=""
+            // defaultValue=""
             helperText="Please select your District"
             onChange={handleDistChange}
             value={district}
@@ -136,6 +158,11 @@ const FormPage1 = ({
             ))}
           </TextField>
         </div>
+        <Button variant="contained" className='setCoordinateBtn' onClick={setCoordinates}>
+          <span>Set Coordinates</span>
+          <span style={{fontSize:"10px"}}>Latitude: {latitude}</span>
+          <span style={{fontSize:"10px"}}>Longitude: {longitude}</span>
+        </Button>
       </div>
       <TextField
           required

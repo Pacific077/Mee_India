@@ -4,7 +4,7 @@ import { ProfileApi } from '../../apis/UserApi';
 import Cookies from 'js-cookie';
 
 const UserInfoProvider = ({children}) => {
-  const [user,setUser] = useState("faisal");
+  const [user,setUser] = useState("");
   const [isAdmin,setIsAdmin] = useState(false);
   // console.log("hi")
   const token = Cookies.get('token');

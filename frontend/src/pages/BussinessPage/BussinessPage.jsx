@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./BussinessPage.css";
 import { useParams } from "react-router-dom";
 import BussinessRating from "../../components/Card/BussinessListCard/BussinessRating/BussinessRating";
@@ -6,7 +6,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import BussinessContact from "../../components/Card/BussinessListCard/BussinessContact/BussinessContact";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+import UserContext from '../../context/UserInfo/UserContext'
 import Timing from "./Timing/Timing";
 import { FaSquare } from "react-icons/fa";
 import Review from "./Review/Review";
@@ -25,17 +25,18 @@ import Verified from './Verified/Verified';
 const BussinessPage = () => {
   const { bussinessId } = useParams();
 
-  const [wait, setWait] = useState(true);
+  // const [wait, setWait] = useState(true);
+  const {user, setUser} = useContext(UserContext);
 
-  const [currBusiness, setCurrBusiness] = useState({});
+  const [currBusiness, setCurrBusiness] = useState(false);
   //use this fetch the bussiness Detail in future.
-  const [user, setUser] = useState(false);
-  const [ratedBusinesses, setRatedBusinesses] = useState([]);
+  // const [user, setUser] = useState(false);
+  // const [ratedBusinesses, setRatedBusinesses] = useState([]);
 
   const [rating, setRating] = useState(0);
   const [reviewMsg, setReviewMsg] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [enquiry, setEnquiry] = useState("");
   const [contact, setContact] = useState("");
@@ -48,7 +49,7 @@ const BussinessPage = () => {
       if (resp.status === 200) {
         setCurrBusiness(resp.data.businessDetail);
         setMembership(resp.data.businessDetail.owner.Membership);
-        setWait(false);
+        // setWait(false);
       }
     } catch (error) {
       console.log(error);
@@ -58,27 +59,27 @@ const BussinessPage = () => {
 
   const fetchUserByID = async () => {
     try {
-      setWait(false);
-      const userProfileFromLocalStorage = localStorage.getItem("userProfile");
-      if (userProfileFromLocalStorage) {
-        const userData = JSON.parse(userProfileFromLocalStorage);
-        setUser(userData);
-        setRatedBusinesses(userData.ratedBussinesses);
-        setWait(true);
-        if (!isLoggedIn) setIsLoggedIn(true);
-      } else {
+      // setWait(false);
+      // const userProfileFromLocalStorage = localStorage.getItem("userProfile");
+      // if (userProfileFromLocalStorage) {
+      //   const userData = JSON.parse(userProfileFromLocalStorage);
+      //   setUser(userData);
+      //   setRatedBusinesses(userData.ratedBussinesses);
+      //   // setWait(true);
+      //   if (!isLoggedIn) setIsLoggedIn(true);
+      // } else {
         const resp = await ProfileApi();
         // console.log("there")
         // console.log("Resp",resp);
         if (resp.status === 200) {
           setUser(resp.data.user);
-          setRatedBusinesses(resp.data.user.ratedBussinesses);
-          setWait(false);
-          if (!isLoggedIn) setIsLoggedIn(true);
+          // setRatedBusinesses(resp.data.user.ratedBussinesses);
+          // setWait(false);
+          // if (!isLoggedIn) setIsLoggedIn(true);
         } else {
           toast.warning(resp.message);
         }
-      }
+      // }
     } catch (error) {
       console.log(error);
       toast.error("Something Went Wrong");
@@ -115,7 +116,7 @@ const BussinessPage = () => {
 
       if (resp.status === 200) {
         toast.success(resp.data.message);
-        localStorage.removeItem("userProfile");
+        // localStorage.removeItem("userProfile");
         fetchUserByID();
       }
     } catch (error) {
@@ -125,6 +126,10 @@ const BussinessPage = () => {
   };
 
   const handleEnquirySubmit = async () => {
+    if(!user){
+      toast.error("Login to Submit Enquiry!")
+      return;
+    }
     try {
       const resp = await EnquirySubmit({
         name: user.name,
@@ -136,8 +141,8 @@ const BussinessPage = () => {
 
       if (resp.status === 200) {
         toast.success(resp.data.message);
-        localStorage.removeItem("userProfile");
-        fetchUserByID();
+        // localStorage.removeItem("userProfile");
+        // fetchUserByID();
       }
     } catch (error) {
       console.log(error);
@@ -152,13 +157,14 @@ const BussinessPage = () => {
 
   useEffect(() => {
     fecthBusinessByID();
-    const token = Cookies.get("token");
-    if (token) fetchUserByID();
+    // const token = Cookies.get("token");
+    // if (token) fetchUserByID();
+    // console.log("userrr",user)
   }, []);
 
   return (
     <div>
-      {wait ? (
+      {!currBusiness ? (
         <h1>WAIT</h1>
       ) : (
         <div className="BusinesspecPage">
@@ -167,13 +173,13 @@ const BussinessPage = () => {
               <img
                 className="imageSectionimg"
                 style={{ width: "30%", height: "40vh" }}
-                src={currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages[0]}
+                src={currBusiness.buseinessImages[0]}
                 alt="businessPic"
               />
               <img
                 className="imageSectionimg"
                 style={{ width: "30%", height: "40vh" }}
-                src={currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages[1]}
+                src={currBusiness.buseinessImages[1]}
                 alt="businessPic"
               />
               <Carousel
@@ -184,7 +190,7 @@ const BussinessPage = () => {
                 interval={3000}
                 infiniteLoop={true}
               >
-                {currBusiness&&currBusiness.buseinessImages&&currBusiness.buseinessImages.map((pic, i) => (
+                {currBusiness.buseinessImages.map((pic, i) => (
                   <div key={i}>
                     <img src={pic} alt="businessPic" />
                   </div>
@@ -208,11 +214,11 @@ const BussinessPage = () => {
             <div className="bussinessPageTiming">
               <h2>Timings</h2>
               <div>
-                {currBusiness&&currBusiness.timingArr&&groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
+                {currBusiness.timingArr&&groupIntoPairs(currBusiness.timingArr).map((pair, index) => (
                   <h4 key={index}>{pair.join(" - ")}</h4>
                 ))}
               </div>
-              <Timing openDays={currBusiness.openDays&&currBusiness.openDays} />
+              <Timing openDays={currBusiness.openDays} />
               <h>
                 {" "}
                 represents Open days{" "}
@@ -244,7 +250,7 @@ const BussinessPage = () => {
           </div>
 
           <div className="bussinessPagesection2">
-            {currBusiness&&currBusiness.Services&&currBusiness.Services.length > 0 && (
+            {currBusiness.Services&&currBusiness.Services.length > 0 && (
               <div className="bussinessPageServices">
                 <h2>Services</h2>
                 <div className="ServiceListContainer">
@@ -268,12 +274,12 @@ const BussinessPage = () => {
           </div>
 
           <div className="bussinessPagesection2">
-            {(membership === "Pro"||membership==="Standard"||membership==="Premium") &&currBusiness&&
+            {(membership === "Pro"||membership==="Standard"||membership==="Premium")&&
               currBusiness.CatalougeImages.length > 0 && (
                 <div className="bussinessPageTiming">
                   <h2>Rate Cards</h2>
                   <div className="CataloguePicContainer">
-                    {currBusiness&&currBusiness.CatalougeImages.map((pic, index) => (
+                    {currBusiness.CatalougeImages.map((pic, index) => (
                       <div
                         className="CataloguePic"
                         onClick={(e) => openImageInNewTab(e, pic)}
@@ -335,22 +341,22 @@ const BussinessPage = () => {
             <h2>Reviews and Ratings</h2>
             <div className="reviewHead">
               <span>
-                {currBusiness&&currBusiness.ratingCount&&parseFloat(
+                {currBusiness.ratingCount&&parseFloat(
                   (
                     currBusiness.ratingCount / currBusiness.reviews.length
                   ).toFixed(1)
                 )}
               </span>
               <div>
-                <h3>{currBusiness&&currBusiness.reviews&&currBusiness.reviews.length} Reviews</h3>
+                <h3>{currBusiness.reviews&&currBusiness.reviews.length} Reviews</h3>
                 <p>
-                  Rating index based on {currBusiness&&currBusiness.reviews&&currBusiness.reviews.length} ratings
+                  Rating index based on {currBusiness.reviews&&currBusiness.reviews.length} ratings
                   across the web
                 </p>
               </div>
             </div>
-            {!isLoggedIn && <h3>Login to submit Review.</h3>}
-            {isLoggedIn && !ratedBusinesses.includes(currBusiness._id) && (
+            {!user && <h3>Login to submit Review.</h3>}
+            {user && !user.ratedBussinesses.includes(currBusiness._id) && (
               <ReviewForm
                 rating={rating}
                 setRating={setRating}
@@ -359,13 +365,13 @@ const BussinessPage = () => {
                 handleReviewFormSubmit={handleReviewFormSubmit}
               />
             )}
-            {isLoggedIn && ratedBusinesses.includes(currBusiness._id) && (
+            {user && user.ratedBussinesses.includes(currBusiness._id) && (
               <h3 className="alreadyreview">
                 You have already Reviewed this Business.
               </h3>
             )}
             <div className="reviewList">
-              {currBusiness&&currBusiness.reviews&&currBusiness.reviews.map((rev, ind) => (
+              {currBusiness.reviews&&currBusiness.reviews.map((rev, ind) => (
                 <Review
                   key={ind}
                   name={rev.userId.name}
