@@ -1,5 +1,5 @@
 .BillsAndBooking{
     margin-top: 4vh;
-    border: 1px solid var(--grayShade);
-    border-radius: 20px;
+    border: 1px solid lightgray;
+    border-radius: 2vh;
 }

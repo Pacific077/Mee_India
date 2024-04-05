@@ -1,3 +1,35 @@
+.BannerCarousel{
+  /* width: 60% !important; */
+  height: 40vh;
+  border-radius: 10px;
+  overflow: hidden;
+  scale: 1;
+}
+/* .BigSize img{
+  scale: 1.1;
+} */
+.SmallSize{
+  width: 35% !important;
+}
+
+.midSize{
+  width: 90vh !important;
+  height: 55vh !important;
+}
+.midSize img{
+  width: 90vh !important;
+  height: 55vh !important;
+}
+
+.BigSize{
+  width: 100% !important;
+}
+
+.discountBanner{
+  width: 35vh;
+  height: 35vh;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -98,6 +130,18 @@ body {
   position: relative;
   z-index: 10;
 }
+
+.longbanner{
+
+}
+.longbanner img{
+  width: -webkit-fill-available;
+}
+.longbanner:hover img{
+  transform: scale(1.01);
+  transition: transform 0.6s;
+  cursor: pointer;
+}
 .mainLogo {
   height: 18vh;
   width: 25vh;
@@ -120,6 +164,26 @@ body {
   justify-content: center;
   gap: 3vh;
 }
+
+.MostBookedServiceCardCont{
+  display: flex;
+  justify-content: space-between;
+}
+
+.MostBookedServiceCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vh;
+  height: 40vh;
+}
+.MostBookedServiceCard img{
+}
+
+.MostBookedServiceCard h3{
+  text-align: center;
+}
+
 .Phone {
   height: 90%;
   width: 55%;
@@ -134,6 +198,67 @@ body {
   left: 0;
   animation: translateRight 3s infinite alternate;
 }
+
+
+.popularCategories{
+  width: 130vh;
+  border-radius: 2vh;
+  padding: 2vh 3vh 4vh;
+  border: 1px solid lightgray;
+}
+.popularSubCategories{
+  width: 100vh;
+  border-radius: 2vh;
+  padding: 2vh 3vh 4vh;
+  border: 1px solid lightgray;
+}
+.popularCategories:hover{
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.4s ease;
+}
+.popularSubCategories:hover{
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.4s ease;
+}
+.popularCategoriesContainer{
+  display: flex;
+  gap: 3vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.popularSubCategoriesCont{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vh;
+  cursor: pointer;
+}
+.popularSubCategoriesCard{
+  width: 20vh;
+  height: 15vh;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+.popularSubCategoriesCard img{
+  height: 100%;
+} 
+.popularSubCategoriesCard:hover img {
+  transform: scale(1.05);
+  transition: transform 0.6s;
+}
+.popularSubCategoriesCard h3{
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vh;
+  font-weight: 500;
+  color: white;
+  z-index: 2;
+} 
+
+
 .main-head {
   color: var(--secondary);
   font-family: var(--fontMain);
@@ -149,6 +274,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 62%;
+  height: 40%;
 }
 .popularServices {
   margin-top: 7vh;
@@ -170,17 +296,24 @@ body {
   padding-right: 18vh;
 
   z-index: 1;
-  padding-top: 5vh;
+  padding-top: 3vh;
 }
-.section11 {
-  /* border: 1px solid black; */
-  height: 30vh;
+.section11{
+  margin-top: 4vh;
 }
 .section12 {
-  margin-top: 8vh;
+  margin-top: 12vh;
+  /* border: 1px solid black;
+  height: 30vh; */
+}
+.section2 {
+  margin: 6vh 0;
+}
+.section3{
+  margin: 4vh 0;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 3vh;
 }
 @keyframes translateRight {
   0% {
