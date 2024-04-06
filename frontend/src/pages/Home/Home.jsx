@@ -35,6 +35,7 @@ import dis1 from '../../assets/BannerPics/discount/pic1.avif'
 import dis2 from '../../assets/BannerPics/discount/pic2.avif'
 import dis3 from '../../assets/BannerPics/discount/pic3.avif'
 import mostBookedServices from "./mostBookedServices";
+import Bill from "../../components/Card/BIll/Bill";
 
 
 const Home = () => {
@@ -42,28 +43,6 @@ const Home = () => {
   const navigate = useNavigate()
   return (
     <div className="homePage">
-      {/* {showSubCat && <Subcategories setShowSub={setShowSub} />} */}
-      {/* <div className="homebanners">
-        <div className="homebanleft">
-          <h1>
-            Find your Ideal Business match: Connecting People with
-            services,Simplyfing your search for what you need!!{" "}
-          </h1>
-          <h2>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            veniam natus quia molestiae veritatis illum ipsum saepe repellendus
-            qui nihil.
-          </h2>
-          <div className="homeBannerBtnCont">
-            <button className="btnPrim btn-lg">Start Now</button>
-            <button className="btn-sec btn-lg">Free Trail</button>
-          </div>
-        </div>
-        <div className="homebannerRight">
-          <img className="Phone" src={laptop} alt="" srcset="" />
-          <img className="phone_animate" src={animate} alt="" srcset="" />
-        </div>
-      </div> */}
       <div className="section1">
         <div className="section11">
           <div className="mainLogoCont">
@@ -85,10 +64,28 @@ const Home = () => {
             interval={3000}
             infiniteLoop={true}
           >
-            <img src={mid1}/>
-            <img src={mid2}/>
-            <img src={mid3}/>
-            <img src={mid4}/>
+            <img src={mid1} alt=""/>
+            <img src={mid2} alt=""/>
+            <img src={mid3} alt=""/>
+            <img src={mid4} alt=""/>
+            {/* {bannerImages.map((pic, i) => (
+              <div key={i}>
+                <img src={pic} alt="businessPic" />
+              </div>
+            ))} */}
+          </Carousel>
+          <Carousel
+            className="BannerCarousel midSize"
+            showStatus={false}
+            showIndicators={false}
+            autoPlay={true}
+            interval={3000}
+            infiniteLoop={true}
+          >
+            <img src={mid1} alt=""/>
+            <img src={mid2} alt=""/>
+            <img src={mid3} alt=""/>
+            <img src={mid4} alt=""/>
             {/* {bannerImages.map((pic, i) => (
               <div key={i}>
                 <img src={pic} alt="businessPic" />
@@ -137,10 +134,10 @@ const Home = () => {
             <h1 className="main-head">Sub Categories</h1>
             <div className="popularSubCategoriesCont">
               {SubCategoriesBannerArray.map((subCat, ind)=>
-                  <div className="popularSubCategoriesCard" onClick={navigate('/')}>
-                    <h3>{subCat.name}</h3>
-                    <img src={subCat.bg} alt="SubCat"/>
-                  </div>
+                <div className="popularSubCategoriesCard" key={ind} onClick={()=>navigate(subCat.link)}>
+                  <h3>{subCat.name}</h3>
+                  <img src={subCat.bg} alt="SubCat"/>
+                </div>
               )}
             </div>
           </div>
@@ -156,6 +153,13 @@ const Home = () => {
           )
         })} */}
 
+        <div className='BillsAndBooking'>
+          <Bill name={BillsAndBookingArray[0].name} Desc={BillsAndBookingArray[0].Desc} SubCat = {BillsAndBookingArray[0].SubCat}/>
+        </div>
+        <div className='BillsAndBooking'>
+          <Bill name={BillsAndBookingArray[1].name} Desc={BillsAndBookingArray[1].Desc} SubCat = {BillsAndBookingArray[1].SubCat}/>
+        </div>
+
         <div className="section11">
           <Carousel
             className="BannerCarousel BigSize"
@@ -166,14 +170,14 @@ const Home = () => {
             interval={3000}
             infiniteLoop={true}
           >
-            <img src={big1}/>
-            <img src={big2}/>
-            <img src={big1}/>
-            <img src={big1}/>
+            <img src={big1} alt=""/>
+            <img src={big2} alt=""/>
+            <img src={big1} alt=""/>
+            <img src={big1} alt=""/>
           </Carousel>
         </div>
 
-        <div className="section11">
+        <div className="section4">
           <h1 className="main-head">Most Booked Services</h1>
           <div className="MostBookedServiceCardCont">
             {mostBookedServices.map((ser,ind)=><div key={ind} className="MostBookedServiceCard">
@@ -183,6 +187,7 @@ const Home = () => {
           </div>
         </div>
 
+          <h1 className="main-head">Discounts and Offers</h1>
         <div className="section3">
           <Carousel
             className="BannerCarousel SmallSize"

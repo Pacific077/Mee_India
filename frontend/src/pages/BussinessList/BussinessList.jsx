@@ -18,6 +18,8 @@ const BussinessList = () => {
   const {user} = userCon
   const CatCon = useContext(CatContext);
   const { latitude, longitude } = CatCon;
+  const [trusted,setTrusted] = useState(false);
+  const [verified,setVerified] = useState(false);
 
   const [businessArray, setBusinessArray] = useState([]);
   const searchParams = new URLSearchParams(useLocation().search);
@@ -30,6 +32,8 @@ const BussinessList = () => {
         latitude,
         longitude,
         subCat,
+        trusted,
+        verified
       });
       if (resp.status === 200) {
         console.log(resp);
@@ -64,13 +68,23 @@ const BussinessList = () => {
     }else{
       TextSearch();
     }
-  }, [searchQuery]);
+  }, [searchQuery,trusted,verified]);
 
   //use it to find the list
 
   return (
     <div className="ListPageContainer">
       {user&&<GlobalSendQueryForm user={user} subCat={subCat} mainCategory={mainCategory} district={district}/>}
+      <div className="filterContainer">
+        <button className={`FilterBtn ${trusted?"selected":""}`} onClick={()=>{
+          setTrusted(!trusted);
+          // SearchOnCLick();
+        }}>Trusted</button>
+        <button className={`FilterBtn ${verified?"selected":""}`} onClick={()=>{
+          setVerified(!verified);
+          // SearchOnCLick();
+        }}>Verified</button>
+      </div>
       <div>
         <h1 className="ListPageHeading">
           Top {subCat !== "null" ? subCat : ""} {searchQuery?searchQuery.toString():mainCategory} in {district}{" "}

@@ -6,6 +6,24 @@
     font-family: var(--fontsecondary);
     padding: 2vh;
 }
+
+.filterContainer{
+    padding: 1vh 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2vh;
+}
+.FilterBtn{
+    padding: 0 1vh;
+    font-size: larger;
+    background-color: transparent;
+    border: 1px sold lightgray;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.selected{
+    background-color: aquamarine;
+}
 @media screen and (max-width: 1090px) {
     .ListPageContainer{
         padding: 3vh 0;

@@ -1,6 +1,7 @@
 .BillIcon{
     width: 14vh;
     height: 19vh;
+    cursor: pointer;
 }
 .billIconImg{
     padding: 1vh;

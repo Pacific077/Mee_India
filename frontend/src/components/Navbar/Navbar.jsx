@@ -55,7 +55,7 @@ const Navbar = () => {
         <div className="navItems">
           {/* <p className="Navitem">English</p> */}
           <p className="Navitem" onClick={()=>navigate('/')}>Home</p>
-          <p className="Navitem" onClick={()=>navigate('/pricing-details')}>Upgrade</p>
+          {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/pricing-details')}>Upgrade</p>}
           {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/userdashboard')}>My Businesses</p>}
           <p className="Navitem" onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>

@@ -10,7 +10,10 @@ const Bill = ({ name, Desc, SubCat }) => {
       </div>
       <div className="billRightcont">
         {SubCat.map((ele,ind) => {
-          return <BIllIcon key={ind} name={ele.name}  incon={ele.incon}/>;
+          return <div key={ind} className='BillIcon'>
+            <img src={ele.incon} alt="" srcset="" className='billIconImg' />
+            <p className='billIconTitle'>{ele.name}</p>
+        </div>;
         })}
       </div>
     </div>

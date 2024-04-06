@@ -9,32 +9,32 @@ const SubCategoriesBannerArray = [
     {
         name: "DENTIST",
         bg: bg1,
-        link: ""
+        link: "/bussiness-list/Bokaro/Medical/Dentist"
     },
     {
         name: "REPAIR",
         bg: bg2,
-        link: ""
+        link: "/bussiness-list/Bokaro/Furniture%20Repair%20Service/Repairing%20Damaged%20Furniture"
     },
     {
         name: "RESORTS",
         bg: bg3,
-        link: ""
+        link: "/bussiness-list/Bokaro/Hotel/Resorts"
     },
     {
         name: "PLANNERS",
         bg: bg4,
-        link: ""
+        link: "/bussiness-list/Bokaro/Event%20Organiser/Wedding%20Plan"
     },
     {
         name: "RENTALS",
         bg: bg5,
-        link: ""
+        link: "/bussiness-list/Bokaro/Rent%20&%20Hire/Vehicle%20Rentals"
     },
     {
         name: "UNISEX GYM",
         bg:bg6,
-        link: ""
+        link: "/bussiness-list/Bokaro/Gym/Unisex%20gym"
     }
 
 ]

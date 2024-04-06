@@ -130,7 +130,7 @@ const FreeList = async (req, res, next) => {
 
 const FindBussiness = async (req, res) => {
   try {
-    const { district, mainCategory, latitude, longitude, subCat } = req.body;
+    const { district, mainCategory, latitude, longitude, subCat, trusted, verified } = req.body;
 
     // Check if required parameters are provided
     if (!district || !mainCategory || !latitude || !longitude) {
@@ -166,8 +166,28 @@ const FindBussiness = async (req, res) => {
       options: { strictPopulate: false },
     }).exec();
 
-    console.log(nearbyBusinesses);
-    res.status(200).json({ businesses: nearbyBusinesses });
+    // console.log(nearbyBusinesses);
+    console.log(trusted+" "+verified)
+    // Filter out businesses based on the trusted and verified attributes of the owner
+    const filteredBusinesses = nearbyBusinesses.filter(business => {
+      // If both trusted and verified are true in the request, filter based on both attributes
+      if (trusted && verified) {
+        return business.owner.trustStamp === true && business.owner.verifiedSeal === true;
+      }
+      // If trusted is true in the request, filter based on the trusted attribute of the owner
+      if (trusted) {
+        return business.owner.trustStamp === true;
+      }
+      // If verified is true in the request, filter based on the verified attribute of the owner
+      if (verified) {
+        return business.owner.verifiedSeal === true;
+      }
+      // If neither trusted nor verified is true in the request, include all businesses
+      return true;
+    });
+    console.log("filtered",filteredBusinesses);
+
+    res.status(200).json({ businesses: filteredBusinesses });
   } catch (error) {
     console.error("Error finding nearby businesses:", error);
     res.status(500).json({ message: "Internal server error" });

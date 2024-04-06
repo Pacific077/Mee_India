@@ -6,6 +6,8 @@ export const SearchOnClickApi = async ({
   latitude,
   longitude,
   subCat,
+  trusted,
+  verified
 }) => {
   const response = await axios.post("/api/v1/bussiness/findBussiness", {
     district,
@@ -13,6 +15,8 @@ export const SearchOnClickApi = async ({
     latitude,
     longitude,
     subCat,
+    trusted,
+    verified
   });
   return response;
 };
