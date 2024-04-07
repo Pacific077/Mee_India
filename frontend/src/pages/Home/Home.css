@@ -9,15 +9,15 @@
   scale: 1.1;
 } */
 .SmallSize{
-  width: 35% !important;
+  width: 55vh !important;
 }
 
 .midSize{
-  width: 90vh !important;
+  width: 50% !important;
   height: 55vh !important;
 }
 .midSize img{
-  width: 90vh !important;
+  width: 100% !important;
   height: 55vh !important;
 }
 
@@ -169,6 +169,7 @@ body {
 .MostBookedServiceCardCont{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   cursor: pointer;
 }
 
@@ -176,8 +177,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30vh;
-  height: 35vh;
+  width: 30ch;
+  height: 35ch;
   padding: 1vh 0;
   margin-bottom: 2vh;
 }
@@ -208,15 +209,15 @@ body {
 
 
 .popularCategories{
-  width: 130vh;
+  width: 50%;
   border-radius: 2vh;
-  padding: 2vh 3vh 4vh;
+  padding: 2vh 1vh 4vh;
   border: 1px solid lightgray;
 }
 .popularSubCategories{
-  width: 100vh;
+  width: 50%;
   border-radius: 2vh;
-  padding: 2vh 3vh 4vh;
+  padding: 2vh 1vh 4vh;
   border: 1px solid lightgray;
 }
 .popularCategories:hover{
@@ -229,13 +230,13 @@ body {
 }
 .popularCategoriesContainer{
   display: flex;
-  gap: 3vh;
+  gap: 2vh;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .popularSubCategoriesCont{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   gap: 2vh;
   cursor: pointer;
@@ -311,9 +312,7 @@ body {
 .section12 {
   margin-top: 12vh;
   display: flex;
-  justify-content: space-between;
-  /* border: 1px solid black;
-  height: 30vh; */
+  gap: 1vh;
 }
 .section2 {
   margin: 6vh 0;
@@ -321,13 +320,18 @@ body {
 .section3{
   margin: 4vh 0;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 3vh;
 }
 .section4{
   margin: 4vh 0;
   border-radius: 2vh;
   border: 1px solid lightgray; 
+}
+.section5{
+  margin: 4vh 0;
+  display: flex;
+  gap: 2vh;
 }
 @keyframes translateRight {
   0% {
@@ -357,6 +361,21 @@ body {
   .section3 {
     padding-right: 0;
     padding-left: 0;
+  }
+  .section5{
+    flex-direction: column;
+  }
+  .popularCategories{
+    width: 100%;
+  }
+  .popularSubCategories{
+    width: 100%;
+  }
+  .section12{
+    flex-direction: column;
+  }
+  .midSize{
+    width: 100% !important;
   }
 }
 @media screen and (max-width: 1249px) {

@@ -112,7 +112,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="section3">
+        <div className="section5">
           <div className="popularCategories">
             <h1 className="main-head">Popular Categories</h1>
             <div className="popularCategoriesContainer">
@@ -187,7 +187,7 @@ const Home = () => {
           </div>
         </div>
 
-          <h1 className="main-head">Discounts and Offers</h1>
+        <h1 className="main-head">Discounts and Offers</h1>
         <div className="section3">
           <Carousel
             className="BannerCarousel SmallSize"
