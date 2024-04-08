@@ -13,10 +13,10 @@ const FormPage1 = ({
   setAddress,
   district,
   setDistrict,
-  longitude,
-  setLongitude,
-  latitude,
-  setLatitude,
+  // longitude,
+  // setLongitude,
+  // latitude,
+  // setLatitude,
   state,
   setState,
   pinCode,
@@ -49,24 +49,24 @@ const FormPage1 = ({
     setPinCode(event.target.value);
   };
 
-  const setCoordinates = async()=>{
-    if(!district){
-      toast.warning("Please select a District!")
-    }
-    try {
-      const resp = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${district},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
-      setDistrict(resp.data[0].name)
-      setLatitude(resp.data[0].lat)
-      setLongitude(resp.data[0].lon)
-      console.log(resp.data[0])
-    } catch (error) {
-      console.log(error)
-      toast.error("Something went wrong!")
-    }
-  }
+  // const setCoordinates = async()=>{
+  //   if(!district){
+  //     toast.warning("Please select a District!")
+  //   }
+  //   try {
+  //     const resp = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${district},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
+  //     setDistrict(resp.data[0].name)
+  //     setLatitude(resp.data[0].lat)
+  //     setLongitude(resp.data[0].lon)
+  //     console.log(resp.data[0])
+  //   } catch (error) {
+  //     console.log(error)
+  //     toast.error("Something went wrong!")
+  //   }
+  // }
 
   const handleNextClick = ()=>{
-    if(title===''||pinCode===''||address===''||state===''||district===''||longitude===''||latitude===''){
+    if(title===''||pinCode===''||address===''||state===''||district===''){
       toast.warning("All fields compulsary")
     }else{
       console.log(title,pinCode,address,state,district) 
@@ -158,11 +158,11 @@ const FormPage1 = ({
             ))}
           </TextField>
         </div>
-        <Button variant="contained" className='setCoordinateBtn' onClick={setCoordinates}>
+        {/* <Button variant="contained" className='setCoordinateBtn' onClick={setCoordinates}>
           <span>Set Coordinates</span>
           <span style={{fontSize:"10px"}}>Latitude: {latitude}</span>
           <span style={{fontSize:"10px"}}>Longitude: {longitude}</span>
-        </Button>
+        </Button> */}
       </div>
       <TextField
           required

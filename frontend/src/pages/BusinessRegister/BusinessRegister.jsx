@@ -19,8 +19,8 @@ const BusinessRegister = () => {
   const [district, setDistrict] = useState("");
   const [state, setState] = useState("");
   const [pinCode, setPinCode] = useState("");
-  const [longitude,setLongitude] = useState('')
-  const [latitude,setLatitude] = useState('')
+  const [longitude,setLongitude] = useState(72.8777)
+  const [latitude,setLatitude] = useState(19.0760)
   const [bussinessContact, setBussinessContact] = useState("");
   const [bussinessAltContact, setBussinessAltContact] = useState("");
   const [bussinessMail, setBussinessMail] = useState("");
@@ -97,10 +97,10 @@ const BusinessRegister = () => {
               setAddress={setAddress}
               district={district}
               setDistrict={setDistrict}
-              longitude={longitude}
-              setLongitude={setLongitude}
-              latitude={latitude}
-              setLatitude={setLatitude}
+              // longitude={longitude}
+              // setLongitude={setLongitude}
+              // latitude={latitude}
+              // setLatitude={setLatitude}
               state={state}
               setState={setState}
               pinCode={pinCode}

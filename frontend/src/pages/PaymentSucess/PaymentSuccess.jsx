@@ -1,8 +1,10 @@
 import React from 'react'
 import "./PaymentSucess.css"
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 const PaymentSuccess = () => {
   const { type, refId } = useParams()
+
+  const navigate = useNavigate();
   return (
     <div className="payment-success-container">
       <div className="payment-success-content">
@@ -27,7 +29,7 @@ const PaymentSuccess = () => {
         {refId && (
           <p className="ref-id">Reference ID: {refId}</p>
         )}
-        <button className="continue-dashboard-button">Dashboard</button>
+        <button className="continue-dashboard-button" onClick={()=>navigate("/userdashboard")}>Dashboard</button>
       </div>
     </div>
   )

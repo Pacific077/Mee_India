@@ -7,9 +7,12 @@ const CatStateProvider = ({ children }) => {
     // const [district,setDistrict]= useState('Mumbai');
     // const [latitude,setLatitude]= useState(19.0760);
     // const [longitude,setLongitude]= useState(72.8777);
+    const [locinputValue, setlocInputValue] = useState(localStorage.getItem('district') || '');
     const [district, setDistrict] = useState(localStorage.getItem('district') || 'Mumbai');
-    const [latitude, setLatitude] = useState(parseFloat(localStorage.getItem('latitude')) || 19.0760);
-    const [longitude, setLongitude] = useState(parseFloat(localStorage.getItem('longitude')) || 72.8777);
+    // const [latitude, setLatitude] = useState(parseFloat(localStorage.getItem('latitude')) || 19.0760);
+    // const [longitude, setLongitude] = useState(parseFloat(localStorage.getItem('longitude')) || 72.8777);
+    const [latitude, setLatitude] = useState(19.0760);
+    const [longitude, setLongitude] = useState(72.8777);
 
     useEffect(() => {
       localStorage.setItem('latitude', latitude);
@@ -21,7 +24,7 @@ const CatStateProvider = ({ children }) => {
     <CatContext.Provider
       value={{
         SubCatArr,
-        setSubCatArr,latitude,setLatitude,longitude,setLongitude,district,setDistrict
+        setSubCatArr,latitude,setLatitude,longitude,setLongitude,district,setDistrict,locinputValue,setlocInputValue
       }}
     >
       {children}

@@ -14,11 +14,11 @@ import isEmpty from "../../../utils/IsEmpty.jsx";
 const LocationAndSearch = () => {
   const location = useLocation()
   const [isVisible, setIsVisible] = useState(false);
-  const [locinputValue, setlocInputValue] = useState("");
+  // const [locinputValue, setlocInputValue] = useState("");
   const [searchInput,SetSearchInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const CatCon = useContext(CatContext);
-  const {latitude,longitude,setLatitude,setLongitude,district,setDistrict} = CatCon;
+  const {latitude,longitude,setLatitude,setLongitude,district,setDistrict,locinputValue, setlocInputValue} = CatCon;
   const suggestionRef = useRef(null);
   // const categories = CategoryArr.map((cat=>cat.category));
   const [suggestions2, setSuggestions2] = useState([]);
@@ -84,15 +84,16 @@ const LocationAndSearch = () => {
   //   filterSuggestions(categories,value,2);
   // };
   const handleLocationSelect =async (e) => {
-    try {
-      const resp =await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.innerText},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
-      setDistrict(resp.data[0].name)
-      setLatitude(resp.data[0].lat)
-      setLongitude(resp.data[0].lon)
-      console.log(resp.data[0])
-    } catch (error) {
-      console.log(error)
-    }
+    // try {
+    //   const resp =await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.innerText},IN&limit=5&appid=ffcdd1abf435afb68672874babf1d07a`)
+    //   setDistrict(resp.data[0].name)
+    //   setLatitude(resp.data[0].lat)
+    //   setLongitude(resp.data[0].lon)
+    //   console.log(resp.data[0])
+    // } catch (error) {
+    //   console.log(error)
+    // }
+    setDistrict(e.target.innerText)
     setlocInputValue(e.target.innerText);
     setSuggestions([]);
   };
@@ -101,8 +102,8 @@ const LocationAndSearch = () => {
     if (navigator.geolocation) {
       console.log("Serr")
       navigator.geolocation.getCurrentPosition((position)=>{
-      setLatitude(position.coords.latitude)
-      setLongitude(position.coords.longitude)
+      // setLatitude(position.coords.latitude)
+      // setLongitude(position.coords.longitude)
       console.log(latitude,longitude);
       toast.success("Location Set")
       },(err)=>{

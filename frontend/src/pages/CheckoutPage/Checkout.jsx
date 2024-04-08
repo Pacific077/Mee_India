@@ -71,7 +71,7 @@ const Checkout = () => {
       description: "Test Transaction mee India",
       image: "https://ibb.co/ZMd9J8n",
       order_id: order.id, //
-      callback_url: `http://localhost:5000/api/v1/payments/verification/${MebershipType}/${monthDuration}`,
+      callback_url: `/api/v1/payments/verification/${MebershipType}/${monthDuration}`,
       prefill: {
           name: user.name,
           email: user.email,

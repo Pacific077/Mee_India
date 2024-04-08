@@ -38,7 +38,7 @@ export const findByID = async ({ bussinessId }) => {
 export const FreeListApi = async (data) => {
   console.log("start", data);
   const response = await axios.post(
-    "http://localhost:5000/api/v1/bussiness/freelist",
+    "/api/v1/bussiness/freelist",
     data,
     {
       withCredentials: true,
@@ -50,7 +50,7 @@ export const FreeListApi = async (data) => {
 export const ReviewSubmit = async (data) => {
   console.log("start", data);
   const response = await axios.put(
-    "http://localhost:5000/api/v1/bussiness/reviewSubmit",
+    "/api/v1/bussiness/reviewSubmit",
     data,
     {
       withCredentials: true,
@@ -61,7 +61,7 @@ export const ReviewSubmit = async (data) => {
 
 export const EnquirySubmit = async ({ question, bussinessId }) => {
   const response = await axios.put(
-    "http://localhost:5000/api/v1/bussiness/enquirySubmit",
+    "/api/v1/bussiness/enquirySubmit",
     { question, bussinessId },
     {
       withCredentials: true,
@@ -72,7 +72,7 @@ export const EnquirySubmit = async ({ question, bussinessId }) => {
 
 export const BusienessEdit = async (EditDetails) => {
   const response = await axios.post(
-    "http://localhost:5000/api/v1/bussiness/EditBusiness",
+    "/api/v1/bussiness/EditBusiness",
     EditDetails,
     {
       withCredentials: true,

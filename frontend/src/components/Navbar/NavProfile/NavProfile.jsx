@@ -62,11 +62,11 @@ const NavProfile = ({handleFreeListingClick}) => {
                     <p>Wallet</p>
                     
                 </div>
-                <div onClick={()=>navigate("/pricing-details")} className='dropdownContentItems'>
+                {user&&user.ownedBussinesses.length>0&&<div onClick={()=>navigate("/pricing-details")} className='dropdownContentItems'>
                 <IoDiamondOutline className='dropsownICons'/> 
                     <p>Upgrade</p>
                     
-                </div>
+                </div>}
                 {user && user.role === "Admin" && (
                         <div onClick={() => navigate('/admin/dashboard')} className='dropdownContentItems'>
                             <RiAdminFill className='dropsownICons'/>

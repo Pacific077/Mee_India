@@ -16,7 +16,7 @@ const BusinessDashboardSpecificArr = [
         icon:MdContacts,
         color:"#FAEBD7",
         locate:"enquiry",
-        membership:"Shop List",
+        membership:"Free List",
         membershipValue:2
     },
     {

@@ -144,15 +144,15 @@ const FindBussiness = async (req, res) => {
     const baseQuery = {
       district: district,
       mainCategory: mainCategory,
-      location: {
-        $near: {
-          $geometry: {
-            type: "Point",
-            coordinates: [longitude, latitude],
-          },
-          $maxDistance: 20000,
-        },
-      },
+      // location: {
+      //   $near: {
+      //     $geometry: {
+      //       type: "Point",
+      //       coordinates: [longitude, latitude],
+      //     },
+      //     $maxDistance: 20000,
+      //   },
+      // },
     };
 
     // If subCat is provided, add subCategory condition to the base query
