@@ -22,10 +22,10 @@ const BillsAndBookingArray = [
         name: "Electricity",
         incon: electricity,
       },
-      {
-        name: "DTH",
-        incon: "Icon Link here",
-      },
+      // {
+      //   name: "DTH",
+      //   incon: "Icon Link here",
+      // },
       {
         name: "Water",
         incon: water,

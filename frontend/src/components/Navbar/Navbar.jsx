@@ -12,7 +12,7 @@ import UserContext from "../../context/UserInfo/UserContext";
 const Navbar = () => {
   
   // const [user,setUser] = useState(false);
-  // const [IsSideNavVis,setIsSideNavVis] = useState(false);
+  const [IsSideNavVis,setIsSideNavVis] = useState(false);
   const {user} = useContext(UserContext)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -28,9 +28,9 @@ const Navbar = () => {
   const HandleLoginclick = () => {
     navigate("/login");
   };
-  // const handelSideNavDisplay =()=>{
-  //   setIsSideNavVis(!IsSideNavVis);
-  // }
+  const handelSideNavDisplay =()=>{
+    setIsSideNavVis(!IsSideNavVis);
+  }
 
   const handleFreeListingClick =()=>{
     if(isLoggedIn)
@@ -44,19 +44,19 @@ const Navbar = () => {
           <h2 className="navbarBrand"><span className="green-col">Mee</span>India</h2>
         
         <LocationAndSearch/>
-        {/* <div className="Navhamburger" onClick={handelSideNavDisplay}>
+         {!IsSideNavVis&&<div className="Navhamburger" onClick={handelSideNavDisplay}>
           <p className="hamburgerline1"></p>
           <p className="hamburgerline2"></p>
           <p className="hamburgerline3"></p>
           
-        </div> */}
-        {/* </div>:<GiCrossedBones className="crossnavbarham" onClick={()=>setIsSideNavVis(!IsSideNavVis)} />} */}
+        </div> }
+        {IsSideNavVis&&<GiCrossedBones className="crossnavbarham" onClick={()=>setIsSideNavVis(!IsSideNavVis)} />} 
         
         <div className="navItems">
           {/* <p className="Navitem">English</p> */}
           <p className="Navitem" onClick={()=>navigate('/')}>Home</p>
-          {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/pricing-details')}>Upgrade</p>}
-          {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/userdashboard')}>My Businesses</p>}
+          {/* {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/pricing-details')}>Upgrade</p>}
+          {isLoggedIn&&user&&user.ownedBussinesses.length>0&&<p className="Navitem" onClick={()=>navigate('/userdashboard')}>My Businesses</p>} */}
           <p className="Navitem" onClick={handleFreeListingClick}>Free Listing</p>
           {/* <p>Business</p>
       <p>Premium</p> */}
@@ -67,7 +67,7 @@ const Navbar = () => {
           
         </div>
       </div>
-      {/* {<SideNav vis = {IsSideNavVis}/>} */}
+      {<SideNav vis = {IsSideNavVis}/>}
     </>
   );
 };

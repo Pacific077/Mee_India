@@ -9,12 +9,12 @@
   scale: 1.1;
 } */
 .SmallSize{
-  width: 55vh !important;
+  width: 50vh !important;
 }
 
 .midSize{
-  width: 50% !important;
-  height: 55vh !important;
+  width: 45% !important;
+  height: 40vh !important;
 }
 .midSize img{
   width: 100% !important;
@@ -69,9 +69,9 @@ body {
 }
 .categoriesContainer {
   display: flex;
-  gap: 5vh;
+  gap: 3vh;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .colorGreen {
   color: var(--primary);
@@ -233,6 +233,7 @@ body {
   gap: 2vh;
   flex-wrap: wrap;
   justify-content: space-around;
+  
 }
 .popularSubCategoriesCont{
   display: flex;
@@ -265,7 +266,15 @@ body {
   color: white;
   z-index: 2;
 } 
-
+.DiscounBannerCont{
+  /* width: 100%; */
+  /* width: 50vh; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3vh;
+}
 
 .main-head {
   color: var(--secondary);
@@ -308,11 +317,13 @@ body {
 }
 .section11{
   margin-top: 4vh;
+  height: 100%;
 }
 .section12 {
   margin-top: 12vh;
   display: flex;
-  gap: 1vh;
+  justify-content: space-between;
+  /* gap: 1vh; */
 }
 .section2 {
   margin: 6vh 0;
@@ -321,7 +332,8 @@ body {
   margin: 4vh 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 3vh;
+  gap: 2vh;
+  justify-content: space-between;
 }
 .section4{
   margin: 4vh 0;
@@ -332,6 +344,10 @@ body {
   margin: 4vh 0;
   display: flex;
   gap: 2vh;
+}
+.lgcarauselImg{
+  height: 100%;
+  width: 100%;
 }
 @keyframes translateRight {
   0% {
@@ -366,10 +382,10 @@ body {
     flex-direction: column;
   }
   .popularCategories{
-    width: 100%;
+    width: 95%;
   }
   .popularSubCategories{
-    width: 100%;
+    width: 95%;
   }
   .section12{
     flex-direction: column;
@@ -399,6 +415,15 @@ body {
   .btnPrim {
     border-radius: 5px
   }
+  .section11{
+    width: 90%;
+    margin: auto;
+    /* height: 60vh; */
+  }
+  .discountBanner{
+    height: 13vh;
+    width: 13vh;
+  }
 }
 @media screen and (max-width: 376px) {
   .categoriesContainer {
@@ -406,5 +431,10 @@ body {
     gap: 1vh;
 
     justify-content: center;
+}
+.DiscounBannerCont{
+  width: 100%;
+
+  /* justify-content: space-between; */
 }
 }

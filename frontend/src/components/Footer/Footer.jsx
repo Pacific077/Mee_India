@@ -16,7 +16,10 @@ const Footer = () => {
     <div>
       <div className="footersec">
         <div className="foot1">
+          <div className="footerLogoCont">
+
           <img src={logo} alt="img" className="footerlogo" />
+          </div>
           <div className="footerdescCont">
             <p className="footerdesc">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit

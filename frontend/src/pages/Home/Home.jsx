@@ -63,6 +63,7 @@ const Home = () => {
             autoPlay={true}
             interval={3000}
             infiniteLoop={true}
+            swipeable={false} 
           >
             <img src={mid1} alt=""/>
             <img src={mid2} alt=""/>
@@ -81,6 +82,7 @@ const Home = () => {
             autoPlay={true}
             interval={3000}
             infiniteLoop={true}
+            swipeable={false} 
           >
             <img src={mid1} alt=""/>
             <img src={mid2} alt=""/>
@@ -169,11 +171,12 @@ const Home = () => {
             autoPlay={true}
             interval={3000}
             infiniteLoop={true}
+            swipeable={false}
           >
-            <img src={big1} alt=""/>
-            <img src={big2} alt=""/>
-            <img src={big1} alt=""/>
-            <img src={big1} alt=""/>
+            <img className="lgcarauselImg"  src={big1} alt=""/>
+            <img className="lgcarauselImg" src={big2} alt=""/>
+            <img className="lgcarauselImg" src={big1} alt=""/>
+            <img className="lgcarauselImg" src={big1} alt=""/>
           </Carousel>
         </div>
 
@@ -197,23 +200,26 @@ const Home = () => {
             autoPlay={true}
             interval={3000}
             infiniteLoop={true}
+            swipeable={false}
           >
             <img src={mid1} alt=""/>
             <img src={mid2} alt=""/>
             <img src={mid1} alt=""/>
             <img src={mid2} alt=""/>
           </Carousel>
+          <div className="DiscounBannerCont">
 
-          <div >
-            <img src={dis1} alt="" className="discountBanner"/>
+          <div  className="discountBanner">
+            <img src={dis1} alt="" style={{height:"100%",width:"100%"}} />
           </div>
 
-          <div>
-            <img src={dis2} alt="" className="discountBanner"/>
+          <div className="discountBanner">
+            <img src={dis2} alt="" style={{height:"100%",width:"100%"}} />
           </div>
 
-          <div>
-            <img src={dis3} alt="" className="discountBanner"/>
+          <div className="discountBanner">
+            <img src={dis3} alt="" style={{height:"100%",width:"100%"}} />
+          </div>
           </div>
         </div>
         {/* <div className="section2">
